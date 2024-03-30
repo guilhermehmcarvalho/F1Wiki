@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+class Config {
+  static let baseURL = "http://ergast.com/api/f1/";
+}
