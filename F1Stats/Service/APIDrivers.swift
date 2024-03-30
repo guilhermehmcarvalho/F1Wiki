@@ -16,9 +16,11 @@ protocol APIDriversProtocol {
 class APIDrivers: APIDriversProtocol {
 
   final var baseURL: String
+  final var urlSession: URLSession
 
-  init(baseURL: String) {
+  init(baseURL: String, urlSession: URLSession = URLSession.shared) {
     self.baseURL = baseURL
+    self.urlSession = urlSession
   }
 
   func listOfAllDrivers() throws -> AnyPublisher<MRData<DriverTable>, Error> {
@@ -27,21 +29,8 @@ class APIDrivers: APIDriversProtocol {
       throw URLError(.badURL)
     }
 
-    return URLSession.shared.dataTaskPublisher(for: url)
+    return urlSession.dataTaskPublisher(for: url)
         .tryDecodeResponse(type: MRData<DriverTable>.self, decoder: XMLDecoder())
         .eraseToAnyPublisher()
-  }
-}
-
-extension Publisher {
-  func tryDecodeResponse<Item, Coder>(type: Item.Type, decoder: Coder) -> Publishers.Decode<Publishers.TryMap<Self, Data>, Item, Coder> where Item: Decodable, Coder: TopLevelDecoder, Self.Output == (data: Data, response: URLResponse) {
-    return self
-      .tryMap { output in
-        guard let httpResponse = output.response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
-          throw URLError(.badServerResponse)
-        }
-        return output.data
-      }
-      .decode(type: type, decoder: decoder)
   }
 }
