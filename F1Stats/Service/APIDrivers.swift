@@ -10,7 +10,7 @@ import Combine
 import XMLCoder
 
 protocol APIDriversProtocol {
-  func listOfAllDrivers() -> AnyPublisher<MRData<DriverTable>, Error>
+  func listOfAllDrivers(limit: Int, offset: Int) -> AnyPublisher<MRData<DriverTable>, Error>
 }
 
 class APIDrivers: APIDriversProtocol {
@@ -23,8 +23,14 @@ class APIDrivers: APIDriversProtocol {
     self.urlSession = urlSession
   }
 
-  func listOfAllDrivers() -> AnyPublisher<MRData<DriverTable>, Error> {
-    guard let url = URL(string: baseURL.appending("drivers")) else {
+  func listOfAllDrivers(limit: Int = 30, offset: Int = 0) -> AnyPublisher<MRData<DriverTable>, Error> {
+    var components = URLComponents(string: baseURL.appending("drivers"))
+    components?.queryItems = [
+      URLQueryItem(name: "limit", value: "\(limit)"),
+      URLQueryItem(name: "offset", value: "\(offset)")
+    ]
+
+    guard let url = components?.url else {
       return Empty().eraseToAnyPublisher()
     }
 
@@ -35,15 +41,15 @@ class APIDrivers: APIDriversProtocol {
 }
 
 class MockAPIDrivers: APIDriversProtocol {
-  func listOfAllDrivers() -> AnyPublisher<MRData<DriverTable>, any Error> {
-    let table = DriverTable(Driver: [
+  func listOfAllDrivers(limit: Int = 30, offset: Int = 0) -> AnyPublisher<MRData<DriverTable>, any Error> {
+    let table = DriverTable(drivers: [
       Driver(driverId: "Senna", url: "http://en.wikipedia.org/wiki/Ayrton_Senna", DateOfBirth: "1960-03-21",
              GivenName: "Ayrton", FamilyName: "Senna", Nationality: "Brazilian"),
       Driver(driverId: "MSC", url: "http://en.wikipedia.org/wiki/Michael_Schumacher", DateOfBirth: "1969-01-03",
              GivenName: "Michael", FamilyName: "Schumacher", Nationality: "German"),
-    ])
+    ], driverId: nil, url: nil)
 
-    return Just(MRData(table: table))
+    return Just(MRData(table: table, limit: limit, offset: offset))
       .setFailureType(to: Error.self)
       .eraseToAnyPublisher()
   }

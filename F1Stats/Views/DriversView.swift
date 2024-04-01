@@ -14,6 +14,9 @@ struct DriversView: View {
     List(driversViewModel.driverList) { driver in
       HStack {
         Text(driver.FamilyName).foregroundStyle(.black, .red)
+          .onAppear() {
+            driversViewModel.onItemDisplayed(currentItem: driver)
+          }
       }
     }
     .onAppear(perform: {

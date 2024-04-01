@@ -9,7 +9,15 @@ import Foundation
 import XMLCoder
 
 struct DriverTable: Decodable {
-  let Driver: [Driver]
+  let drivers: [Driver]
+  let driverId: String?
+  let url: String?
+
+  enum CodingKeys: String, CodingKey {
+    case drivers = "Driver"
+    case driverId = "driverId"
+    case url = "url"
+  }
 }
 
 struct Driver: Decodable {
