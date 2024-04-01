@@ -13,7 +13,6 @@
 		140A098B2BB6E30D0037AA74 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 140A098A2BB6E30D0037AA74 /* Preview Assets.xcassets */; };
 		142C98782BB74225009D1D35 /* APIDrivers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142C98772BB74225009D1D35 /* APIDrivers.swift */; };
 		142C987A2BB743B6009D1D35 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142C98792BB743B6009D1D35 /* Config.swift */; };
-		142C987D2BB74AA0009D1D35 /* XMLCoder in Frameworks */ = {isa = PBXBuildFile; productRef = 142C987C2BB74AA0009D1D35 /* XMLCoder */; };
 		142C987F2BB74AAC009D1D35 /* Driver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142C987E2BB74AAC009D1D35 /* Driver.swift */; };
 		142C98812BB74E5B009D1D35 /* DriversViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142C98802BB74E5B009D1D35 /* DriversViewModel.swift */; };
 		14B80FFE2BBA86F8006D678E /* DriversView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B80FFD2BBA86F8006D678E /* DriversView.swift */; };
@@ -42,7 +41,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				142C987D2BB74AA0009D1D35 /* XMLCoder in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,7 +147,6 @@
 			);
 			name = F1Stats;
 			packageProductDependencies = (
-				142C987C2BB74AA0009D1D35 /* XMLCoder */,
 			);
 			productName = F1Stats;
 			productReference = 140A09802BB6E30C0037AA74 /* F1Stats.app */;
@@ -180,7 +177,6 @@
 			);
 			mainGroup = 140A09772BB6E30C0037AA74;
 			packageReferences = (
-				142C987B2BB74AA0009D1D35 /* XCRemoteSwiftPackageReference "XMLCoder" */,
 			);
 			productRefGroup = 140A09812BB6E30C0037AA74 /* Products */;
 			projectDirPath = "";
@@ -422,25 +418,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		142C987B2BB74AA0009D1D35 /* XCRemoteSwiftPackageReference "XMLCoder" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/CoreOffice/XMLCoder";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.17.1;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		142C987C2BB74AA0009D1D35 /* XMLCoder */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 142C987B2BB74AA0009D1D35 /* XCRemoteSwiftPackageReference "XMLCoder" */;
-			productName = XMLCoder;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 140A09782BB6E30C0037AA74 /* Project object */;
 }

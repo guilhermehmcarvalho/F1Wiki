@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import XMLCoder
 
 struct DriverTable: Decodable {
   let drivers: [Driver]
@@ -14,7 +13,7 @@ struct DriverTable: Decodable {
   let url: String?
 
   enum CodingKeys: String, CodingKey {
-    case drivers = "Driver"
+    case drivers = "Drivers"
     case driverId = "driverId"
     case url = "url"
   }
@@ -23,10 +22,10 @@ struct DriverTable: Decodable {
 struct Driver: Decodable {
   let driverId: String
   let url: String
-  let DateOfBirth: String
-  let GivenName: String
-  let FamilyName: String
-  let Nationality: String
+  let dateOfBirth: String
+  let givenName: String
+  let familyName: String
+  let nationality: String
 }
 
 extension Driver: Identifiable {

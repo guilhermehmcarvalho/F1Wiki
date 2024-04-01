@@ -13,7 +13,7 @@ struct DriversView: View {
   var body: some View {
     List(driversViewModel.driverList) { driver in
       HStack {
-        Text(driver.FamilyName).foregroundStyle(.black, .red)
+        Text(driver.familyName).foregroundStyle(.black, .red)
           .onAppear() {
             driversViewModel.onItemDisplayed(currentItem: driver)
           }

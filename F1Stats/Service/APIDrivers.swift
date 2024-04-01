@@ -7,7 +7,6 @@
 
 import Foundation
 import Combine
-import XMLCoder
 
 protocol APIDriversProtocol {
   func listOfAllDrivers(limit: Int, offset: Int) -> AnyPublisher<MRData<DriverTable>, Error>
@@ -24,7 +23,7 @@ class APIDrivers: APIDriversProtocol {
   }
 
   func listOfAllDrivers(limit: Int = 30, offset: Int = 0) -> AnyPublisher<MRData<DriverTable>, Error> {
-    var components = URLComponents(string: baseURL.appending("drivers"))
+    var components = URLComponents(string: baseURL.appending("drivers.json"))
     components?.queryItems = [
       URLQueryItem(name: "limit", value: "\(limit)"),
       URLQueryItem(name: "offset", value: "\(offset)")
@@ -35,7 +34,7 @@ class APIDrivers: APIDriversProtocol {
     }
 
     return urlSession.dataTaskPublisher(for: url)
-        .tryDecodeResponse(type: MRData<DriverTable>.self, decoder: XMLDecoder())
+        .tryDecodeResponse(type: MRData<DriverTable>.self, decoder: JSONDecoder())
         .eraseToAnyPublisher()
   }
 }
@@ -43,13 +42,13 @@ class APIDrivers: APIDriversProtocol {
 class MockAPIDrivers: APIDriversProtocol {
   func listOfAllDrivers(limit: Int = 30, offset: Int = 0) -> AnyPublisher<MRData<DriverTable>, any Error> {
     let table = DriverTable(drivers: [
-      Driver(driverId: "Senna", url: "http://en.wikipedia.org/wiki/Ayrton_Senna", DateOfBirth: "1960-03-21",
-             GivenName: "Ayrton", FamilyName: "Senna", Nationality: "Brazilian"),
-      Driver(driverId: "MSC", url: "http://en.wikipedia.org/wiki/Michael_Schumacher", DateOfBirth: "1969-01-03",
-             GivenName: "Michael", FamilyName: "Schumacher", Nationality: "German"),
+      Driver(driverId: "Senna", url: "http://en.wikipedia.org/wiki/Ayrton_Senna", dateOfBirth: "1960-03-21",
+             givenName: "Ayrton", familyName: "Senna", nationality: "Brazilian"),
+      Driver(driverId: "MSC", url: "http://en.wikipedia.org/wiki/Michael_Schumacher", dateOfBirth: "1969-01-03",
+             givenName: "Michael", familyName: "Schumacher", nationality: "German"),
     ], driverId: nil, url: nil)
 
-    return Just(MRData(table: table, limit: limit, offset: offset))
+    return Just(MRData(table: table, limit: limit, offset: offset, series: "F1", url: ""))
       .setFailureType(to: Error.self)
       .eraseToAnyPublisher()
   }

@@ -19,7 +19,11 @@ struct MRData<T: Decodable>: Decodable {
   let offset: Int
   let total: Int
 
-  struct CodingKeys: CodingKey {
+  enum CodingKeys: String, CodingKey {
+      case MRData // The top level "MRData" key
+  }
+
+  struct ValueKeys: CodingKey {
 
     var stringValue: String
 
@@ -30,7 +34,7 @@ struct MRData<T: Decodable>: Decodable {
     var intValue: Int?
 
     init?(intValue: Int) {
-     return nil
+      return nil
     }
 
     static var table: Self { Self(stringValue: "\(T.self)")! }
@@ -42,19 +46,38 @@ struct MRData<T: Decodable>: Decodable {
   }
 
   init(from decoder: Decoder) throws {
-    let container = try decoder.container(keyedBy: CodingKeys.self)
-    self.table = try container.decode(T.self, forKey: .table)
-    self.series = try container.decode(String.self, forKey: .series)
-    self.url = try container.decode(String.self, forKey: .url)
-    self.limit = try container.decode(Int.self, forKey: .limit)
-    self.offset = try container.decode(Int.self, forKey: .offset)
-    self.total = try container.decode(Int.self, forKey: .total)
+    // Extract the root value "MRData"
+    let root = try decoder.container(keyedBy: CodingKeys.self)
+
+    // Extract the other values
+    let values = try root.nestedContainer(keyedBy: ValueKeys.self, forKey: .MRData)
+    self.table = try values.decode(T.self, forKey: .table)
+    self.series = try values.decode(String.self, forKey: .series)
+    self.url = try values.decode(String.self, forKey: .url)
+
+    if let limit = try Int(values.decode(String.self, forKey: .limit)) {
+      self.limit = limit
+    } else {
+      throw DecodingError.dataCorruptedError(forKey: .limit, in: values, debugDescription: "")
+    }
+
+    if let offset = try Int(values.decode(String.self, forKey: .offset)) {
+      self.offset = offset
+    } else {
+      throw DecodingError.dataCorruptedError(forKey: .offset, in: values, debugDescription: "")
+    }
+
+    if let total = try Int(values.decode(String.self, forKey: .total)) {
+      self.total = total
+    } else {
+      throw DecodingError.dataCorruptedError(forKey: .total, in: values, debugDescription: "")
+    }
   }
 
-  init(table: T, limit: Int = 30, offset: Int = 0) {
+  init(table: T, limit: Int = 30, offset: Int = 0, series: String, url: String) {
     self.table = table
-    self.series = "F1"
-    self.url = ""
+    self.series = series
+    self.url = url
     self.limit = 30
     self.offset = 0
     self.total = 30
