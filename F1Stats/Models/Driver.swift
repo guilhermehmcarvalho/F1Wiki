@@ -20,3 +20,7 @@ struct Driver: Decodable {
   let FamilyName: String
   let Nationality: String
 }
+
+extension Driver: Identifiable {
+    var id: String { return driverId }
+}

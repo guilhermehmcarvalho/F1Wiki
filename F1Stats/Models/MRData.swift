@@ -50,4 +50,13 @@ struct MRData<T: Decodable>: Decodable {
     self.offset = try container.decode(Int.self, forKey: .offset)
     self.total = try container.decode(Int.self, forKey: .total)
   }
+
+  init(table: T) {
+    self.table = table
+    self.series = "F1"
+    self.url = ""
+    self.limit = 30
+    self.offset = 0
+    self.total = 30
+  }
 }

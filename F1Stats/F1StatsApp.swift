@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct F1StatsApp: App {
+  let apiDrivers =  APIDrivers(baseURL: Config.baseURL)
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+          ContentView(apiDrivers: apiDrivers)
         }
     }
 }

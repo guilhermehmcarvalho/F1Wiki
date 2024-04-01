@@ -8,36 +8,38 @@
 import Foundation
 import Combine
 
-class ContentViewModel: ObservableObject {
+class DriversViewModel: ObservableObject {
 
-  private var driverApi = APIDrivers(baseURL: Config.baseURL)
+  private var driverApi: APIDriversProtocol
   @Published var status: FetchStatus = .ready
   var cancellable : AnyCancellable?
+  @Published var driverList: [Driver] = []
 
-  func fetch() {
-    do { 
-      try cancellable = driverApi.listOfAllDrivers()
-        .handleEvents(receiveSubscription: { [weak self] _ in
-          self?.status = .ongoing
-        }, receiveCompletion: { [weak self] completion in
-          switch completion {
-          case .finished:
-            self?.status = .finished
-          case .failure:
-            self?.status = .ready
-          }
-        }, receiveCancel: { [weak self] in
+  init(driverApi: APIDriversProtocol) {
+    self.driverApi = driverApi
+  }
+
+  func fetchDrivers() {
+    cancellable = driverApi.listOfAllDrivers()
+      .handleEvents(receiveSubscription: { [weak self] _ in
+        self?.status = .ongoing
+      }, receiveCompletion: { [weak self] completion in
+        switch completion {
+        case .finished:
+          self?.status = .finished
+        case .failure:
           self?.status = .ready
-        })
-        .sink { error in
-          print(error)
-        } receiveValue: { drivers in
-          print(drivers)
         }
-    } catch let e {
-      print(e)
-    }
-
+      }, receiveCancel: { [weak self] in
+        self?.status = .ready
+      })
+      .receive(on: DispatchQueue.main)
+      .sink { error in
+        print(error)
+      } receiveValue: { [weak self] drivers in
+        print(drivers)
+        self?.driverList = drivers.table.Driver
+      }
   }
 }
 

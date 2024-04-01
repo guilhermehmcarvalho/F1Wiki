@@ -8,20 +8,24 @@
 import SwiftUI
 
 struct ContentView: View {
-  let contentVM = ContentViewModel()
 
-    var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
-        .onAppear { contentVM.fetch() }
-    }
+  let apiDrivers: APIDriversProtocol
+
+//    var body: some View {
+//        VStack {
+//            Image(systemName: "globe")
+//                .imageScale(.large)
+//                .foregroundStyle(.tint)
+//            Text("Hello, world!")
+//        }
+//        .padding()
+//    }
+
+  var body: some View {
+    DriversView(driversViewModel: DriversViewModel(driverApi: apiDrivers))
+  }
 }
 
 #Preview {
-    ContentView()
+    ContentView(apiDrivers: MockAPIDrivers())
 }
