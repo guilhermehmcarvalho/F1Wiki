@@ -14,11 +14,10 @@ class DriversViewModel: ObservableObject {
   @Published var status: FetchStatus = .ready
   @Published var driverList: [Driver] = []
   private var cancellable: AnyCancellable?
-  private var page: Int = 0
   private let itemsPerPage = 30
   private var offset = 0
   private var totalDrivers = 0;
-  private var paginationThreshold: String?
+  private var paginationThresholdId: String?
 
   init(driverApi: APIDriversProtocol) {
     self.driverApi = driverApi
@@ -27,7 +26,9 @@ class DriversViewModel: ObservableObject {
   func fetchDrivers() {
     cancellable = driverApi.listOfAllDrivers(limit: itemsPerPage, offset: offset)
       .handleEvents(receiveSubscription: { [weak self] _ in
-        self?.status = .ongoing
+        DispatchQueue.main.async {
+          self?.status = .ongoing
+        }
       }, receiveCompletion: { [weak self] completion in
         switch completion {
         case .finished:
@@ -42,18 +43,22 @@ class DriversViewModel: ObservableObject {
       .sink { error in
         print(error)
       } receiveValue: { [weak self] response in
-        guard let self = self else { return }
-        self.driverList.append(contentsOf: response.table.drivers)
-        self.offset += response.table.drivers.count
-        self.totalDrivers = response.total
-        let thresholdIndex = self.driverList.index(self.driverList.endIndex, offsetBy: -5)
-        self.paginationThreshold = driverList[thresholdIndex].driverId
+        self?.driverList.append(contentsOf: response.table.drivers)
+        self?.offset += response.table.drivers.count
+        self?.totalDrivers = response.total
+        if let self = self {
+          var thresholdIndex = self.driverList.index(self.driverList.endIndex, offsetBy: -5)
+          if thresholdIndex < 0 {
+            thresholdIndex = 0
+          }
+          self.paginationThresholdId = driverList[thresholdIndex].driverId
+        }
       }
   }
   
   //MARK: - PAGINATION
   func onItemDisplayed(currentItem item: Driver){
-    if item.driverId == paginationThreshold, driverList.count < totalDrivers {
+    if item.driverId == paginationThresholdId, driverList.count < totalDrivers {
       fetchDrivers()
     }
   }

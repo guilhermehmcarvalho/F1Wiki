@@ -41,14 +41,23 @@ class APIDrivers: APIDriversProtocol {
 
 class MockAPIDrivers: APIDriversProtocol {
   func listOfAllDrivers(limit: Int = 30, offset: Int = 0) -> AnyPublisher<MRData<DriverTable>, any Error> {
-    let table = DriverTable(drivers: [
-      Driver(driverId: "Senna", url: "http://en.wikipedia.org/wiki/Ayrton_Senna", dateOfBirth: "1960-03-21",
-             givenName: "Ayrton", familyName: "Senna", nationality: "Brazilian"),
-      Driver(driverId: "MSC", url: "http://en.wikipedia.org/wiki/Michael_Schumacher", dateOfBirth: "1969-01-03",
-             givenName: "Michael", familyName: "Schumacher", nationality: "German"),
-    ], driverId: nil, url: nil)
+    let drivers = [] + repeatElement(
+      Driver(driverId: "Senna",
+             url: "http://en.wikipedia.org/wiki/Ayrton_Senna",
+             dateOfBirth: "1960-03-21",
+              givenName: "Ayrton",
+             familyName: "Senna",
+             nationality: "Brazilian"), count: limit)
+    let table = DriverTable(drivers:drivers,
+                            driverId: nil,
+                            url: nil)
 
-    return Just(MRData(table: table, limit: limit, offset: offset, series: "F1", url: ""))
+    return Just(MRData(table: table, 
+                       limit: limit,
+                       offset: offset,
+                       total: limit,
+                       series: "F1",
+                       url: ""))
       .setFailureType(to: Error.self)
       .eraseToAnyPublisher()
   }

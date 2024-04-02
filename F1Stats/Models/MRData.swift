@@ -74,7 +74,7 @@ struct MRData<T: Decodable>: Decodable {
     }
   }
 
-  init(table: T, limit: Int = 30, offset: Int = 0, series: String, url: String) {
+  init(table: T, limit: Int = 30, offset: Int = 0, total: Int, series: String, url: String) {
     self.table = table
     self.series = series
     self.url = url
