@@ -11,21 +11,21 @@ struct DriversView: View {
   @ObservedObject var viewModel: DriversViewModel
 
   var body: some View {
-    ZStack {
       List(viewModel.driverList) { driver in
-        ExpandableRow(viewModel: DriverRowViewModel(driver: driver, wikipediaApi: viewModel.wikipediaAPI))
+        ExpandableRow(viewModel: DriverRowViewModel(driver: driver, wikipediaApi: viewModel.wikipediaAPI)
+        )
           .padding(.vertical(4))
-          .listRowSeparator(.hidden)
           .onAppear() {
             viewModel.onItemDisplayed(currentItem: driver)
           }
       }
+      .listRowSeparator(.visible)
+      .listRowSeparatorTint(.F1Stats.systemWhite)
       .scrollContentBackground(.hidden)
       .navigationTitle("Drivers")
       .onAppear(perform: {
         viewModel.fetchDrivers()
       })
-    }
   }
 }
 
