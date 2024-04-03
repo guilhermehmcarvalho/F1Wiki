@@ -10,28 +10,22 @@ import SwiftUI
 struct ExpandableRow<ViewModel>: View where ViewModel: ExpandableRowViewModel {
 
   @ObservedObject var viewModel: ViewModel
-
-  var header: some View {
-    HStack(alignment: .center, spacing: 0) {
-      viewModel.mainView
-      Image(systemName: "chevron.right")
-        .foregroundColor(.F1Stats.systemLight)
-    }
-    .contentShape(Rectangle())
-    .padding(.horizontal(16))
-    .padding(.vertical(8))
-    .onTapGesture {
-      viewModel.onTap()
-    }
-    .background(RoundedRectangle(cornerRadius: 8)
-      .foregroundColor(Color.white.opacity(0.1)))
-  }
+  @State private var arrowRotation: Double = 0
 
   var body: some View {
-    VStack(spacing: 0) {
-      header
-      viewModel.expandedView
-    }
+    DisclosureGroup(
+      content: { viewModel.expandedView
+          .frame(maxWidth: .infinity)
+      },
+      label: { viewModel.mainView
+          .padding(.horizontal(16))
+          .padding(.vertical(8))
+      }
+    )
+    .disclosureGroupStyle(
+      CustomDisclosureGroupStyle(button: Image(systemName: "chevron.right")
+        .foregroundColor(.F1Stats.systemLight), onTap: viewModel.onTap)
+    )
     .listRowInsets(.all(0))
     .listRowBackground(
       RoundedRectangle(cornerRadius: 8)
@@ -44,6 +38,32 @@ struct ExpandableRow<ViewModel>: View where ViewModel: ExpandableRowViewModel {
   var background: some View {
     RoundedRectangle(cornerRadius: 5)
       .foregroundColor(Color.F1Stats.systemDarkSecondary)
+  }
+}
+
+struct CustomDisclosureGroupStyle<Label: View>: DisclosureGroupStyle {
+  let button: Label
+  let onTap: ((Bool) -> ())?
+  
+  func makeBody(configuration: Configuration) -> some View {
+    HStack(alignment: .center, spacing: 0) {
+      configuration.label
+      Spacer()
+      button
+        .padding(.horizontal(16))
+        .rotationEffect(.degrees(configuration.isExpanded ? 90 : 0))
+    }
+    .contentShape(Rectangle())
+    .onTapGesture {
+      withAnimation {
+        configuration.isExpanded.toggle()
+      }
+      onTap?(configuration.isExpanded)
+    }
+    if configuration.isExpanded {
+      configuration.content
+        .disclosureGroupStyle(self)
+    }
   }
 }
 

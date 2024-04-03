@@ -15,7 +15,10 @@ struct WikipediaView: View {
   var body: some View {
     return VStack(spacing: 0) {
       if let thumbURL = wikipediaViewModel.thumbURL, let imageURL = URL(string: thumbURL) {
-        CachedAsyncImage(url: imageURL)
+        withAnimation(.default) {
+          CachedAsyncImage(url: imageURL)
+            .transition(.opacity.animation(.default))
+        }
       }
       Text(wikipediaViewModel.title)
         .typography(type: .heading())

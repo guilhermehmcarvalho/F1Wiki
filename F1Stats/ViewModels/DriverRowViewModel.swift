@@ -14,7 +14,6 @@ class DriverRowViewModel: ExpandableRowViewModel, ObservableObject {
   let wikipediaApi: WikipediaAPIProtocol
   @Published var expandedView: AnyView = AnyView(Group{})
   @Published var wikipediaData: WikipediaSummaryModel?
-  @Published var isExpanded = false
   private var cancellable: AnyCancellable?
 
   init(driver: DriverModel, wikipediaApi: WikipediaAPIProtocol) {
@@ -41,10 +40,8 @@ class DriverRowViewModel: ExpandableRowViewModel, ObservableObject {
     )
   }
 
-  internal func onTap() {
-    isExpanded = !isExpanded
-
-    if isExpanded && wikipediaData == nil {
+  internal func onTap(isExpanded: Bool) {
+    if isExpanded, wikipediaData == nil {
       requestSummary()
     }
 
@@ -52,23 +49,24 @@ class DriverRowViewModel: ExpandableRowViewModel, ObservableObject {
   }
 
   private func setExpandedView() {
-    var currentView: any View
-
-    if !isExpanded {
-      currentView = AnyView(Group{})
-    } else {
-      if let wikipediaData = wikipediaData {
-        currentView = WikipediaView(
+    if let wikipediaData = wikipediaData {
+      expandedView = AnyView(
+        WikipediaView(
           wikipediaViewModel: WikipediaViewModel(fromSummary: wikipediaData)
         )
         .padding(.all(16))
-      } else {
-        currentView = Text("Loading")
-          .typography(type: .body())
-      }
+      )
     }
+    else {
+      expandedView = AnyView(
+        loadingView
+      )
+    }
+  }
 
-    expandedView = AnyView(currentView)
+  private var loadingView: some View {
+    Text("Loading")
+      .typography(type: .body())
   }
 
   private func requestSummary() {

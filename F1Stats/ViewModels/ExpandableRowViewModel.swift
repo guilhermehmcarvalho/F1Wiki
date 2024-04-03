@@ -11,5 +11,5 @@ import SwiftUI
 protocol ExpandableRowViewModel: ObservableObject {
   var mainView: AnyView { get }
   var expandedView: AnyView { get set }
-  func onTap() -> ()
+  func onTap(isExpanded: Bool) -> ()
 }
