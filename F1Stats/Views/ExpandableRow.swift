@@ -17,9 +17,14 @@ struct ExpandableRow<ViewModel>: View where ViewModel: ExpandableRowViewModel {
       Image(systemName: "chevron.right")
         .foregroundColor(.F1Stats.systemLight)
     }
+    .contentShape(Rectangle())
     .padding(.horizontal(16))
     .padding(.vertical(8))
-    .background(background)
+    .onTapGesture {
+      viewModel.onTap()
+    }
+    .background(RoundedRectangle(cornerRadius: 8)
+      .foregroundColor(Color.white.opacity(0.1)))
   }
 
   var body: some View {
@@ -27,15 +32,13 @@ struct ExpandableRow<ViewModel>: View where ViewModel: ExpandableRowViewModel {
       header
       viewModel.expandedView
     }
-    .onTapGesture {
-      viewModel.onTap()
-    }
     .listRowInsets(.all(0))
     .listRowBackground(
-      RoundedRectangle(cornerRadius: 5)
+      RoundedRectangle(cornerRadius: 8)
         .foregroundColor(.clear)
         .background(Color.clear)
     )
+    .background(background)
   }
 
   var background: some View {

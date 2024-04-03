@@ -13,16 +13,19 @@ struct WikipediaView: View {
   @ObservedObject var wikipediaViewModel: WikipediaViewModel
 
   var body: some View {
-    return VStack {
+    return VStack(spacing: 0) {
       if let thumbURL = wikipediaViewModel.thumbURL, let imageURL = URL(string: thumbURL) {
         CachedAsyncImage(url: imageURL)
       }
       Text(wikipediaViewModel.title)
         .typography(type: .heading())
+        .textCase(.uppercase)
+        .lineLimit(/*@START_MENU_TOKEN@*/2/*@END_MENU_TOKEN@*/)
+        .padding(EdgeInsets(top: 32, leading: 8, bottom: 24, trailing: 8))
       Text(wikipediaViewModel.summary)
+        .multilineTextAlignment(.center)
         .typography(type: .body())
     }
-    .background(Color.red)
   }
 }
 

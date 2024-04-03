@@ -59,7 +59,9 @@ class DriverRowViewModel: ExpandableRowViewModel, ObservableObject {
     } else {
       if let wikipediaData = wikipediaData {
         currentView = WikipediaView(
-          wikipediaViewModel: WikipediaViewModel(fromSummary: wikipediaData))
+          wikipediaViewModel: WikipediaViewModel(fromSummary: wikipediaData)
+        )
+        .padding(.all(16))
       } else {
         currentView = Text("Loading")
           .typography(type: .body())
