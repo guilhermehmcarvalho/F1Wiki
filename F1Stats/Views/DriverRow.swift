@@ -15,34 +15,43 @@ struct DriverRow : View {
     self.driver = driver
   }
 
-  var body: some View {
-    HStack(alignment: .center) {
-      VStack(alignment: .leading) {
+  var header: some View {
+    HStack(alignment: .center, spacing: 0) {
+      VStack(alignment: .leading, spacing: 0) {
         HStack(alignment: .firstTextBaseline, spacing: 4) {
           Text(driver.familyName)
             .textCase(.uppercase)
-            .typography(type: .heading(color: .F1Stats.primary))
+            .typography(type: .heading())
           Text(driver.givenName)
-            .typography(type: .small(color: .F1Stats.systemLight))
+            .typography(type: .small())
           Spacer()
         }
         Text(driver.nationality)
-          .typography(type: .small(color: .F1Stats.systemLight))
+          .typography(type: .small())
       }
-      Image(systemName: "chevron.down")
+      Image(systemName: "chevron.right")
+        .foregroundColor(.F1Stats.systemLight)
     }
+    .padding(.horizontal(16))
+    .padding(.vertical(8))
+    .background(background)
+  }
+
+  var body: some View {
+    VStack(spacing: 0) {
+      header
+    }
+    .listRowInsets(.all(0))
     .listRowBackground(
       RoundedRectangle(cornerRadius: 5)
-        .foregroundColor(Color.F1Stats.systemDarkSecondary)
-        .padding(
-          EdgeInsets(
-            top: 2,
-            leading: 0,
-            bottom: 2,
-            trailing: 0
-          )
-        )
+        .foregroundColor(.clear)
+        .background(Color.clear)
     )
+  }
+
+  var background: some View {
+    RoundedRectangle(cornerRadius: 5)
+      .foregroundColor(Color.F1Stats.systemDarkSecondary)
   }
 }
 

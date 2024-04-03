@@ -41,13 +41,12 @@ class APIDrivers: APIDriversProtocol {
 
 class MockAPIDrivers: APIDriversProtocol {
   func listOfAllDrivers(limit: Int = 30, offset: Int = 0) -> AnyPublisher<MRData<DriverTable>, any Error> {
-    let drivers = [] + repeatElement(
-      Driver.example, count: limit)
-    let table = DriverTable(drivers:drivers,
-                            driverId: nil,
-                            url: nil)
+    let drivers = Driver.example(times: limit)
+    let driverTable = DriverTable(drivers: drivers,
+                                  driverId: nil,
+                                  url: nil)
 
-    return Just(MRData(table: table, 
+    return Just(MRData(table: driverTable,
                        limit: limit,
                        offset: offset,
                        total: limit,
@@ -65,4 +64,8 @@ extension Driver {
                                givenName: "Ayrton",
                               familyName: "Senna",
                               nationality: "Brazilian")
+
+  static func example(times: Int) -> [Driver] {
+    return [] + repeatElement(Driver.example, count: times)
+  }
 }

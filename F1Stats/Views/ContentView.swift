@@ -11,10 +11,36 @@ struct ContentView: View {
 
   let apiDrivers: APIDriversProtocol
 
+  init(apiDrivers: APIDriversProtocol) {
+    self.apiDrivers = apiDrivers
+    customizeNavigationStackAppearance()
+  }
+
+  func customizeNavigationStackAppearance() {
+    let scrollEdgeAppearance = UINavigationBarAppearance()
+    scrollEdgeAppearance.configureWithOpaqueBackground()
+    scrollEdgeAppearance.backgroundColor = .clear
+    scrollEdgeAppearance.titleTextAttributes = [.foregroundColor: Color.F1Stats.systemDark.asUIColor]
+    scrollEdgeAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white,
+                                                     .font: UIFont.dlsFont(size: 32, weight: .heavy)]
+    UINavigationBar.appearance().scrollEdgeAppearance = scrollEdgeAppearance
+
+    let standardAppearance = UINavigationBarAppearance()
+    standardAppearance.configureWithOpaqueBackground()
+    standardAppearance.backgroundColor = Color.F1Stats.systemDark.asUIColor
+    standardAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+    standardAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white,
+                                                   .font: UIFont.dlsFont(size: 32, weight: .semibold)]
+    UINavigationBar.appearance().standardAppearance = standardAppearance
+  }
+
   var body: some View {
-    ZStack {
-      Color.pink.ignoresSafeArea()
-      DriversView(driversViewModel: DriversViewModel(driverApi: apiDrivers))
+    NavigationStack {
+      ZStack {
+        Color.F1Stats.systemDark.ignoresSafeArea()
+        DriversView(driversViewModel: DriversViewModel(driverApi: apiDrivers))
+      }
+      .scrollContentBackground(.hidden)
     }
   }
 }

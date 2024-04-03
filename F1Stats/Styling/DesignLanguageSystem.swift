@@ -9,9 +9,9 @@ import Foundation
 import SwiftUI
 
 enum TypographyStyle {
-  case small(color: Color = .black)
-  case body(color: Color = .black)
-  case heading(color: Color = .black)
+  case small(color: Color = .F1Stats.systemLight)
+  case body(color: Color = .F1Stats.systemLight)
+  case heading(color: Color = .F1Stats.systemLight)
 
   public var size: CGFloat {
     switch self {
@@ -56,7 +56,7 @@ extension View {
 
 extension Font {
      public static func dlsFont(size: CGFloat, weight: Font.Weight =  .regular) -> Font {
-       var fontName: String = {
+       let fontName: String = {
          switch (weight) {
          case .bold: "NunitoSans-12ptExtraLight_Bold"
          case .regular: "NunitoSans-12ptExtraLight_Regular"
@@ -70,5 +70,23 @@ extension Font {
        }()
      return Font.custom(fontName, size: size)
    }
+}
+
+extension UIFont {
+  public static func dlsFont(size: CGFloat, weight: Font.Weight =  .regular) -> UIFont {
+    let fontName: String = {
+      switch (weight) {
+      case .bold: "NunitoSans-12ptExtraLight_Bold"
+      case .regular: "NunitoSans-12ptExtraLight_Regular"
+      case .light: "NunitoSans-12ptExtraLight_Light"
+      case .medium: "NunitoSans-12ptExtraLight_Medium"
+      case .semibold: "NunitoSans-12ptExtraLight_SemiBold"
+      case .black: "NunitoSans-12ptExtraLight_Black"
+      case .heavy: "NunitoSans-12ptExtraLight_ExtraBold"
+      default: "NunitoSans-12ptExtraLight_Regular"
+      }
+    }()
+    return UIFont(name: fontName, size: size) ?? UIFont.systemFont(ofSize: size)
+  }
 }
 

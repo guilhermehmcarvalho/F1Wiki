@@ -9,18 +9,18 @@ import SwiftUI
 
 struct DriversView: View {
   @ObservedObject var driversViewModel: DriversViewModel
-
+  
   var body: some View {
-    NavigationStack {
+    ZStack {
       List(driversViewModel.driverList) { driver in
         DriverRow(driver: driver)
-          .frame(height: 40)
-          .padding(EdgeInsets.all(0) )
+          .padding(EdgeInsets.init(top: 0, leading: 0, bottom: 8, trailing: 0) )
           .listRowSeparator(.hidden)
           .onAppear() {
             driversViewModel.onItemDisplayed(currentItem: driver)
           }
       }
+      .scrollContentBackground(.hidden)
       .navigationTitle("Drivers")
       .onAppear(perform: {
         driversViewModel.fetchDrivers()
