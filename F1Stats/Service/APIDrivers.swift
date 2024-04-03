@@ -39,9 +39,9 @@ class APIDrivers: APIDriversProtocol {
   }
 }
 
-class MockAPIDrivers: APIDriversProtocol {
+class APIDriversStub: APIDriversProtocol {
   func listOfAllDrivers(limit: Int = 30, offset: Int = 0) -> AnyPublisher<MRData<DriverTable>, any Error> {
-    let drivers = Driver.example(times: limit)
+    let drivers = DriverModel.stubs(times: limit)
     let driverTable = DriverTable(drivers: drivers,
                                   driverId: nil,
                                   url: nil)
@@ -57,15 +57,15 @@ class MockAPIDrivers: APIDriversProtocol {
   }
 }
 
-extension Driver {
-  static let example = Driver(driverId: "Senna",
+extension DriverModel {
+  static let stub = DriverModel(driverId: "Senna",
                               url: "http://en.wikipedia.org/wiki/Ayrton_Senna",
                               dateOfBirth: "1960-03-21",
                                givenName: "Ayrton",
                               familyName: "Senna",
                               nationality: "Brazilian")
 
-  static func example(times: Int) -> [Driver] {
-    return [] + repeatElement(Driver.example, count: times)
+  static func stubs(times: Int) -> [DriverModel] {
+    return [] + repeatElement(DriverModel.stub, count: times)
   }
 }

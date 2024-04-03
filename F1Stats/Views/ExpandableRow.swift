@@ -1,34 +1,19 @@
 //
-//  DriverRow.swift
+//  ExpandableRow.swift
 //  F1Stats
 //
-//  Created by Guilherme Carvalho on 02/04/2024.
+//  Created by Guilherme Carvalho on 03/04/2024.
 //
 
-import Foundation
 import SwiftUI
 
-struct DriverRow : View {
-  let driver: Driver
+struct ExpandableRow<ViewModel>: View where ViewModel: ExpandableRowViewModel {
 
-  init(driver: Driver) {
-    self.driver = driver
-  }
+  @ObservedObject var viewModel: ViewModel
 
   var header: some View {
     HStack(alignment: .center, spacing: 0) {
-      VStack(alignment: .leading, spacing: 0) {
-        HStack(alignment: .firstTextBaseline, spacing: 4) {
-          Text(driver.familyName)
-            .textCase(.uppercase)
-            .typography(type: .heading())
-          Text(driver.givenName)
-            .typography(type: .small())
-          Spacer()
-        }
-        Text(driver.nationality)
-          .typography(type: .small())
-      }
+      viewModel.mainView
       Image(systemName: "chevron.right")
         .foregroundColor(.F1Stats.systemLight)
     }
@@ -40,6 +25,10 @@ struct DriverRow : View {
   var body: some View {
     VStack(spacing: 0) {
       header
+      viewModel.expandedView
+    }
+    .onTapGesture {
+      viewModel.onTap()
     }
     .listRowInsets(.all(0))
     .listRowBackground(
@@ -56,5 +45,5 @@ struct DriverRow : View {
 }
 
 #Preview {
-  DriversView(driversViewModel: DriversViewModel(driverApi: MockAPIDrivers()))
+  ExpandableRow(viewModel: DriverRowViewModel.stub)
 }

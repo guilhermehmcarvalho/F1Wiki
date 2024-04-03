@@ -12,16 +12,20 @@ import UIKit
 class DriversViewModel: ObservableObject {
   
   private var driverApi: APIDriversProtocol
+  internal let wikipediaAPI: WikipediaAPIProtocol
+
   @Published var status: FetchStatus = .ready
-  @Published var driverList: [Driver] = []
+  @Published var driverList: [DriverModel] = []
+  
   private var cancellable: AnyCancellable?
   private let itemsPerPage = 30
   private var offset = 0
   private var totalDrivers = 0;
   private var paginationThresholdId: String?
 
-  init(driverApi: APIDriversProtocol) {
+  init(driverApi: APIDriversProtocol, wikipediaAPI: WikipediaAPIProtocol) {
     self.driverApi = driverApi
+    self.wikipediaAPI = wikipediaAPI
   }
   
   func fetchDrivers() {
@@ -58,7 +62,7 @@ class DriversViewModel: ObservableObject {
   }
   
   //MARK: - PAGINATION
-  func onItemDisplayed(currentItem item: Driver){
+  func onItemDisplayed(currentItem item: DriverModel){
     if item.driverId == paginationThresholdId, driverList.count < totalDrivers {
       fetchDrivers()
     }

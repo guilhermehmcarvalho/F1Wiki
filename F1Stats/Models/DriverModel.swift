@@ -8,7 +8,7 @@
 import Foundation
 
 struct DriverTable: Decodable {
-  let drivers: [Driver]
+  let drivers: [DriverModel]
   let driverId: String?
   let url: String?
 
@@ -19,7 +19,7 @@ struct DriverTable: Decodable {
   }
 }
 
-struct Driver: Decodable {
+struct DriverModel: Decodable {
   let driverId: String
   let url: String
   let dateOfBirth: String
@@ -28,6 +28,6 @@ struct Driver: Decodable {
   let nationality: String
 }
 
-extension Driver: Identifiable {
+extension DriverModel: Identifiable {
     var id: String { return driverId }
 }

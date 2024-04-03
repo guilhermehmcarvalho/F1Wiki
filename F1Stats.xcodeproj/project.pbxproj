@@ -12,14 +12,21 @@
 		140A09882BB6E30D0037AA74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 140A09872BB6E30D0037AA74 /* Assets.xcassets */; };
 		140A098B2BB6E30D0037AA74 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 140A098A2BB6E30D0037AA74 /* Preview Assets.xcassets */; };
 		142632402BBC80BD00A0A68A /* DesignLanguageSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1426323F2BBC80BD00A0A68A /* DesignLanguageSystem.swift */; };
-		142632422BBC884B00A0A68A /* DriverRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142632412BBC884B00A0A68A /* DriverRow.swift */; };
 		142632442BBC8CE900A0A68A /* Extensions+EdgeInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142632432BBC8CE900A0A68A /* Extensions+EdgeInsets.swift */; };
 		142C98782BB74225009D1D35 /* APIDrivers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142C98772BB74225009D1D35 /* APIDrivers.swift */; };
 		142C987A2BB743B6009D1D35 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142C98792BB743B6009D1D35 /* Config.swift */; };
-		142C987F2BB74AAC009D1D35 /* Driver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142C987E2BB74AAC009D1D35 /* Driver.swift */; };
+		142C987F2BB74AAC009D1D35 /* DriverModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142C987E2BB74AAC009D1D35 /* DriverModel.swift */; };
 		142C98812BB74E5B009D1D35 /* DriversViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142C98802BB74E5B009D1D35 /* DriversViewModel.swift */; };
 		148081DB2BBD28CA00A9A33F /* extension+Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148081DA2BBD28CA00A9A33F /* extension+Colors.swift */; };
 		148081DF2BBD33B200A9A33F /* NunitoSans-VariableFont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 148081DD2BBD33B200A9A33F /* NunitoSans-VariableFont.ttf */; };
+		148081E12BBD60E300A9A33F /* ExpandableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148081E02BBD60E300A9A33F /* ExpandableRow.swift */; };
+		148081E32BBD6FDD00A9A33F /* ExpandableRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148081E22BBD6FDD00A9A33F /* ExpandableRowViewModel.swift */; };
+		148081E52BBD700100A9A33F /* DriverRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148081E42BBD700100A9A33F /* DriverRowViewModel.swift */; };
+		148081E72BBD795200A9A33F /* WikipediaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148081E62BBD795200A9A33F /* WikipediaAPI.swift */; };
+		148081E92BBD7C2A00A9A33F /* WikipediaSummaryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148081E82BBD7C2A00A9A33F /* WikipediaSummaryModel.swift */; };
+		148081EB2BBD85BB00A9A33F /* WikipediaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148081EA2BBD85BB00A9A33F /* WikipediaView.swift */; };
+		148081ED2BBD85DC00A9A33F /* WikipediaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148081EC2BBD85DC00A9A33F /* WikipediaViewModel.swift */; };
+		148081F02BBD8D4F00A9A33F /* CachedAsyncImage in Frameworks */ = {isa = PBXBuildFile; productRef = 148081EF2BBD8D4F00A9A33F /* CachedAsyncImage */; };
 		14B80FFE2BBA86F8006D678E /* DriversView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B80FFD2BBA86F8006D678E /* DriversView.swift */; };
 		14D79CB42BB8710F006240F0 /* MRData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D79CB32BB8710F006240F0 /* MRData.swift */; };
 		14D79CB62BB88C92006240F0 /* Extensions+Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D79CB52BB88C92006240F0 /* Extensions+Publisher.swift */; };
@@ -32,15 +39,21 @@
 		140A09872BB6E30D0037AA74 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		140A098A2BB6E30D0037AA74 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1426323F2BBC80BD00A0A68A /* DesignLanguageSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignLanguageSystem.swift; sourceTree = "<group>"; };
-		142632412BBC884B00A0A68A /* DriverRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverRow.swift; sourceTree = "<group>"; };
 		142632432BBC8CE900A0A68A /* Extensions+EdgeInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+EdgeInsets.swift"; sourceTree = "<group>"; };
 		142C98772BB74225009D1D35 /* APIDrivers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIDrivers.swift; sourceTree = "<group>"; };
 		142C98792BB743B6009D1D35 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
-		142C987E2BB74AAC009D1D35 /* Driver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Driver.swift; sourceTree = "<group>"; };
+		142C987E2BB74AAC009D1D35 /* DriverModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverModel.swift; sourceTree = "<group>"; };
 		142C98802BB74E5B009D1D35 /* DriversViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriversViewModel.swift; sourceTree = "<group>"; };
 		142C98822BB751C2009D1D35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		148081DA2BBD28CA00A9A33F /* extension+Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "extension+Colors.swift"; sourceTree = "<group>"; };
 		148081DD2BBD33B200A9A33F /* NunitoSans-VariableFont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-VariableFont.ttf"; sourceTree = "<group>"; };
+		148081E02BBD60E300A9A33F /* ExpandableRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableRow.swift; sourceTree = "<group>"; };
+		148081E22BBD6FDD00A9A33F /* ExpandableRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableRowViewModel.swift; sourceTree = "<group>"; };
+		148081E42BBD700100A9A33F /* DriverRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverRowViewModel.swift; sourceTree = "<group>"; };
+		148081E62BBD795200A9A33F /* WikipediaAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikipediaAPI.swift; sourceTree = "<group>"; };
+		148081E82BBD7C2A00A9A33F /* WikipediaSummaryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikipediaSummaryModel.swift; sourceTree = "<group>"; };
+		148081EA2BBD85BB00A9A33F /* WikipediaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikipediaView.swift; sourceTree = "<group>"; };
+		148081EC2BBD85DC00A9A33F /* WikipediaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikipediaViewModel.swift; sourceTree = "<group>"; };
 		14B80FFD2BBA86F8006D678E /* DriversView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriversView.swift; sourceTree = "<group>"; };
 		14D79CB32BB8710F006240F0 /* MRData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRData.swift; sourceTree = "<group>"; };
 		14D79CB52BB88C92006240F0 /* Extensions+Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+Publisher.swift"; sourceTree = "<group>"; };
@@ -51,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				148081F02BBD8D4F00A9A33F /* CachedAsyncImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,16 +90,16 @@
 		140A09822BB6E30C0037AA74 /* F1Stats */ = {
 			isa = PBXGroup;
 			children = (
-				1426323C2BBC3D4F00A0A68A /* Fonts */,
-				148081D92BBD28B700A9A33F /* Styling */,
 				142C98822BB751C2009D1D35 /* Info.plist */,
 				142C98792BB743B6009D1D35 /* Config.swift */,
 				140A09832BB6E30C0037AA74 /* F1StatsApp.swift */,
 				140A09872BB6E30D0037AA74 /* Assets.xcassets */,
 				14D79CB72BB88CA3006240F0 /* Extensions */,
+				1426323C2BBC3D4F00A0A68A /* Fonts */,
 				142C98762BB7057B009D1D35 /* Models */,
 				140A09892BB6E30D0037AA74 /* Preview Content */,
 				142C98752BB70568009D1D35 /* Service */,
+				148081D92BBD28B700A9A33F /* Styling */,
 				142C98732BB70557009D1D35 /* ViewModels */,
 				142C98742BB70561009D1D35 /* Views */,
 			);
@@ -112,6 +126,9 @@
 			isa = PBXGroup;
 			children = (
 				142C98802BB74E5B009D1D35 /* DriversViewModel.swift */,
+				148081E22BBD6FDD00A9A33F /* ExpandableRowViewModel.swift */,
+				148081E42BBD700100A9A33F /* DriverRowViewModel.swift */,
+				148081EC2BBD85DC00A9A33F /* WikipediaViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -121,7 +138,8 @@
 			children = (
 				140A09852BB6E30C0037AA74 /* ContentView.swift */,
 				14B80FFD2BBA86F8006D678E /* DriversView.swift */,
-				142632412BBC884B00A0A68A /* DriverRow.swift */,
+				148081E02BBD60E300A9A33F /* ExpandableRow.swift */,
+				148081EA2BBD85BB00A9A33F /* WikipediaView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -130,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				142C98772BB74225009D1D35 /* APIDrivers.swift */,
+				148081E62BBD795200A9A33F /* WikipediaAPI.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -137,8 +156,9 @@
 		142C98762BB7057B009D1D35 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				142C987E2BB74AAC009D1D35 /* Driver.swift */,
+				142C987E2BB74AAC009D1D35 /* DriverModel.swift */,
 				14D79CB32BB8710F006240F0 /* MRData.swift */,
+				148081E82BBD7C2A00A9A33F /* WikipediaSummaryModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -178,6 +198,7 @@
 			);
 			name = F1Stats;
 			packageProductDependencies = (
+				148081EF2BBD8D4F00A9A33F /* CachedAsyncImage */,
 			);
 			productName = F1Stats;
 			productReference = 140A09802BB6E30C0037AA74 /* F1Stats.app */;
@@ -208,6 +229,7 @@
 			);
 			mainGroup = 140A09772BB6E30C0037AA74;
 			packageReferences = (
+				148081EE2BBD8D4F00A9A33F /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */,
 			);
 			productRefGroup = 140A09812BB6E30C0037AA74 /* Products */;
 			projectDirPath = "";
@@ -236,18 +258,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				142C987F2BB74AAC009D1D35 /* Driver.swift in Sources */,
+				142C987F2BB74AAC009D1D35 /* DriverModel.swift in Sources */,
+				148081E32BBD6FDD00A9A33F /* ExpandableRowViewModel.swift in Sources */,
+				148081ED2BBD85DC00A9A33F /* WikipediaViewModel.swift in Sources */,
+				148081EB2BBD85BB00A9A33F /* WikipediaView.swift in Sources */,
 				140A09862BB6E30C0037AA74 /* ContentView.swift in Sources */,
+				148081E52BBD700100A9A33F /* DriverRowViewModel.swift in Sources */,
+				148081E12BBD60E300A9A33F /* ExpandableRow.swift in Sources */,
 				142632402BBC80BD00A0A68A /* DesignLanguageSystem.swift in Sources */,
 				14D79CB42BB8710F006240F0 /* MRData.swift in Sources */,
 				14D79CB62BB88C92006240F0 /* Extensions+Publisher.swift in Sources */,
+				148081E92BBD7C2A00A9A33F /* WikipediaSummaryModel.swift in Sources */,
 				148081DB2BBD28CA00A9A33F /* extension+Colors.swift in Sources */,
 				14B80FFE2BBA86F8006D678E /* DriversView.swift in Sources */,
 				142C98812BB74E5B009D1D35 /* DriversViewModel.swift in Sources */,
 				142C987A2BB743B6009D1D35 /* Config.swift in Sources */,
 				142632442BBC8CE900A0A68A /* Extensions+EdgeInsets.swift in Sources */,
-				142632422BBC884B00A0A68A /* DriverRow.swift in Sources */,
 				142C98782BB74225009D1D35 /* APIDrivers.swift in Sources */,
+				148081E72BBD795200A9A33F /* WikipediaAPI.swift in Sources */,
 				140A09842BB6E30C0037AA74 /* F1StatsApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -454,6 +482,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		148081EE2BBD8D4F00A9A33F /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lorenzofiamingo/swiftui-cached-async-image";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		148081EF2BBD8D4F00A9A33F /* CachedAsyncImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 148081EE2BBD8D4F00A9A33F /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */;
+			productName = CachedAsyncImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 140A09782BB6E30C0037AA74 /* Project object */;
 }

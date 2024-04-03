@@ -8,27 +8,28 @@
 import SwiftUI
 
 struct DriversView: View {
-  @ObservedObject var driversViewModel: DriversViewModel
-  
+  @ObservedObject var viewModel: DriversViewModel
+
   var body: some View {
     ZStack {
-      List(driversViewModel.driverList) { driver in
-        DriverRow(driver: driver)
-          .padding(EdgeInsets.init(top: 0, leading: 0, bottom: 8, trailing: 0) )
+      List(viewModel.driverList) { driver in
+        ExpandableRow(viewModel: DriverRowViewModel(driver: driver, wikipediaApi: viewModel.wikipediaAPI))
+          .padding(.vertical(4))
           .listRowSeparator(.hidden)
           .onAppear() {
-            driversViewModel.onItemDisplayed(currentItem: driver)
+            viewModel.onItemDisplayed(currentItem: driver)
           }
       }
       .scrollContentBackground(.hidden)
       .navigationTitle("Drivers")
       .onAppear(perform: {
-        driversViewModel.fetchDrivers()
+        viewModel.fetchDrivers()
       })
     }
   }
 }
 
 #Preview {
-  DriversView(driversViewModel: DriversViewModel(driverApi: MockAPIDrivers()))
+  DriversView(viewModel: DriversViewModel(driverApi: APIDriversStub(),
+                                          wikipediaAPI: WikipediaAPIStub()))
 }
