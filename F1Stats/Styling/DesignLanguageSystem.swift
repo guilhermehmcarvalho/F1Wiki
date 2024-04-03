@@ -56,10 +56,18 @@ extension View {
 
 extension Font {
      public static func dlsFont(size: CGFloat, weight: Font.Weight =  .regular) -> Font {
-     var fontName = "NunitoSans_10pt-Regular"
-     if weight == .bold {
-          fontName = "NunitoSans_10pt-Bold"
-      }
+       var fontName: String = {
+         switch (weight) {
+         case .bold: "NunitoSans-12ptExtraLight_Bold"
+         case .regular: "NunitoSans-12ptExtraLight_Regular"
+         case .light: "NunitoSans-12ptExtraLight_Light"
+         case .medium: "NunitoSans-12ptExtraLight_Medium"
+         case .semibold: "NunitoSans-12ptExtraLight_SemiBold"
+         case .black: "NunitoSans-12ptExtraLight_Black"
+         case .heavy: "NunitoSans-12ptExtraLight_ExtraBold"
+         default: "NunitoSans-12ptExtraLight_Regular"
+         }
+       }()
      return Font.custom(fontName, size: size)
    }
 }

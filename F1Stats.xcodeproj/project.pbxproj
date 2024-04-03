@@ -11,7 +11,6 @@
 		140A09862BB6E30C0037AA74 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140A09852BB6E30C0037AA74 /* ContentView.swift */; };
 		140A09882BB6E30D0037AA74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 140A09872BB6E30D0037AA74 /* Assets.xcassets */; };
 		140A098B2BB6E30D0037AA74 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 140A098A2BB6E30D0037AA74 /* Preview Assets.xcassets */; };
-		1426323E2BBC3DCE00A0A68A /* Nunito_Sans in Resources */ = {isa = PBXBuildFile; fileRef = 1426323D2BBC3DCE00A0A68A /* Nunito_Sans */; };
 		142632402BBC80BD00A0A68A /* DesignLanguageSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1426323F2BBC80BD00A0A68A /* DesignLanguageSystem.swift */; };
 		142632422BBC884B00A0A68A /* DriverRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142632412BBC884B00A0A68A /* DriverRow.swift */; };
 		142632442BBC8CE900A0A68A /* Extensions+EdgeInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142632432BBC8CE900A0A68A /* Extensions+EdgeInsets.swift */; };
@@ -19,6 +18,8 @@
 		142C987A2BB743B6009D1D35 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142C98792BB743B6009D1D35 /* Config.swift */; };
 		142C987F2BB74AAC009D1D35 /* Driver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142C987E2BB74AAC009D1D35 /* Driver.swift */; };
 		142C98812BB74E5B009D1D35 /* DriversViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142C98802BB74E5B009D1D35 /* DriversViewModel.swift */; };
+		148081DB2BBD28CA00A9A33F /* extension+Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148081DA2BBD28CA00A9A33F /* extension+Colors.swift */; };
+		148081DF2BBD33B200A9A33F /* NunitoSans-VariableFont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 148081DD2BBD33B200A9A33F /* NunitoSans-VariableFont.ttf */; };
 		14B80FFE2BBA86F8006D678E /* DriversView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B80FFD2BBA86F8006D678E /* DriversView.swift */; };
 		14D79CB42BB8710F006240F0 /* MRData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D79CB32BB8710F006240F0 /* MRData.swift */; };
 		14D79CB62BB88C92006240F0 /* Extensions+Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D79CB52BB88C92006240F0 /* Extensions+Publisher.swift */; };
@@ -30,7 +31,6 @@
 		140A09852BB6E30C0037AA74 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		140A09872BB6E30D0037AA74 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		140A098A2BB6E30D0037AA74 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		1426323D2BBC3DCE00A0A68A /* Nunito_Sans */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Nunito_Sans; sourceTree = "<group>"; };
 		1426323F2BBC80BD00A0A68A /* DesignLanguageSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignLanguageSystem.swift; sourceTree = "<group>"; };
 		142632412BBC884B00A0A68A /* DriverRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverRow.swift; sourceTree = "<group>"; };
 		142632432BBC8CE900A0A68A /* Extensions+EdgeInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+EdgeInsets.swift"; sourceTree = "<group>"; };
@@ -39,6 +39,8 @@
 		142C987E2BB74AAC009D1D35 /* Driver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Driver.swift; sourceTree = "<group>"; };
 		142C98802BB74E5B009D1D35 /* DriversViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriversViewModel.swift; sourceTree = "<group>"; };
 		142C98822BB751C2009D1D35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		148081DA2BBD28CA00A9A33F /* extension+Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "extension+Colors.swift"; sourceTree = "<group>"; };
+		148081DD2BBD33B200A9A33F /* NunitoSans-VariableFont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-VariableFont.ttf"; sourceTree = "<group>"; };
 		14B80FFD2BBA86F8006D678E /* DriversView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriversView.swift; sourceTree = "<group>"; };
 		14D79CB32BB8710F006240F0 /* MRData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRData.swift; sourceTree = "<group>"; };
 		14D79CB52BB88C92006240F0 /* Extensions+Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+Publisher.swift"; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				1426323C2BBC3D4F00A0A68A /* Fonts */,
+				148081D92BBD28B700A9A33F /* Styling */,
 				142C98822BB751C2009D1D35 /* Info.plist */,
 				142C98792BB743B6009D1D35 /* Config.swift */,
 				140A09832BB6E30C0037AA74 /* F1StatsApp.swift */,
@@ -85,7 +88,6 @@
 				142C98752BB70568009D1D35 /* Service */,
 				142C98732BB70557009D1D35 /* ViewModels */,
 				142C98742BB70561009D1D35 /* Views */,
-				1426323F2BBC80BD00A0A68A /* DesignLanguageSystem.swift */,
 			);
 			path = F1Stats;
 			sourceTree = "<group>";
@@ -101,7 +103,7 @@
 		1426323C2BBC3D4F00A0A68A /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				1426323D2BBC3DCE00A0A68A /* Nunito_Sans */,
+				148081DD2BBD33B200A9A33F /* NunitoSans-VariableFont.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -139,6 +141,15 @@
 				14D79CB32BB8710F006240F0 /* MRData.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		148081D92BBD28B700A9A33F /* Styling */ = {
+			isa = PBXGroup;
+			children = (
+				1426323F2BBC80BD00A0A68A /* DesignLanguageSystem.swift */,
+				148081DA2BBD28CA00A9A33F /* extension+Colors.swift */,
+			);
+			path = Styling;
 			sourceTree = "<group>";
 		};
 		14D79CB72BB88CA3006240F0 /* Extensions */ = {
@@ -212,9 +223,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1426323E2BBC3DCE00A0A68A /* Nunito_Sans in Resources */,
 				140A098B2BB6E30D0037AA74 /* Preview Assets.xcassets in Resources */,
 				140A09882BB6E30D0037AA74 /* Assets.xcassets in Resources */,
+				148081DF2BBD33B200A9A33F /* NunitoSans-VariableFont.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,6 +241,7 @@
 				142632402BBC80BD00A0A68A /* DesignLanguageSystem.swift in Sources */,
 				14D79CB42BB8710F006240F0 /* MRData.swift in Sources */,
 				14D79CB62BB88C92006240F0 /* Extensions+Publisher.swift in Sources */,
+				148081DB2BBD28CA00A9A33F /* extension+Colors.swift in Sources */,
 				14B80FFE2BBA86F8006D678E /* DriversView.swift in Sources */,
 				142C98812BB74E5B009D1D35 /* DriversViewModel.swift in Sources */,
 				142C987A2BB743B6009D1D35 /* Config.swift in Sources */,

@@ -11,18 +11,11 @@ struct ContentView: View {
 
   let apiDrivers: APIDriversProtocol
 
-//    var body: some View {
-//        VStack {
-//            Image(systemName: "globe")
-//                .imageScale(.large)
-//                .foregroundStyle(.tint)
-//            Text("Hello, world!")
-//        }
-//        .padding()
-//    }
-
   var body: some View {
-    DriversView(driversViewModel: DriversViewModel(driverApi: apiDrivers))
+    ZStack {
+      Color.pink.ignoresSafeArea()
+      DriversView(driversViewModel: DriversViewModel(driverApi: apiDrivers))
+    }
   }
 }
 

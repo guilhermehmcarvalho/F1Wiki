@@ -14,10 +14,12 @@ struct DriversView: View {
     NavigationStack {
       List(driversViewModel.driverList) { driver in
         DriverRow(driver: driver)
+          .frame(height: 40)
           .padding(EdgeInsets.all(0) )
-        .onAppear() {
-          driversViewModel.onItemDisplayed(currentItem: driver)
-        }
+          .listRowSeparator(.hidden)
+          .onAppear() {
+            driversViewModel.onItemDisplayed(currentItem: driver)
+          }
       }
       .navigationTitle("Drivers")
       .onAppear(perform: {
@@ -25,7 +27,6 @@ struct DriversView: View {
       })
     }
   }
-
 }
 
 #Preview {

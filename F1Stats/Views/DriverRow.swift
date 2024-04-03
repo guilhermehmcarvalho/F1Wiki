@@ -9,11 +9,9 @@ import Foundation
 import SwiftUI
 
 struct DriverRow : View {
-  let color: Color
   let driver: Driver
 
-  init(color: Color = .red, driver: Driver) {
-    self.color = color
+  init(driver: Driver) {
     self.driver = driver
   }
 
@@ -23,15 +21,31 @@ struct DriverRow : View {
         HStack(alignment: .firstTextBaseline, spacing: 4) {
           Text(driver.familyName)
             .textCase(.uppercase)
-            .typography(type: .heading())
+            .typography(type: .heading(color: .F1Stats.primary))
           Text(driver.givenName)
-            .typography(type: .small())
+            .typography(type: .small(color: .F1Stats.systemLight))
           Spacer()
         }
         Text(driver.nationality)
-          .typography(type: .small())
+          .typography(type: .small(color: .F1Stats.systemLight))
       }
       Image(systemName: "chevron.down")
     }
+    .listRowBackground(
+      RoundedRectangle(cornerRadius: 5)
+        .foregroundColor(Color.F1Stats.systemDarkSecondary)
+        .padding(
+          EdgeInsets(
+            top: 2,
+            leading: 0,
+            bottom: 2,
+            trailing: 0
+          )
+        )
+    )
   }
+}
+
+#Preview {
+  DriversView(driversViewModel: DriversViewModel(driverApi: MockAPIDrivers()))
 }
