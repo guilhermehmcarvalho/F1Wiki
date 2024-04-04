@@ -9,7 +9,8 @@ import SwiftUI
 
 @main
 struct F1StatsApp: App {
-  let apiDrivers = APIDrivers(baseURL: Config.baseURL)
+  let apiDrivers = APIDriversStub()
+//  let apiDrivers = APIDrivers(baseURL: Config.baseURL)
   let wikipediaAPI = WikipediaAPI(baseURL: Config.wikipediaURL)
 
     var body: some Scene {
