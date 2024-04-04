@@ -65,8 +65,9 @@ class DriverRowViewModel: ExpandableRowViewModel, ObservableObject {
   }
 
   private var loadingView: some View {
-    Text("Loading")
-      .typography(type: .body())
+    ProgressView()
+      .padding(.all(16))
+      .tint(.F1Stats.systemLight)
   }
 
   private func requestSummary() {

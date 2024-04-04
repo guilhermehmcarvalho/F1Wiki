@@ -58,6 +58,7 @@ class WikipediaAPIStub: WikipediaAPIProtocol {
 
       let model = try decoder.decode(WikipediaSummaryModel.self, from: jsonData)
       return Just(model)
+        .delay(for: .seconds(1), scheduler: RunLoop.main)
         .setFailureType(to: Error.self)
         .eraseToAnyPublisher()
 

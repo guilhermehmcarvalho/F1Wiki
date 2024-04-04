@@ -14,7 +14,7 @@ class DriversViewModel: ObservableObject {
   private var driverApi: APIDriversProtocol
   internal let wikipediaAPI: WikipediaAPIProtocol
 
-  @Published var status: FetchStatus = .ready
+  @Published var fetchStatus: FetchStatus = .ready
   @Published var driverList: [DriverModel] = []
   
   private var cancellable: AnyCancellable?
@@ -32,21 +32,31 @@ class DriversViewModel: ObservableObject {
     cancellable = driverApi.listOfAllDrivers(limit: itemsPerPage, offset: offset)
       .handleEvents(receiveSubscription: { [weak self] _ in
         DispatchQueue.main.async {
-          self?.status = .ongoing
+          self?.fetchStatus = .ongoing
         }
       }, receiveCompletion: { [weak self] completion in
         switch completion {
         case .finished:
-          self?.status = .finished
+          DispatchQueue.main.async {
+            self?.fetchStatus = .finished
+          }
         case .failure:
-          self?.status = .ready
+          DispatchQueue.main.async {
+            self?.fetchStatus = .ready
+          }
         }
       }, receiveCancel: { [weak self] in
-        self?.status = .ready
+        DispatchQueue.main.async {
+          self?.fetchStatus = .ready
+        }
       })
       .receive(on: DispatchQueue.main)
-      .sink { error in
-        print(error)
+      .sink { status in
+        switch status {
+        case .finished: break
+        case .failure(let error):
+          print(error)
+        }
       } receiveValue: { [weak self] response in
         self?.driverList.append(contentsOf: response.table.drivers)
         self?.offset += response.table.drivers.count
@@ -60,11 +70,15 @@ class DriversViewModel: ObservableObject {
         }
       }
   }
-  
+
   //MARK: - PAGINATION
   func onItemDisplayed(currentItem item: DriverModel){
     if item.driverId == paginationThresholdId, driverList.count < totalDrivers {
       fetchDrivers()
     }
+  }
+
+  func updateFetchStatus() {
+
   }
 }

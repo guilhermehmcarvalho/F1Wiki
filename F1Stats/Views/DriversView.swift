@@ -11,21 +11,38 @@ struct DriversView: View {
   @ObservedObject var viewModel: DriversViewModel
 
   var body: some View {
-      List(viewModel.driverList) { driver in
-        ExpandableRow(viewModel: DriverRowViewModel(driver: driver, wikipediaApi: viewModel.wikipediaAPI)
-        )
+    ZStack {
+      List {
+        ForEach(viewModel.driverList) { driver in
+          ExpandableRow(viewModel: DriverRowViewModel(driver: driver, wikipediaApi: viewModel.wikipediaAPI)
+          )
           .padding(.vertical(4))
           .onAppear() {
             viewModel.onItemDisplayed(currentItem: driver)
           }
+        }
+
+        if viewModel.fetchStatus == .ongoing, !viewModel.driverList.isEmpty {
+          ProgressView()
+            .modifier(LargeProgressView())
+            .listRowBackground(Color.clear)
+            .frame(maxWidth: .infinity)
+        }
       }
-      .listRowSeparator(.visible)
+      .listRowSeparator(.automatic)
       .listRowSeparatorTint(.F1Stats.systemWhite)
       .scrollContentBackground(.hidden)
       .navigationTitle("Drivers")
       .onAppear(perform: {
         viewModel.fetchDrivers()
       })
+
+      if viewModel.fetchStatus == .ongoing, viewModel.driverList.isEmpty {
+        ProgressView()
+          .modifier(LargeProgressView())
+          .padding(.all(32))
+      }
+    }
   }
 }
 

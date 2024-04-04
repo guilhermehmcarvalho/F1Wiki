@@ -17,7 +17,7 @@
 		142C987A2BB743B6009D1D35 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142C98792BB743B6009D1D35 /* Config.swift */; };
 		142C987F2BB74AAC009D1D35 /* DriverModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142C987E2BB74AAC009D1D35 /* DriverModel.swift */; };
 		142C98812BB74E5B009D1D35 /* DriversViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142C98802BB74E5B009D1D35 /* DriversViewModel.swift */; };
-		148081DB2BBD28CA00A9A33F /* extension+Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148081DA2BBD28CA00A9A33F /* extension+Colors.swift */; };
+		148081DB2BBD28CA00A9A33F /* Extension+Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148081DA2BBD28CA00A9A33F /* Extension+Colors.swift */; };
 		148081DF2BBD33B200A9A33F /* NunitoSans-VariableFont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 148081DD2BBD33B200A9A33F /* NunitoSans-VariableFont.ttf */; };
 		148081E12BBD60E300A9A33F /* ExpandableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148081E02BBD60E300A9A33F /* ExpandableRow.swift */; };
 		148081E32BBD6FDD00A9A33F /* ExpandableRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148081E22BBD6FDD00A9A33F /* ExpandableRowViewModel.swift */; };
@@ -27,6 +27,8 @@
 		148081EB2BBD85BB00A9A33F /* WikipediaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148081EA2BBD85BB00A9A33F /* WikipediaView.swift */; };
 		148081ED2BBD85DC00A9A33F /* WikipediaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148081EC2BBD85DC00A9A33F /* WikipediaViewModel.swift */; };
 		148081F02BBD8D4F00A9A33F /* CachedAsyncImage in Frameworks */ = {isa = PBXBuildFile; productRef = 148081EF2BBD8D4F00A9A33F /* CachedAsyncImage */; };
+		14920FED2BBE95A300359497 /* DriverStandingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14920FEC2BBE95A300359497 /* DriverStandingModel.swift */; };
+		14920FF02BBE9CEC00359497 /* LargeProgressViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14920FEF2BBE9CEC00359497 /* LargeProgressViewModifier.swift */; };
 		14B80FFE2BBA86F8006D678E /* DriversView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B80FFD2BBA86F8006D678E /* DriversView.swift */; };
 		14D79CB42BB8710F006240F0 /* MRData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D79CB32BB8710F006240F0 /* MRData.swift */; };
 		14D79CB62BB88C92006240F0 /* Extensions+Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D79CB52BB88C92006240F0 /* Extensions+Publisher.swift */; };
@@ -45,7 +47,7 @@
 		142C987E2BB74AAC009D1D35 /* DriverModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverModel.swift; sourceTree = "<group>"; };
 		142C98802BB74E5B009D1D35 /* DriversViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriversViewModel.swift; sourceTree = "<group>"; };
 		142C98822BB751C2009D1D35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		148081DA2BBD28CA00A9A33F /* extension+Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "extension+Colors.swift"; sourceTree = "<group>"; };
+		148081DA2BBD28CA00A9A33F /* Extension+Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Colors.swift"; sourceTree = "<group>"; };
 		148081DD2BBD33B200A9A33F /* NunitoSans-VariableFont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-VariableFont.ttf"; sourceTree = "<group>"; };
 		148081E02BBD60E300A9A33F /* ExpandableRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableRow.swift; sourceTree = "<group>"; };
 		148081E22BBD6FDD00A9A33F /* ExpandableRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableRowViewModel.swift; sourceTree = "<group>"; };
@@ -54,6 +56,8 @@
 		148081E82BBD7C2A00A9A33F /* WikipediaSummaryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikipediaSummaryModel.swift; sourceTree = "<group>"; };
 		148081EA2BBD85BB00A9A33F /* WikipediaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikipediaView.swift; sourceTree = "<group>"; };
 		148081EC2BBD85DC00A9A33F /* WikipediaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikipediaViewModel.swift; sourceTree = "<group>"; };
+		14920FEC2BBE95A300359497 /* DriverStandingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverStandingModel.swift; sourceTree = "<group>"; };
+		14920FEF2BBE9CEC00359497 /* LargeProgressViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeProgressViewModifier.swift; sourceTree = "<group>"; };
 		14B80FFD2BBA86F8006D678E /* DriversView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriversView.swift; sourceTree = "<group>"; };
 		14D79CB32BB8710F006240F0 /* MRData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRData.swift; sourceTree = "<group>"; };
 		14D79CB52BB88C92006240F0 /* Extensions+Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+Publisher.swift"; sourceTree = "<group>"; };
@@ -159,6 +163,7 @@
 				142C987E2BB74AAC009D1D35 /* DriverModel.swift */,
 				14D79CB32BB8710F006240F0 /* MRData.swift */,
 				148081E82BBD7C2A00A9A33F /* WikipediaSummaryModel.swift */,
+				14920FEC2BBE95A300359497 /* DriverStandingModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -166,15 +171,24 @@
 		148081D92BBD28B700A9A33F /* Styling */ = {
 			isa = PBXGroup;
 			children = (
+				14920FEE2BBE9CE000359497 /* Components */,
 				1426323F2BBC80BD00A0A68A /* DesignLanguageSystem.swift */,
-				148081DA2BBD28CA00A9A33F /* extension+Colors.swift */,
 			);
 			path = Styling;
+			sourceTree = "<group>";
+		};
+		14920FEE2BBE9CE000359497 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				14920FEF2BBE9CEC00359497 /* LargeProgressViewModifier.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		14D79CB72BB88CA3006240F0 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				148081DA2BBD28CA00A9A33F /* Extension+Colors.swift */,
 				14D79CB52BB88C92006240F0 /* Extensions+Publisher.swift */,
 				142632432BBC8CE900A0A68A /* Extensions+EdgeInsets.swift */,
 			);
@@ -269,12 +283,14 @@
 				14D79CB42BB8710F006240F0 /* MRData.swift in Sources */,
 				14D79CB62BB88C92006240F0 /* Extensions+Publisher.swift in Sources */,
 				148081E92BBD7C2A00A9A33F /* WikipediaSummaryModel.swift in Sources */,
-				148081DB2BBD28CA00A9A33F /* extension+Colors.swift in Sources */,
+				148081DB2BBD28CA00A9A33F /* Extension+Colors.swift in Sources */,
 				14B80FFE2BBA86F8006D678E /* DriversView.swift in Sources */,
+				14920FED2BBE95A300359497 /* DriverStandingModel.swift in Sources */,
 				142C98812BB74E5B009D1D35 /* DriversViewModel.swift in Sources */,
 				142C987A2BB743B6009D1D35 /* Config.swift in Sources */,
 				142632442BBC8CE900A0A68A /* Extensions+EdgeInsets.swift in Sources */,
 				142C98782BB74225009D1D35 /* APIDrivers.swift in Sources */,
+				14920FF02BBE9CEC00359497 /* LargeProgressViewModifier.swift in Sources */,
 				148081E72BBD795200A9A33F /* WikipediaAPI.swift in Sources */,
 				140A09842BB6E30C0037AA74 /* F1StatsApp.swift in Sources */,
 			);

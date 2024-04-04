@@ -37,6 +37,22 @@ class APIDrivers: APIDriversProtocol {
         .tryDecodeResponse(type: MRData<DriverTable>.self, decoder: JSONDecoder())
         .eraseToAnyPublisher()
   }
+
+  func listOfDriverStandings(driverId: String, limit: Int = 30, offset: Int = 0) -> AnyPublisher<MRData<DriverTable>, Error> {
+    var components = URLComponents(string: baseURL.appending("/drivers/\(driverId)/driverStandings.json"))
+    components?.queryItems = [
+      URLQueryItem(name: "limit", value: "\(limit)"),
+      URLQueryItem(name: "offset", value: "\(offset)")
+    ]
+
+    guard let url = components?.url else {
+      return Empty().eraseToAnyPublisher()
+    }
+
+    return urlSession.dataTaskPublisher(for: url)
+        .tryDecodeResponse(type: MRData<DriverTable>.self, decoder: JSONDecoder())
+        .eraseToAnyPublisher()
+  }
 }
 
 class APIDriversStub: APIDriversProtocol {
@@ -52,6 +68,7 @@ class APIDriversStub: APIDriversProtocol {
                        total: limit,
                        series: "F1",
                        url: ""))
+    .delay(for: .seconds(1), scheduler: RunLoop.main)
       .setFailureType(to: Error.self)
       .eraseToAnyPublisher()
   }
