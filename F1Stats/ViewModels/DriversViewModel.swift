@@ -12,7 +12,7 @@ import UIKit
 class DriversViewModel: ObservableObject {
   
   private var driverApi: APIDriversProtocol
-  internal let wikipediaAPI: WikipediaAPIProtocol
+  private let wikipediaAPI: WikipediaAPIProtocol
 
   @Published var fetchStatus: FetchStatus = .ready
   @Published var driverList: [DriverModel] = []
@@ -69,6 +69,11 @@ class DriversViewModel: ObservableObject {
           self.paginationThresholdId = driverList[thresholdIndex].driverId
         }
       }
+  }
+
+  internal func driverRoleViewModel(for driver: DriverModel) -> DriverRowViewModel {
+    DriverRowViewModel(driver: driver, wikipediaApi:
+                        wikipediaAPI, driverApi: driverApi)
   }
 
   //MARK: - PAGINATION

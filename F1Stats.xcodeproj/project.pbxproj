@@ -29,6 +29,8 @@
 		148081F02BBD8D4F00A9A33F /* CachedAsyncImage in Frameworks */ = {isa = PBXBuildFile; productRef = 148081EF2BBD8D4F00A9A33F /* CachedAsyncImage */; };
 		14920FED2BBE95A300359497 /* DriverStandingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14920FEC2BBE95A300359497 /* DriverStandingModel.swift */; };
 		14920FF02BBE9CEC00359497 /* LargeProgressViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14920FEF2BBE9CEC00359497 /* LargeProgressViewModifier.swift */; };
+		14920FF22BBEA65D00359497 /* ConstructorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14920FF12BBEA65D00359497 /* ConstructorModel.swift */; };
+		14920FF62BBEA9B400359497 /* DriverStandingsRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14920FF52BBEA9B400359497 /* DriverStandingsRowViewModel.swift */; };
 		14B80FFE2BBA86F8006D678E /* DriversView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B80FFD2BBA86F8006D678E /* DriversView.swift */; };
 		14D79CB42BB8710F006240F0 /* MRData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D79CB32BB8710F006240F0 /* MRData.swift */; };
 		14D79CB62BB88C92006240F0 /* Extensions+Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D79CB52BB88C92006240F0 /* Extensions+Publisher.swift */; };
@@ -58,6 +60,8 @@
 		148081EC2BBD85DC00A9A33F /* WikipediaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikipediaViewModel.swift; sourceTree = "<group>"; };
 		14920FEC2BBE95A300359497 /* DriverStandingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverStandingModel.swift; sourceTree = "<group>"; };
 		14920FEF2BBE9CEC00359497 /* LargeProgressViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeProgressViewModifier.swift; sourceTree = "<group>"; };
+		14920FF12BBEA65D00359497 /* ConstructorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructorModel.swift; sourceTree = "<group>"; };
+		14920FF52BBEA9B400359497 /* DriverStandingsRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverStandingsRowViewModel.swift; sourceTree = "<group>"; };
 		14B80FFD2BBA86F8006D678E /* DriversView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriversView.swift; sourceTree = "<group>"; };
 		14D79CB32BB8710F006240F0 /* MRData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRData.swift; sourceTree = "<group>"; };
 		14D79CB52BB88C92006240F0 /* Extensions+Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+Publisher.swift"; sourceTree = "<group>"; };
@@ -133,6 +137,7 @@
 				148081E22BBD6FDD00A9A33F /* ExpandableRowViewModel.swift */,
 				148081E42BBD700100A9A33F /* DriverRowViewModel.swift */,
 				148081EC2BBD85DC00A9A33F /* WikipediaViewModel.swift */,
+				14920FF52BBEA9B400359497 /* DriverStandingsRowViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -164,6 +169,7 @@
 				14D79CB32BB8710F006240F0 /* MRData.swift */,
 				148081E82BBD7C2A00A9A33F /* WikipediaSummaryModel.swift */,
 				14920FEC2BBE95A300359497 /* DriverStandingModel.swift */,
+				14920FF12BBEA65D00359497 /* ConstructorModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -275,6 +281,7 @@
 				142C987F2BB74AAC009D1D35 /* DriverModel.swift in Sources */,
 				148081E32BBD6FDD00A9A33F /* ExpandableRowViewModel.swift in Sources */,
 				148081ED2BBD85DC00A9A33F /* WikipediaViewModel.swift in Sources */,
+				14920FF62BBEA9B400359497 /* DriverStandingsRowViewModel.swift in Sources */,
 				148081EB2BBD85BB00A9A33F /* WikipediaView.swift in Sources */,
 				140A09862BB6E30C0037AA74 /* ContentView.swift in Sources */,
 				148081E52BBD700100A9A33F /* DriverRowViewModel.swift in Sources */,
@@ -292,6 +299,7 @@
 				142C98782BB74225009D1D35 /* APIDrivers.swift in Sources */,
 				14920FF02BBE9CEC00359497 /* LargeProgressViewModifier.swift in Sources */,
 				148081E72BBD795200A9A33F /* WikipediaAPI.swift in Sources */,
+				14920FF22BBEA65D00359497 /* ConstructorModel.swift in Sources */,
 				140A09842BB6E30C0037AA74 /* F1StatsApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

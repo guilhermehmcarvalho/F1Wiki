@@ -10,15 +10,17 @@ import SwiftUI
 import Combine
 
 class DriverRowViewModel: ExpandableRowViewModel, ObservableObject {
-  let driver: DriverModel
-  let wikipediaApi: WikipediaAPIProtocol
+  private let driver: DriverModel
+  private let wikipediaApi: WikipediaAPIProtocol
+  private var driverApi: APIDriversProtocol
   @Published var expandedView: AnyView = AnyView(Group{})
   @Published var wikipediaData: WikipediaSummaryModel?
   private var cancellable: AnyCancellable?
 
-  init(driver: DriverModel, wikipediaApi: WikipediaAPIProtocol) {
+  init(driver: DriverModel, wikipediaApi: WikipediaAPIProtocol, driverApi: APIDriversProtocol) {
     self.driver = driver
     self.wikipediaApi = wikipediaApi
+    self.driverApi = driverApi
   }
 
   var mainView: AnyView {
@@ -51,23 +53,27 @@ class DriverRowViewModel: ExpandableRowViewModel, ObservableObject {
   private func setExpandedView() {
     if let wikipediaData = wikipediaData {
       expandedView = AnyView(
-        WikipediaView(
-          wikipediaViewModel: WikipediaViewModel(fromSummary: wikipediaData)
-        )
-        .padding(.all(16))
+        VStack {
+          WikipediaView(
+            wikipediaViewModel: WikipediaViewModel(fromSummary: wikipediaData)
+          )
+          .padding(.all(16))
+
+          ExpandableRow(
+            viewModel: DriverStandingsRowViewModel(driver: driver,
+                                                               driverApi: driverApi)
+          )
+          .padding(.vertical(8))
+        }
       )
     }
     else {
       expandedView = AnyView(
-        loadingView
+        ProgressView()
+          .padding(.all(16))
+          .tint(.F1Stats.systemLight)
       )
     }
-  }
-
-  private var loadingView: some View {
-    ProgressView()
-      .padding(.all(16))
-      .tint(.F1Stats.systemLight)
   }
 
   private func requestSummary() {
@@ -85,5 +91,6 @@ class DriverRowViewModel: ExpandableRowViewModel, ObservableObject {
 
 extension DriverRowViewModel {
   static var stub = DriverRowViewModel(driver: DriverModel.stub, 
-                                       wikipediaApi: WikipediaAPIStub())
+                                       wikipediaApi: WikipediaAPIStub(),
+  driverApi: APIDriversStub())
 }

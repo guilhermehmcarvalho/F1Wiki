@@ -12,19 +12,21 @@ enum TypographyStyle {
   case small(color: Color = .F1Stats.systemLight)
   case body(color: Color = .F1Stats.systemLight)
   case heading(color: Color = .F1Stats.systemLight)
+  case subHeader(color: Color = .F1Stats.systemLight)
 
   public var size: CGFloat {
     switch self {
     case .small: return 15
     case .body: return 17
     case .heading: return 22
+    case .subHeader: return 20
     }
   }
 
   public var weight: Font.Weight {
     switch self {
     case .small, .body: return .regular
-    case .heading: return .bold
+    case .heading, .subHeader: return .bold
     }
   }
 }
@@ -48,7 +50,7 @@ struct BaseTypography: ViewModifier {
 extension View {
    func typography(type: TypographyStyle) -> some View {
        switch type {
-          case .small(let color), .body(let color), .heading(let color):
+       case .small(let color), .body(let color), .heading(let color),.subHeader(let color):
               return self.modifier(BaseTypography(type: type, color: color))
       }
    }

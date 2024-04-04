@@ -14,8 +14,7 @@ struct DriversView: View {
     ZStack {
       List {
         ForEach(viewModel.driverList) { driver in
-          ExpandableRow(viewModel: DriverRowViewModel(driver: driver, wikipediaApi: viewModel.wikipediaAPI)
-          )
+          ExpandableRow(viewModel: viewModel.driverRoleViewModel(for: driver))
           .padding(.vertical(4))
           .onAppear() {
             viewModel.onItemDisplayed(currentItem: driver)

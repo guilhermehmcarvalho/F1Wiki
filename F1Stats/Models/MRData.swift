@@ -10,7 +10,7 @@ import Foundation
 /// The base node for all API responses
 /// It always contains a table as the main element
 /// Since this table  will vary it's type and name
-/// we use a generics for it's type and get the name for decoding based on this type as well
+/// we use a generics for it's type and get the key for decoding based on this type as well
 struct MRData<T: Decodable>: Decodable {
   let table: T
   let series: String
