@@ -22,10 +22,34 @@ struct WikipediaView: View {
       else if let summaryModel = viewModel.summaryModel {
         VStack(spacing: 0) {
           if let thumbURL = summaryModel.thumbnail?.source, let imageURL = URL(string: thumbURL) {
-            withAnimation(.default) {
-              CachedAsyncImage(url: imageURL)
-                .transition(.opacity.animation(.default))
-            }
+            AsyncImage(
+                    url: imageURL,
+                    transaction: Transaction(
+                        animation: .spring(
+                          response: 0.5,
+                            dampingFraction: 0.65,
+                            blendDuration: 0.025)
+                    )
+                ){ phase in
+                    switch phase {
+                        case .success(let image):
+                            image
+                                .resizable()
+                                .scaledToFit()
+                                .transition(.scale)
+
+                        case .failure(_):
+                            Image(systemName:  "ant.circle.fill")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(maxWidth: 128)
+                                .foregroundColor(.teal)
+                                .opacity(0.6)
+
+                        default:
+                            ProgressView()
+                    }
+                }
           }
           Text(summaryModel.title)
             .typography(type: .heading())
@@ -35,6 +59,7 @@ struct WikipediaView: View {
           Text(summaryModel.extract)
             .multilineTextAlignment(.center)
             .typography(type: .body())
+            .padding(.horizontal(16))
         }
       }
     }

@@ -35,6 +35,7 @@ struct CustomDisclosureGroupStyle: DisclosureGroupStyle {
       configuration.content
         .frame(maxWidth: .infinity)
         .disclosureGroupStyle(self)
+
     }
   }
 }
