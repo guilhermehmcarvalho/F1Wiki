@@ -10,28 +10,33 @@ import SwiftUI
 import CachedAsyncImage
 
 struct WikipediaView: View {
-  @ObservedObject var wikipediaViewModel: WikipediaViewModel
+  @ObservedObject var viewModel: WikipediaViewModel
 
   var body: some View {
-    return VStack(spacing: 0) {
-      if let thumbURL = wikipediaViewModel.thumbURL, let imageURL = URL(string: thumbURL) {
-        withAnimation(.default) {
-          CachedAsyncImage(url: imageURL)
-            .transition(.opacity.animation(.default))
+    VStack {
+      if viewModel.fetchStatus == .ongoing {
+        ProgressView()
+          .padding(.all(16))
+          .tint(.F1Stats.systemLight)
+      }
+      else if let summaryModel = viewModel.summaryModel {
+        VStack(spacing: 0) {
+          if let thumbURL = summaryModel.thumbnail?.source, let imageURL = URL(string: thumbURL) {
+            withAnimation(.default) {
+              CachedAsyncImage(url: imageURL)
+                .transition(.opacity.animation(.default))
+            }
+          }
+          Text(summaryModel.title)
+            .typography(type: .heading())
+            .textCase(.uppercase)
+            .lineLimit(/*@START_MENU_TOKEN@*/2/*@END_MENU_TOKEN@*/)
+            .padding(EdgeInsets(top: 32, leading: 8, bottom: 24, trailing: 8))
+          Text(summaryModel.extract)
+            .multilineTextAlignment(.center)
+            .typography(type: .body())
         }
       }
-      Text(wikipediaViewModel.title)
-        .typography(type: .heading())
-        .textCase(.uppercase)
-        .lineLimit(/*@START_MENU_TOKEN@*/2/*@END_MENU_TOKEN@*/)
-        .padding(EdgeInsets(top: 32, leading: 8, bottom: 24, trailing: 8))
-      Text(wikipediaViewModel.summary)
-        .multilineTextAlignment(.center)
-        .typography(type: .body())
     }
   }
-}
-
-#Preview {
-  WikipediaView(wikipediaViewModel: WikipediaViewModel.stub)
 }

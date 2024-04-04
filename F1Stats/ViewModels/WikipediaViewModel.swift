@@ -7,27 +7,38 @@
 
 import Foundation
 import SwiftUI
+import Combine
 
 class WikipediaViewModel: ObservableObject {
-  let title: String
-  let summary: String
-  var thumbURL: String?
 
-  init(title: String, summary: String, thumbURL: String?) {
-    self.title = title
-    self.summary = summary
-    self.thumbURL = thumbURL
+  private let wikipediaApi: WikipediaAPIProtocol
+  @Published var summaryModel: WikipediaSummaryModel?
+  private(set) var fetchStatusSubject = PassthroughSubject<FetchStatus, Never>()
+  @Published var fetchStatus: FetchStatus = .ready
+  final let url: String
+  private var cancellable: AnyCancellable?
+
+  init(url: String, wikipediaApi: WikipediaAPIProtocol) {
+    self.url = url
+    self.wikipediaApi = wikipediaApi
+    fetchStatusSubject
+      .receive(on: DispatchQueue.main)
+      .assign(to: &$fetchStatus)
   }
 
-  init(fromSummary summary: WikipediaSummaryModel) {
-    self.title = summary.title
-    self.summary = summary.extract
-    self.thumbURL = summary.thumbnail?.source
+  internal func fetchSummary() -> Void {
+    guard summaryModel == nil else { return }
+    cancellable = wikipediaApi.getSummaryFor(url: url)
+      .observeFetchStatus(with: fetchStatusSubject)
+      .receive(on: DispatchQueue.main)
+      .sink { status in
+        switch status {
+        case .finished: break
+        case .failure(let error):
+          print(error)
+        }
+      } receiveValue: { [weak self] response in
+        self?.summaryModel = response
+      }
   }
-}
-
-extension WikipediaViewModel {
-  static var stub = WikipediaViewModel(title: "Wikipedia article",
-                                       summary: "Summary of wikipedia article",
-                                       thumbURL: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Ayrton_Senna_8_%28cropped%29.jpg")
 }

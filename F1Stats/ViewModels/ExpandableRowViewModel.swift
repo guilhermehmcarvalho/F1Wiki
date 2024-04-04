@@ -8,8 +8,11 @@
 import Foundation
 import SwiftUI
 
-protocol ExpandableRowViewModel: ObservableObject {
-  var mainView: AnyView { get }
-  var expandedView: AnyView { get set }
+protocol ExpandableRowView : View {
+  var expandedView: AnyView { get }
+  var viewModel: any ExpandableRowViewModel { get set }
+}
+
+protocol ExpandableRowViewModel : ObservableObject {
   func onTap(isExpanded: Bool) -> ()
 }

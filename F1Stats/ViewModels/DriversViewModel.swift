@@ -14,7 +14,9 @@ class DriversViewModel: ObservableObject {
   private var driverApi: APIDriversProtocol
   private let wikipediaAPI: WikipediaAPIProtocol
 
+  private(set) var fetchStatusSubject = PassthroughSubject<FetchStatus, Never>()
   @Published var fetchStatus: FetchStatus = .ready
+
   @Published var driverList: [DriverModel] = []
   
   private var cancellable: AnyCancellable?
@@ -26,30 +28,14 @@ class DriversViewModel: ObservableObject {
   init(driverApi: APIDriversProtocol, wikipediaAPI: WikipediaAPIProtocol) {
     self.driverApi = driverApi
     self.wikipediaAPI = wikipediaAPI
+    fetchStatusSubject
+      .receive(on: DispatchQueue.main)
+      .assign(to: &$fetchStatus)
   }
   
   func fetchDrivers() {
     cancellable = driverApi.listOfAllDrivers(limit: itemsPerPage, offset: offset)
-      .handleEvents(receiveSubscription: { [weak self] _ in
-        DispatchQueue.main.async {
-          self?.fetchStatus = .ongoing
-        }
-      }, receiveCompletion: { [weak self] completion in
-        switch completion {
-        case .finished:
-          DispatchQueue.main.async {
-            self?.fetchStatus = .finished
-          }
-        case .failure:
-          DispatchQueue.main.async {
-            self?.fetchStatus = .ready
-          }
-        }
-      }, receiveCancel: { [weak self] in
-        DispatchQueue.main.async {
-          self?.fetchStatus = .ready
-        }
-      })
+      .observeFetchStatus(with: fetchStatusSubject)
       .receive(on: DispatchQueue.main)
       .sink { status in
         switch status {
@@ -81,9 +67,5 @@ class DriversViewModel: ObservableObject {
     if item.driverId == paginationThresholdId, driverList.count < totalDrivers {
       fetchDrivers()
     }
-  }
-
-  func updateFetchStatus() {
-
   }
 }

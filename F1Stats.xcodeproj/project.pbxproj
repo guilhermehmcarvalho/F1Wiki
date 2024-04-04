@@ -36,6 +36,7 @@
 		14920FFD2BBEBA5600359497 /* WikipediaAPIStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14920FFC2BBEBA5600359497 /* WikipediaAPIStub.swift */; };
 		149210002BBEBC3F00359497 /* driverStandings.json in Resources */ = {isa = PBXBuildFile; fileRef = 14920FFF2BBEBC3F00359497 /* driverStandings.json */; };
 		149210022BBEBF2100359497 /* driverList.json in Resources */ = {isa = PBXBuildFile; fileRef = 149210012BBEBF2100359497 /* driverList.json */; };
+		149210042BBEDA1D00359497 /* DriverRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149210032BBEDA1D00359497 /* DriverRowView.swift */; };
 		14B80FFE2BBA86F8006D678E /* DriversView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B80FFD2BBA86F8006D678E /* DriversView.swift */; };
 		14D79CB42BB8710F006240F0 /* MRData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D79CB32BB8710F006240F0 /* MRData.swift */; };
 		14D79CB62BB88C92006240F0 /* Extensions+Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D79CB52BB88C92006240F0 /* Extensions+Publisher.swift */; };
@@ -72,6 +73,7 @@
 		14920FFC2BBEBA5600359497 /* WikipediaAPIStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikipediaAPIStub.swift; sourceTree = "<group>"; };
 		14920FFF2BBEBC3F00359497 /* driverStandings.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = driverStandings.json; sourceTree = "<group>"; };
 		149210012BBEBF2100359497 /* driverList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = driverList.json; sourceTree = "<group>"; };
+		149210032BBEDA1D00359497 /* DriverRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverRowView.swift; sourceTree = "<group>"; };
 		14B80FFD2BBA86F8006D678E /* DriversView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriversView.swift; sourceTree = "<group>"; };
 		14D79CB32BB8710F006240F0 /* MRData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRData.swift; sourceTree = "<group>"; };
 		14D79CB52BB88C92006240F0 /* Extensions+Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+Publisher.swift"; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				14B80FFD2BBA86F8006D678E /* DriversView.swift */,
 				148081E02BBD60E300A9A33F /* ExpandableRow.swift */,
 				148081EA2BBD85BB00A9A33F /* WikipediaView.swift */,
+				149210032BBEDA1D00359497 /* DriverRowView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 				148081EB2BBD85BB00A9A33F /* WikipediaView.swift in Sources */,
 				140A09862BB6E30C0037AA74 /* ContentView.swift in Sources */,
 				148081E52BBD700100A9A33F /* DriverRowViewModel.swift in Sources */,
+				149210042BBEDA1D00359497 /* DriverRowView.swift in Sources */,
 				148081E12BBD60E300A9A33F /* ExpandableRow.swift in Sources */,
 				142632402BBC80BD00A0A68A /* DesignLanguageSystem.swift in Sources */,
 				14D79CB42BB8710F006240F0 /* MRData.swift in Sources */,

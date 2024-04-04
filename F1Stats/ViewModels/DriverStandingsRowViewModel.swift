@@ -14,13 +14,17 @@ class DriverStandingsRowViewModel: ExpandableRowViewModel, ObservableObject {
   private var driverApi: APIDriversProtocol
   private let driver: DriverModel
   @Published var standingLists: [StandingsList]?
-  @Published var expandedView: AnyView = AnyView(Group{})
+  private(set) var fetchStatusSubject = PassthroughSubject<FetchStatus, Never>()
+  @Published var fetchStatus: FetchStatus = .ready
 
   private var cancellable: AnyCancellable?
 
   init(driver: DriverModel, driverApi: APIDriversProtocol) {
     self.driver = driver
     self.driverApi = driverApi
+    fetchStatusSubject
+      .receive(on: DispatchQueue.main)
+      .assign(to: &$fetchStatus)
   }
 
   var mainView: AnyView {
@@ -30,29 +34,10 @@ class DriverStandingsRowViewModel: ExpandableRowViewModel, ObservableObject {
     )
   }
 
-  func onTap(isExpanded: Bool) {
-    if isExpanded, standingLists == nil {
-      requestStandings()
-    }
-
-    setExpandedView()
-  }
-
-  private func requestStandings() {
-    cancellable = driverApi.listOfDriverStandings(driverId: driver.driverId)
-      .receive(on: DispatchQueue.main)
-      .sink { error in
-        print(error)
-      } receiveValue: { [weak self] response in
-        self?.standingLists = response.table.standingsLists
-        self?.setExpandedView()
-      }
-  }
-
-  private func setExpandedView() {
-    if let standingLists = standingLists {
-      expandedView = AnyView(
-        VStack {
+  var expandedView: AnyView {
+    AnyView(
+      VStack {
+        if let standingLists = standingLists {
           ForEach(standingLists, id: \.season) { season in
             if let standing = season.driverStandings.first {
               HStack {
@@ -72,17 +57,34 @@ class DriverStandingsRowViewModel: ExpandableRowViewModel, ObservableObject {
             }
           }
         }
-      )
-    }
-    else {
-      expandedView = AnyView(
-        ProgressView()
-          .padding(.all(16))
-          .tint(.F1Stats.systemLight)
-        )
+
+        if (fetchStatus == .ongoing) {
+          AnyView(
+            ProgressView()
+              .padding(.all(16))
+              .tint(.F1Stats.systemLight)
+          )
+        }
+      }
+    )
+  }
+
+  func onTap(isExpanded: Bool) {
+    if isExpanded, standingLists == nil {
+      requestStandings()
     }
   }
 
+  private func requestStandings() {
+    cancellable = driverApi.listOfDriverStandings(driverId: driver.driverId)
+      .observeFetchStatus(with: fetchStatusSubject)
+      .receive(on: DispatchQueue.main)
+      .sink { error in
+        print(error)
+      } receiveValue: { [weak self] response in
+        self?.standingLists = response.table.standingsLists
+      }
+  }
 }
 
 extension DriverStanding {

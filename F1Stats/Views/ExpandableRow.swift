@@ -61,7 +61,3 @@ struct CustomDisclosureGroupStyle<Label: View>: DisclosureGroupStyle {
     }
   }
 }
-
-#Preview {
-  ExpandableRow(viewModel: DriverRowViewModel.stub)
-}

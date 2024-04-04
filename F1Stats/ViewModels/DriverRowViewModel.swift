@@ -11,16 +11,15 @@ import Combine
 
 class DriverRowViewModel: ExpandableRowViewModel, ObservableObject {
   private let driver: DriverModel
-  private let wikipediaApi: WikipediaAPIProtocol
   private var driverApi: APIDriversProtocol
-  @Published var expandedView: AnyView = AnyView(Group{})
-  @Published var wikipediaData: WikipediaSummaryModel?
-  private var cancellable: AnyCancellable?
+  private var wikipediaViewModel: WikipediaViewModel
+  private var driverStandingsViewModel: DriverStandingsRowViewModel
 
   init(driver: DriverModel, wikipediaApi: WikipediaAPIProtocol, driverApi: APIDriversProtocol) {
     self.driver = driver
-    self.wikipediaApi = wikipediaApi
     self.driverApi = driverApi
+    self.wikipediaViewModel = WikipediaViewModel(url: driver.url, wikipediaApi: wikipediaApi)
+    self.driverStandingsViewModel = DriverStandingsRowViewModel(driver: driver, driverApi: driverApi)
   }
 
   var mainView: AnyView {
@@ -42,55 +41,18 @@ class DriverRowViewModel: ExpandableRowViewModel, ObservableObject {
     )
   }
 
-  internal func onTap(isExpanded: Bool) {
-    if isExpanded, wikipediaData == nil {
-      requestSummary()
-    }
-
-    setExpandedView()
-  }
-
-  private func setExpandedView() {
-    if let wikipediaData = wikipediaData {
-      expandedView = AnyView(
-        VStack {
-          WikipediaView(
-            wikipediaViewModel: WikipediaViewModel(fromSummary: wikipediaData)
-          )
-          .padding(.all(16))
-
-          ExpandableRow(
-            viewModel: DriverStandingsRowViewModel(driver: driver,
-                                                               driverApi: driverApi)
-          )
-          .padding(.vertical(8))
-        }
-      )
-    }
-    else {
-      expandedView = AnyView(
-        ProgressView()
-          .padding(.all(16))
-          .tint(.F1Stats.systemLight)
-      )
-    }
-  }
-
-  private func requestSummary() {
-    cancellable = wikipediaApi.getSummaryFor(url: driver.url)
-      .receive(on: DispatchQueue.main)
-      .sink { error in
-        print(error)
-      } receiveValue: { [weak self] response in
-        self?.wikipediaData = response
-        self?.setExpandedView()
+  var expandedView: AnyView {
+    AnyView (
+      VStack {
+        WikipediaView(viewModel: wikipediaViewModel)
+        ExpandableRow(viewModel: driverStandingsViewModel)
       }
+    )
   }
 
-}
-
-extension DriverRowViewModel {
-  static var stub = DriverRowViewModel(driver: DriverModel.stub, 
-                                       wikipediaApi: WikipediaAPIStub(),
-  driverApi: APIDriversStub())
+  internal func onTap(isExpanded: Bool) {
+    if isExpanded {
+      wikipediaViewModel.fetchSummary()
+    }
+  }
 }

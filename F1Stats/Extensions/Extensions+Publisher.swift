@@ -45,3 +45,18 @@ extension Publisher {
     })
   }
 }
+
+extension Publisher {
+  func observeFetchStatus<S: Subject>(with booleanSubject: S) -> Publishers.HandleEvents<Self> where S.Output == Bool, S.Failure == Never {
+    return handleEvents(receiveSubscription: { _ in
+      // When fetching:
+      booleanSubject.send(true)
+    }, receiveCompletion: { _ in
+      // When finish successfully or with error:
+      booleanSubject.send(false)
+    }, receiveCancel: {
+      // When being cancelled:
+      booleanSubject.send(false)
+    })
+  }
+}
