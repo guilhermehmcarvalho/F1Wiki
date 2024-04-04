@@ -1,0 +1,40 @@
+//
+//  CustomDisclosureGroupStyle.swift
+//  F1Stats
+//
+//  Created by Guilherme Carvalho on 04/04/2024.
+//
+
+import Foundation
+import SwiftUI
+
+struct CustomDisclosureGroupStyle<Label: View>: DisclosureGroupStyle {
+  let button: Label
+  let onTap: ((Bool) -> ())?
+
+  func makeBody(configuration: Configuration) -> some View {
+    HStack(alignment: .center, spacing: 0) {
+      configuration.label
+      Spacer()
+      button
+        .rotationEffect(.degrees(configuration.isExpanded ? 90 : 0))
+    }
+    .padding(.horizontal(16))
+    .frame(maxWidth: .infinity)
+    .listRowSeparator(configuration.isExpanded ? .hidden : .automatic)
+    .listRowSeparatorTint(.F1Stats.systemLight)
+    .contentShape(Rectangle())
+    .onTapGesture {
+      withAnimation {
+        configuration.isExpanded.toggle()
+      }
+      onTap?(configuration.isExpanded)
+    }
+
+    if configuration.isExpanded {
+      configuration.content
+        .frame(maxWidth: .infinity)
+        .disclosureGroupStyle(self)
+    }
+  }
+}

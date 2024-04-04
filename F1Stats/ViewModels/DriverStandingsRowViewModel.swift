@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 import Combine
 
-class DriverStandingsRowViewModel: ExpandableRowViewModel, ObservableObject {
+class DriverStandingsRowViewModel: ObservableObject {
   
   private var driverApi: APIDriversProtocol
   private let driver: DriverModel
@@ -25,48 +25,6 @@ class DriverStandingsRowViewModel: ExpandableRowViewModel, ObservableObject {
     fetchStatusSubject
       .receive(on: DispatchQueue.main)
       .assign(to: &$fetchStatus)
-  }
-
-  var mainView: AnyView {
-    AnyView(
-      Text("Standings")
-        .typography(type: .subHeader())
-    )
-  }
-
-  var expandedView: AnyView {
-    AnyView(
-      VStack {
-        if let standingLists = standingLists {
-          ForEach(standingLists, id: \.season) { season in
-            if let standing = season.driverStandings.first {
-              HStack {
-                Text(standing.position)
-                  .typography(type: .body())
-                  .frame(width: 30)
-                Spacer()
-                Text(standing.constructorsAppended)
-                  .typography(type: .body())
-                Spacer()
-                Text(season.season)
-                  .typography(type: .body())
-
-              }
-              .padding(.horizontal(8))
-              .padding(.vertical(2))
-            }
-          }
-        }
-
-        if (fetchStatus == .ongoing) {
-          AnyView(
-            ProgressView()
-              .padding(.all(16))
-              .tint(.F1Stats.systemLight)
-          )
-        }
-      }
-    )
   }
 
   func onTap(isExpanded: Bool) {
