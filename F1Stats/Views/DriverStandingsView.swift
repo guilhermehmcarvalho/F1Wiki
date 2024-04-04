@@ -13,7 +13,7 @@ struct DriverStandingsView: View {
   init(viewModel: DriverStandingsRowViewModel) {
     self.viewModel = viewModel
   }
-  
+
   var body: some View {
     DisclosureGroup(
       content: {
@@ -24,7 +24,7 @@ struct DriverStandingsView: View {
                 HStack {
                   Text(standing.position)
                     .typography(type: .body())
-                    .frame(width: 30)
+                    .frame(width: 40)
                   Spacer()
                   Text(standing.constructorsAppended)
                     .typography(type: .body())
@@ -56,9 +56,7 @@ struct DriverStandingsView: View {
     )
     .listRowInsets(.all(0))
     .disclosureGroupStyle(
-      CustomDisclosureGroupStyle(button: Image(systemName: "chevron.right")
-        .foregroundColor(.F1Stats.systemLight),
-                                 onTap: viewModel.onTap(isExpanded:))
+      CustomDisclosureGroupStyle(onTap: viewModel.onTap(isExpanded:))
     )
     .listRowBackground(
       Color.F1Stats.systemDarkSecondary

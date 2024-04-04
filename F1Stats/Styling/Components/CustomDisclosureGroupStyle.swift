@@ -8,15 +8,15 @@
 import Foundation
 import SwiftUI
 
-struct CustomDisclosureGroupStyle<Label: View>: DisclosureGroupStyle {
-  let button: Label
+struct CustomDisclosureGroupStyle: DisclosureGroupStyle {
   let onTap: ((Bool) -> ())?
 
   func makeBody(configuration: Configuration) -> some View {
     HStack(alignment: .center, spacing: 0) {
       configuration.label
       Spacer()
-      button
+      Image(systemName: "chevron.right")
+        .foregroundColor(.F1Stats.systemLight)
         .rotationEffect(.degrees(configuration.isExpanded ? 90 : 0))
     }
     .padding(.horizontal(16))
