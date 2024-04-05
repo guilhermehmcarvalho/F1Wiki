@@ -29,11 +29,11 @@ class DriverStandingsRowViewModel: ObservableObject {
 
   func onTap(isExpanded: Bool) {
     if isExpanded, standingLists == nil {
-      requestStandings()
+      fetchStandings()
     }
   }
 
-  private func requestStandings() {
+  internal func fetchStandings() {
     cancellable = driverApi.listOfDriverStandings(driverId: driver.driverId)
       .observeFetchStatus(with: fetchStatusSubject)
       .receive(on: DispatchQueue.main)

@@ -36,10 +36,23 @@
 		149210042BBEDA1D00359497 /* DriverRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149210032BBEDA1D00359497 /* DriverRowView.swift */; };
 		149210062BBEE03C00359497 /* DriverStandingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149210052BBEE03C00359497 /* DriverStandingsView.swift */; };
 		1492100A2BBF0CEF00359497 /* CustomDisclosureGroupStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149210092BBF0CEF00359497 /* CustomDisclosureGroupStyle.swift */; };
+		149210192BBFF25F00359497 /* DriversViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149210182BBFF25F00359497 /* DriversViewModelTests.swift */; };
+		1492101E2BBFFD8B00359497 /* WikipediaViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1492101D2BBFFD8B00359497 /* WikipediaViewModelTest.swift */; };
+		149210202BC0010800359497 /* DriverStandingsRowViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1492101F2BC0010800359497 /* DriverStandingsRowViewModelTest.swift */; };
 		14B80FFE2BBA86F8006D678E /* DriversView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B80FFD2BBA86F8006D678E /* DriversView.swift */; };
 		14D79CB42BB8710F006240F0 /* MRData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D79CB32BB8710F006240F0 /* MRData.swift */; };
 		14D79CB62BB88C92006240F0 /* Extensions+Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D79CB52BB88C92006240F0 /* Extensions+Publisher.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		149210132BBFD56300359497 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 140A09782BB6E30C0037AA74 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 140A097F2BB6E30C0037AA74;
+			remoteInfo = F1Stats;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		140A09802BB6E30C0037AA74 /* F1Stats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = F1Stats.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,6 +86,10 @@
 		149210032BBEDA1D00359497 /* DriverRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverRowView.swift; sourceTree = "<group>"; };
 		149210052BBEE03C00359497 /* DriverStandingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverStandingsView.swift; sourceTree = "<group>"; };
 		149210092BBF0CEF00359497 /* CustomDisclosureGroupStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDisclosureGroupStyle.swift; sourceTree = "<group>"; };
+		1492100F2BBFD56300359497 /* F1StatsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = F1StatsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		149210182BBFF25F00359497 /* DriversViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriversViewModelTests.swift; sourceTree = "<group>"; };
+		1492101D2BBFFD8B00359497 /* WikipediaViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikipediaViewModelTest.swift; sourceTree = "<group>"; };
+		1492101F2BC0010800359497 /* DriverStandingsRowViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverStandingsRowViewModelTest.swift; sourceTree = "<group>"; };
 		14B80FFD2BBA86F8006D678E /* DriversView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriversView.swift; sourceTree = "<group>"; };
 		14D79CB32BB8710F006240F0 /* MRData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRData.swift; sourceTree = "<group>"; };
 		14D79CB52BB88C92006240F0 /* Extensions+Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+Publisher.swift"; sourceTree = "<group>"; };
@@ -86,6 +103,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1492100C2BBFD56300359497 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -93,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				140A09822BB6E30C0037AA74 /* F1Stats */,
+				149210102BBFD56300359497 /* F1StatsTests */,
 				140A09812BB6E30C0037AA74 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -101,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				140A09802BB6E30C0037AA74 /* F1Stats.app */,
+				1492100F2BBFD56300359497 /* F1StatsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -223,6 +249,24 @@
 			path = jsons;
 			sourceTree = "<group>";
 		};
+		149210102BBFD56300359497 /* F1StatsTests */ = {
+			isa = PBXGroup;
+			children = (
+				1492101A2BBFFD4B00359497 /* ViewModelTests */,
+			);
+			path = F1StatsTests;
+			sourceTree = "<group>";
+		};
+		1492101A2BBFFD4B00359497 /* ViewModelTests */ = {
+			isa = PBXGroup;
+			children = (
+				149210182BBFF25F00359497 /* DriversViewModelTests.swift */,
+				1492101D2BBFFD8B00359497 /* WikipediaViewModelTest.swift */,
+				1492101F2BC0010800359497 /* DriverStandingsRowViewModelTest.swift */,
+			);
+			path = ViewModelTests;
+			sourceTree = "<group>";
+		};
 		14D79CB72BB88CA3006240F0 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -255,6 +299,24 @@
 			productReference = 140A09802BB6E30C0037AA74 /* F1Stats.app */;
 			productType = "com.apple.product-type.application";
 		};
+		1492100E2BBFD56300359497 /* F1StatsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 149210172BBFD56300359497 /* Build configuration list for PBXNativeTarget "F1StatsTests" */;
+			buildPhases = (
+				1492100B2BBFD56300359497 /* Sources */,
+				1492100C2BBFD56300359497 /* Frameworks */,
+				1492100D2BBFD56300359497 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				149210142BBFD56300359497 /* PBXTargetDependency */,
+			);
+			name = F1StatsTests;
+			productName = F1StatsTests;
+			productReference = 1492100F2BBFD56300359497 /* F1StatsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -267,6 +329,10 @@
 				TargetAttributes = {
 					140A097F2BB6E30C0037AA74 = {
 						CreatedOnToolsVersion = 15.3;
+					};
+					1492100E2BBFD56300359497 = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = 140A097F2BB6E30C0037AA74;
 					};
 				};
 			};
@@ -286,6 +352,7 @@
 			projectRoot = "";
 			targets = (
 				140A097F2BB6E30C0037AA74 /* F1Stats */,
+				1492100E2BBFD56300359497 /* F1StatsTests */,
 			);
 		};
 /* End PBXProject section */
@@ -301,6 +368,13 @@
 				149210022BBEBF2100359497 /* driverList.json in Resources */,
 				14920FF82BBEB9F800359497 /* wikipediaSummary.json in Resources */,
 				148081DF2BBD33B200A9A33F /* NunitoSans-VariableFont.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1492100D2BBFD56300359497 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,7 +414,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1492100B2BBFD56300359497 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				149210192BBFF25F00359497 /* DriversViewModelTests.swift in Sources */,
+				1492101E2BBFFD8B00359497 /* WikipediaViewModelTest.swift in Sources */,
+				149210202BC0010800359497 /* DriverStandingsRowViewModelTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		149210142BBFD56300359497 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 140A097F2BB6E30C0037AA74 /* F1Stats */;
+			targetProxy = 149210132BBFD56300359497 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		140A098C2BB6E30D0037AA74 /* Debug */ = {
@@ -520,6 +612,40 @@
 			};
 			name = Release;
 		};
+		149210152BBFD56300359497 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gcarvalho.F1StatsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/F1Stats.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/F1Stats";
+			};
+			name = Debug;
+		};
+		149210162BBFD56300359497 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gcarvalho.F1StatsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/F1Stats.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/F1Stats";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -537,6 +663,15 @@
 			buildConfigurations = (
 				140A098F2BB6E30D0037AA74 /* Debug */,
 				140A09902BB6E30D0037AA74 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		149210172BBFD56300359497 /* Build configuration list for PBXNativeTarget "F1StatsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				149210152BBFD56300359497 /* Debug */,
+				149210162BBFD56300359497 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -9,6 +9,13 @@ import Foundation
 import Combine
 
 class WikipediaAPIStub: WikipediaAPIProtocol {
+  
+  let delay: Double
+
+  init(delay: Double = 0) {
+    self.delay = delay
+  }
+
   func getSummaryFor(url: String) -> AnyPublisher<WikipediaSummaryModel, any Error> {
     let decoder = JSONDecoder()
     decoder.keyDecodingStrategy = .convertFromSnakeCase
@@ -21,7 +28,7 @@ class WikipediaAPIStub: WikipediaAPIProtocol {
       let jsonData = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
       let model = try decoder.decode(WikipediaSummaryModel.self, from: jsonData)
       return Just(model)
-        .delay(for: .seconds(1), scheduler: RunLoop.main)
+        .delay(for: .seconds(delay), scheduler: RunLoop.main)
         .setFailureType(to: Error.self)
         .eraseToAnyPublisher()
 

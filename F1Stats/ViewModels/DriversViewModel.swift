@@ -15,8 +15,8 @@ class DriversViewModel: ObservableObject {
   private let wikipediaAPI: WikipediaAPIProtocol
 
   private(set) var fetchStatusSubject = PassthroughSubject<FetchStatus, Never>()
+  
   @Published var fetchStatus: FetchStatus = .ready
-
   @Published var driverList: [DriverModel] = []
   
   private var cancellable: AnyCancellable?

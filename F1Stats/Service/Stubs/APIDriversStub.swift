@@ -9,6 +9,13 @@ import Foundation
 import Combine
 
 class APIDriversStub: APIDriversProtocol {
+
+  let delay: Double
+
+  init(delay: Double = 0) {
+    self.delay = delay
+  }
+
   func listOfAllDrivers(limit: Int = 30, offset: Int = 0) -> AnyPublisher<MRData<DriverTable>, any Error> {
     guard let path = Bundle.main.path(forResource: "driverList", ofType: "json") else {
       return Empty().eraseToAnyPublisher()
@@ -18,7 +25,7 @@ class APIDriversStub: APIDriversProtocol {
       let jsonData = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
       let model = try JSONDecoder().decode(MRData<DriverTable>.self, from: jsonData)
       return Just(model)
-        .delay(for: .seconds(1), scheduler: RunLoop.main)
+        .delay(for: .seconds(delay), scheduler: RunLoop.main)
         .setFailureType(to: Error.self)
         .eraseToAnyPublisher()
 
@@ -38,7 +45,7 @@ class APIDriversStub: APIDriversProtocol {
       let jsonData = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
       let model = try JSONDecoder().decode(MRData<StandingsTable>.self, from: jsonData)
       return Just(model)
-        .delay(for: .seconds(1), scheduler: RunLoop.main)
+        .delay(for: .seconds(delay), scheduler: RunLoop.main)
         .setFailureType(to: Error.self)
         .eraseToAnyPublisher()
       
