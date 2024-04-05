@@ -50,11 +50,14 @@ struct WikipediaView: View {
                             ProgressView()
                     }
                 }
+                .padding(.top)
+                .padding(.horizontal)
           }
           Text(summaryModel.title)
             .typography(type: .heading())
             .textCase(.uppercase)
-            .lineLimit(/*@START_MENU_TOKEN@*/2/*@END_MENU_TOKEN@*/)
+            .lineLimit(nil)
+            .multilineTextAlignment(.center)
             .padding(EdgeInsets(top: 32, leading: 8, bottom: 24, trailing: 8))
           Text(summaryModel.extract)
             .multilineTextAlignment(.center)

@@ -9,18 +9,18 @@ import SwiftUI
 
 struct ConstructorsView: View {
   @ObservedObject var viewModel: ConstructorsViewModel
-
+  
   var body: some View {
     ZStack {
       List {
         ForEach(viewModel.constructorsList) { constructor in
-          Text(constructor.name)
+          ConstructorRowView(viewModel: viewModel.viewModel(for: constructor))
             .padding(.vertical(4))
             .onAppear() {
               viewModel.onItemDisplayed(currentItem: constructor)
             }
         }
-
+        
         if viewModel.fetchStatus == .ongoing, !viewModel.constructorsList.isEmpty {
           ProgressView()
             .modifier(LargeProgressView())
@@ -35,7 +35,7 @@ struct ConstructorsView: View {
       .onAppear(perform: {
         viewModel.fetchDrivers()
       })
-
+      
       if viewModel.fetchStatus == .ongoing, viewModel.constructorsList.isEmpty {
         ProgressView()
           .modifier(LargeProgressView())

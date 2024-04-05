@@ -62,4 +62,10 @@ class ConstructorsViewModel: ObservableObject {
       fetchDrivers()
     }
   }
+
+  func viewModel(for constructor: ConstructorModel) -> ConstructorRowViewModel {
+    ConstructorRowViewModel(constructor: constructor,
+                            wikipediaApi: wikipediaAPI,
+                            apiConstructor: apiConstructors)
+  }
 }
