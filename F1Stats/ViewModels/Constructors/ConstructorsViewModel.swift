@@ -32,7 +32,7 @@ class ConstructorsViewModel: ObservableObject {
       .assign(to: &$fetchStatus)
   }
 
-  func fetchDrivers() {
+  func fetchConstructors() {
     cancellable = apiConstructors.listOfAllConstructors(limit: itemsPerPage, offset: offset)
       .observeFetchStatus(with: fetchStatusSubject)
       .receive(on: DispatchQueue.main)
@@ -59,7 +59,7 @@ class ConstructorsViewModel: ObservableObject {
   //MARK: - PAGINATION
   func onItemDisplayed(currentItem item: ConstructorModel){
     if item.constructorID == paginationThresholdId, constructorsList.count < totalConstructors {
-      fetchDrivers()
+      fetchConstructors()
     }
   }
 

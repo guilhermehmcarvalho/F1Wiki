@@ -33,7 +33,7 @@ struct ConstructorsView: View {
       .scrollContentBackground(.hidden)
       .navigationTitle("Constructors")
       .onAppear(perform: {
-        viewModel.fetchDrivers()
+        viewModel.fetchConstructors()
       })
       
       if viewModel.fetchStatus == .ongoing, viewModel.constructorsList.isEmpty {

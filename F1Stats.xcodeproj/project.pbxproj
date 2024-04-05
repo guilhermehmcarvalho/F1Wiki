@@ -52,6 +52,7 @@
 		1492103A2BC0319A00359497 /* ConstructorStandingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149210392BC0319A00359497 /* ConstructorStandingModel.swift */; };
 		1492103C2BC0332000359497 /* ConstructorStandingsViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1492103B2BC0332000359497 /* ConstructorStandingsViewModelTest.swift */; };
 		1492103E2BC0493300359497 /* StandingsTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1492103D2BC0493300359497 /* StandingsTable.swift */; };
+		149210402BC06BF600359497 /* ConstructorsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1492103F2BC06BF600359497 /* ConstructorsViewModelTests.swift */; };
 		14B80FFE2BBA86F8006D678E /* DriversView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B80FFD2BBA86F8006D678E /* DriversView.swift */; };
 		14D79CB42BB8710F006240F0 /* MRData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D79CB32BB8710F006240F0 /* MRData.swift */; };
 		14D79CB62BB88C92006240F0 /* Extensions+Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D79CB52BB88C92006240F0 /* Extensions+Publisher.swift */; };
@@ -116,6 +117,7 @@
 		149210392BC0319A00359497 /* ConstructorStandingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructorStandingModel.swift; sourceTree = "<group>"; };
 		1492103B2BC0332000359497 /* ConstructorStandingsViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructorStandingsViewModelTest.swift; sourceTree = "<group>"; };
 		1492103D2BC0493300359497 /* StandingsTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingsTable.swift; sourceTree = "<group>"; };
+		1492103F2BC06BF600359497 /* ConstructorsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructorsViewModelTests.swift; sourceTree = "<group>"; };
 		14B80FFD2BBA86F8006D678E /* DriversView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriversView.swift; sourceTree = "<group>"; };
 		14D79CB32BB8710F006240F0 /* MRData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRData.swift; sourceTree = "<group>"; };
 		14D79CB52BB88C92006240F0 /* Extensions+Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+Publisher.swift"; sourceTree = "<group>"; };
@@ -294,6 +296,7 @@
 				1492101D2BBFFD8B00359497 /* WikipediaViewModelTest.swift */,
 				1492101F2BC0010800359497 /* DriverStandingsRowViewModelTest.swift */,
 				1492103B2BC0332000359497 /* ConstructorStandingsViewModelTest.swift */,
+				1492103F2BC06BF600359497 /* ConstructorsViewModelTests.swift */,
 			);
 			path = ViewModelTests;
 			sourceTree = "<group>";
@@ -502,6 +505,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				149210192BBFF25F00359497 /* DriversViewModelTests.swift in Sources */,
+				149210402BC06BF600359497 /* ConstructorsViewModelTests.swift in Sources */,
 				1492101E2BBFFD8B00359497 /* WikipediaViewModelTest.swift in Sources */,
 				149210202BC0010800359497 /* DriverStandingsRowViewModelTest.swift in Sources */,
 				1492103C2BC0332000359497 /* ConstructorStandingsViewModelTest.swift in Sources */,
