@@ -33,4 +33,24 @@ class APIConstructorsStub: APIConstructorsProtocol {
       return Empty().eraseToAnyPublisher()
     }
   }
+
+  func listOfConstructorStandings(constructorId: String) -> AnyPublisher<MRData<StandingsTable>, any Error> {
+    guard let path = Bundle.main.path(forResource: "constructorStandings", ofType: "json") else {
+      return Empty().eraseToAnyPublisher()
+    }
+
+    do {
+      let jsonData = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+      let model = try JSONDecoder().decode(MRData<StandingsTable>.self, from: jsonData)
+      return Just(model)
+        .delay(for: .seconds(delay), scheduler: RunLoop.main)
+        .setFailureType(to: Error.self)
+        .eraseToAnyPublisher()
+
+    } catch let error {
+      print(error)
+      return Empty().eraseToAnyPublisher()
+    }
+  }
+
 }

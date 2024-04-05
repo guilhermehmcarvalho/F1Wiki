@@ -10,6 +10,7 @@ import Combine
 
 protocol APIConstructorsProtocol {
   func listOfAllConstructors(limit: Int, offset: Int) -> AnyPublisher<MRData<ConstructorTable>, Error>
+  func listOfConstructorStandings(constructorId: String) -> AnyPublisher<MRData<StandingsTable>, Error>
 }
 
 class APIConstructors: APIConstructorsProtocol {
@@ -37,5 +38,14 @@ class APIConstructors: APIConstructorsProtocol {
         .eraseToAnyPublisher()
   }
 
+  func listOfConstructorStandings(constructorId: String) -> AnyPublisher<MRData<StandingsTable>, any Error> {
+    guard let url = URL(string: baseURL.appending("constructors/\(constructorId)/constructorStandings.json")) else {
+      return Empty().eraseToAnyPublisher()
+    }
+
+    return urlSession.dataTaskPublisher(for: url)
+        .tryDecodeResponse(type: MRData<StandingsTable>.self, decoder: JSONDecoder())
+        .eraseToAnyPublisher()
+  }
 
 }

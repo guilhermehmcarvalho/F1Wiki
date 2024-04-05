@@ -15,7 +15,7 @@ class DriverRowViewModel: ObservableObject {
   @Published internal var wikipediaViewModel: WikipediaViewModel
   
   internal var driverStandingsViewModel: DriverStandingsRowViewModel {
-    DriverStandingsRowViewModel(driver: driver, driverApi: driverApi)
+    DriverStandingsRowViewModel(driverId: driver.driverId, driverApi: driverApi)
   }
 
   init(driver: DriverModel, wikipediaApi: WikipediaAPIProtocol, driverApi: APIDriversProtocol) {

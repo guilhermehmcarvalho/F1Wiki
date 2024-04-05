@@ -1,26 +1,25 @@
 //
-//  DriverStandingModel.swift
+//  ConstructorStanding.swift
 //  F1Stats
 //
-//  Created by Guilherme Carvalho on 04/04/2024.
+//  Created by Guilherme Carvalho on 05/04/2024.
 //
 
 import Foundation
 
-struct DriverStanding: Decodable {
+struct ConstructorStanding: Decodable {
     let position: String
     let positionText: String
     let points: String
     let wins: String
-    let driver: DriverModel
-    let constructors: [ConstructorModel]
+    let constructor: ConstructorModel
 
   enum CodingKeys: String, CodingKey {
-    case driver = "Driver"
-    case constructors = "Constructors"
+    case constructor = "Constructor"
     case wins
     case points
     case positionText
     case position
   }
+
 }

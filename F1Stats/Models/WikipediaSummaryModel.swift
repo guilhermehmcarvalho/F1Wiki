@@ -21,8 +21,8 @@ struct WikipediaSummaryModel: Decodable {
     let dir: String
     let revision: String
     let tid: String
-    let description: String
-    let descriptionSource: String
+    let description: String?
+    let descriptionSource: String?
     let contentUrls: ContentUrls
     let extract: String
     let extractHTML: String?

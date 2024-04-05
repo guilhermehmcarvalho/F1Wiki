@@ -73,13 +73,4 @@ struct MRData<T: Decodable>: Decodable {
       throw DecodingError.dataCorruptedError(forKey: .total, in: values, debugDescription: "")
     }
   }
-
-  init(table: T, limit: Int = 30, offset: Int = 0, total: Int, series: String, url: String) {
-    self.table = table
-    self.series = series
-    self.url = url
-    self.limit = 30
-    self.offset = 0
-    self.total = 30
-  }
 }

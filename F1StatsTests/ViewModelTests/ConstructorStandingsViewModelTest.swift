@@ -1,5 +1,5 @@
 //
-//  DriverStandingsRowViewModelTest.swift
+//  ConstructorStandingsViewModelTest.swift
 //  F1StatsTests
 //
 //  Created by Guilherme Carvalho on 05/04/2024.
@@ -7,10 +7,10 @@
 
 import XCTest
 import Combine
-
 @testable import F1Stats
 
-final class DriverStandingsRowViewModelTest: XCTestCase {
+final class ConstructorStandingsViewModelTest: XCTestCase {
+
 
   var subscriptions = Set<AnyCancellable>()
 
@@ -18,8 +18,8 @@ final class DriverStandingsRowViewModelTest: XCTestCase {
     subscriptions = []
   }
 
-  func testFetchDriverStandings() {
-    let viewModel = DriverStandingsRowViewModel(driverId: "Senna", driverApi: APIDriversStub())
+  func testFetchConstructorStandings() {
+    let viewModel = ConstructorStandingsRowViewModel(constructorId: "ferrari", apiConstructors: APIConstructorsStub())
     let promise = expectation(description: "Will fetch standings")
     XCTAssertNil(viewModel.standingLists, "Starting with no standings")
     viewModel.fetchStandings()

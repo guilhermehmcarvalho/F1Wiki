@@ -45,6 +45,7 @@ struct ContentView: View {
       ZStack {
         Color.F1Stats.systemDark.ignoresSafeArea()
         ConstructorsView(viewModel: ConstructorsViewModel(apiConstructors: apiConstructors,
+//        DriversView(viewModel: DriversViewModel(driverApi: apiDrivers,
                                                           wikipediaAPI: wikipediaAPI))
       }
       .scrollContentBackground(.hidden)

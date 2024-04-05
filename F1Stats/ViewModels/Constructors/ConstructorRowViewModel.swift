@@ -25,4 +25,8 @@ class ConstructorRowViewModel: ObservableObject {
       wikipediaViewModel.fetchSummary()
     }
   }
+
+  internal var constructorStandingsRowViewModel: ConstructorStandingsRowViewModel {
+    ConstructorStandingsRowViewModel(constructorId: constructor.constructorID, apiConstructors: apiConstructor)
+  }
 }

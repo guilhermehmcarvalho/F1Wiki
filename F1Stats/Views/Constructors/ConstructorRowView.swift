@@ -33,8 +33,8 @@ struct ConstructorRowView: View {
     VStack {
       WikipediaView(viewModel: viewModel.wikipediaViewModel)
         .padding(.vertical(8))
-//      DriverStandingsView(viewModel: viewModel.driverStandingsViewModel)
-//        .padding(.vertical(8))
+      ConstructorStandingsRowView(viewModel: viewModel.constructorStandingsRowViewModel)
+        .padding(.vertical(8))
     }
     .frame(maxWidth: .infinity)
     .background(Color.F1Stats.systemWhite.opacity(0.1))

@@ -1,27 +1,26 @@
 //
-//  DriverStandingsRowViewModel.swift
+//  ConstructorStandingsRowViewModel.swift
 //  F1Stats
 //
-//  Created by Guilherme Carvalho on 04/04/2024.
+//  Created by Guilherme Carvalho on 05/04/2024.
 //
 
 import Foundation
-import SwiftUI
 import Combine
 
-class DriverStandingsRowViewModel: ObservableObject {
-  
-  private var driverApi: APIDriversProtocol
-  private let driverId: String
+class ConstructorStandingsRowViewModel: ObservableObject {
+
+  private var apiConstructors: APIConstructorsProtocol
+  private let constructorId: String
   @Published var standingLists: [StandingsList]?
   private(set) var fetchStatusSubject = PassthroughSubject<FetchStatus, Never>()
   @Published var fetchStatus: FetchStatus = .ready
 
   private var cancellable: AnyCancellable?
 
-  init(driverId: String, driverApi: APIDriversProtocol) {
-    self.driverId = driverId
-    self.driverApi = driverApi
+  init(constructorId: String, apiConstructors: APIConstructorsProtocol) {
+    self.constructorId = constructorId
+    self.apiConstructors = apiConstructors
     fetchStatusSubject
       .receive(on: DispatchQueue.main)
       .assign(to: &$fetchStatus)
@@ -34,7 +33,7 @@ class DriverStandingsRowViewModel: ObservableObject {
   }
 
   internal func fetchStandings() {
-    cancellable = driverApi.listOfDriverStandings(driverId: driverId)
+    cancellable = apiConstructors.listOfConstructorStandings(constructorId: constructorId)
       .observeFetchStatus(with: fetchStatusSubject)
       .receive(on: DispatchQueue.main)
       .sink { error in
@@ -42,11 +41,5 @@ class DriverStandingsRowViewModel: ObservableObject {
       } receiveValue: { [weak self] response in
         self?.standingLists = response.table.standingsLists
       }
-  }
-}
-
-extension DriverStanding {
-  var constructorsAppended: String {
-    self.constructors.map { $0.name }.joined(separator: ", ")
   }
 }

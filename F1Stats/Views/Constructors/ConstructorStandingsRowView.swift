@@ -1,16 +1,16 @@
 //
-//  DriverStandingsView.swift
+//  ConstructorStandingsRowView.swift
 //  F1Stats
 //
-//  Created by Guilherme Carvalho on 04/04/2024.
+//  Created by Guilherme Carvalho on 05/04/2024.
 //
 
 import SwiftUI
 
-struct DriverStandingsView: View {
-  @ObservedObject var viewModel: DriverStandingsRowViewModel
-  
-  init(viewModel: DriverStandingsRowViewModel) {
+struct ConstructorStandingsRowView: View {
+  @ObservedObject var viewModel: ConstructorStandingsRowViewModel
+
+  init(viewModel: ConstructorStandingsRowViewModel) {
     self.viewModel = viewModel
   }
 
@@ -18,17 +18,30 @@ struct DriverStandingsView: View {
     DisclosureGroup(
       content: {
         VStack {
+          HStack {
+            Text("Position")
+              .frame(width: 150)
+              .typography(type: .body())
+            Spacer()
+            Text("Year")
+              .frame(width: 150)
+              .typography(type: .body())
+
+          }
+          .padding(.horizontal(8))
+          .padding(.vertical(2))
+
           ForEach(viewModel.standingLists ?? [], id: \.season) { season in
-            if let standing = season.driverStandings?.first {
+            if let standing = season.constructorStanding?.first {
               HStack {
                 Text(standing.position)
                   .typography(type: .body())
-                  .frame(width: 40)
-                Spacer()
-                Text(standing.constructorsAppended)
-                  .typography(type: .body())
-                Spacer()
+                  .frame(width: 150)
+                Divider()
+                  .frame(maxWidth: .infinity, maxHeight: 1)
+                  .overlay(Color.F1Stats.systemWhite)
                 Text(season.season)
+                  .frame(width: 150)
                   .typography(type: .body())
 
               }
