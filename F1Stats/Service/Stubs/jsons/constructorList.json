@@ -1,0 +1,194 @@
+{
+    "MRData": {
+        "xmlns": "http://ergast.com/mrd/1.5",
+        "series": "f1",
+        "url": "http://ergast.com/api/f1/constructors.json",
+        "limit": "30",
+        "offset": "0",
+        "total": "212",
+        "ConstructorTable": {
+            "Constructors": [
+                {
+                    "constructorId": "adams",
+                    "url": "http://en.wikipedia.org/wiki/Adams_(constructor)",
+                    "name": "Adams",
+                    "nationality": "American"
+                },
+                {
+                    "constructorId": "afm",
+                    "url": "http://en.wikipedia.org/wiki/Alex_von_Falkenhausen_Motorenbau",
+                    "name": "AFM",
+                    "nationality": "German"
+                },
+                {
+                    "constructorId": "ags",
+                    "url": "http://en.wikipedia.org/wiki/Automobiles_Gonfaronnaises_Sportives",
+                    "name": "AGS",
+                    "nationality": "French"
+                },
+                {
+                    "constructorId": "alfa",
+                    "url": "http://en.wikipedia.org/wiki/Alfa_Romeo_in_Formula_One",
+                    "name": "Alfa Romeo",
+                    "nationality": "Swiss"
+                },
+                {
+                    "constructorId": "alphatauri",
+                    "url": "http://en.wikipedia.org/wiki/Scuderia_AlphaTauri",
+                    "name": "AlphaTauri",
+                    "nationality": "Italian"
+                },
+                {
+                    "constructorId": "alpine",
+                    "url": "http://en.wikipedia.org/wiki/Alpine_F1_Team",
+                    "name": "Alpine F1 Team",
+                    "nationality": "French"
+                },
+                {
+                    "constructorId": "alta",
+                    "url": "http://en.wikipedia.org/wiki/Alta_auto_racing_team",
+                    "name": "Alta",
+                    "nationality": "British"
+                },
+                {
+                    "constructorId": "amon",
+                    "url": "http://en.wikipedia.org/wiki/Amon_(Formula_One_team)",
+                    "name": "Amon",
+                    "nationality": "New Zealander"
+                },
+                {
+                    "constructorId": "moda",
+                    "url": "http://en.wikipedia.org/wiki/Andrea_Moda_Formula",
+                    "name": "Andrea Moda",
+                    "nationality": "Italian"
+                },
+                {
+                    "constructorId": "apollon",
+                    "url": "http://en.wikipedia.org/wiki/Apollon_(Formula_One)",
+                    "name": "Apollon",
+                    "nationality": "Swiss"
+                },
+                {
+                    "constructorId": "arrows",
+                    "url": "http://en.wikipedia.org/wiki/Arrows_Grand_Prix_International",
+                    "name": "Arrows",
+                    "nationality": "British"
+                },
+                {
+                    "constructorId": "arzani-volpini",
+                    "url": "http://en.wikipedia.org/wiki/Arzani-Volpini",
+                    "name": "Arzani-Volpini",
+                    "nationality": "Italian"
+                },
+                {
+                    "constructorId": "butterworth",
+                    "url": "http://en.wikipedia.org/wiki/Aston_Butterworth",
+                    "name": "Aston Butterworth",
+                    "nationality": "British"
+                },
+                {
+                    "constructorId": "aston_martin",
+                    "url": "http://en.wikipedia.org/wiki/Aston_Martin_in_Formula_One",
+                    "name": "Aston Martin",
+                    "nationality": "British"
+                },
+                {
+                    "constructorId": "ats",
+                    "url": "http://en.wikipedia.org/wiki/ATS_(wheels)",
+                    "name": "ATS",
+                    "nationality": "Italian"
+                },
+                {
+                    "constructorId": "bar",
+                    "url": "http://en.wikipedia.org/wiki/British_American_Racing",
+                    "name": "BAR",
+                    "nationality": "British"
+                },
+                {
+                    "constructorId": "behra-porsche",
+                    "url": "http://en.wikipedia.org/wiki/Behra-Porsche",
+                    "name": "Behra-Porsche",
+                    "nationality": "Italian"
+                },
+                {
+                    "constructorId": "bellasi",
+                    "url": "http://en.wikipedia.org/wiki/Bellasi",
+                    "name": "Bellasi",
+                    "nationality": "Swiss"
+                },
+                {
+                    "constructorId": "benetton",
+                    "url": "http://en.wikipedia.org/wiki/Benetton_Formula",
+                    "name": "Benetton",
+                    "nationality": "Italian"
+                },
+                {
+                    "constructorId": "bmw",
+                    "url": "http://en.wikipedia.org/wiki/BMW",
+                    "name": "BMW",
+                    "nationality": "German"
+                },
+                {
+                    "constructorId": "bmw_sauber",
+                    "url": "http://en.wikipedia.org/wiki/BMW_Sauber",
+                    "name": "BMW Sauber",
+                    "nationality": "German"
+                },
+                {
+                    "constructorId": "boro",
+                    "url": "http://en.wikipedia.org/wiki/Boro_(Formula_One)",
+                    "name": "Boro",
+                    "nationality": "Dutch"
+                },
+                {
+                    "constructorId": "brabham",
+                    "url": "http://en.wikipedia.org/wiki/Brabham",
+                    "name": "Brabham",
+                    "nationality": "British"
+                },
+                {
+                    "constructorId": "brabham-alfa_romeo",
+                    "url": "http://en.wikipedia.org/wiki/Brabham",
+                    "name": "Brabham-Alfa Romeo",
+                    "nationality": "British"
+                },
+                {
+                    "constructorId": "brabham-brm",
+                    "url": "http://en.wikipedia.org/wiki/Brabham",
+                    "name": "Brabham-BRM",
+                    "nationality": "British"
+                },
+                {
+                    "constructorId": "brabham-climax",
+                    "url": "http://en.wikipedia.org/wiki/Brabham",
+                    "name": "Brabham-Climax",
+                    "nationality": "British"
+                },
+                {
+                    "constructorId": "brabham-ford",
+                    "url": "http://en.wikipedia.org/wiki/Brabham",
+                    "name": "Brabham-Ford",
+                    "nationality": "British"
+                },
+                {
+                    "constructorId": "brabham-repco",
+                    "url": "http://en.wikipedia.org/wiki/Brabham",
+                    "name": "Brabham-Repco",
+                    "nationality": "British"
+                },
+                {
+                    "constructorId": "brawn",
+                    "url": "http://en.wikipedia.org/wiki/Brawn_GP",
+                    "name": "Brawn",
+                    "nationality": "British"
+                },
+                {
+                    "constructorId": "brm",
+                    "url": "http://en.wikipedia.org/wiki/BRM",
+                    "name": "BRM",
+                    "nationality": "British"
+                }
+            ]
+        }
+    }
+}

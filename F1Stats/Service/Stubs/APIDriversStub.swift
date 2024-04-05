@@ -9,7 +9,6 @@ import Foundation
 import Combine
 
 class APIDriversStub: APIDriversProtocol {
-
   let delay: Double
 
   init(delay: Double = 0) {
@@ -35,7 +34,6 @@ class APIDriversStub: APIDriversProtocol {
     }
   }
   
-  
   func listOfDriverStandings(driverId: String) -> AnyPublisher<MRData<StandingsTable>, Error> {
     guard let path = Bundle.main.path(forResource: "driverStandings", ofType: "json") else {
       return Empty().eraseToAnyPublisher()
@@ -54,6 +52,7 @@ class APIDriversStub: APIDriversProtocol {
       return Empty().eraseToAnyPublisher()
     }
   }
+
 }
 
 extension DriverModel {

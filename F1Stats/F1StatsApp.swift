@@ -10,11 +10,14 @@ import SwiftUI
 @main
 struct F1StatsApp: App {
   let apiDrivers = APIDrivers(baseURL: Config.baseURL)
+  let apiConstructors = APIConstructors(baseURL: Config.baseURL)
   let wikipediaAPI = WikipediaAPI(baseURL: Config.wikipediaURL)
 
     var body: some Scene {
         WindowGroup {
-          ContentView(apiDrivers: apiDrivers, wikipediaAPI: wikipediaAPI)
+          ContentView(apiDrivers: apiDrivers,
+                      wikipediaAPI: wikipediaAPI,
+                      apiConstructors: apiConstructors)
         }
     }
 }

@@ -7,6 +7,14 @@
 
 import Foundation
 
+struct ConstructorTable: Decodable {
+    let constructors: [ConstructorModel]
+
+    enum CodingKeys: String, CodingKey {
+        case constructors = "Constructors"
+    }
+}
+
 struct ConstructorModel: Decodable {
     let constructorID: String
     let url: String
@@ -19,4 +27,8 @@ struct ConstructorModel: Decodable {
     case name = "name"
     case nationality = "nationality"
   }
+}
+
+extension ConstructorModel: Identifiable {
+    var id: String { return constructorID }
 }

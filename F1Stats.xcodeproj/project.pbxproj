@@ -39,6 +39,11 @@
 		149210192BBFF25F00359497 /* DriversViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149210182BBFF25F00359497 /* DriversViewModelTests.swift */; };
 		1492101E2BBFFD8B00359497 /* WikipediaViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1492101D2BBFFD8B00359497 /* WikipediaViewModelTest.swift */; };
 		149210202BC0010800359497 /* DriverStandingsRowViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1492101F2BC0010800359497 /* DriverStandingsRowViewModelTest.swift */; };
+		149210222BC021BA00359497 /* ConstructorsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149210212BC021BA00359497 /* ConstructorsView.swift */; };
+		149210282BC0222500359497 /* ConstructorsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149210272BC0222500359497 /* ConstructorsViewModel.swift */; };
+		1492102A2BC0231000359497 /* constructorList.json in Resources */ = {isa = PBXBuildFile; fileRef = 149210292BC0231000359497 /* constructorList.json */; };
+		1492102C2BC023EF00359497 /* APIConstructors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1492102B2BC023EF00359497 /* APIConstructors.swift */; };
+		1492102E2BC0243800359497 /* APIConstructorsStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1492102D2BC0243800359497 /* APIConstructorsStub.swift */; };
 		14B80FFE2BBA86F8006D678E /* DriversView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B80FFD2BBA86F8006D678E /* DriversView.swift */; };
 		14D79CB42BB8710F006240F0 /* MRData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D79CB32BB8710F006240F0 /* MRData.swift */; };
 		14D79CB62BB88C92006240F0 /* Extensions+Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D79CB52BB88C92006240F0 /* Extensions+Publisher.swift */; };
@@ -90,6 +95,11 @@
 		149210182BBFF25F00359497 /* DriversViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriversViewModelTests.swift; sourceTree = "<group>"; };
 		1492101D2BBFFD8B00359497 /* WikipediaViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikipediaViewModelTest.swift; sourceTree = "<group>"; };
 		1492101F2BC0010800359497 /* DriverStandingsRowViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverStandingsRowViewModelTest.swift; sourceTree = "<group>"; };
+		149210212BC021BA00359497 /* ConstructorsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructorsView.swift; sourceTree = "<group>"; };
+		149210272BC0222500359497 /* ConstructorsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructorsViewModel.swift; sourceTree = "<group>"; };
+		149210292BC0231000359497 /* constructorList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = constructorList.json; sourceTree = "<group>"; };
+		1492102B2BC023EF00359497 /* APIConstructors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstructors.swift; sourceTree = "<group>"; };
+		1492102D2BC0243800359497 /* APIConstructorsStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstructorsStub.swift; sourceTree = "<group>"; };
 		14B80FFD2BBA86F8006D678E /* DriversView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriversView.swift; sourceTree = "<group>"; };
 		14D79CB32BB8710F006240F0 /* MRData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRData.swift; sourceTree = "<group>"; };
 		14D79CB52BB88C92006240F0 /* Extensions+Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+Publisher.swift"; sourceTree = "<group>"; };
@@ -169,10 +179,9 @@
 		142C98732BB70557009D1D35 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				142C98802BB74E5B009D1D35 /* DriversViewModel.swift */,
-				148081E42BBD700100A9A33F /* DriverRowViewModel.swift */,
+				149210262BC0221500359497 /* Constructors */,
+				149210252BC0220B00359497 /* Drivers */,
 				148081EC2BBD85DC00A9A33F /* WikipediaViewModel.swift */,
-				14920FF52BBEA9B400359497 /* DriverStandingsRowViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -180,11 +189,10 @@
 		142C98742BB70561009D1D35 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				149210242BC021E900359497 /* Constructors */,
+				149210232BC021DB00359497 /* Drivers */,
 				140A09852BB6E30C0037AA74 /* ContentView.swift */,
-				14B80FFD2BBA86F8006D678E /* DriversView.swift */,
 				148081EA2BBD85BB00A9A33F /* WikipediaView.swift */,
-				149210032BBEDA1D00359497 /* DriverRowView.swift */,
-				149210052BBEE03C00359497 /* DriverStandingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -195,6 +203,7 @@
 				14920FF92BBEBA0E00359497 /* Stubs */,
 				142C98772BB74225009D1D35 /* APIDrivers.swift */,
 				148081E62BBD795200A9A33F /* WikipediaAPI.swift */,
+				1492102B2BC023EF00359497 /* APIConstructors.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -235,6 +244,7 @@
 				14920FFE2BBEBA6A00359497 /* jsons */,
 				14920FFA2BBEBA1D00359497 /* APIDriversStub.swift */,
 				14920FFC2BBEBA5600359497 /* WikipediaAPIStub.swift */,
+				1492102D2BC0243800359497 /* APIConstructorsStub.swift */,
 			);
 			path = Stubs;
 			sourceTree = "<group>";
@@ -245,6 +255,7 @@
 				14920FF72BBEB9F800359497 /* wikipediaSummary.json */,
 				14920FFF2BBEBC3F00359497 /* driverStandings.json */,
 				149210012BBEBF2100359497 /* driverList.json */,
+				149210292BC0231000359497 /* constructorList.json */,
 			);
 			path = jsons;
 			sourceTree = "<group>";
@@ -265,6 +276,42 @@
 				1492101F2BC0010800359497 /* DriverStandingsRowViewModelTest.swift */,
 			);
 			path = ViewModelTests;
+			sourceTree = "<group>";
+		};
+		149210232BC021DB00359497 /* Drivers */ = {
+			isa = PBXGroup;
+			children = (
+				14B80FFD2BBA86F8006D678E /* DriversView.swift */,
+				149210032BBEDA1D00359497 /* DriverRowView.swift */,
+				149210052BBEE03C00359497 /* DriverStandingsView.swift */,
+			);
+			path = Drivers;
+			sourceTree = "<group>";
+		};
+		149210242BC021E900359497 /* Constructors */ = {
+			isa = PBXGroup;
+			children = (
+				149210212BC021BA00359497 /* ConstructorsView.swift */,
+			);
+			path = Constructors;
+			sourceTree = "<group>";
+		};
+		149210252BC0220B00359497 /* Drivers */ = {
+			isa = PBXGroup;
+			children = (
+				142C98802BB74E5B009D1D35 /* DriversViewModel.swift */,
+				148081E42BBD700100A9A33F /* DriverRowViewModel.swift */,
+				14920FF52BBEA9B400359497 /* DriverStandingsRowViewModel.swift */,
+			);
+			path = Drivers;
+			sourceTree = "<group>";
+		};
+		149210262BC0221500359497 /* Constructors */ = {
+			isa = PBXGroup;
+			children = (
+				149210272BC0222500359497 /* ConstructorsViewModel.swift */,
+			);
+			path = Constructors;
 			sourceTree = "<group>";
 		};
 		14D79CB72BB88CA3006240F0 /* Extensions */ = {
@@ -368,6 +415,7 @@
 				149210022BBEBF2100359497 /* driverList.json in Resources */,
 				14920FF82BBEB9F800359497 /* wikipediaSummary.json in Resources */,
 				148081DF2BBD33B200A9A33F /* NunitoSans-VariableFont.ttf in Resources */,
+				1492102A2BC0231000359497 /* constructorList.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,6 +445,8 @@
 				142632402BBC80BD00A0A68A /* DesignLanguageSystem.swift in Sources */,
 				14D79CB42BB8710F006240F0 /* MRData.swift in Sources */,
 				14D79CB62BB88C92006240F0 /* Extensions+Publisher.swift in Sources */,
+				149210222BC021BA00359497 /* ConstructorsView.swift in Sources */,
+				1492102C2BC023EF00359497 /* APIConstructors.swift in Sources */,
 				148081E92BBD7C2A00A9A33F /* WikipediaSummaryModel.swift in Sources */,
 				148081DB2BBD28CA00A9A33F /* Extension+Colors.swift in Sources */,
 				14B80FFE2BBA86F8006D678E /* DriversView.swift in Sources */,
@@ -411,6 +461,8 @@
 				148081E72BBD795200A9A33F /* WikipediaAPI.swift in Sources */,
 				14920FF22BBEA65D00359497 /* ConstructorModel.swift in Sources */,
 				140A09842BB6E30C0037AA74 /* F1StatsApp.swift in Sources */,
+				149210282BC0222500359497 /* ConstructorsViewModel.swift in Sources */,
+				1492102E2BC0243800359497 /* APIConstructorsStub.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

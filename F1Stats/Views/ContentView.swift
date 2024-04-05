@@ -10,11 +10,15 @@ import SwiftUI
 struct ContentView: View {
 
   let apiDrivers: APIDriversProtocol
+  let apiConstructors: APIConstructorsProtocol
   let wikipediaAPI: WikipediaAPIProtocol
 
-  init(apiDrivers: APIDriversProtocol, wikipediaAPI: WikipediaAPIProtocol) {
+  init(apiDrivers: APIDriversProtocol, 
+       wikipediaAPI: WikipediaAPIProtocol,
+       apiConstructors: APIConstructorsProtocol) {
     self.apiDrivers = apiDrivers
     self.wikipediaAPI = wikipediaAPI
+    self.apiConstructors = apiConstructors
     customizeNavigationStackAppearance()
   }
 
@@ -40,8 +44,8 @@ struct ContentView: View {
     NavigationStack {
       ZStack {
         Color.F1Stats.systemDark.ignoresSafeArea()
-        DriversView(viewModel: DriversViewModel(driverApi: apiDrivers, 
-                                                wikipediaAPI: wikipediaAPI))
+        ConstructorsView(viewModel: ConstructorsViewModel(apiConstructors: apiConstructors,
+                                                          wikipediaAPI: wikipediaAPI))
       }
       .scrollContentBackground(.hidden)
     }
@@ -49,5 +53,7 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView(apiDrivers: APIDriversStub(), wikipediaAPI: WikipediaAPIStub())
+  ContentView(apiDrivers: APIDriversStub(),
+              wikipediaAPI: WikipediaAPIStub(),
+              apiConstructors: APIConstructorsStub())
 }
