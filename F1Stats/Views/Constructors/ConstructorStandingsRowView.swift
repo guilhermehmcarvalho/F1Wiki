@@ -29,7 +29,6 @@ struct ConstructorStandingsRowView: View {
 
           }
           .padding(.horizontal(8))
-          .padding(.vertical(2))
 
           ForEach(viewModel.standingLists ?? [], id: \.season) { season in
             if let standing = season.constructorStanding?.first {

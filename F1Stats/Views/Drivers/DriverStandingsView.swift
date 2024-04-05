@@ -18,17 +18,33 @@ struct DriverStandingsView: View {
     DisclosureGroup(
       content: {
         VStack {
+          HStack {
+            Text("Position")
+              .typography(type: .body())
+              .frame(width: 80)
+            Spacer()
+            Text("Constructor")
+              .typography(type: .body())
+            Spacer()
+            Text("Year")
+              .frame(width: 80)
+              .typography(type: .body())
+          }
+          .padding(.horizontal(8))
+
           ForEach(viewModel.standingLists ?? [], id: \.season) { season in
             if let standing = season.driverStandings?.first {
               HStack {
                 Text(standing.position)
                   .typography(type: .body())
-                  .frame(width: 40)
+                  .frame(width: 80)
                 Spacer()
                 Text(standing.constructorsAppended)
                   .typography(type: .body())
+                  .multilineTextAlignment(.center)
                 Spacer()
                 Text(season.season)
+                  .frame(width: 80)
                   .typography(type: .body())
 
               }
