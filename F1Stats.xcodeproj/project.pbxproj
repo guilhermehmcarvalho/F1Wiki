@@ -53,6 +53,9 @@
 		1492103C2BC0332000359497 /* ConstructorStandingsViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1492103B2BC0332000359497 /* ConstructorStandingsViewModelTest.swift */; };
 		1492103E2BC0493300359497 /* StandingsTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1492103D2BC0493300359497 /* StandingsTable.swift */; };
 		149210402BC06BF600359497 /* ConstructorsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1492103F2BC06BF600359497 /* ConstructorsViewModelTests.swift */; };
+		149210432BC0734A00359497 /* APISeasons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149210422BC0734A00359497 /* APISeasons.swift */; };
+		149210452BC0741200359497 /* SeasonsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149210442BC0741200359497 /* SeasonsModel.swift */; };
+		149210472BC07A0300359497 /* seasonList.json in Resources */ = {isa = PBXBuildFile; fileRef = 149210462BC07A0300359497 /* seasonList.json */; };
 		14B80FFE2BBA86F8006D678E /* DriversView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B80FFD2BBA86F8006D678E /* DriversView.swift */; };
 		14D79CB42BB8710F006240F0 /* MRData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D79CB32BB8710F006240F0 /* MRData.swift */; };
 		14D79CB62BB88C92006240F0 /* Extensions+Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D79CB52BB88C92006240F0 /* Extensions+Publisher.swift */; };
@@ -118,6 +121,9 @@
 		1492103B2BC0332000359497 /* ConstructorStandingsViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructorStandingsViewModelTest.swift; sourceTree = "<group>"; };
 		1492103D2BC0493300359497 /* StandingsTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingsTable.swift; sourceTree = "<group>"; };
 		1492103F2BC06BF600359497 /* ConstructorsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructorsViewModelTests.swift; sourceTree = "<group>"; };
+		149210422BC0734A00359497 /* APISeasons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APISeasons.swift; sourceTree = "<group>"; };
+		149210442BC0741200359497 /* SeasonsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonsModel.swift; sourceTree = "<group>"; };
+		149210462BC07A0300359497 /* seasonList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = seasonList.json; sourceTree = "<group>"; };
 		14B80FFD2BBA86F8006D678E /* DriversView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriversView.swift; sourceTree = "<group>"; };
 		14D79CB32BB8710F006240F0 /* MRData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRData.swift; sourceTree = "<group>"; };
 		14D79CB52BB88C92006240F0 /* Extensions+Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+Publisher.swift"; sourceTree = "<group>"; };
@@ -222,6 +228,7 @@
 				142C98772BB74225009D1D35 /* APIDrivers.swift */,
 				148081E62BBD795200A9A33F /* WikipediaAPI.swift */,
 				1492102B2BC023EF00359497 /* APIConstructors.swift */,
+				149210422BC0734A00359497 /* APISeasons.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -236,6 +243,7 @@
 				14920FF12BBEA65D00359497 /* ConstructorModel.swift */,
 				149210392BC0319A00359497 /* ConstructorStandingModel.swift */,
 				1492103D2BC0493300359497 /* StandingsTable.swift */,
+				149210442BC0741200359497 /* SeasonsModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -277,6 +285,7 @@
 				149210012BBEBF2100359497 /* driverList.json */,
 				149210292BC0231000359497 /* constructorList.json */,
 				149210372BC030B600359497 /* constructorStandings.json */,
+				149210462BC07A0300359497 /* seasonList.json */,
 			);
 			path = jsons;
 			sourceTree = "<group>";
@@ -440,6 +449,7 @@
 				149210002BBEBC3F00359497 /* driverStandings.json in Resources */,
 				149210382BC030B600359497 /* constructorStandings.json in Resources */,
 				140A09882BB6E30D0037AA74 /* Assets.xcassets in Resources */,
+				149210472BC07A0300359497 /* seasonList.json in Resources */,
 				149210022BBEBF2100359497 /* driverList.json in Resources */,
 				14920FF82BBEB9F800359497 /* wikipediaSummary.json in Resources */,
 				148081DF2BBD33B200A9A33F /* NunitoSans-VariableFont.ttf in Resources */,
@@ -483,6 +493,7 @@
 				148081DB2BBD28CA00A9A33F /* Extension+Colors.swift in Sources */,
 				14B80FFE2BBA86F8006D678E /* DriversView.swift in Sources */,
 				149210342BC02F8A00359497 /* ConstructorStandingsRowView.swift in Sources */,
+				149210452BC0741200359497 /* SeasonsModel.swift in Sources */,
 				14920FED2BBE95A300359497 /* DriverStandingModel.swift in Sources */,
 				142C98812BB74E5B009D1D35 /* DriversViewModel.swift in Sources */,
 				14920FFD2BBEBA5600359497 /* WikipediaAPIStub.swift in Sources */,
@@ -492,6 +503,7 @@
 				142C98782BB74225009D1D35 /* APIDrivers.swift in Sources */,
 				14920FF02BBE9CEC00359497 /* LargeProgressViewModifier.swift in Sources */,
 				148081E72BBD795200A9A33F /* WikipediaAPI.swift in Sources */,
+				149210432BC0734A00359497 /* APISeasons.swift in Sources */,
 				14920FF22BBEA65D00359497 /* ConstructorModel.swift in Sources */,
 				140A09842BB6E30C0037AA74 /* F1StatsApp.swift in Sources */,
 				149210282BC0222500359497 /* ConstructorsViewModel.swift in Sources */,
