@@ -36,9 +36,13 @@ class SeasonConstructorStandingsViewModel: ObservableObject {
     cancellable = apiSeasons.constructorStandingsForSeason(season: seasonId)
       .observeFetchStatus(with: fetchStatusSubject)
       .receive(on: DispatchQueue.main)
-      .sink { error in
-        print(error)
-      } receiveValue: { [weak self] response in
+      .sink { status in
+        switch status {
+        case .finished: break
+        case .failure(let error):
+          print(error)
+        }
+      }  receiveValue: { [weak self] response in
         self?.standingLists = response.table.standingsLists
       }
   }

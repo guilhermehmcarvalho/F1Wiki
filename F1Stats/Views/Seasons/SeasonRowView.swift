@@ -29,12 +29,14 @@ struct SeasonRowView: View {
     VStack {
       WikipediaView(viewModel: viewModel.wikipediaViewModel)
         .padding(.vertical(8))
-      
+
       SeasonDriverStandingsView(viewModel: viewModel.seasonDriverStandingsViewModel)
         .padding(.vertical(8))
-      
-      SeasonConstructorStandingsView(viewModel: viewModel.seasonConstructorStandingsViewModel)
-        .padding(.vertical(8))
+
+      if Int(viewModel.season.season) ?? 0 >= 1958 {
+        SeasonConstructorStandingsView(viewModel: viewModel.seasonConstructorStandingsViewModel)
+          .padding(.vertical(8))
+      }
     }
     .frame(maxWidth: .infinity)
     .background(Color.F1Stats.systemWhite.opacity(0.1))
