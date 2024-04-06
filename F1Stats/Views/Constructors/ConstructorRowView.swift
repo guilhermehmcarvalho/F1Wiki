@@ -22,10 +22,8 @@ struct ConstructorRowView: View {
           .typography(type: .heading())
         Spacer()
       }
-      AnyView(
-        Text(viewModel.constructor.nationality)
-          .typography(type: .small())
-      )
+      Text(viewModel.constructor.nationality)
+        .typography(type: .small())
     }
   }
 

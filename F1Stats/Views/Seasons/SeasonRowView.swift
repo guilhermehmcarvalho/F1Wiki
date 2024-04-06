@@ -1,31 +1,27 @@
 //
-//  DriverRowView.swift
+//  SeasonRowView.swift
 //  F1Stats
 //
-//  Created by Guilherme Carvalho on 04/04/2024.
+//  Created by Guilherme Carvalho on 06/04/2024.
 //
 
 import SwiftUI
 
-struct DriverRowView: View {
-  @ObservedObject var viewModel: DriverRowViewModel
+struct SeasonRowView: View {
+  @ObservedObject var viewModel: SeasonRowViewModel
 
-  init(viewModel: DriverRowViewModel) {
+  init(viewModel: SeasonRowViewModel) {
     self.viewModel = viewModel
   }
 
   var label: some View {
     VStack(alignment: .leading, spacing: 0) {
       HStack(alignment: .firstTextBaseline, spacing: 4) {
-        Text(viewModel.driver.familyName)
+        Text(viewModel.season.season)
           .textCase(.uppercase)
           .typography(type: .heading())
-        Text(viewModel.driver.givenName)
-          .typography(type: .small())
         Spacer()
       }
-      Text(viewModel.driver.nationality)
-        .typography(type: .small())
     }
   }
 
@@ -33,8 +29,8 @@ struct DriverRowView: View {
     VStack {
       WikipediaView(viewModel: viewModel.wikipediaViewModel)
         .padding(.vertical(8))
-      DriverStandingsView(viewModel: viewModel.driverStandingsViewModel)
-        .padding(.vertical(8))
+//      ConstructorStandingsRowView(viewModel: viewModel.constructorStandingsRowViewModel)
+//        .padding(.vertical(8))
     }
     .frame(maxWidth: .infinity)
     .background(Color.F1Stats.systemWhite.opacity(0.1))
@@ -53,5 +49,4 @@ struct DriverRowView: View {
       Color.F1Stats.systemDarkSecondary
     )
   }
-
 }

@@ -11,14 +11,17 @@ struct ContentView: View {
 
   let apiDrivers: APIDriversProtocol
   let apiConstructors: APIConstructorsProtocol
+  let apiSeasons: APISeasonsProtocol
   let wikipediaAPI: WikipediaAPIProtocol
 
   init(apiDrivers: APIDriversProtocol, 
        wikipediaAPI: WikipediaAPIProtocol,
-       apiConstructors: APIConstructorsProtocol) {
+       apiConstructors: APIConstructorsProtocol,
+       apiSeasons: APISeasonsProtocol) {
     self.apiDrivers = apiDrivers
     self.wikipediaAPI = wikipediaAPI
     self.apiConstructors = apiConstructors
+    self.apiSeasons = apiSeasons
     customizeNavigationStackAppearance()
   }
 
@@ -44,7 +47,8 @@ struct ContentView: View {
     NavigationStack {
       ZStack {
         Color.F1Stats.systemDark.ignoresSafeArea()
-        ConstructorsView(viewModel: ConstructorsViewModel(apiConstructors: apiConstructors,
+        SeasonsView(viewModel: SeasonsViewModel(apiSeasons: apiSeasons,
+//        ConstructorsView(viewModel: ConstructorsViewModel(apiConstructors: apiConstructors,
 //        DriversView(viewModel: DriversViewModel(driverApi: apiDrivers,
                                                           wikipediaAPI: wikipediaAPI))
       }
@@ -56,5 +60,6 @@ struct ContentView: View {
 #Preview {
   ContentView(apiDrivers: APIDriversStub(),
               wikipediaAPI: WikipediaAPIStub(),
-              apiConstructors: APIConstructorsStub())
+              apiConstructors: APIConstructorsStub(),
+              apiSeasons: APISeasonsStub())
 }

@@ -24,3 +24,7 @@ struct SeasonModel: Codable {
         case url = "url"
     }
 }
+
+extension SeasonModel: Identifiable {
+  var id: String { season }
+}
