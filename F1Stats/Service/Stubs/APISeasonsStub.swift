@@ -9,6 +9,7 @@ import Foundation
 import Combine
 
 class APISeasonsStub: APISeasonsProtocol {
+
   let delay: Double
 
   init(delay: Double = 0) {
@@ -23,6 +24,44 @@ class APISeasonsStub: APISeasonsProtocol {
     do {
       let jsonData = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
       let model = try JSONDecoder().decode(MRData<SeasonTable>.self, from: jsonData)
+      return Just(model)
+        .delay(for: .seconds(delay), scheduler: RunLoop.main)
+        .setFailureType(to: Error.self)
+        .eraseToAnyPublisher()
+
+    } catch let error {
+      print(error)
+      return Empty().eraseToAnyPublisher()
+    }
+  }
+
+  func driverStandingsForSeason(season: String) -> AnyPublisher<MRData<StandingsTable>, any Error> {
+    guard let path = Bundle.main.path(forResource: "seasonDriverStandings", ofType: "json") else {
+      return Empty().eraseToAnyPublisher()
+    }
+
+    do {
+      let jsonData = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+      let model = try JSONDecoder().decode(MRData<StandingsTable>.self, from: jsonData)
+      return Just(model)
+        .delay(for: .seconds(delay), scheduler: RunLoop.main)
+        .setFailureType(to: Error.self)
+        .eraseToAnyPublisher()
+
+    } catch let error {
+      print(error)
+      return Empty().eraseToAnyPublisher()
+    }
+  }
+
+  func constructorStandingsForSeason(season: String) -> AnyPublisher<MRData<StandingsTable>, any Error> {
+    guard let path = Bundle.main.path(forResource: "seasonConstructorStandings", ofType: "json") else {
+      return Empty().eraseToAnyPublisher()
+    }
+
+    do {
+      let jsonData = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+      let model = try JSONDecoder().decode(MRData<StandingsTable>.self, from: jsonData)
       return Just(model)
         .delay(for: .seconds(delay), scheduler: RunLoop.main)
         .setFailureType(to: Error.self)

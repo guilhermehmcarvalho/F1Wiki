@@ -15,7 +15,7 @@ struct ConstructorTable: Decodable {
     }
 }
 
-struct ConstructorModel: Decodable {
+struct ConstructorModel: Decodable, Hashable {
     let constructorID: String
     let url: String
     let name: String

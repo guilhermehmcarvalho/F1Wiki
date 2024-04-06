@@ -25,8 +25,13 @@ class SeasonRowViewModel: ObservableObject {
       wikipediaViewModel.fetchSummary()
     }
   }
-//
-//  internal var constructorStandingsRowViewModel: ConstructorStandingsRowViewModel {
-//    ConstructorStandingsRowViewModel(constructorId: constructor.constructorID, apiConstructors: apiConstructor)
-//  }
+
+
+  internal var seasonConstructorStandingsViewModel: SeasonConstructorStandingsViewModel {
+    SeasonConstructorStandingsViewModel(seasonId: season.id, apiSeasons: apiSeason)
+  }
+
+  internal var seasonDriverStandingsViewModel: SeasonDriverStandingsViewModel {
+    SeasonDriverStandingsViewModel(seasonId: season.id, apiSeasons: apiSeason)
+  }
 }

@@ -10,6 +10,8 @@ import Combine
 
 protocol APISeasonsProtocol {
   func listOfAllSeasons(limit: Int, offset: Int) -> AnyPublisher<MRData<SeasonTable>, Error>
+  func driverStandingsForSeason(season: String) -> AnyPublisher<MRData<StandingsTable>, Error>
+  func constructorStandingsForSeason(season: String) -> AnyPublisher<MRData<StandingsTable>, Error>
 }
 
 class APISeasons: APISeasonsProtocol {
@@ -37,5 +39,29 @@ class APISeasons: APISeasonsProtocol {
           .tryDecodeResponse(type: MRData<SeasonTable>.self, decoder: JSONDecoder())
           .eraseToAnyPublisher()
   }
-  
+
+  func driverStandingsForSeason(season: String) -> AnyPublisher<MRData<StandingsTable>, any Error> {
+    let components = URLComponents(string: baseURL.appending("\(season)/driverStandings.json"))
+
+    guard let url = components?.url else {
+      return Empty().eraseToAnyPublisher()
+    }
+
+    return urlSession.dataTaskPublisher(for: url)
+        .tryDecodeResponse(type: MRData<StandingsTable>.self, decoder: JSONDecoder())
+        .eraseToAnyPublisher()
+  }
+
+
+  func constructorStandingsForSeason(season: String) -> AnyPublisher<MRData<StandingsTable>, any Error> {
+    let components = URLComponents(string: baseURL.appending("\(season)/constructorStandings.json"))
+
+    guard let url = components?.url else {
+      return Empty().eraseToAnyPublisher()
+    }
+
+    return urlSession.dataTaskPublisher(for: url)
+        .tryDecodeResponse(type: MRData<StandingsTable>.self, decoder: JSONDecoder())
+        .eraseToAnyPublisher()
+  }
 }
