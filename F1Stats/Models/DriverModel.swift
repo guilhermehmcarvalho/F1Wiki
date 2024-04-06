@@ -19,7 +19,7 @@ struct DriverTable: Decodable {
   }
 }
 
-struct DriverModel: Decodable {
+struct DriverModel: Decodable, Hashable {
   let driverId: String
   let url: String
   let dateOfBirth: String
@@ -30,4 +30,10 @@ struct DriverModel: Decodable {
 
 extension DriverModel: Identifiable {
     var id: String { return driverId }
+}
+
+extension DriverModel {
+  var fullName: String {
+    "\(givenName) \(familyName)"
+  }
 }

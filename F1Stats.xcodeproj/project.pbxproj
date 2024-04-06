@@ -53,6 +53,23 @@
 		1492103C2BC0332000359497 /* ConstructorStandingsViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1492103B2BC0332000359497 /* ConstructorStandingsViewModelTest.swift */; };
 		1492103E2BC0493300359497 /* StandingsTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1492103D2BC0493300359497 /* StandingsTable.swift */; };
 		149210402BC06BF600359497 /* ConstructorsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1492103F2BC06BF600359497 /* ConstructorsViewModelTests.swift */; };
+		149210432BC0734A00359497 /* APISeasons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149210422BC0734A00359497 /* APISeasons.swift */; };
+		149210452BC0741200359497 /* SeasonsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149210442BC0741200359497 /* SeasonsModel.swift */; };
+		149210472BC07A0300359497 /* seasonList.json in Resources */ = {isa = PBXBuildFile; fileRef = 149210462BC07A0300359497 /* seasonList.json */; };
+		1492104A2BC1258300359497 /* SeasonsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149210492BC1258300359497 /* SeasonsViewModel.swift */; };
+		1492104C2BC1269B00359497 /* SeasonRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1492104B2BC1269B00359497 /* SeasonRowViewModel.swift */; };
+		1492104E2BC1294500359497 /* SeasonsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1492104D2BC1294500359497 /* SeasonsViewModelTests.swift */; };
+		149210502BC129A700359497 /* APISeasonsStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1492104F2BC129A700359497 /* APISeasonsStub.swift */; };
+		149210532BC16DA500359497 /* SeasonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149210522BC16DA500359497 /* SeasonsView.swift */; };
+		149210552BC16FA500359497 /* SeasonRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149210542BC16FA500359497 /* SeasonRowView.swift */; };
+		149210582BC1A54F00359497 /* SeasonDriverStandingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149210572BC1A54F00359497 /* SeasonDriverStandingsViewModel.swift */; };
+		1492105C2BC1A68300359497 /* seasonConstructorStandings.json in Resources */ = {isa = PBXBuildFile; fileRef = 1492105B2BC1A68300359497 /* seasonConstructorStandings.json */; };
+		149210602BC1A6B500359497 /* seasonDriverStandings.json in Resources */ = {isa = PBXBuildFile; fileRef = 1492105F2BC1A6B500359497 /* seasonDriverStandings.json */; };
+		149210622BC1A74200359497 /* SeasonDriverStandingsViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149210612BC1A74200359497 /* SeasonDriverStandingsViewModelTest.swift */; };
+		149210642BC1A83100359497 /* SeasonConstructorStandingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149210632BC1A83100359497 /* SeasonConstructorStandingsViewModel.swift */; };
+		149210662BC1A87100359497 /* SeasonConstructorStandingsViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149210652BC1A87100359497 /* SeasonConstructorStandingsViewModelTest.swift */; };
+		149210682BC1A8DB00359497 /* SeasonDriverStandingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149210672BC1A8DB00359497 /* SeasonDriverStandingsView.swift */; };
+		1492106A2BC1BF3700359497 /* SeasonConstructorStandingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149210692BC1BF3600359497 /* SeasonConstructorStandingsView.swift */; };
 		14B80FFE2BBA86F8006D678E /* DriversView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B80FFD2BBA86F8006D678E /* DriversView.swift */; };
 		14D79CB42BB8710F006240F0 /* MRData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D79CB32BB8710F006240F0 /* MRData.swift */; };
 		14D79CB62BB88C92006240F0 /* Extensions+Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D79CB52BB88C92006240F0 /* Extensions+Publisher.swift */; };
@@ -118,6 +135,23 @@
 		1492103B2BC0332000359497 /* ConstructorStandingsViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructorStandingsViewModelTest.swift; sourceTree = "<group>"; };
 		1492103D2BC0493300359497 /* StandingsTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingsTable.swift; sourceTree = "<group>"; };
 		1492103F2BC06BF600359497 /* ConstructorsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructorsViewModelTests.swift; sourceTree = "<group>"; };
+		149210422BC0734A00359497 /* APISeasons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APISeasons.swift; sourceTree = "<group>"; };
+		149210442BC0741200359497 /* SeasonsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonsModel.swift; sourceTree = "<group>"; };
+		149210462BC07A0300359497 /* seasonList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = seasonList.json; sourceTree = "<group>"; };
+		149210492BC1258300359497 /* SeasonsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonsViewModel.swift; sourceTree = "<group>"; };
+		1492104B2BC1269B00359497 /* SeasonRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonRowViewModel.swift; sourceTree = "<group>"; };
+		1492104D2BC1294500359497 /* SeasonsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonsViewModelTests.swift; sourceTree = "<group>"; };
+		1492104F2BC129A700359497 /* APISeasonsStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APISeasonsStub.swift; sourceTree = "<group>"; };
+		149210522BC16DA500359497 /* SeasonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonsView.swift; sourceTree = "<group>"; };
+		149210542BC16FA500359497 /* SeasonRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonRowView.swift; sourceTree = "<group>"; };
+		149210572BC1A54F00359497 /* SeasonDriverStandingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonDriverStandingsViewModel.swift; sourceTree = "<group>"; };
+		1492105B2BC1A68300359497 /* seasonConstructorStandings.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = seasonConstructorStandings.json; sourceTree = "<group>"; };
+		1492105F2BC1A6B500359497 /* seasonDriverStandings.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = seasonDriverStandings.json; sourceTree = "<group>"; };
+		149210612BC1A74200359497 /* SeasonDriverStandingsViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonDriverStandingsViewModelTest.swift; sourceTree = "<group>"; };
+		149210632BC1A83100359497 /* SeasonConstructorStandingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonConstructorStandingsViewModel.swift; sourceTree = "<group>"; };
+		149210652BC1A87100359497 /* SeasonConstructorStandingsViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonConstructorStandingsViewModelTest.swift; sourceTree = "<group>"; };
+		149210672BC1A8DB00359497 /* SeasonDriverStandingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonDriverStandingsView.swift; sourceTree = "<group>"; };
+		149210692BC1BF3600359497 /* SeasonConstructorStandingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonConstructorStandingsView.swift; sourceTree = "<group>"; };
 		14B80FFD2BBA86F8006D678E /* DriversView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriversView.swift; sourceTree = "<group>"; };
 		14D79CB32BB8710F006240F0 /* MRData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRData.swift; sourceTree = "<group>"; };
 		14D79CB52BB88C92006240F0 /* Extensions+Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+Publisher.swift"; sourceTree = "<group>"; };
@@ -197,6 +231,7 @@
 		142C98732BB70557009D1D35 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				149210482BC1257300359497 /* Seasons */,
 				149210262BC0221500359497 /* Constructors */,
 				149210252BC0220B00359497 /* Drivers */,
 				148081EC2BBD85DC00A9A33F /* WikipediaViewModel.swift */,
@@ -207,6 +242,7 @@
 		142C98742BB70561009D1D35 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				149210512BC16D8F00359497 /* Seasons */,
 				149210242BC021E900359497 /* Constructors */,
 				149210232BC021DB00359497 /* Drivers */,
 				140A09852BB6E30C0037AA74 /* ContentView.swift */,
@@ -222,6 +258,7 @@
 				142C98772BB74225009D1D35 /* APIDrivers.swift */,
 				148081E62BBD795200A9A33F /* WikipediaAPI.swift */,
 				1492102B2BC023EF00359497 /* APIConstructors.swift */,
+				149210422BC0734A00359497 /* APISeasons.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -236,6 +273,7 @@
 				14920FF12BBEA65D00359497 /* ConstructorModel.swift */,
 				149210392BC0319A00359497 /* ConstructorStandingModel.swift */,
 				1492103D2BC0493300359497 /* StandingsTable.swift */,
+				149210442BC0741200359497 /* SeasonsModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -264,6 +302,7 @@
 				14920FFE2BBEBA6A00359497 /* jsons */,
 				14920FFA2BBEBA1D00359497 /* APIDriversStub.swift */,
 				14920FFC2BBEBA5600359497 /* WikipediaAPIStub.swift */,
+				1492104F2BC129A700359497 /* APISeasonsStub.swift */,
 				1492102D2BC0243800359497 /* APIConstructorsStub.swift */,
 			);
 			path = Stubs;
@@ -277,6 +316,9 @@
 				149210012BBEBF2100359497 /* driverList.json */,
 				149210292BC0231000359497 /* constructorList.json */,
 				149210372BC030B600359497 /* constructorStandings.json */,
+				149210462BC07A0300359497 /* seasonList.json */,
+				1492105B2BC1A68300359497 /* seasonConstructorStandings.json */,
+				1492105F2BC1A6B500359497 /* seasonDriverStandings.json */,
 			);
 			path = jsons;
 			sourceTree = "<group>";
@@ -297,6 +339,9 @@
 				1492101F2BC0010800359497 /* DriverStandingsRowViewModelTest.swift */,
 				1492103B2BC0332000359497 /* ConstructorStandingsViewModelTest.swift */,
 				1492103F2BC06BF600359497 /* ConstructorsViewModelTests.swift */,
+				1492104D2BC1294500359497 /* SeasonsViewModelTests.swift */,
+				149210612BC1A74200359497 /* SeasonDriverStandingsViewModelTest.swift */,
+				149210652BC1A87100359497 /* SeasonConstructorStandingsViewModelTest.swift */,
 			);
 			path = ViewModelTests;
 			sourceTree = "<group>";
@@ -339,6 +384,28 @@
 				149210352BC02FB100359497 /* ConstructorStandingsRowViewModel.swift */,
 			);
 			path = Constructors;
+			sourceTree = "<group>";
+		};
+		149210482BC1257300359497 /* Seasons */ = {
+			isa = PBXGroup;
+			children = (
+				149210492BC1258300359497 /* SeasonsViewModel.swift */,
+				1492104B2BC1269B00359497 /* SeasonRowViewModel.swift */,
+				149210572BC1A54F00359497 /* SeasonDriverStandingsViewModel.swift */,
+				149210632BC1A83100359497 /* SeasonConstructorStandingsViewModel.swift */,
+			);
+			path = Seasons;
+			sourceTree = "<group>";
+		};
+		149210512BC16D8F00359497 /* Seasons */ = {
+			isa = PBXGroup;
+			children = (
+				149210522BC16DA500359497 /* SeasonsView.swift */,
+				149210542BC16FA500359497 /* SeasonRowView.swift */,
+				149210672BC1A8DB00359497 /* SeasonDriverStandingsView.swift */,
+				149210692BC1BF3600359497 /* SeasonConstructorStandingsView.swift */,
+			);
+			path = Seasons;
 			sourceTree = "<group>";
 		};
 		14D79CB72BB88CA3006240F0 /* Extensions */ = {
@@ -440,8 +507,11 @@
 				149210002BBEBC3F00359497 /* driverStandings.json in Resources */,
 				149210382BC030B600359497 /* constructorStandings.json in Resources */,
 				140A09882BB6E30D0037AA74 /* Assets.xcassets in Resources */,
+				149210472BC07A0300359497 /* seasonList.json in Resources */,
+				1492105C2BC1A68300359497 /* seasonConstructorStandings.json in Resources */,
 				149210022BBEBF2100359497 /* driverList.json in Resources */,
 				14920FF82BBEB9F800359497 /* wikipediaSummary.json in Resources */,
+				149210602BC1A6B500359497 /* seasonDriverStandings.json in Resources */,
 				148081DF2BBD33B200A9A33F /* NunitoSans-VariableFont.ttf in Resources */,
 				1492102A2BC0231000359497 /* constructorList.json in Resources */,
 			);
@@ -464,25 +534,30 @@
 				149210062BBEE03C00359497 /* DriverStandingsView.swift in Sources */,
 				142C987F2BB74AAC009D1D35 /* DriverModel.swift in Sources */,
 				148081ED2BBD85DC00A9A33F /* WikipediaViewModel.swift in Sources */,
+				149210532BC16DA500359497 /* SeasonsView.swift in Sources */,
 				149210362BC02FB100359497 /* ConstructorStandingsRowViewModel.swift in Sources */,
 				14920FF62BBEA9B400359497 /* DriverStandingsRowViewModel.swift in Sources */,
 				1492100A2BBF0CEF00359497 /* CustomDisclosureGroupStyle.swift in Sources */,
 				148081EB2BBD85BB00A9A33F /* WikipediaView.swift in Sources */,
+				149210552BC16FA500359497 /* SeasonRowView.swift in Sources */,
 				149210302BC0296700359497 /* ConstructorRowViewModel.swift in Sources */,
 				140A09862BB6E30C0037AA74 /* ContentView.swift in Sources */,
 				148081E52BBD700100A9A33F /* DriverRowViewModel.swift in Sources */,
 				149210042BBEDA1D00359497 /* DriverRowView.swift in Sources */,
 				142632402BBC80BD00A0A68A /* DesignLanguageSystem.swift in Sources */,
 				14D79CB42BB8710F006240F0 /* MRData.swift in Sources */,
+				149210682BC1A8DB00359497 /* SeasonDriverStandingsView.swift in Sources */,
 				149210322BC02BAA00359497 /* ConstructorRowView.swift in Sources */,
 				14D79CB62BB88C92006240F0 /* Extensions+Publisher.swift in Sources */,
 				149210222BC021BA00359497 /* ConstructorsView.swift in Sources */,
 				1492102C2BC023EF00359497 /* APIConstructors.swift in Sources */,
 				148081E92BBD7C2A00A9A33F /* WikipediaSummaryModel.swift in Sources */,
 				1492103E2BC0493300359497 /* StandingsTable.swift in Sources */,
+				1492106A2BC1BF3700359497 /* SeasonConstructorStandingsView.swift in Sources */,
 				148081DB2BBD28CA00A9A33F /* Extension+Colors.swift in Sources */,
 				14B80FFE2BBA86F8006D678E /* DriversView.swift in Sources */,
 				149210342BC02F8A00359497 /* ConstructorStandingsRowView.swift in Sources */,
+				149210452BC0741200359497 /* SeasonsModel.swift in Sources */,
 				14920FED2BBE95A300359497 /* DriverStandingModel.swift in Sources */,
 				142C98812BB74E5B009D1D35 /* DriversViewModel.swift in Sources */,
 				14920FFD2BBEBA5600359497 /* WikipediaAPIStub.swift in Sources */,
@@ -492,9 +567,15 @@
 				142C98782BB74225009D1D35 /* APIDrivers.swift in Sources */,
 				14920FF02BBE9CEC00359497 /* LargeProgressViewModifier.swift in Sources */,
 				148081E72BBD795200A9A33F /* WikipediaAPI.swift in Sources */,
+				1492104C2BC1269B00359497 /* SeasonRowViewModel.swift in Sources */,
+				149210582BC1A54F00359497 /* SeasonDriverStandingsViewModel.swift in Sources */,
+				149210432BC0734A00359497 /* APISeasons.swift in Sources */,
+				149210642BC1A83100359497 /* SeasonConstructorStandingsViewModel.swift in Sources */,
 				14920FF22BBEA65D00359497 /* ConstructorModel.swift in Sources */,
 				140A09842BB6E30C0037AA74 /* F1StatsApp.swift in Sources */,
 				149210282BC0222500359497 /* ConstructorsViewModel.swift in Sources */,
+				1492104A2BC1258300359497 /* SeasonsViewModel.swift in Sources */,
+				149210502BC129A700359497 /* APISeasonsStub.swift in Sources */,
 				1492102E2BC0243800359497 /* APIConstructorsStub.swift in Sources */,
 				1492103A2BC0319A00359497 /* ConstructorStandingModel.swift in Sources */,
 			);
@@ -507,7 +588,10 @@
 				149210192BBFF25F00359497 /* DriversViewModelTests.swift in Sources */,
 				149210402BC06BF600359497 /* ConstructorsViewModelTests.swift in Sources */,
 				1492101E2BBFFD8B00359497 /* WikipediaViewModelTest.swift in Sources */,
+				1492104E2BC1294500359497 /* SeasonsViewModelTests.swift in Sources */,
+				149210622BC1A74200359497 /* SeasonDriverStandingsViewModelTest.swift in Sources */,
 				149210202BC0010800359497 /* DriverStandingsRowViewModelTest.swift in Sources */,
+				149210662BC1A87100359497 /* SeasonConstructorStandingsViewModelTest.swift in Sources */,
 				1492103C2BC0332000359497 /* ConstructorStandingsViewModelTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

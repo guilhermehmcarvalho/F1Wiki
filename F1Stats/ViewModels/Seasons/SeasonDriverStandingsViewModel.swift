@@ -1,26 +1,26 @@
 //
-//  ConstructorStandingsRowViewModel.swift
+//  SeasonDriverStandingsViewModel.swift
 //  F1Stats
 //
-//  Created by Guilherme Carvalho on 05/04/2024.
+//  Created by Guilherme Carvalho on 06/04/2024.
 //
 
 import Foundation
 import Combine
 
-class ConstructorStandingsRowViewModel: ObservableObject {
+class SeasonDriverStandingsViewModel: ObservableObject {
 
-  private var apiConstructors: APIConstructorsProtocol
-  private let constructorId: String
+  private var apiSeasons: APISeasonsProtocol
+  private let seasonId: String
   @Published var standingLists: [StandingsList]?
   private(set) var fetchStatusSubject = PassthroughSubject<FetchStatus, Never>()
   @Published var fetchStatus: FetchStatus = .ready
 
   private var cancellable: AnyCancellable?
 
-  init(constructorId: String, apiConstructors: APIConstructorsProtocol) {
-    self.constructorId = constructorId
-    self.apiConstructors = apiConstructors
+  init(seasonId: String, apiSeasons: APISeasonsProtocol) {
+    self.seasonId = seasonId
+    self.apiSeasons = apiSeasons
     fetchStatusSubject
       .receive(on: DispatchQueue.main)
       .assign(to: &$fetchStatus)
@@ -33,7 +33,7 @@ class ConstructorStandingsRowViewModel: ObservableObject {
   }
 
   internal func fetchStandings() {
-    cancellable = apiConstructors.listOfConstructorStandings(constructorId: constructorId)
+    cancellable = apiSeasons.driverStandingsForSeason(season: seasonId)
       .observeFetchStatus(with: fetchStatusSubject)
       .receive(on: DispatchQueue.main)
       .sink { status in
@@ -42,7 +42,7 @@ class ConstructorStandingsRowViewModel: ObservableObject {
         case .failure(let error):
           print(error)
         }
-      }  receiveValue: { [weak self] response in
+      } receiveValue: { [weak self] response in
         self?.standingLists = response.table.standingsLists
       }
   }
