@@ -20,11 +20,14 @@ struct SeasonConstructorStandingsView: View {
         VStack {
           HStack {
             Text("Position")
-              .frame(width: 150)
+              .typography(type: .body())
+              .frame(width: 80)
+            Spacer()
+            Text("Constructor")
               .typography(type: .body())
             Spacer()
-            Text("Year")
-              .frame(width: 150)
+            Text("Nationality")
+              .frame(width: 100)
               .typography(type: .body())
 
           }
@@ -35,12 +38,14 @@ struct SeasonConstructorStandingsView: View {
             HStack {
               Text(standing.position)
                 .typography(type: .body())
-                .frame(width: 150)
-              Divider()
-                .frame(maxWidth: .infinity, maxHeight: 1)
-                .overlay(Color.F1Stats.systemWhite)
+                .frame(width: 80)
+              Spacer()
               Text(standing.constructor.name)
-                .frame(width: 150)
+                .typography(type: .body())
+              .multilineTextAlignment(.center)
+              Spacer()
+              Text(standing.constructor.nationality)
+                .frame(width: 100)
                 .typography(type: .body())
 
             }

@@ -47,8 +47,8 @@ struct ContentView: View {
     NavigationStack {
       ZStack {
         Color.F1Stats.systemDark.ignoresSafeArea()
-//        ConstructorsView(viewModel: ConstructorsViewModel(apiConstructors: apiConstructors,
-        SeasonsView(viewModel: SeasonsViewModel(apiSeasons: apiSeasons,
+        ConstructorsView(viewModel: ConstructorsViewModel(apiConstructors: apiConstructors,
+//        SeasonsView(viewModel: SeasonsViewModel(apiSeasons: apiSeasons,
 //        DriversView(viewModel: DriversViewModel(driverApi: apiDrivers,
                                                           wikipediaAPI: wikipediaAPI))
       }

@@ -18,11 +18,24 @@ struct SeasonDriverStandingsView: View {
     DisclosureGroup(
       content: {
         VStack {
+          HStack {
+            HStack {
+              Text("")
+                .frame(width: 30)
+              Text("Driver")
+                .typography(type: .body())
+              Spacer()
+              Text("Constructor")
+                .typography(type: .body())
+            }
+          }
+          .padding(.horizontal(8))
+
           ForEach(viewModel.standingLists?.first?.driverStandings ?? [], id: \.driver) { standing in
             HStack {
               Text(standing.position)
                 .typography(type: .body())
-                .frame(width: 40)
+                .frame(width: 30)
               Text(standing.driver.fullName)
                 .typography(type: .body())
               Spacer()
