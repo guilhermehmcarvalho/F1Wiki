@@ -32,4 +32,18 @@ final class WikipediaViewModelTest: XCTestCase {
     wait(for: [promise], timeout: 1)
   }
 
+  func testFetchWikiMediaList() {
+    let viewModel = WikipediaViewModel(url: "", wikipediaApi: WikipediaAPIStub())
+    let promise = expectation(description: "Media was fetch'd")
+    XCTAssertNil(viewModel.mediaList, "Media is not empty")
+    viewModel.fetchMediaList()
+    viewModel.$mediaList.sink() { media in
+      if media != nil {
+        promise.fulfill()
+      }
+    }.store(in: &subscriptions)
+
+    wait(for: [promise], timeout: 1)
+  }
+
 }

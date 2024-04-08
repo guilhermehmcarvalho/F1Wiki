@@ -13,6 +13,7 @@ class WikipediaViewModel: ObservableObject {
 
   private let wikipediaApi: WikipediaAPIProtocol
   @Published var summaryModel: WikipediaSummaryModel?
+  @Published var mediaList: WikiCommonsMedia?
   private(set) var fetchStatusSubject = PassthroughSubject<FetchStatus, Never>()
   @Published var fetchStatus: FetchStatus = .ready
   final let url: String
@@ -39,6 +40,22 @@ class WikipediaViewModel: ObservableObject {
         }
       } receiveValue: { [weak self] response in
         self?.summaryModel = response
+      }
+  }
+
+  internal func fetchMediaList() -> Void {
+    guard mediaList == nil else { return }
+    cancellable = wikipediaApi.getMediaList(forUrl: url)
+      .observeFetchStatus(with: fetchStatusSubject)
+      .receive(on: DispatchQueue.main)
+      .sink { status in
+        switch status {
+        case .finished: break
+        case .failure(let error):
+          print(error)
+        }
+      } receiveValue: { [weak self] response in
+        self?.mediaList = response
       }
   }
 }

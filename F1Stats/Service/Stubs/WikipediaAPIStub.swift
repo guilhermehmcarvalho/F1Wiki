@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 class WikipediaAPIStub: WikipediaAPIProtocol {
-  
+
   let delay: Double
 
   init(delay: Double = 0) {
@@ -38,4 +38,25 @@ class WikipediaAPIStub: WikipediaAPIProtocol {
     }
   }
 
+  func getMediaList(forUrl url: String) -> AnyPublisher<WikiCommonsMedia, any Error> {
+    let decoder = JSONDecoder()
+    decoder.keyDecodingStrategy = .convertFromSnakeCase
+
+    guard let path = Bundle.main.path(forResource: "wikiMediaList", ofType: "json") else {
+      return Empty().eraseToAnyPublisher()
+    }
+
+    do {
+      let jsonData = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+      let model = try decoder.decode(WikiCommonsMedia.self, from: jsonData)
+      return Just(model)
+        .delay(for: .seconds(delay), scheduler: RunLoop.main)
+        .setFailureType(to: Error.self)
+        .eraseToAnyPublisher()
+
+    } catch let error {
+      print(error)
+      return Empty().eraseToAnyPublisher()
+    }
+  }
 }

@@ -10,6 +10,7 @@ import Combine
 
 protocol WikipediaAPIProtocol {
   func getSummaryFor(url: String) -> AnyPublisher<WikipediaSummaryModel, Error>
+  func getMediaList(forUrl url: String) -> AnyPublisher<WikiCommonsMedia, Error>
 }
 
 class WikipediaAPI: WikipediaAPIProtocol {
@@ -38,6 +39,19 @@ class WikipediaAPI: WikipediaAPIProtocol {
 
     return urlSession.dataTaskPublisher(for: url)
       .tryDecodeResponse(type: WikipediaSummaryModel.self, decoder: decoder)
+      .eraseToAnyPublisher()
+  }
+
+  func getMediaList(forUrl url: String) -> AnyPublisher<WikiCommonsMedia, Error> {
+    guard let title = URL(string: url)?.lastPathComponent else {
+      return Empty().eraseToAnyPublisher()
+    }
+    guard let url = URL(string: baseURL.appending("page/media-list/\(title)")) else {
+      return Empty().eraseToAnyPublisher()
+    }
+
+    return urlSession.dataTaskPublisher(for: url)
+      .tryDecodeResponse(type: WikiCommonsMedia.self, decoder: decoder)
       .eraseToAnyPublisher()
   }
 }
