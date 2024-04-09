@@ -10,7 +10,7 @@ import XCTest
 import Combine
 @testable import F1Stats
 
-final class RacesViewModelTest: XCTestCase {
+final class CurrentSeasonViewModelTest: XCTestCase {
 
   var subscriptions = Set<AnyCancellable>()
 
@@ -19,13 +19,13 @@ final class RacesViewModelTest: XCTestCase {
   }
 
   func testFetchCurrentSchedule() {
-    let viewModel = RacesViewModel(apiSchedule: APIScheduleStub(), wikipediaAPI: WikipediaAPIStub())
+    let viewModel = CurrentSeasonViewModel(apiSeasons: APISeasonsStub(), wikipediaAPI: WikipediaAPIStub())
     let promise = expectation(description: "Races will have been fetched")
     XCTAssertEqual(viewModel.raceList.count, 0, "Starting with no races")
     viewModel.fetchCurrentSchedule()
-    viewModel.$raceList
-      .sink() { races in
-        if races.count > 0 {
+    viewModel.$selectedRace
+      .sink() { selectedRace in
+        if selectedRace != nil {
           promise.fulfill()
         }
       }

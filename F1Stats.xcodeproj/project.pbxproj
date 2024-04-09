@@ -70,20 +70,23 @@
 		149210662BC1A87100359497 /* SeasonConstructorStandingsViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149210652BC1A87100359497 /* SeasonConstructorStandingsViewModelTest.swift */; };
 		149210682BC1A8DB00359497 /* SeasonDriverStandingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149210672BC1A8DB00359497 /* SeasonDriverStandingsView.swift */; };
 		1492106A2BC1BF3700359497 /* SeasonConstructorStandingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149210692BC1BF3600359497 /* SeasonConstructorStandingsView.swift */; };
-		149AA0742BC3BD26001EFCCA /* APISchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149AA0732BC3BD26001EFCCA /* APISchedule.swift */; };
 		149AA0762BC3BD7D001EFCCA /* currentSeasonSchedule.json in Resources */ = {isa = PBXBuildFile; fileRef = 149AA0752BC3BD7D001EFCCA /* currentSeasonSchedule.json */; };
 		149AA0782BC3BDA6001EFCCA /* RaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149AA0772BC3BDA6001EFCCA /* RaceModel.swift */; };
 		149AA07C2BC3BDFE001EFCCA /* CircuitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149AA07B2BC3BDFE001EFCCA /* CircuitModel.swift */; };
 		149AA07E2BC3BE26001EFCCA /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149AA07D2BC3BE26001EFCCA /* LocationModel.swift */; };
 		149AA0802BC3BE43001EFCCA /* PracticeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149AA07F2BC3BE43001EFCCA /* PracticeModel.swift */; };
-		149AA0822BC3C70B001EFCCA /* APIScheduleStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149AA0812BC3C70B001EFCCA /* APIScheduleStub.swift */; };
-		149AA0852BC3CD0C001EFCCA /* RacesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149AA0842BC3CD0C001EFCCA /* RacesViewModel.swift */; };
-		149AA0872BC3D0E8001EFCCA /* RacesViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149AA0862BC3D0E8001EFCCA /* RacesViewModelTest.swift */; };
+		149AA0852BC3CD0C001EFCCA /* CurrentSeasonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149AA0842BC3CD0C001EFCCA /* CurrentSeasonViewModel.swift */; };
+		149AA0872BC3D0E8001EFCCA /* CurrentSeasonViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149AA0862BC3D0E8001EFCCA /* CurrentSeasonViewModelTest.swift */; };
 		14B80FFE2BBA86F8006D678E /* DriversView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B80FFD2BBA86F8006D678E /* DriversView.swift */; };
+		14C95DCB2BC572C500F712FE /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C95DCA2BC572C500F712FE /* CardView.swift */; };
+		14C95DCD2BC5CBFD00F712FE /* TicketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C95DCC2BC5CBFD00F712FE /* TicketView.swift */; };
 		14D79CB42BB8710F006240F0 /* MRData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D79CB32BB8710F006240F0 /* MRData.swift */; };
 		14D79CB62BB88C92006240F0 /* Extensions+Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D79CB52BB88C92006240F0 /* Extensions+Publisher.swift */; };
 		14E6E5992BC46C42001DF1D2 /* WikiCommonsMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E6E5982BC46C42001DF1D2 /* WikiCommonsMedia.swift */; };
 		14E6E59B2BC46CAC001DF1D2 /* wikiMediaList.json in Resources */ = {isa = PBXBuildFile; fileRef = 14E6E59A2BC46CAC001DF1D2 /* wikiMediaList.json */; };
+		14E6E59E2BC46F29001DF1D2 /* CurrentSeasonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E6E59D2BC46F29001DF1D2 /* CurrentSeasonView.swift */; };
+		14E6E5A02BC47F87001DF1D2 /* RaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E6E59F2BC47F87001DF1D2 /* RaceView.swift */; };
+		14E6E5A22BC47F93001DF1D2 /* RaceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E6E5A12BC47F93001DF1D2 /* RaceViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -163,20 +166,23 @@
 		149210652BC1A87100359497 /* SeasonConstructorStandingsViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonConstructorStandingsViewModelTest.swift; sourceTree = "<group>"; };
 		149210672BC1A8DB00359497 /* SeasonDriverStandingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonDriverStandingsView.swift; sourceTree = "<group>"; };
 		149210692BC1BF3600359497 /* SeasonConstructorStandingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonConstructorStandingsView.swift; sourceTree = "<group>"; };
-		149AA0732BC3BD26001EFCCA /* APISchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APISchedule.swift; sourceTree = "<group>"; };
 		149AA0752BC3BD7D001EFCCA /* currentSeasonSchedule.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = currentSeasonSchedule.json; sourceTree = "<group>"; };
 		149AA0772BC3BDA6001EFCCA /* RaceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceModel.swift; sourceTree = "<group>"; };
 		149AA07B2BC3BDFE001EFCCA /* CircuitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircuitModel.swift; sourceTree = "<group>"; };
 		149AA07D2BC3BE26001EFCCA /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
 		149AA07F2BC3BE43001EFCCA /* PracticeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeModel.swift; sourceTree = "<group>"; };
-		149AA0812BC3C70B001EFCCA /* APIScheduleStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIScheduleStub.swift; sourceTree = "<group>"; };
-		149AA0842BC3CD0C001EFCCA /* RacesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RacesViewModel.swift; sourceTree = "<group>"; };
-		149AA0862BC3D0E8001EFCCA /* RacesViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RacesViewModelTest.swift; sourceTree = "<group>"; };
+		149AA0842BC3CD0C001EFCCA /* CurrentSeasonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentSeasonViewModel.swift; sourceTree = "<group>"; };
+		149AA0862BC3D0E8001EFCCA /* CurrentSeasonViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentSeasonViewModelTest.swift; sourceTree = "<group>"; };
 		14B80FFD2BBA86F8006D678E /* DriversView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriversView.swift; sourceTree = "<group>"; };
+		14C95DCA2BC572C500F712FE /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		14C95DCC2BC5CBFD00F712FE /* TicketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketView.swift; sourceTree = "<group>"; };
 		14D79CB32BB8710F006240F0 /* MRData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRData.swift; sourceTree = "<group>"; };
 		14D79CB52BB88C92006240F0 /* Extensions+Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+Publisher.swift"; sourceTree = "<group>"; };
 		14E6E5982BC46C42001DF1D2 /* WikiCommonsMedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiCommonsMedia.swift; sourceTree = "<group>"; };
 		14E6E59A2BC46CAC001DF1D2 /* wikiMediaList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = wikiMediaList.json; sourceTree = "<group>"; };
+		14E6E59D2BC46F29001DF1D2 /* CurrentSeasonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentSeasonView.swift; sourceTree = "<group>"; };
+		14E6E59F2BC47F87001DF1D2 /* RaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceView.swift; sourceTree = "<group>"; };
+		14E6E5A12BC47F93001DF1D2 /* RaceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -253,7 +259,7 @@
 		142C98732BB70557009D1D35 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				149AA0832BC3C940001EFCCA /* Races */,
+				149AA0832BC3C940001EFCCA /* CurrentSeason */,
 				149210482BC1257300359497 /* Seasons */,
 				149210262BC0221500359497 /* Constructors */,
 				149210252BC0220B00359497 /* Drivers */,
@@ -265,6 +271,7 @@
 		142C98742BB70561009D1D35 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				14E6E59C2BC46F16001DF1D2 /* CurrentSeason */,
 				149210512BC16D8F00359497 /* Seasons */,
 				149210242BC021E900359497 /* Constructors */,
 				149210232BC021DB00359497 /* Drivers */,
@@ -282,7 +289,6 @@
 				148081E62BBD795200A9A33F /* WikipediaAPI.swift */,
 				1492102B2BC023EF00359497 /* APIConstructors.swift */,
 				149210422BC0734A00359497 /* APISeasons.swift */,
-				149AA0732BC3BD26001EFCCA /* APISchedule.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -316,6 +322,8 @@
 			children = (
 				14920FEF2BBE9CEC00359497 /* LargeProgressViewModifier.swift */,
 				149210092BBF0CEF00359497 /* CustomDisclosureGroupStyle.swift */,
+				14C95DCA2BC572C500F712FE /* CardView.swift */,
+				14C95DCC2BC5CBFD00F712FE /* TicketView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -328,7 +336,6 @@
 				14920FFC2BBEBA5600359497 /* WikipediaAPIStub.swift */,
 				1492104F2BC129A700359497 /* APISeasonsStub.swift */,
 				1492102D2BC0243800359497 /* APIConstructorsStub.swift */,
-				149AA0812BC3C70B001EFCCA /* APIScheduleStub.swift */,
 			);
 			path = Stubs;
 			sourceTree = "<group>";
@@ -369,7 +376,7 @@
 				1492104D2BC1294500359497 /* SeasonsViewModelTests.swift */,
 				149210612BC1A74200359497 /* SeasonDriverStandingsViewModelTest.swift */,
 				149210652BC1A87100359497 /* SeasonConstructorStandingsViewModelTest.swift */,
-				149AA0862BC3D0E8001EFCCA /* RacesViewModelTest.swift */,
+				149AA0862BC3D0E8001EFCCA /* CurrentSeasonViewModelTest.swift */,
 			);
 			path = ViewModelTests;
 			sourceTree = "<group>";
@@ -457,12 +464,13 @@
 			path = Standings;
 			sourceTree = "<group>";
 		};
-		149AA0832BC3C940001EFCCA /* Races */ = {
+		149AA0832BC3C940001EFCCA /* CurrentSeason */ = {
 			isa = PBXGroup;
 			children = (
-				149AA0842BC3CD0C001EFCCA /* RacesViewModel.swift */,
+				149AA0842BC3CD0C001EFCCA /* CurrentSeasonViewModel.swift */,
+				14E6E5A12BC47F93001DF1D2 /* RaceViewModel.swift */,
 			);
-			path = Races;
+			path = CurrentSeason;
 			sourceTree = "<group>";
 		};
 		14D79CB72BB88CA3006240F0 /* Extensions */ = {
@@ -473,6 +481,15 @@
 				142632432BBC8CE900A0A68A /* Extensions+EdgeInsets.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		14E6E59C2BC46F16001DF1D2 /* CurrentSeason */ = {
+			isa = PBXGroup;
+			children = (
+				14E6E59D2BC46F29001DF1D2 /* CurrentSeasonView.swift */,
+				14E6E59F2BC47F87001DF1D2 /* RaceView.swift */,
+			);
+			path = CurrentSeason;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -592,13 +609,14 @@
 			files = (
 				149210062BBEE03C00359497 /* DriverStandingsView.swift in Sources */,
 				142C987F2BB74AAC009D1D35 /* DriverModel.swift in Sources */,
-				149AA0822BC3C70B001EFCCA /* APIScheduleStub.swift in Sources */,
 				148081ED2BBD85DC00A9A33F /* WikipediaViewModel.swift in Sources */,
-				149AA0742BC3BD26001EFCCA /* APISchedule.swift in Sources */,
 				149210532BC16DA500359497 /* SeasonsView.swift in Sources */,
 				149210362BC02FB100359497 /* ConstructorStandingsRowViewModel.swift in Sources */,
 				14920FF62BBEA9B400359497 /* DriverStandingsRowViewModel.swift in Sources */,
+				14C95DCD2BC5CBFD00F712FE /* TicketView.swift in Sources */,
 				149AA0782BC3BDA6001EFCCA /* RaceModel.swift in Sources */,
+				14C95DCB2BC572C500F712FE /* CardView.swift in Sources */,
+				14E6E59E2BC46F29001DF1D2 /* CurrentSeasonView.swift in Sources */,
 				1492100A2BBF0CEF00359497 /* CustomDisclosureGroupStyle.swift in Sources */,
 				148081EB2BBD85BB00A9A33F /* WikipediaView.swift in Sources */,
 				149210552BC16FA500359497 /* SeasonRowView.swift in Sources */,
@@ -616,13 +634,14 @@
 				149210222BC021BA00359497 /* ConstructorsView.swift in Sources */,
 				1492102C2BC023EF00359497 /* APIConstructors.swift in Sources */,
 				148081E92BBD7C2A00A9A33F /* WikipediaSummaryModel.swift in Sources */,
+				14E6E5A02BC47F87001DF1D2 /* RaceView.swift in Sources */,
 				1492103E2BC0493300359497 /* StandingsTable.swift in Sources */,
 				1492106A2BC1BF3700359497 /* SeasonConstructorStandingsView.swift in Sources */,
 				148081DB2BBD28CA00A9A33F /* Extension+Colors.swift in Sources */,
 				14B80FFE2BBA86F8006D678E /* DriversView.swift in Sources */,
 				149210342BC02F8A00359497 /* ConstructorStandingsRowView.swift in Sources */,
 				149210452BC0741200359497 /* SeasonsModel.swift in Sources */,
-				149AA0852BC3CD0C001EFCCA /* RacesViewModel.swift in Sources */,
+				149AA0852BC3CD0C001EFCCA /* CurrentSeasonViewModel.swift in Sources */,
 				14920FED2BBE95A300359497 /* DriverStandingModel.swift in Sources */,
 				142C98812BB74E5B009D1D35 /* DriversViewModel.swift in Sources */,
 				14920FFD2BBEBA5600359497 /* WikipediaAPIStub.swift in Sources */,
@@ -635,6 +654,7 @@
 				1492104C2BC1269B00359497 /* SeasonRowViewModel.swift in Sources */,
 				149210582BC1A54F00359497 /* SeasonDriverStandingsViewModel.swift in Sources */,
 				149210432BC0734A00359497 /* APISeasons.swift in Sources */,
+				14E6E5A22BC47F93001DF1D2 /* RaceViewModel.swift in Sources */,
 				149210642BC1A83100359497 /* SeasonConstructorStandingsViewModel.swift in Sources */,
 				14920FF22BBEA65D00359497 /* ConstructorModel.swift in Sources */,
 				140A09842BB6E30C0037AA74 /* F1StatsApp.swift in Sources */,
@@ -653,7 +673,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				149210192BBFF25F00359497 /* DriversViewModelTests.swift in Sources */,
-				149AA0872BC3D0E8001EFCCA /* RacesViewModelTest.swift in Sources */,
+				149AA0872BC3D0E8001EFCCA /* CurrentSeasonViewModelTest.swift in Sources */,
 				149210402BC06BF600359497 /* ConstructorsViewModelTests.swift in Sources */,
 				1492101E2BBFFD8B00359497 /* WikipediaViewModelTest.swift in Sources */,
 				1492104E2BC1294500359497 /* SeasonsViewModelTests.swift in Sources */,

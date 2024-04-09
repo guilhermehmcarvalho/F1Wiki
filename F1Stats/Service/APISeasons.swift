@@ -12,6 +12,7 @@ protocol APISeasonsProtocol {
   func listOfAllSeasons(limit: Int, offset: Int) -> AnyPublisher<MRData<SeasonTable>, Error>
   func driverStandingsForSeason(season: String) -> AnyPublisher<MRData<StandingsTable>, Error>
   func constructorStandingsForSeason(season: String) -> AnyPublisher<MRData<StandingsTable>, Error>
+  func currentSeasonSchedule(limit: Int, offset: Int) -> AnyPublisher<MRData<RaceTable>, Error>
 }
 
 class APISeasons: APISeasonsProtocol {
@@ -62,6 +63,22 @@ class APISeasons: APISeasonsProtocol {
 
     return urlSession.dataTaskPublisher(for: url)
         .tryDecodeResponse(type: MRData<StandingsTable>.self, decoder: JSONDecoder())
+        .eraseToAnyPublisher()
+  }
+
+  func currentSeasonSchedule(limit: Int = 30, offset: Int = 0) -> AnyPublisher<MRData<RaceTable>, any Error> {
+    var components = URLComponents(string: baseURL.appending("current.json"))
+    components?.queryItems = [
+      URLQueryItem(name: "limit", value: "\(limit)"),
+      URLQueryItem(name: "offset", value: "\(offset)")
+    ]
+
+    guard let url = components?.url else {
+      return Empty().eraseToAnyPublisher()
+    }
+
+    return urlSession.dataTaskPublisher(for: url)
+        .tryDecodeResponse(type: MRData<RaceTable>.self, decoder: JSONDecoder())
         .eraseToAnyPublisher()
   }
 }

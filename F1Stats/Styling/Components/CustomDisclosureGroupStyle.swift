@@ -11,6 +11,10 @@ import SwiftUI
 struct CustomDisclosureGroupStyle: DisclosureGroupStyle {
   let onTap: ((Bool) -> ())?
 
+  init(onTap: ((Bool) -> Void)? = nil) {
+    self.onTap = onTap
+  }
+
   func makeBody(configuration: Configuration) -> some View {
     HStack(alignment: .center, spacing: 0) {
       configuration.label

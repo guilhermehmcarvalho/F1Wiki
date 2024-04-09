@@ -12,6 +12,10 @@ import CachedAsyncImage
 struct WikipediaView: View {
   @ObservedObject var viewModel: WikipediaViewModel
 
+  init(viewModel: WikipediaViewModel) {
+    self.viewModel = viewModel
+  }
+
   var body: some View {
     VStack {
       if viewModel.fetchStatus == .ongoing {
@@ -66,5 +70,6 @@ struct WikipediaView: View {
         }
       }
     }
+    .onAppear(perform: viewModel.fetchSummary)
   }
 }

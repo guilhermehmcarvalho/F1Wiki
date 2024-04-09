@@ -26,7 +26,8 @@ enum TypographyStyle {
   public var weight: Font.Weight {
     switch self {
     case .small, .body: return .regular
-    case .heading, .subHeader: return .bold
+    case .heading: return .bold
+    case .subHeader: return .medium
     }
   }
 }

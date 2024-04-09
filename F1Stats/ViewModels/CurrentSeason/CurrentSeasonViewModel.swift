@@ -10,15 +10,19 @@ import Foundation
 import Combine
 import UIKit
 
-class RacesViewModel: ObservableObject {
+class CurrentSeasonViewModel: ObservableObject {
 
-  private var apiSchedule: APIScheduleProtocol
+  private var apiSeasons: APISeasonsProtocol
   private let wikipediaAPI: WikipediaAPIProtocol
 
   private(set) var fetchStatusSubject = PassthroughSubject<FetchStatus, Never>()
 
   @Published var fetchStatus: FetchStatus = .ready
+  @Published var selectedRace: RaceModel?
+  @Published var hasNextRace: Bool = false
+  @Published var hasPreviousRace: Bool = false
   @Published var raceList: [RaceModel] = []
+  var selectedIndex = 0;
 
   private var cancellable: AnyCancellable?
   private let itemsPerPage = 30
@@ -26,8 +30,8 @@ class RacesViewModel: ObservableObject {
   private var total = 0;
   private var paginationThresholdId: String?
 
-  init(apiSchedule: APIScheduleProtocol, wikipediaAPI: WikipediaAPIProtocol) {
-    self.apiSchedule = apiSchedule
+  init(apiSeasons: APISeasonsProtocol, wikipediaAPI: WikipediaAPIProtocol) {
+    self.apiSeasons = apiSeasons
     self.wikipediaAPI = wikipediaAPI
     fetchStatusSubject
       .receive(on: DispatchQueue.main)
@@ -35,7 +39,7 @@ class RacesViewModel: ObservableObject {
   }
 
   func fetchCurrentSchedule() {
-    cancellable = apiSchedule.currentSeasonSchedule(limit: itemsPerPage, offset: offset)
+    cancellable = apiSeasons.currentSeasonSchedule(limit: itemsPerPage, offset: offset)
       .observeFetchStatus(with: fetchStatusSubject)
       .receive(on: DispatchQueue.main)
       .sink { status in
@@ -48,6 +52,7 @@ class RacesViewModel: ObservableObject {
         self?.raceList.append(contentsOf: response.table.races)
         self?.offset += response.table.races.count
         self?.total = response.total
+        self?.selectRace()
         if let self = self {
           var thresholdIndex = self.raceList.index(self.raceList.endIndex, offsetBy: -5)
           if thresholdIndex < 0 {
@@ -58,10 +63,25 @@ class RacesViewModel: ObservableObject {
       }
   }
 
-//  internal func driverRoleViewModel(for driver: DriverModel) -> DriverRowViewModel {
-//    DriverRowViewModel(driver: driver, wikipediaApi:
-//                        wikipediaAPI, driverApi: driverApi)
-//  }
+  private func selectRace() {
+    selectedRace = self.raceList[self.selectedIndex]
+    hasNextRace = selectedIndex + 1 < raceList.count
+    hasPreviousRace = selectedIndex > 0
+  }
+
+  internal func selectNextRace() {
+    if selectedIndex + 1 < raceList.count {
+      selectedIndex += 1
+    }
+    selectRace()
+  }
+
+  internal func selectPreviousRace() {
+    if selectedIndex - 1 >= 0 {
+      selectedIndex -= 1
+    }
+    selectRace()
+  }
 
   //MARK: - PAGINATION
   func onItemDisplayed(currentItem item: DriverModel){

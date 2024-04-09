@@ -20,13 +20,6 @@ class SeasonRowViewModel: ObservableObject {
     self.wikipediaViewModel = WikipediaViewModel(url: season.url, wikipediaApi: wikipediaApi)
   }
 
-  internal func onTap(isExpanded: Bool) {
-    if isExpanded {
-      wikipediaViewModel.fetchSummary()
-    }
-  }
-
-
   internal var seasonConstructorStandingsViewModel: SeasonConstructorStandingsViewModel {
     SeasonConstructorStandingsViewModel(seasonId: season.id, apiSeasons: apiSeason)
   }

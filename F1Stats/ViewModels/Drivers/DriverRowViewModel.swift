@@ -24,9 +24,4 @@ class DriverRowViewModel: ObservableObject {
     self.wikipediaViewModel = WikipediaViewModel(url: driver.url, wikipediaApi: wikipediaApi)
   }
   
-  internal func onTap(isExpanded: Bool) {
-    if isExpanded {
-      wikipediaViewModel.fetchSummary()
-    }
-  }
 }

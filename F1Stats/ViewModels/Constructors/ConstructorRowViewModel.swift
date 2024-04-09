@@ -20,12 +20,6 @@ class ConstructorRowViewModel: ObservableObject {
     self.wikipediaViewModel = WikipediaViewModel(url: constructor.url, wikipediaApi: wikipediaApi)
   }
 
-  internal func onTap(isExpanded: Bool) {
-    if isExpanded {
-      wikipediaViewModel.fetchSummary()
-    }
-  }
-
   internal var constructorStandingsRowViewModel: ConstructorStandingsRowViewModel {
     ConstructorStandingsRowViewModel(constructorId: constructor.constructorID, apiConstructors: apiConstructor)
   }

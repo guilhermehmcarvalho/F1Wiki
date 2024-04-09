@@ -47,7 +47,7 @@ struct DriverRowView: View {
     )
     .listRowInsets(.all(0))
     .disclosureGroupStyle(
-      CustomDisclosureGroupStyle(onTap: viewModel.onTap(isExpanded:))
+      CustomDisclosureGroupStyle()
     )
     .listRowBackground(
       Color.F1Stats.systemDarkSecondary
