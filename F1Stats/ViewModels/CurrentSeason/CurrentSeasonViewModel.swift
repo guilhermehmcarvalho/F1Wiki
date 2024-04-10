@@ -18,8 +18,7 @@ class CurrentSeasonViewModel: ObservableObject {
   private(set) var fetchStatusSubject = PassthroughSubject<FetchStatus, Never>()
 
   @Published var fetchStatus: FetchStatus = .ready
-  @Published var selectedRace: RaceModel?
-  @Published var raceList: [RaceModel] = []
+  @Published var raceViewModels: [RaceViewModel] = []
   var selectedIndex = 0;
 
   private var cancellable: AnyCancellable?
@@ -47,41 +46,30 @@ class CurrentSeasonViewModel: ObservableObject {
           print(error)
         }
       } receiveValue: { [weak self] response in
-        self?.raceList.append(contentsOf: response.table.races)
+        let raceVMs = response.table.races.map { race in
+          RaceViewModel(raceModel: race)
+        }
+        self?.raceViewModels.append(contentsOf: raceVMs)
         self?.offset += response.table.races.count
         self?.total = response.total
-        //self?.selectRace()
         if let self = self {
-          var thresholdIndex = self.raceList.index(self.raceList.endIndex, offsetBy: -5)
+          var thresholdIndex = self.raceViewModels.index(self.raceViewModels.endIndex, offsetBy: -5)
           if thresholdIndex < 0 {
             thresholdIndex = 0
           }
-          self.paginationThresholdId = raceList[thresholdIndex].id
+          self.paginationThresholdId = raceViewModels[thresholdIndex].id
         }
       }
   }
-//
-//  private func selectRace() {
-//    selectedRace = self.raceList[self.selectedIndex]
-//  }
-//
-//  internal func selectNextRace() {
-//    if selectedIndex + 1 < raceList.count {
-//      selectedIndex += 1
-//    }
-//    selectRace()
-//  }
-//
-//  internal func selectPreviousRace() {
-//    if selectedIndex - 1 >= 0 {
-//      selectedIndex -= 1
-//    }
-//    selectRace()
-//  }
+
+  internal func changedTabIndex(oldValue: Int, newValue: Int) {
+    raceViewModels[oldValue].animate(false)
+    raceViewModels[newValue].animate(true)
+  }
 
   //MARK: - PAGINATION
   func onItemDisplayed(currentItem item: DriverModel){
-    if item.id == paginationThresholdId, raceList.count < total {
+    if item.id == paginationThresholdId, raceViewModels.count < total {
       fetchCurrentSchedule()
     }
   }

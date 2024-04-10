@@ -21,11 +21,11 @@ final class CurrentSeasonViewModelTest: XCTestCase {
   func testFetchCurrentSchedule() {
     let viewModel = CurrentSeasonViewModel(apiSeasons: APISeasonsStub(), wikipediaAPI: WikipediaAPIStub())
     let promise = expectation(description: "Races will have been fetched")
-    XCTAssertEqual(viewModel.raceList.count, 0, "Starting with no races")
+    XCTAssertEqual(viewModel.raceViewModels.count, 0, "Starting with no races")
     viewModel.fetchCurrentSchedule()
-    viewModel.$selectedRace
-      .sink() { selectedRace in
-        if selectedRace != nil {
+    viewModel.$raceViewModels
+      .sink() { races in
+        if races.count > 0 {
           promise.fulfill()
         }
       }

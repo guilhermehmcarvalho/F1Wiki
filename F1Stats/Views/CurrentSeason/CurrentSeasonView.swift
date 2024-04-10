@@ -10,6 +10,7 @@ import Combine
 
 struct CurrentSeasonView: View {
   @ObservedObject var viewModel: CurrentSeasonViewModel
+  @State private var selectedIndex: Int = 0
 
   init(viewModel: CurrentSeasonViewModel) {
     self.viewModel = viewModel
@@ -17,19 +18,16 @@ struct CurrentSeasonView: View {
 
   var body: some View {
     GeometryReader { geo in
-      ScrollView(.horizontal, showsIndicators: false) {
-        
-        LazyHStack(spacing: 0) {
-          ForEach(viewModel.raceList, id: \.id) { race in
-            RaceView(viewModel: RaceViewModel(raceModel: race))
+      TabView(selection: $selectedIndex) {
+        ForEach (viewModel.raceViewModels.enumerated().sorted { $0.element.round < $1.element.round}, id: \.element) { index, raceViewModel in
+            RaceView(viewModel: raceViewModel)
               .frame(width: geo.size.width - geo.safeAreaInsets.trailing)
               .padding(.trailing, geo.safeAreaInsets.trailing)
+              .tag(index)
           }
-        }
-
       }
-      .scrollTargetBehavior(.paging)
-      .scrollTargetLayout(isEnabled: true)
+      .onChange(of: selectedIndex, viewModel.changedTabIndex)
+      .tabViewStyle(PageTabViewStyle())
       .onAppear(perform: viewModel.fetchCurrentSchedule)
     }
     .ignoresSafeArea()

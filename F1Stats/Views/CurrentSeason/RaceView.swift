@@ -19,7 +19,7 @@ struct RaceView: View {
   var body: some View {
     GeometryReader { geo in
       ScrollView(showsIndicators: false) {
-        VStack(spacing: viewModel.animate ? 0 : -300) {
+        VStack(spacing: viewModel.animate ? 0 : -150) {
 
           grandPrix
             .frame(maxWidth: .infinity, minHeight: geo.size.width/2)
@@ -60,12 +60,10 @@ struct RaceView: View {
             .zIndex(0)
             .ticketTransition()
         }
-        .animation(.snappy (duration: 1), value: viewModel.animate)
+//        .animation(.snappy (duration: 1), value: viewModel.animate)
         .safeAreaPadding()
       }
-
     }
-    .onAppear { viewModel.animate = true }
   }
 
   var grandPrix: some View {
@@ -168,10 +166,8 @@ fileprivate extension View {
     return self
       .scrollTransition { content, phase in
         content
-          .opacity(phase.isIdentity ? 1.0 : 0.8)
           .scaleEffect(phase.isIdentity ? 1.0 : 0.5)
-          .blur(radius: phase.isIdentity ? 0 : 2)
-          .rotationEffect(phase.isIdentity ? randomAngle : Angle(degrees: 15))
+          .rotationEffect(phase.isIdentity ? randomAngle : Angle(degrees: 10))
       }
   }
 }

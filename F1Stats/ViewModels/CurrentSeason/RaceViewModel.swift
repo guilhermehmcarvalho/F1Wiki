@@ -8,11 +8,12 @@
 import Foundation
 import Combine
 import UIKit
+import SwiftUI
 
 class RaceViewModel: ObservableObject {
 
-  let raceModel: RaceModel
-  @Published internal var animate = false
+  internal let raceModel: RaceModel
+  @Published internal private(set) var animate: Bool = false
 
   init(raceModel: RaceModel) {
     self.raceModel = raceModel
@@ -22,8 +23,8 @@ class RaceViewModel: ObservableObject {
   var circuit: String { raceModel.circuit.circuitName }
   var country: String { raceModel.circuit.location.country }
   var locality: String { raceModel.circuit.location.locality }
-  var round: String { raceModel.round }
-  
+  var round: Int { Int(raceModel.round) ?? 0 }
+
   var raceDate: Date? {
     dateFromString(raceModel.date.appending(raceModel.time))
   }
@@ -85,5 +86,29 @@ class RaceViewModel: ObservableObject {
     formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
     formatter.dateFormat = "E, d MMM y \nHH:mm "
     return formatter.string(from: date)
+  }
+
+  internal func animate(_ animate: Bool, delay: Double = 0) {
+    DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
+      withAnimation {
+        self.animate = animate
+      }
+    }
+  }
+}
+
+extension RaceViewModel: Identifiable {
+  var id: String {
+    raceModel.round
+  }
+}
+
+extension RaceViewModel: Hashable, Equatable {
+  static func == (lhs: RaceViewModel, rhs: RaceViewModel) -> Bool {
+    lhs.round == rhs.round
+  }
+  
+  func hash(into hasher: inout Hasher) {
+    hasher.combine(round)
   }
 }
