@@ -31,7 +31,7 @@ struct CurrentSeasonView: View {
               .tag(index)
               .onAppear {
                 if index == 0 {
-                  raceViewModel.animate(true)
+                  raceViewModel.animate(true, delay: 0.1)
                 }
                 viewModel.onItemDisplayed(currentItem: raceViewModel)
               }

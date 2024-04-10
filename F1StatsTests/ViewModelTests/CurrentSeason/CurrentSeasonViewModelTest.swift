@@ -19,7 +19,7 @@ final class CurrentSeasonViewModelTest: XCTestCase {
   }
 
   func testFetchCurrentSchedule() {
-    let viewModel = CurrentSeasonViewModel(apiSeasons: APISeasonsStub(), wikipediaAPI: WikipediaAPIStub())
+    let viewModel = CurrentSeasonViewModel(apiSeasons: APISeasonsStub())
     let promise = expectation(description: "Races will have been fetched")
     XCTAssertEqual(viewModel.raceViewModels.count, 0, "Starting with no races")
     viewModel.fetchCurrentSchedule()

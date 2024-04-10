@@ -1,5 +1,5 @@
 //
-//  QualiResultsViewModel.swift
+//  RaceResultsViewModel.swift
 //  F1Stats
 //
 //  Created by Guilherme Carvalho on 10/04/2024.
@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-class QualiResultsViewModel: ObservableObject {
+class RaceResultsViewModel: ObservableObject {
 
   private var apiSeasons: APISeasonsProtocol
   private let round: Int
@@ -30,8 +30,8 @@ class QualiResultsViewModel: ObservableObject {
       .assign(to: &$fetchStatus)
   }
 
-  func fetchQualiResult() {
-    cancellable = apiSeasons.qualifyingResults(round: round, year: year)
+  func fetchRaceResults() {
+    cancellable = apiSeasons.raceResults(round: round, year: year)
       .observeFetchStatus(with: fetchStatusSubject)
       .receive(on: DispatchQueue.main)
       .sink { status in
