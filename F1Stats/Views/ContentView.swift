@@ -47,18 +47,18 @@ struct ContentView: View {
 
   func customizeTabViewAppearance() {
     UIPageControl.appearance().currentPageIndicatorTintColor = Color.F1Stats.primary.asUIColor
-        UIPageControl.appearance().pageIndicatorTintColor = Color.F1Stats.primary.asUIColor.withAlphaComponent(0.2)
+    UIPageControl.appearance().pageIndicatorTintColor = Color.F1Stats.systemWhite.asUIColor.withAlphaComponent(0.8)
   }
 
   var body: some View {
     NavigationStack {
       ZStack {
         Color.F1Stats.systemDark.ignoresSafeArea()
-        CurrentSeasonView(viewModel: CurrentSeasonViewModel(apiSeasons: apiSeasons,
+        CurrentSeasonView(viewModel: CurrentSeasonViewModel(apiSeasons: apiSeasons))
 //        ConstructorsView(viewModel: ConstructorsViewModel(apiConstructors: apiConstructors,
 //        SeasonsView(viewModel: SeasonsViewModel(apiSeasons: apiSeasons,
 //        DriversView(viewModel: DriversViewModel(driverApi: apiDrivers,
-                                                          wikipediaAPI: wikipediaAPI))
+//                                                          wikipediaAPI: wikipediaAPI))
       }
       .scrollContentBackground(.hidden)
     }

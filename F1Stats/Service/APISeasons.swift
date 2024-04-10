@@ -13,6 +13,8 @@ protocol APISeasonsProtocol {
   func driverStandingsForSeason(season: String) -> AnyPublisher<MRData<StandingsTable>, Error>
   func constructorStandingsForSeason(season: String) -> AnyPublisher<MRData<StandingsTable>, Error>
   func currentSeasonSchedule(limit: Int, offset: Int) -> AnyPublisher<MRData<RaceTable>, Error>
+  func qualifyingResults(round: Int, year: String) -> AnyPublisher<MRData<RaceTable>, any Error>
+  func raceResults(round: Int, year: String) -> AnyPublisher<MRData<RaceTable>, any Error>
 }
 
 class APISeasons: APISeasonsProtocol {
@@ -72,6 +74,30 @@ class APISeasons: APISeasonsProtocol {
       URLQueryItem(name: "limit", value: "\(limit)"),
       URLQueryItem(name: "offset", value: "\(offset)")
     ]
+
+    guard let url = components?.url else {
+      return Empty().eraseToAnyPublisher()
+    }
+
+    return urlSession.dataTaskPublisher(for: url)
+        .tryDecodeResponse(type: MRData<RaceTable>.self, decoder: JSONDecoder())
+        .eraseToAnyPublisher()
+  }
+
+  func qualifyingResults(round: Int, year: String) -> AnyPublisher<MRData<RaceTable>, any Error> {
+    var components = URLComponents(string: baseURL.appending("\(year)/\(round)/qualifying.json"))
+
+    guard let url = components?.url else {
+      return Empty().eraseToAnyPublisher()
+    }
+
+    return urlSession.dataTaskPublisher(for: url)
+        .tryDecodeResponse(type: MRData<RaceTable>.self, decoder: JSONDecoder())
+        .eraseToAnyPublisher()
+  }
+
+  func raceResults(round: Int, year: String) -> AnyPublisher<MRData<RaceTable>, any Error> {
+    var components = URLComponents(string: baseURL.appending("\(year)/\(round)/qualifying.json"))
 
     guard let url = components?.url else {
       return Empty().eraseToAnyPublisher()

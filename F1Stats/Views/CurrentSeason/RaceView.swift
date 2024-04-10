@@ -99,7 +99,7 @@ struct RaceView: View {
     VStack {
       Text("Free Practice 1")
         .typography(type: .subHeader (color: .F1Stats.systemDark))
-      if let date = viewModel.raceModel.firstPractice.timeAsString() {
+      if let date = viewModel.raceModel.firstPractice?.timeAsString() {
         Spacer().frame(height: 4)
         Text(date)
           .multilineTextAlignment(.center)
@@ -112,7 +112,7 @@ struct RaceView: View {
     VStack {
       Text("Free Practice 2")
         .typography(type: .subHeader (color: .F1Stats.systemDark))
-      if let date = viewModel.raceModel.secondPractice.timeAsString() {
+      if let date = viewModel.raceModel.secondPractice?.timeAsString() {
         Spacer().frame(height: 4)
         Text(date)
           .multilineTextAlignment(.center)
@@ -149,9 +149,9 @@ struct RaceView: View {
 
   var quali: some View {
     VStack {
-      Text("Qualification")
+      Text("Qualifying")
         .typography(type: .subHeader (color: .F1Stats.systemDark))
-      if let date = viewModel.raceModel.qualifying.timeAsString() {
+      if let date = viewModel.raceModel.qualifying?.timeAsString() {
         Spacer().frame(height: 4)
         Text(date)
           .multilineTextAlignment(.center)

@@ -78,6 +78,11 @@
 		149AA0852BC3CD0C001EFCCA /* CurrentSeasonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149AA0842BC3CD0C001EFCCA /* CurrentSeasonViewModel.swift */; };
 		149AA0872BC3D0E8001EFCCA /* CurrentSeasonViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149AA0862BC3D0E8001EFCCA /* CurrentSeasonViewModelTest.swift */; };
 		14B80FFE2BBA86F8006D678E /* DriversView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B80FFD2BBA86F8006D678E /* DriversView.swift */; };
+		14C146922BC7033C001F7F35 /* qualifyingResults.json in Resources */ = {isa = PBXBuildFile; fileRef = 14C146912BC7033C001F7F35 /* qualifyingResults.json */; };
+		14C146942BC7040B001F7F35 /* QualifyingResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C146932BC7040B001F7F35 /* QualifyingResult.swift */; };
+		14C146962BC70489001F7F35 /* RaceResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C146952BC70489001F7F35 /* RaceResult.swift */; };
+		14C146982BC70B12001F7F35 /* raceResults.json in Resources */ = {isa = PBXBuildFile; fileRef = 14C146972BC70B12001F7F35 /* raceResults.json */; };
+		14C1469A2BC70BFE001F7F35 /* QualiResultsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C146992BC70BFE001F7F35 /* QualiResultsViewModel.swift */; };
 		14C95DCB2BC572C500F712FE /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C95DCA2BC572C500F712FE /* CardView.swift */; };
 		14C95DCD2BC5CBFD00F712FE /* TicketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C95DCC2BC5CBFD00F712FE /* TicketView.swift */; };
 		14D79CB42BB8710F006240F0 /* MRData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D79CB32BB8710F006240F0 /* MRData.swift */; };
@@ -174,6 +179,11 @@
 		149AA0842BC3CD0C001EFCCA /* CurrentSeasonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentSeasonViewModel.swift; sourceTree = "<group>"; };
 		149AA0862BC3D0E8001EFCCA /* CurrentSeasonViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentSeasonViewModelTest.swift; sourceTree = "<group>"; };
 		14B80FFD2BBA86F8006D678E /* DriversView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriversView.swift; sourceTree = "<group>"; };
+		14C146912BC7033C001F7F35 /* qualifyingResults.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = qualifyingResults.json; sourceTree = "<group>"; };
+		14C146932BC7040B001F7F35 /* QualifyingResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QualifyingResult.swift; sourceTree = "<group>"; };
+		14C146952BC70489001F7F35 /* RaceResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceResult.swift; sourceTree = "<group>"; };
+		14C146972BC70B12001F7F35 /* raceResults.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = raceResults.json; sourceTree = "<group>"; };
+		14C146992BC70BFE001F7F35 /* QualiResultsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QualiResultsViewModel.swift; sourceTree = "<group>"; };
 		14C95DCA2BC572C500F712FE /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		14C95DCC2BC5CBFD00F712FE /* TicketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketView.swift; sourceTree = "<group>"; };
 		14D79CB32BB8710F006240F0 /* MRData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRData.swift; sourceTree = "<group>"; };
@@ -297,7 +307,7 @@
 			isa = PBXGroup;
 			children = (
 				149AA07A2BC3BDE0001EFCCA /* Standings */,
-				149AA0792BC3BDCA001EFCCA /* Schedule */,
+				149AA0792BC3BDCA001EFCCA /* Season */,
 				142C987E2BB74AAC009D1D35 /* DriverModel.swift */,
 				14D79CB32BB8710F006240F0 /* MRData.swift */,
 				148081E82BBD7C2A00A9A33F /* WikipediaSummaryModel.swift */,
@@ -343,16 +353,10 @@
 		14920FFE2BBEBA6A00359497 /* jsons */ = {
 			isa = PBXGroup;
 			children = (
-				14920FF72BBEB9F800359497 /* wikipediaSummary.json */,
-				14920FFF2BBEBC3F00359497 /* driverStandings.json */,
-				149210012BBEBF2100359497 /* driverList.json */,
-				149210292BC0231000359497 /* constructorList.json */,
-				149210372BC030B600359497 /* constructorStandings.json */,
-				149210462BC07A0300359497 /* seasonList.json */,
-				1492105B2BC1A68300359497 /* seasonConstructorStandings.json */,
-				1492105F2BC1A6B500359497 /* seasonDriverStandings.json */,
-				149AA0752BC3BD7D001EFCCA /* currentSeasonSchedule.json */,
-				14E6E59A2BC46CAC001DF1D2 /* wikiMediaList.json */,
+				14C146902BC70317001F7F35 /* APISeasons */,
+				14C1468F2BC70303001F7F35 /* APIConstructors */,
+				14C1468E2BC702F3001F7F35 /* WikipediaAPI */,
+				14C1468D2BC702E1001F7F35 /* APIDrivers */,
 			);
 			path = jsons;
 			sourceTree = "<group>";
@@ -443,15 +447,17 @@
 			path = Seasons;
 			sourceTree = "<group>";
 		};
-		149AA0792BC3BDCA001EFCCA /* Schedule */ = {
+		149AA0792BC3BDCA001EFCCA /* Season */ = {
 			isa = PBXGroup;
 			children = (
 				149AA0772BC3BDA6001EFCCA /* RaceModel.swift */,
 				149AA07B2BC3BDFE001EFCCA /* CircuitModel.swift */,
 				149AA07D2BC3BE26001EFCCA /* LocationModel.swift */,
 				149AA07F2BC3BE43001EFCCA /* PracticeModel.swift */,
+				14C146932BC7040B001F7F35 /* QualifyingResult.swift */,
+				14C146952BC70489001F7F35 /* RaceResult.swift */,
 			);
-			path = Schedule;
+			path = Season;
 			sourceTree = "<group>";
 		};
 		149AA07A2BC3BDE0001EFCCA /* Standings */ = {
@@ -469,8 +475,49 @@
 			children = (
 				149AA0842BC3CD0C001EFCCA /* CurrentSeasonViewModel.swift */,
 				14E6E5A12BC47F93001DF1D2 /* RaceViewModel.swift */,
+				14C146992BC70BFE001F7F35 /* QualiResultsViewModel.swift */,
 			);
 			path = CurrentSeason;
+			sourceTree = "<group>";
+		};
+		14C1468D2BC702E1001F7F35 /* APIDrivers */ = {
+			isa = PBXGroup;
+			children = (
+				14920FFF2BBEBC3F00359497 /* driverStandings.json */,
+				149210012BBEBF2100359497 /* driverList.json */,
+			);
+			path = APIDrivers;
+			sourceTree = "<group>";
+		};
+		14C1468E2BC702F3001F7F35 /* WikipediaAPI */ = {
+			isa = PBXGroup;
+			children = (
+				14920FF72BBEB9F800359497 /* wikipediaSummary.json */,
+				14E6E59A2BC46CAC001DF1D2 /* wikiMediaList.json */,
+			);
+			path = WikipediaAPI;
+			sourceTree = "<group>";
+		};
+		14C1468F2BC70303001F7F35 /* APIConstructors */ = {
+			isa = PBXGroup;
+			children = (
+				149210292BC0231000359497 /* constructorList.json */,
+				149210372BC030B600359497 /* constructorStandings.json */,
+			);
+			path = APIConstructors;
+			sourceTree = "<group>";
+		};
+		14C146902BC70317001F7F35 /* APISeasons */ = {
+			isa = PBXGroup;
+			children = (
+				149210462BC07A0300359497 /* seasonList.json */,
+				1492105B2BC1A68300359497 /* seasonConstructorStandings.json */,
+				1492105F2BC1A6B500359497 /* seasonDriverStandings.json */,
+				149AA0752BC3BD7D001EFCCA /* currentSeasonSchedule.json */,
+				14C146912BC7033C001F7F35 /* qualifyingResults.json */,
+				14C146972BC70B12001F7F35 /* raceResults.json */,
+			);
+			path = APISeasons;
 			sourceTree = "<group>";
 		};
 		14D79CB72BB88CA3006240F0 /* Extensions */ = {
@@ -586,6 +633,8 @@
 				149210472BC07A0300359497 /* seasonList.json in Resources */,
 				1492105C2BC1A68300359497 /* seasonConstructorStandings.json in Resources */,
 				149210022BBEBF2100359497 /* driverList.json in Resources */,
+				14C146982BC70B12001F7F35 /* raceResults.json in Resources */,
+				14C146922BC7033C001F7F35 /* qualifyingResults.json in Resources */,
 				14920FF82BBEB9F800359497 /* wikipediaSummary.json in Resources */,
 				149210602BC1A6B500359497 /* seasonDriverStandings.json in Resources */,
 				148081DF2BBD33B200A9A33F /* NunitoSans-VariableFont.ttf in Resources */,
@@ -621,6 +670,7 @@
 				148081EB2BBD85BB00A9A33F /* WikipediaView.swift in Sources */,
 				149210552BC16FA500359497 /* SeasonRowView.swift in Sources */,
 				149210302BC0296700359497 /* ConstructorRowViewModel.swift in Sources */,
+				14C1469A2BC70BFE001F7F35 /* QualiResultsViewModel.swift in Sources */,
 				140A09862BB6E30C0037AA74 /* ContentView.swift in Sources */,
 				148081E52BBD700100A9A33F /* DriverRowViewModel.swift in Sources */,
 				149210042BBEDA1D00359497 /* DriverRowView.swift in Sources */,
@@ -654,6 +704,7 @@
 				1492104C2BC1269B00359497 /* SeasonRowViewModel.swift in Sources */,
 				149210582BC1A54F00359497 /* SeasonDriverStandingsViewModel.swift in Sources */,
 				149210432BC0734A00359497 /* APISeasons.swift in Sources */,
+				14C146942BC7040B001F7F35 /* QualifyingResult.swift in Sources */,
 				14E6E5A22BC47F93001DF1D2 /* RaceViewModel.swift in Sources */,
 				149210642BC1A83100359497 /* SeasonConstructorStandingsViewModel.swift in Sources */,
 				14920FF22BBEA65D00359497 /* ConstructorModel.swift in Sources */,
@@ -663,6 +714,7 @@
 				149210502BC129A700359497 /* APISeasonsStub.swift in Sources */,
 				1492102E2BC0243800359497 /* APIConstructorsStub.swift in Sources */,
 				149AA07E2BC3BE26001EFCCA /* LocationModel.swift in Sources */,
+				14C146962BC70489001F7F35 /* RaceResult.swift in Sources */,
 				149AA0802BC3BE43001EFCCA /* PracticeModel.swift in Sources */,
 				1492103A2BC0319A00359497 /* ConstructorStanding.swift in Sources */,
 			);

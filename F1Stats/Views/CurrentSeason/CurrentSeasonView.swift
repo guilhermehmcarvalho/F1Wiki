@@ -17,6 +17,11 @@ struct CurrentSeasonView: View {
   }
 
   var body: some View {
+    if viewModel.fetchStatus == .ongoing {
+      ProgressView()
+        .modifier(LargeProgressView())
+        .padding(.all(32))
+    }
     GeometryReader { geo in
       TabView(selection: $selectedIndex) {
         ForEach (viewModel.raceViewModels.enumerated().sorted { $0.element.round < $1.element.round}, id: \.element) { index, raceViewModel in
@@ -28,6 +33,7 @@ struct CurrentSeasonView: View {
                 if index == 0 {
                   raceViewModel.animate(true)
                 }
+                viewModel.onItemDisplayed(currentItem: raceViewModel)
               }
           }
       }
@@ -40,6 +46,5 @@ struct CurrentSeasonView: View {
 }
 
 #Preview {
-  CurrentSeasonView(viewModel: CurrentSeasonViewModel(apiSeasons: APISeasonsStub(),
-                                                      wikipediaAPI: WikipediaAPIStub()))
+  CurrentSeasonView(viewModel: CurrentSeasonViewModel(apiSeasons: APISeasonsStub()))
 }

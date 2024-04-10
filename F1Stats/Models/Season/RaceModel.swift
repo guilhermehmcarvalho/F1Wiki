@@ -26,11 +26,13 @@ struct RaceModel: Decodable {
     let circuit: CircuitModel
     let date: String
     let time: String
-    let firstPractice: EventModule
-    let secondPractice: EventModule
+    let firstPractice: EventModule?
+    let secondPractice: EventModule?
     let thirdPractice: EventModule?
-    let qualifying: EventModule
+    let qualifying: EventModule?
     let sprint: EventModule?
+    let qualifyingResults: [QualifyingResult]?
+    let raceResults: [RaceResult]?
 
     enum CodingKeys: String, CodingKey {
         case season = "season"
@@ -45,6 +47,8 @@ struct RaceModel: Decodable {
         case thirdPractice = "ThirdPractice"
         case qualifying = "Qualifying"
         case sprint = "Sprint"
+      case qualifyingResults = "QualifyingResults"
+      case raceResults = "Results"
     }
 }
 

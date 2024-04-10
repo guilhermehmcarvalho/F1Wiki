@@ -8,18 +8,15 @@
 
 import Foundation
 import Combine
-import UIKit
 
 class CurrentSeasonViewModel: ObservableObject {
 
   private var apiSeasons: APISeasonsProtocol
-  private let wikipediaAPI: WikipediaAPIProtocol
 
   private(set) var fetchStatusSubject = PassthroughSubject<FetchStatus, Never>()
 
   @Published var fetchStatus: FetchStatus = .ready
   @Published var raceViewModels: [RaceViewModel] = []
-  var selectedIndex = 0;
 
   private var cancellable: AnyCancellable?
   private let itemsPerPage = 30
@@ -27,9 +24,8 @@ class CurrentSeasonViewModel: ObservableObject {
   private var total = 0;
   private var paginationThresholdId: String?
 
-  init(apiSeasons: APISeasonsProtocol, wikipediaAPI: WikipediaAPIProtocol) {
+  init(apiSeasons: APISeasonsProtocol) {
     self.apiSeasons = apiSeasons
-    self.wikipediaAPI = wikipediaAPI
     fetchStatusSubject
       .receive(on: DispatchQueue.main)
       .assign(to: &$fetchStatus)
@@ -68,7 +64,7 @@ class CurrentSeasonViewModel: ObservableObject {
   }
 
   //MARK: - PAGINATION
-  func onItemDisplayed(currentItem item: DriverModel){
+  func onItemDisplayed(currentItem item: RaceViewModel){
     if item.id == paginationThresholdId, raceViewModels.count < total {
       fetchCurrentSchedule()
     }
