@@ -24,6 +24,11 @@ struct CurrentSeasonView: View {
               .frame(width: geo.size.width - geo.safeAreaInsets.trailing)
               .padding(.trailing, geo.safeAreaInsets.trailing)
               .tag(index)
+              .onAppear {
+                if index == 0 {
+                  raceViewModel.animate(true)
+                }
+              }
           }
       }
       .onChange(of: selectedIndex, viewModel.changedTabIndex)
