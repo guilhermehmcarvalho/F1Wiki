@@ -22,7 +22,9 @@ struct ContentView: View {
     self.wikipediaAPI = wikipediaAPI
     self.apiConstructors = apiConstructors
     self.apiSeasons = apiSeasons
+
     customizeNavigationStackAppearance()
+    customizeTabViewAppearance()
   }
 
   func customizeNavigationStackAppearance() {
@@ -41,6 +43,11 @@ struct ContentView: View {
     standardAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white,
                                                    .font: UIFont.dlsFont(size: 32, weight: .semibold)]
     UINavigationBar.appearance().standardAppearance = standardAppearance
+  }
+
+  func customizeTabViewAppearance() {
+    UIPageControl.appearance().currentPageIndicatorTintColor = Color.F1Stats.primary.asUIColor
+        UIPageControl.appearance().pageIndicatorTintColor = Color.F1Stats.primary.asUIColor.withAlphaComponent(0.2)
   }
 
   var body: some View {

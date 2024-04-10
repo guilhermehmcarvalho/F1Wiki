@@ -12,15 +12,24 @@ import CachedAsyncImage
 struct WikipediaView: View {
   @ObservedObject var viewModel: WikipediaViewModel
 
-  init(viewModel: WikipediaViewModel) {
+  var imageTransaction: Transaction = Transaction(
+    animation: .spring(
+      response: 0.5,
+        dampingFraction: 0.65,
+        blendDuration: 0.025)
+)
+
+  init(viewModel: WikipediaViewModel, imageTransaction: Transaction? = nil) {
     self.viewModel = viewModel
+    if let imageTransaction = imageTransaction {
+      self.imageTransaction = imageTransaction
+    }
   }
 
   var body: some View {
     VStack {
       if viewModel.fetchStatus == .ongoing {
         ProgressView()
-          .padding(.all(16))
           .tint(.F1Stats.systemLight)
       }
       else if let summaryModel = viewModel.summaryModel {
@@ -28,12 +37,7 @@ struct WikipediaView: View {
           if let thumbURL = summaryModel.thumbnail?.source, let imageURL = URL(string: thumbURL) {
             AsyncImage(
                     url: imageURL,
-                    transaction: Transaction(
-                        animation: .spring(
-                          response: 0.5,
-                            dampingFraction: 0.65,
-                            blendDuration: 0.025)
-                    )
+                    transaction: imageTransaction
                 ){ phase in
                     switch phase {
                         case .success(let image):
@@ -70,6 +74,9 @@ struct WikipediaView: View {
         }
       }
     }
+    .padding(.all(16))
     .onAppear(perform: viewModel.fetchSummary)
   }
+
+
 }

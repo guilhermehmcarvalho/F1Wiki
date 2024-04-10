@@ -19,7 +19,7 @@ struct RaceView: View {
   var body: some View {
     GeometryReader { geo in
       ScrollView(showsIndicators: false) {
-        VStack(spacing: viewModel.animate ? 0 : -150) {
+        VStack(spacing: viewModel.animate ? 0 : -250) {
 
           grandPrix
             .frame(maxWidth: .infinity, minHeight: geo.size.width/2)
@@ -60,25 +60,37 @@ struct RaceView: View {
             .zIndex(0)
             .ticketTransition()
         }
-//        .animation(.snappy (duration: 1), value: viewModel.animate)
         .safeAreaPadding()
       }
     }
   }
 
   var grandPrix: some View {
-    VStack {
-      Text("Round \(viewModel.round)")
-        .typography(type: .small(color: .F1Stats.primary))
-      Text(viewModel.title)
-        .typography(type: .heading(color: .F1Stats.primary))
-      Text(viewModel.circuit)
-        .typography(type: .body(color: .F1Stats.systemDark))
-      if let raceDate = viewModel.raceDateString {
-        Spacer().frame(height: 16)
-        Text(raceDate)
-          .multilineTextAlignment(.center)
+    ZStack {
+      VStack {
+        Text("Round \(viewModel.round)")
+          .typography(type: .small(color: .F1Stats.primary))
+        Text(viewModel.title)
+          .typography(type: .heading(color: .F1Stats.primary))
+        Text(viewModel.circuit)
           .typography(type: .body(color: .F1Stats.systemDark))
+        if let raceDate = viewModel.raceModel.timeAsString() {
+          Spacer().frame(height: 16)
+          Text(raceDate)
+            .multilineTextAlignment(.center)
+            .typography(type: .body(color: .F1Stats.systemDark))
+        }
+        if viewModel.raceModel.isFinished() {
+          Text("View results")
+            .multilineTextAlignment(.center)
+            .typography(type: .body(color: .F1Stats.primary))
+        }
+      }
+
+      if viewModel.raceModel.isFinished() {
+        Text("FINISHED")
+          .font(.dlsFont(size: 50, weight: .black))
+          .foregroundColor(.F1Stats.primary.opacity(0.05))
       }
     }
   }
@@ -87,7 +99,7 @@ struct RaceView: View {
     VStack {
       Text("Free Practice 1")
         .typography(type: .subHeader (color: .F1Stats.systemDark))
-      if let date = viewModel.practice1DateString {
+      if let date = viewModel.raceModel.firstPractice.timeAsString() {
         Spacer().frame(height: 4)
         Text(date)
           .multilineTextAlignment(.center)
@@ -100,7 +112,7 @@ struct RaceView: View {
     VStack {
       Text("Free Practice 2")
         .typography(type: .subHeader (color: .F1Stats.systemDark))
-      if let date = viewModel.practice2DateString {
+      if let date = viewModel.raceModel.secondPractice.timeAsString() {
         Spacer().frame(height: 4)
         Text(date)
           .multilineTextAlignment(.center)
@@ -113,7 +125,7 @@ struct RaceView: View {
     VStack {
       Text("Free Practice 3")
         .typography(type: .subHeader (color: .F1Stats.systemDark))
-      if let date = viewModel.practice3DateString {
+      if let date = viewModel.raceModel.thirdPractice?.timeAsString() {
         Spacer().frame(height: 4)
         Text(date)
           .multilineTextAlignment(.center)
@@ -126,7 +138,7 @@ struct RaceView: View {
     VStack {
       Text("Sprint")
         .typography(type: .subHeader (color: .F1Stats.systemDark))
-      if let date = viewModel.sprintDateString {
+      if let date = viewModel.raceModel.sprint?.timeAsString() {
         Spacer().frame(height: 4)
         Text(date)
           .multilineTextAlignment(.center)
@@ -139,11 +151,17 @@ struct RaceView: View {
     VStack {
       Text("Qualification")
         .typography(type: .subHeader (color: .F1Stats.systemDark))
-      if let date = viewModel.qualiDateString {
+      if let date = viewModel.raceModel.qualifying.timeAsString() {
         Spacer().frame(height: 4)
         Text(date)
           .multilineTextAlignment(.center)
           .typography(type: .body(color: .F1Stats.systemDark))
+      }
+
+      if viewModel.raceModel.isFinished() {
+        Text("View results")
+          .multilineTextAlignment(.center)
+          .typography(type: .body(color: .F1Stats.primary))
       }
     }
   }
