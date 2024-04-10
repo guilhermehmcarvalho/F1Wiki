@@ -11,70 +11,61 @@ import Combine
 struct RaceView: View {
   
   @ObservedObject var viewModel: RaceViewModel
-  var wikipediaViewModel: WikipediaViewModel
-  @State private var animate = false
 
   init(viewModel: RaceViewModel) {
     self.viewModel = viewModel
-    self.wikipediaViewModel = WikipediaViewModel(url: viewModel.raceModel.url, wikipediaApi: WikipediaAPI(baseURL: Config.wikipediaURL))
   }
 
   var body: some View {
     GeometryReader { geo in
       ScrollView(showsIndicators: false) {
-        VStack(spacing: animate ? 0 : -300) {
+        VStack(spacing: viewModel.animate ? 0 : -300) {
 
           grandPrix
             .frame(maxWidth: .infinity, minHeight: geo.size.width/2)
             .raceTicket()
             .zIndex(5)
-            .rotationEffect(animate ?
-                            Angle(degrees: Double(Int.random(in: -4..<4))) : Angle(degrees: 0))
+            .ticketTransition()
 
           quali
             .frame(maxWidth: geo.size.width/1.5, minHeight: (geo.size.width/1.5)/1.8)
             .raceTicket()
             .zIndex(4)
-            .rotationEffect(animate ?
-                            Angle(degrees: Double(Int.random(in: -4..<4))) : Angle(degrees: 0))
+            .ticketTransition()
 
           if (viewModel.raceModel.thirdPractice != nil) {
             practice3
               .frame(maxWidth: geo.size.width/1.5, minHeight: (geo.size.width/1.5)/1.8)
               .raceTicket()
               .zIndex(3)
-              .rotationEffect(animate ?
-                              Angle(degrees: Double(Int.random(in: -4..<4))) : Angle(degrees: 0))
+              .ticketTransition()
           }
           if (viewModel.raceModel.sprint != nil) {
             sprint
               .frame(maxWidth: geo.size.width/1.5, minHeight: (geo.size.width/1.5)/1.8)
               .raceTicket()
               .zIndex(2)
-              .rotationEffect(animate ?
-                              Angle(degrees: Double(Int.random(in: -4..<4))) : Angle(degrees: 0))
+              .ticketTransition()
           }
 
           practice2
             .frame(maxWidth: geo.size.width/1.5, minHeight: (geo.size.width/1.5)/1.8)
             .raceTicket()
             .zIndex(1)
-            .rotationEffect(animate ?
-                            Angle(degrees: Double(Int.random(in: -4..<4))) : Angle(degrees: 0))
+            .ticketTransition()
 
           practice1
             .frame(maxWidth: geo.size.width/1.5, minHeight: (geo.size.width/1.5)/1.8)
             .raceTicket()
             .zIndex(0)
-            .rotationEffect(animate ?
-                            Angle(degrees: Double(Int.random(in: -2..<2))) : Angle(degrees: 0))
+            .ticketTransition()
         }
-        .animation(.snappy (duration: 1), value: animate)
-        .padding(.top)
+        .animation(.snappy (duration: 1), value: viewModel.animate)
         .safeAreaPadding()
       }
+
     }
-    .onAppear { animate = true }
+    .onAppear { viewModel.animate = true }
   }
 
   var grandPrix: some View {
@@ -163,11 +154,24 @@ struct RaceView: View {
 fileprivate extension View {
   func raceTicket() -> some View {
     self
-      .modifier(TicketView(cornerRadius: 12, fill: .yellow))
+      .modifier(TicketView(cornerRadius: 12, fill: .F1Stats.systemYellow))
       .overlay(
         RoundedRectangle(cornerRadius: 8)
           .strokeBorder(Color.F1Stats.primary, lineWidth: 4)
           .padding(12)
       )
+  }
+
+  func ticketTransition() -> some View {
+    let range = 4
+    let randomAngle = Angle(degrees: Double(Int.random(in: -range..<range)))
+    return self
+      .scrollTransition { content, phase in
+        content
+          .opacity(phase.isIdentity ? 1.0 : 0.8)
+          .scaleEffect(phase.isIdentity ? 1.0 : 0.5)
+          .blur(radius: phase.isIdentity ? 0 : 2)
+          .rotationEffect(phase.isIdentity ? randomAngle : Angle(degrees: 15))
+      }
   }
 }

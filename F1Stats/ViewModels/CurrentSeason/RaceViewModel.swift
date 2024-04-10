@@ -12,6 +12,7 @@ import UIKit
 class RaceViewModel: ObservableObject {
 
   let raceModel: RaceModel
+  @Published internal var animate = false
 
   init(raceModel: RaceModel) {
     self.raceModel = raceModel

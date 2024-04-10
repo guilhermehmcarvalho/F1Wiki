@@ -19,8 +19,6 @@ class CurrentSeasonViewModel: ObservableObject {
 
   @Published var fetchStatus: FetchStatus = .ready
   @Published var selectedRace: RaceModel?
-  @Published var hasNextRace: Bool = false
-  @Published var hasPreviousRace: Bool = false
   @Published var raceList: [RaceModel] = []
   var selectedIndex = 0;
 
@@ -52,7 +50,7 @@ class CurrentSeasonViewModel: ObservableObject {
         self?.raceList.append(contentsOf: response.table.races)
         self?.offset += response.table.races.count
         self?.total = response.total
-        self?.selectRace()
+        //self?.selectRace()
         if let self = self {
           var thresholdIndex = self.raceList.index(self.raceList.endIndex, offsetBy: -5)
           if thresholdIndex < 0 {
@@ -62,26 +60,24 @@ class CurrentSeasonViewModel: ObservableObject {
         }
       }
   }
-
-  private func selectRace() {
-    selectedRace = self.raceList[self.selectedIndex]
-    hasNextRace = selectedIndex + 1 < raceList.count
-    hasPreviousRace = selectedIndex > 0
-  }
-
-  internal func selectNextRace() {
-    if selectedIndex + 1 < raceList.count {
-      selectedIndex += 1
-    }
-    selectRace()
-  }
-
-  internal func selectPreviousRace() {
-    if selectedIndex - 1 >= 0 {
-      selectedIndex -= 1
-    }
-    selectRace()
-  }
+//
+//  private func selectRace() {
+//    selectedRace = self.raceList[self.selectedIndex]
+//  }
+//
+//  internal func selectNextRace() {
+//    if selectedIndex + 1 < raceList.count {
+//      selectedIndex += 1
+//    }
+//    selectRace()
+//  }
+//
+//  internal func selectPreviousRace() {
+//    if selectedIndex - 1 >= 0 {
+//      selectedIndex -= 1
+//    }
+//    selectRace()
+//  }
 
   //MARK: - PAGINATION
   func onItemDisplayed(currentItem item: DriverModel){
