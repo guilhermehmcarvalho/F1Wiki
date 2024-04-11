@@ -69,5 +69,5 @@ struct ContentView: View {
   ContentView(apiDrivers: APIDriversStub(),
               wikipediaAPI: WikipediaAPIStub(),
               apiConstructors: APIConstructorsStub(),
-              apiSeasons: APISeasonsStub())
+              apiSeasons: APISeasonsStub(delay: 1))
 }

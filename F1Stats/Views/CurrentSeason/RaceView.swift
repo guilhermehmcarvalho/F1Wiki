@@ -11,10 +11,6 @@ import Combine
 struct RaceView: View {
   
   @ObservedObject var viewModel: RaceViewModel
-  // We are using a seeded number generator for the rotation of the scoll items
-  // so they don't change the ammount when the view is refreshed, causing
-  // a weird visual effect
-  @State var randomNumberGenerator = Xoroshiro256StarStar(seed: (1,2,3,4))
 
   init(viewModel: RaceViewModel) {
     self.viewModel = viewModel
@@ -28,41 +24,41 @@ struct RaceView: View {
             .frame(maxWidth: .infinity, minHeight: geo.size.width/2)
             .raceTicket()
             .zIndex(5)
-            .ticketTransition(using: &randomNumberGenerator)
+            .ticketTransition(finalAngle: -1)
             .onTapGesture(perform: viewModel.tappedRaceTicket)
 
           quali
             .frame(maxWidth: geo.size.width/1.5, minHeight: (geo.size.width/1.5)/1.8)
             .raceTicket()
             .zIndex(4)
-            .ticketTransition(using: &randomNumberGenerator)
+            .ticketTransition(finalAngle: 1)
 
           if (viewModel.raceModel.thirdPractice != nil) {
             practice3
               .frame(maxWidth: geo.size.width/1.5, minHeight: (geo.size.width/1.5)/1.8)
               .raceTicket()
               .zIndex(3)
-              .ticketTransition(using: &randomNumberGenerator)
+              .ticketTransition(finalAngle: 0)
           }
           if (viewModel.raceModel.sprint != nil) {
             sprint
               .frame(maxWidth: geo.size.width/1.5, minHeight: (geo.size.width/1.5)/1.8)
               .raceTicket()
               .zIndex(2)
-              .ticketTransition(using: &randomNumberGenerator)
+              .ticketTransition(finalAngle: 0)
           }
 
           practice2
             .frame(maxWidth: geo.size.width/1.5, minHeight: (geo.size.width/1.5)/1.8)
             .raceTicket()
             .zIndex(1)
-            .ticketTransition()
+            .ticketTransition(finalAngle: -2)
 
           practice1
             .frame(maxWidth: geo.size.width/1.5, minHeight: (geo.size.width/1.5)/1.8)
             .raceTicket()
             .zIndex(0)
-            .ticketTransition()
+            .ticketTransition(finalAngle: 2)
         }
         .safeAreaPadding()
       }
@@ -186,17 +182,12 @@ fileprivate extension View {
       )
   }
 
-  func ticketTransition(startingAngle: Double = 10, finalAngle: Double = -4) -> some View {
+  func ticketTransition(startingAngle: Double = Double.random(in: -10..<10), finalAngle: Double = -4) -> some View {
     return self
       .scrollTransition { content, phase in
         content
           .scaleEffect(phase.isIdentity ? 1.0 : 0.5)
           .rotationEffect(phase.isIdentity ? Angle(degrees: finalAngle) : Angle(degrees: startingAngle))
       }
-  }
-
-  func ticketTransition<T>(in range: Range<Double> = -4..<4,
-                           using generator: inout T) -> some View where T : RandomNumberGenerator {
-    return ticketTransition(finalAngle: Double.random(in: range, using: &generator))
   }
 }

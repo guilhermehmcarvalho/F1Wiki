@@ -85,7 +85,7 @@ class APISeasons: APISeasonsProtocol {
   }
 
   func qualifyingResults(round: String, year: String) -> AnyPublisher<MRData<RaceTable>, any Error> {
-    var components = URLComponents(string: baseURL.appending("\(year)/\(round)/qualifying.json"))
+    let components = URLComponents(string: baseURL.appending("\(year)/\(round)/qualifying.json"))
 
     guard let url = components?.url else {
       return Empty().eraseToAnyPublisher()
@@ -97,7 +97,7 @@ class APISeasons: APISeasonsProtocol {
   }
 
   func raceResults(round: String, year: String) -> AnyPublisher<MRData<RaceTable>, any Error> {
-    var components = URLComponents(string: baseURL.appending("\(year)/\(round)/qualifying.json"))
+    let components = URLComponents(string: baseURL.appending("\(year)/\(round)/results.json"))
 
     guard let url = components?.url else {
       return Empty().eraseToAnyPublisher()

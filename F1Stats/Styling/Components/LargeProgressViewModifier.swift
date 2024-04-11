@@ -8,8 +8,14 @@
 import SwiftUI
 
 struct LargeProgressView: ViewModifier {
+  let tint: Color
+
+  init(tint: Color = .F1Stats.systemLight) {
+    self.tint = tint
+  }
+
     func body(content: Content) -> some View {
-      content.tint(.F1Stats.systemLight)
+      content.tint(tint)
         .scaleEffect(x: 1.5, y: 1.5, anchor: .center)
     }
 }

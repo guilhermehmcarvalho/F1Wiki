@@ -39,6 +39,7 @@ class RaceViewModel: ObservableObject {
   }
 
   func tappedRaceTicket() {
+    if raceModel.isFinished() == false { return }
     presentingRaceResults.toggle()
   }
 

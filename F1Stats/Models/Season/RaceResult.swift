@@ -16,7 +16,7 @@ struct RaceResult: Decodable {
     let constructor: ConstructorModel
     let grid: String
     let laps: String
-    let status: Status
+    let status: Status?
     let time: ResultTime?
     let fastestLap: FastestLap?
 
@@ -68,13 +68,6 @@ struct RaceResult: Decodable {
       enum CodingKeys: String, CodingKey {
           case time = "time"
       }
-  }
-
-  enum Status: String, Decodable {
-      case accident = "Accident"
-      case finished = "Finished"
-      case gearbox = "Gearbox"
-      case the1Lap = "+1 Lap"
   }
 
   struct ResultTime: Decodable {

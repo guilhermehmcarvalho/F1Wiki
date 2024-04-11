@@ -18,7 +18,7 @@ struct RaceResultsView: View {
 
   var body: some View {
     ZStack {
-      ScrollView {
+      ScrollView(.vertical) {
         Rectangle()
           .opacity(0)
           .contentShape(Rectangle())
@@ -26,31 +26,36 @@ struct RaceResultsView: View {
           .onTapGesture {
             viewModel.onDismissed?()
           }
-        VStack {
-          if viewModel.fetchStatus == .ongoing {
-            ProgressView()
-              .modifier(LargeProgressView())
-              .padding(.all(32))
-          }
+          VStack {
 
-          if let raceModel = viewModel.raceModel {
-            Text("\(raceModel.raceName) Result")
-              .typography(type: .heading(color: .F1Stats.primary))
-              .padding()
-
-            ForEach(sortedResults, id: \.element.position) { index, result in
-              raceStandingsRow(result: result)
-              if index < sortedResults.count - 1 {
-                Divider().padding(.all(0))
+            if viewModel.fetchStatus == .ongoing {
+              HStack {
+                Spacer()
+                ProgressView()
+                  .modifier(LargeProgressView(tint: .F1Stats.primary))
+                  .padding(.all(32))
+                Spacer()
               }
             }
-          }
 
-        }
-        .padding(.all(8))
-        .frame(minHeight: 600)
-        .modifier(CardView(fill: .F1Stats.systemYellow))
-        .padding(EdgeInsets(top: 0, leading: 4, bottom: 8, trailing: 8))
+            if let raceModel = viewModel.raceModel {
+              Text("\(raceModel.raceName) Result")
+                .typography(type: .heading(color: .F1Stats.primary))
+                .padding()
+
+              ForEach(sortedResults, id: \.element.driver) { index, result in
+                raceStandingsRow(result: result)
+                if index < sortedResults.count - 1 {
+                  Divider().padding(.all(0))
+                }
+              }
+            }
+
+          }
+          .frame(minHeight: 600)
+          .padding(.all(8))
+          .modifier(CardView(fill: .F1Stats.systemYellow))
+          .padding(EdgeInsets(top: 0, leading: 4, bottom: 8, trailing: 8))
       }
       .scrollContentBackground(.hidden)
       .onAppear(perform: viewModel.fetchRaceResults)
