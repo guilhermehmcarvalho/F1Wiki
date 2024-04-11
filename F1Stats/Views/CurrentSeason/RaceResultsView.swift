@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RaceResultsView: View {
-
+  
   @ObservedObject var viewModel: RaceResultsViewModel
 
   var sortedResults: [EnumeratedSequence<[RaceResult]>.Element] {
@@ -17,38 +17,48 @@ struct RaceResultsView: View {
   }
 
   var body: some View {
-    ScrollView {
-      ZStack {
+    ZStack {
+      ScrollView {
+        Rectangle()
+          .opacity(0)
+          .contentShape(Rectangle())
+          .frame(height: 64)
+          .onTapGesture {
+            viewModel.onDismissed?()
+          }
         VStack {
+          if viewModel.fetchStatus == .ongoing {
+            ProgressView()
+              .modifier(LargeProgressView())
+              .padding(.all(32))
+          }
+
           if let raceModel = viewModel.raceModel {
             Text("\(raceModel.raceName) Result")
               .typography(type: .heading(color: .F1Stats.primary))
               .padding()
 
             ForEach(sortedResults, id: \.element.position) { index, result in
-              raceStandingsView(result: result)
+              raceStandingsRow(result: result)
               if index < sortedResults.count - 1 {
-                Divider()
+                Divider().padding(.all(0))
               }
             }
           }
-          if viewModel.fetchStatus == .ongoing {
-            ProgressView()
-              .modifier(LargeProgressView())
-              .padding(.all(32))
-          }
+
         }
+        .padding(.all(8))
         .frame(minHeight: 600)
-        .padding()
         .modifier(CardView(fill: .F1Stats.systemYellow))
+        .padding(EdgeInsets(top: 0, leading: 4, bottom: 8, trailing: 8))
       }
+      .scrollContentBackground(.hidden)
       .onAppear(perform: viewModel.fetchRaceResults)
-      .padding()
     }
   }
 
-  func raceStandingsView(result: RaceResult) -> some View {
-    HStack {
+  func raceStandingsRow(result: RaceResult) -> some View {
+    HStack(alignment: .center) {
       Text(result.positionText)
         .frame(width: 20)
         .typography(type: .small(color: .F1Stats.systemDark))
@@ -65,7 +75,7 @@ struct RaceResultsView: View {
         }
       }
       .frame(width: 30)
-
+      
       Text(result.driver.familyName)
         .typography(type: .body(color: .F1Stats.systemDark))
       Spacer()

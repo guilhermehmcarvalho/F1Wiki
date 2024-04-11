@@ -88,6 +88,7 @@
 		14C146A52BC7141F001F7F35 /* RaceResultsViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C146A42BC7141F001F7F35 /* RaceResultsViewModelTest.swift */; };
 		14C146A72BC7D250001F7F35 /* RaceResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C146A62BC7D250001F7F35 /* RaceResultsView.swift */; };
 		14C146A92BC7F549001F7F35 /* BackgroundClearView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C146A82BC7F549001F7F35 /* BackgroundClearView.swift */; };
+		14C146AC2BC8226B001F7F35 /* Xoroshiro256StarStar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C146AB2BC8226B001F7F35 /* Xoroshiro256StarStar.swift */; };
 		14C95DCB2BC572C500F712FE /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C95DCA2BC572C500F712FE /* CardView.swift */; };
 		14C95DCD2BC5CBFD00F712FE /* TicketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C95DCC2BC5CBFD00F712FE /* TicketView.swift */; };
 		14D79CB42BB8710F006240F0 /* MRData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D79CB32BB8710F006240F0 /* MRData.swift */; };
@@ -194,6 +195,7 @@
 		14C146A42BC7141F001F7F35 /* RaceResultsViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceResultsViewModelTest.swift; sourceTree = "<group>"; };
 		14C146A62BC7D250001F7F35 /* RaceResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceResultsView.swift; sourceTree = "<group>"; };
 		14C146A82BC7F549001F7F35 /* BackgroundClearView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundClearView.swift; sourceTree = "<group>"; };
+		14C146AB2BC8226B001F7F35 /* Xoroshiro256StarStar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Xoroshiro256StarStar.swift; sourceTree = "<group>"; };
 		14C95DCA2BC572C500F712FE /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		14C95DCC2BC5CBFD00F712FE /* TicketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketView.swift; sourceTree = "<group>"; };
 		14D79CB32BB8710F006240F0 /* MRData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRData.swift; sourceTree = "<group>"; };
@@ -244,6 +246,7 @@
 		140A09822BB6E30C0037AA74 /* F1Stats */ = {
 			isa = PBXGroup;
 			children = (
+				14C146AA2BC8225E001F7F35 /* Others */,
 				142C98822BB751C2009D1D35 /* Info.plist */,
 				142C98792BB743B6009D1D35 /* Config.swift */,
 				140A09832BB6E30C0037AA74 /* F1StatsApp.swift */,
@@ -566,6 +569,14 @@
 			path = Drivers;
 			sourceTree = "<group>";
 		};
+		14C146AA2BC8225E001F7F35 /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				14C146AB2BC8226B001F7F35 /* Xoroshiro256StarStar.swift */,
+			);
+			path = Others;
+			sourceTree = "<group>";
+		};
 		14D79CB72BB88CA3006240F0 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -741,6 +752,7 @@
 				149210452BC0741200359497 /* SeasonsModel.swift in Sources */,
 				149AA0852BC3CD0C001EFCCA /* CurrentSeasonViewModel.swift in Sources */,
 				14920FED2BBE95A300359497 /* DriverStandingModel.swift in Sources */,
+				14C146AC2BC8226B001F7F35 /* Xoroshiro256StarStar.swift in Sources */,
 				142C98812BB74E5B009D1D35 /* DriversViewModel.swift in Sources */,
 				14920FFD2BBEBA5600359497 /* WikipediaAPIStub.swift in Sources */,
 				142C987A2BB743B6009D1D35 /* Config.swift in Sources */,

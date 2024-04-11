@@ -21,6 +21,7 @@ class RaceViewModel: ObservableObject {
   init(raceModel: RaceModel, apiSeasons: APISeasonsProtocol) {
     self.raceModel = raceModel
     self.raceResultsViewModel = RaceResultsViewModel(apiSeasons: apiSeasons, round: raceModel.round, year: raceModel.season)
+    raceResultsViewModel.onDismissed = resultsDismissed
   }
 
   var title: String { raceModel.raceName }
@@ -39,6 +40,10 @@ class RaceViewModel: ObservableObject {
 
   func tappedRaceTicket() {
     presentingRaceResults.toggle()
+  }
+
+  private func resultsDismissed() {
+    presentingRaceResults = false
   }
 }
 

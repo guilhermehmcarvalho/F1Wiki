@@ -11,48 +11,45 @@ import Combine
 struct RaceView: View {
   
   @ObservedObject var viewModel: RaceViewModel
+  // We are using a seeded number generator for the rotation of the scoll items
+  // so they don't change the ammount when the view is refreshed, causing
+  // a weird visual effect
+  @State var randomNumberGenerator = Xoroshiro256StarStar(seed: (1,2,3,4))
 
   init(viewModel: RaceViewModel) {
     self.viewModel = viewModel
   }
 
   var body: some View {
-    if (viewModel.presentingRaceResults) {
-      Color.clear
-        .blur(radius: 0.1)
-        .ignoresSafeArea()
-    }
-
     GeometryReader { geo in
       ScrollView(showsIndicators: false) {
         VStack(spacing: viewModel.animate ? 0 : -250) {
-
           grandPrix
             .frame(maxWidth: .infinity, minHeight: geo.size.width/2)
             .raceTicket()
             .zIndex(5)
-            .ticketTransition()
+            .ticketTransition(using: &randomNumberGenerator)
             .onTapGesture(perform: viewModel.tappedRaceTicket)
 
           quali
             .frame(maxWidth: geo.size.width/1.5, minHeight: (geo.size.width/1.5)/1.8)
             .raceTicket()
             .zIndex(4)
-            .ticketTransition()
+            .ticketTransition(using: &randomNumberGenerator)
 
           if (viewModel.raceModel.thirdPractice != nil) {
             practice3
               .frame(maxWidth: geo.size.width/1.5, minHeight: (geo.size.width/1.5)/1.8)
               .raceTicket()
               .zIndex(3)
-              .ticketTransition()
+              .ticketTransition(using: &randomNumberGenerator)
           }
           if (viewModel.raceModel.sprint != nil) {
             sprint
               .frame(maxWidth: geo.size.width/1.5, minHeight: (geo.size.width/1.5)/1.8)
               .raceTicket()
               .zIndex(2)
-              .ticketTransition()
+              .ticketTransition(using: &randomNumberGenerator)
           }
 
           practice2
@@ -189,14 +186,17 @@ fileprivate extension View {
       )
   }
 
-  func ticketTransition() -> some View {
-    let range = 4
-    let randomAngle = Angle(degrees: Double(Int.random(in: -range..<range)))
+  func ticketTransition(startingAngle: Double = 10, finalAngle: Double = -4) -> some View {
     return self
       .scrollTransition { content, phase in
         content
           .scaleEffect(phase.isIdentity ? 1.0 : 0.5)
-          .rotationEffect(phase.isIdentity ? randomAngle : Angle(degrees: 10))
+          .rotationEffect(phase.isIdentity ? Angle(degrees: finalAngle) : Angle(degrees: startingAngle))
       }
+  }
+
+  func ticketTransition<T>(in range: Range<Double> = -4..<4,
+                           using generator: inout T) -> some View where T : RandomNumberGenerator {
+    return ticketTransition(finalAngle: Double.random(in: range, using: &generator))
   }
 }
