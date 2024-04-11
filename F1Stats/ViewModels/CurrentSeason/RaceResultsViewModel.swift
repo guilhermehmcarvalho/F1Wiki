@@ -32,6 +32,7 @@ class RaceResultsViewModel: ObservableObject {
   }
 
   func fetchRaceResults() {
+    if self.raceModel != nil { return }
     cancellable = apiSeasons.raceResults(round: round, year: year)
       .observeFetchStatus(with: fetchStatusSubject)
       .receive(on: DispatchQueue.main)

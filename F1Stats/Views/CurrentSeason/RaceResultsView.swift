@@ -10,6 +10,7 @@ import SwiftUI
 struct RaceResultsView: View {
   
   @ObservedObject var viewModel: RaceResultsViewModel
+  @State var position: CGPoint = .zero
 
   var sortedResults: [EnumeratedSequence<[RaceResult]>.Element] {
     let results = (viewModel.raceModel?.raceResults ?? []).enumerated()
@@ -18,16 +19,17 @@ struct RaceResultsView: View {
 
   var body: some View {
     ZStack {
-      ScrollView(.vertical) {
+      OffsetObservingScrollView(offset: $position) {
         Rectangle()
           .opacity(0)
           .contentShape(Rectangle())
           .frame(height: 64)
           .onTapGesture {
             viewModel.onDismissed?()
-          }
+          }.onPreferenceChange(PreferenceKey.self) { position in
+            self.position = position
+        }
           VStack {
-
             if viewModel.fetchStatus == .ongoing {
               HStack {
                 Spacer()
@@ -56,10 +58,17 @@ struct RaceResultsView: View {
           .padding(.all(8))
           .modifier(CardView(fill: .F1Stats.systemYellow))
           .padding(EdgeInsets(top: 0, leading: 4, bottom: 8, trailing: 8))
+        
       }
+      .coordinateSpace(name: "scroll")
       .scrollContentBackground(.hidden)
-      .onAppear(perform: viewModel.fetchRaceResults)
     }
+    .onChange(of: position) { oldValue, newValue in
+      if newValue.y < -100 {
+        viewModel.onDismissed?()
+      }
+    }
+    .onAppear(perform: viewModel.fetchRaceResults)
   }
 
   func raceStandingsRow(result: RaceResult) -> some View {
@@ -89,6 +98,7 @@ struct RaceResultsView: View {
     }
   }
 }
+
 
 #Preview {
   RaceResultsView(viewModel: RaceResultsViewModel(apiSeasons: APISeasonsStub(), round: "1", year: "1"))

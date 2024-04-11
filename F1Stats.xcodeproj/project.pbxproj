@@ -89,6 +89,7 @@
 		14C146A72BC7D250001F7F35 /* RaceResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C146A62BC7D250001F7F35 /* RaceResultsView.swift */; };
 		14C146A92BC7F549001F7F35 /* BackgroundClearView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C146A82BC7F549001F7F35 /* BackgroundClearView.swift */; };
 		14C146AE2BC86481001F7F35 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C146AD2BC86481001F7F35 /* Status.swift */; };
+		14C146B12BC86C80001F7F35 /* OffsetObservingScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C146B02BC86C80001F7F35 /* OffsetObservingScrollView.swift */; };
 		14C95DCB2BC572C500F712FE /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C95DCA2BC572C500F712FE /* CardView.swift */; };
 		14C95DCD2BC5CBFD00F712FE /* TicketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C95DCC2BC5CBFD00F712FE /* TicketView.swift */; };
 		14D79CB42BB8710F006240F0 /* MRData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D79CB32BB8710F006240F0 /* MRData.swift */; };
@@ -196,6 +197,7 @@
 		14C146A62BC7D250001F7F35 /* RaceResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceResultsView.swift; sourceTree = "<group>"; };
 		14C146A82BC7F549001F7F35 /* BackgroundClearView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundClearView.swift; sourceTree = "<group>"; };
 		14C146AD2BC86481001F7F35 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
+		14C146B02BC86C80001F7F35 /* OffsetObservingScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffsetObservingScrollView.swift; sourceTree = "<group>"; };
 		14C95DCA2BC572C500F712FE /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		14C95DCC2BC5CBFD00F712FE /* TicketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketView.swift; sourceTree = "<group>"; };
 		14D79CB32BB8710F006240F0 /* MRData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRData.swift; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 		140A09822BB6E30C0037AA74 /* F1Stats */ = {
 			isa = PBXGroup;
 			children = (
+				14C146AF2BC86C72001F7F35 /* Utils */,
 				142C98822BB751C2009D1D35 /* Info.plist */,
 				142C98792BB743B6009D1D35 /* Config.swift */,
 				140A09832BB6E30C0037AA74 /* F1StatsApp.swift */,
@@ -569,6 +572,14 @@
 			path = Drivers;
 			sourceTree = "<group>";
 		};
+		14C146AF2BC86C72001F7F35 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				14C146B02BC86C80001F7F35 /* OffsetObservingScrollView.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		14D79CB72BB88CA3006240F0 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -766,6 +777,7 @@
 				1492104A2BC1258300359497 /* SeasonsViewModel.swift in Sources */,
 				149210502BC129A700359497 /* APISeasonsStub.swift in Sources */,
 				1492102E2BC0243800359497 /* APIConstructorsStub.swift in Sources */,
+				14C146B12BC86C80001F7F35 /* OffsetObservingScrollView.swift in Sources */,
 				149AA07E2BC3BE26001EFCCA /* LocationModel.swift in Sources */,
 				14C146AE2BC86481001F7F35 /* Status.swift in Sources */,
 				14C146962BC70489001F7F35 /* RaceResult.swift in Sources */,
