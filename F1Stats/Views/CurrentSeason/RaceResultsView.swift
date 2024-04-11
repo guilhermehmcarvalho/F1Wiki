@@ -18,59 +18,40 @@ struct RaceResultsView: View {
   }
 
   var body: some View {
-    ZStack {
-      OffsetObservingScrollView(offset: $position) {
-        Rectangle()
-          .opacity(0)
-          .contentShape(Rectangle())
-          .frame(height: 64)
-          .onTapGesture {
-            viewModel.onDismissed?()
+      VStack {
+        if viewModel.fetchStatus == .ongoing {
+          HStack {
+            Spacer()
+            ProgressView()
+              .modifier(LargeProgressView(tint: .F1Stats.primary))
+              .padding(.all(32))
+            Spacer()
           }
-        
-        VStack {
-          if viewModel.fetchStatus == .ongoing {
-            HStack {
-              Spacer()
-              ProgressView()
-                .modifier(LargeProgressView(tint: .F1Stats.primary))
-                .padding(.all(32))
-              Spacer()
+        }
+
+        if let raceModel = viewModel.raceModel {
+          Text("\(raceModel.raceName) Result")
+            .typography(type: .heading(color: .F1Stats.primary))
+            .padding()
+
+          ForEach(sortedResults, id: \.element.driver) { index, result in
+            raceStandingsRow(result: result)
+            if index < sortedResults.count - 1 {
+              Divider().padding(.all(0))
             }
           }
-          
-          if let raceModel = viewModel.raceModel {
-            Text("\(raceModel.raceName) Result")
-              .typography(type: .heading(color: .F1Stats.primary))
-              .padding()
-            
-            ForEach(sortedResults, id: \.element.driver) { index, result in
-              raceStandingsRow(result: result)
-              if index < sortedResults.count - 1 {
-                Divider().padding(.all(0))
-              }
-            }
-          }
-          
         }
-        .onPreferenceChange(PreferenceKey.self) { position in
-          self.position = position
-        }
-        
-        .frame(minHeight: 600)
-        .padding(.all(8))
-        .modifier(CardView(fill: .F1Stats.systemYellow))
-        .padding(EdgeInsets(top: 0, leading: 4, bottom: 8, trailing: 8))
-        
+
       }
-      .coordinateSpace(name: "scroll")
-      .scrollContentBackground(.hidden)
-    }
-    .onChange(of: position) { oldValue, newValue in
-      if newValue.y < -100 {
-        viewModel.onDismissed?()
+      .onPreferenceChange(PreferenceKey.self) { position in
+        self.position = position
       }
-    }
+
+      .frame(minHeight: 600)
+      .padding(.all(8))
+      .modifier(CardView(fill: .F1Stats.systemYellow))
+      .padding(EdgeInsets(top: 0, leading: 4, bottom: 8, trailing: 8))
+
     .onAppear(perform: viewModel.fetchRaceResults)
   }
 
@@ -101,7 +82,6 @@ struct RaceResultsView: View {
     }
   }
 }
-
 
 #Preview {
   RaceResultsView(viewModel: RaceResultsViewModel(apiSeasons: APISeasonsStub(), round: "1", year: "1"))

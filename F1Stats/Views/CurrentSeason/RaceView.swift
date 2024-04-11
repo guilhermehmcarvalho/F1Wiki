@@ -64,8 +64,12 @@ struct RaceView: View {
       }
     }
     .fullScreenCover(isPresented: $viewModel.presentingRaceResults) {
-      RaceResultsView(viewModel: viewModel.raceResultsViewModel)
-        .presentationBackground(.clear)
+      CustomSheet {
+        RaceResultsView(viewModel: viewModel.raceResultsViewModel)
+          .presentationBackground(.clear)
+      } dismiss: {
+        viewModel.presentingRaceResults = false
+      }
     }
   }
 
