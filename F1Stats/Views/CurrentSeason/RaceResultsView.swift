@@ -26,38 +26,41 @@ struct RaceResultsView: View {
           .frame(height: 64)
           .onTapGesture {
             viewModel.onDismissed?()
-          }.onPreferenceChange(PreferenceKey.self) { position in
-            self.position = position
-        }
-          VStack {
-            if viewModel.fetchStatus == .ongoing {
-              HStack {
-                Spacer()
-                ProgressView()
-                  .modifier(LargeProgressView(tint: .F1Stats.primary))
-                  .padding(.all(32))
-                Spacer()
-              }
-            }
-
-            if let raceModel = viewModel.raceModel {
-              Text("\(raceModel.raceName) Result")
-                .typography(type: .heading(color: .F1Stats.primary))
-                .padding()
-
-              ForEach(sortedResults, id: \.element.driver) { index, result in
-                raceStandingsRow(result: result)
-                if index < sortedResults.count - 1 {
-                  Divider().padding(.all(0))
-                }
-              }
-            }
-
           }
-          .frame(minHeight: 600)
-          .padding(.all(8))
-          .modifier(CardView(fill: .F1Stats.systemYellow))
-          .padding(EdgeInsets(top: 0, leading: 4, bottom: 8, trailing: 8))
+        
+        VStack {
+          if viewModel.fetchStatus == .ongoing {
+            HStack {
+              Spacer()
+              ProgressView()
+                .modifier(LargeProgressView(tint: .F1Stats.primary))
+                .padding(.all(32))
+              Spacer()
+            }
+          }
+          
+          if let raceModel = viewModel.raceModel {
+            Text("\(raceModel.raceName) Result")
+              .typography(type: .heading(color: .F1Stats.primary))
+              .padding()
+            
+            ForEach(sortedResults, id: \.element.driver) { index, result in
+              raceStandingsRow(result: result)
+              if index < sortedResults.count - 1 {
+                Divider().padding(.all(0))
+              }
+            }
+          }
+          
+        }
+        .onPreferenceChange(PreferenceKey.self) { position in
+          self.position = position
+        }
+        
+        .frame(minHeight: 600)
+        .padding(.all(8))
+        .modifier(CardView(fill: .F1Stats.systemYellow))
+        .padding(EdgeInsets(top: 0, leading: 4, bottom: 8, trailing: 8))
         
       }
       .coordinateSpace(name: "scroll")

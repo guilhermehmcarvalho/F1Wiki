@@ -90,6 +90,7 @@
 		14C146A92BC7F549001F7F35 /* BackgroundClearView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C146A82BC7F549001F7F35 /* BackgroundClearView.swift */; };
 		14C146AE2BC86481001F7F35 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C146AD2BC86481001F7F35 /* Status.swift */; };
 		14C146B12BC86C80001F7F35 /* OffsetObservingScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C146B02BC86C80001F7F35 /* OffsetObservingScrollView.swift */; };
+		14C146B32BC86E7A001F7F35 /* CustomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C146B22BC86E7A001F7F35 /* CustomSheet.swift */; };
 		14C95DCB2BC572C500F712FE /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C95DCA2BC572C500F712FE /* CardView.swift */; };
 		14C95DCD2BC5CBFD00F712FE /* TicketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C95DCC2BC5CBFD00F712FE /* TicketView.swift */; };
 		14D79CB42BB8710F006240F0 /* MRData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D79CB32BB8710F006240F0 /* MRData.swift */; };
@@ -198,6 +199,7 @@
 		14C146A82BC7F549001F7F35 /* BackgroundClearView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundClearView.swift; sourceTree = "<group>"; };
 		14C146AD2BC86481001F7F35 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		14C146B02BC86C80001F7F35 /* OffsetObservingScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffsetObservingScrollView.swift; sourceTree = "<group>"; };
+		14C146B22BC86E7A001F7F35 /* CustomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSheet.swift; sourceTree = "<group>"; };
 		14C95DCA2BC572C500F712FE /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		14C95DCC2BC5CBFD00F712FE /* TicketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketView.swift; sourceTree = "<group>"; };
 		14D79CB32BB8710F006240F0 /* MRData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRData.swift; sourceTree = "<group>"; };
@@ -576,6 +578,7 @@
 			isa = PBXGroup;
 			children = (
 				14C146B02BC86C80001F7F35 /* OffsetObservingScrollView.swift */,
+				14C146B22BC86E7A001F7F35 /* CustomSheet.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -760,6 +763,7 @@
 				142C987A2BB743B6009D1D35 /* Config.swift in Sources */,
 				142632442BBC8CE900A0A68A /* Extensions+EdgeInsets.swift in Sources */,
 				14920FFB2BBEBA1D00359497 /* APIDriversStub.swift in Sources */,
+				14C146B32BC86E7A001F7F35 /* CustomSheet.swift in Sources */,
 				14C1469C2BC70FA4001F7F35 /* RaceResultsViewModel.swift in Sources */,
 				142C98782BB74225009D1D35 /* APIDrivers.swift in Sources */,
 				14920FF02BBE9CEC00359497 /* LargeProgressViewModifier.swift in Sources */,
