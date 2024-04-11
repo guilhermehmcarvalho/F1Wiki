@@ -8,6 +8,7 @@
 
 import Foundation
 import Combine
+import SwiftUI
 
 class CurrentSeasonViewModel: ObservableObject {
 
@@ -17,6 +18,7 @@ class CurrentSeasonViewModel: ObservableObject {
 
   @Published var fetchStatus: FetchStatus = .ready
   @Published var raceViewModels: [RaceViewModel] = []
+  @Published var selectedIndex: Int = 0
 
   private var cancellable: AnyCancellable?
   private let itemsPerPage = 30
@@ -42,13 +44,15 @@ class CurrentSeasonViewModel: ObservableObject {
           print(error)
         }
       } receiveValue: { [weak self] response in
-        let raceVMs = response.table.races.map { race in
-          RaceViewModel(raceModel: race)
-        }
-        self?.raceViewModels.append(contentsOf: raceVMs)
+
         self?.offset += response.table.races.count
         self?.total = response.total
         if let self = self {
+          let raceVMs: [RaceViewModel] = response.table.races.map { raceModel in
+            RaceViewModel(raceModel: raceModel, apiSeasons: self.apiSeasons)
+          }
+          self.raceViewModels.append(contentsOf: raceVMs)
+
           var thresholdIndex = self.raceViewModels.index(self.raceViewModels.endIndex, offsetBy: -5)
           if thresholdIndex < 0 {
             thresholdIndex = 0

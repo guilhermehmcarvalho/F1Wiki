@@ -13,10 +13,14 @@ import SwiftUI
 class RaceViewModel: ObservableObject {
 
   internal let raceModel: RaceModel
+  @Published internal var raceResultsViewModel: RaceResultsViewModel
   @Published internal private(set) var animate: Bool = false
 
-  init(raceModel: RaceModel) {
+  @Published var presentingRaceResults: Bool = false
+
+  init(raceModel: RaceModel, apiSeasons: APISeasonsProtocol) {
     self.raceModel = raceModel
+    self.raceResultsViewModel = RaceResultsViewModel(apiSeasons: apiSeasons, round: raceModel.round, year: raceModel.season)
   }
 
   var title: String { raceModel.raceName }
@@ -31,6 +35,10 @@ class RaceViewModel: ObservableObject {
         self.animate = animate
       }
     }
+  }
+
+  func tappedRaceTicket() {
+    presentingRaceResults.toggle()
   }
 }
 

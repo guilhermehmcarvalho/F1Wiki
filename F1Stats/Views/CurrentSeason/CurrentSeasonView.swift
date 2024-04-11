@@ -10,10 +10,13 @@ import Combine
 
 struct CurrentSeasonView: View {
   @ObservedObject var viewModel: CurrentSeasonViewModel
-  @State private var selectedIndex: Int = 0
 
   init(viewModel: CurrentSeasonViewModel) {
     self.viewModel = viewModel
+  }
+
+  var sortedRaces: [EnumeratedSequence<[RaceViewModel]>.Element] {
+    viewModel.raceViewModels.enumerated().sorted { $0.element.round < $1.element.round}
   }
 
   var body: some View {
@@ -22,9 +25,10 @@ struct CurrentSeasonView: View {
         .modifier(LargeProgressView())
         .padding(.all(32))
     }
+
     GeometryReader { geo in
-      TabView(selection: $selectedIndex) {
-        ForEach (viewModel.raceViewModels.enumerated().sorted { $0.element.round < $1.element.round}, id: \.element) { index, raceViewModel in
+      TabView(selection: $viewModel.selectedIndex) {
+        ForEach (sortedRaces, id: \.element) { index, raceViewModel in
             RaceView(viewModel: raceViewModel)
               .frame(width: geo.size.width - geo.safeAreaInsets.trailing)
               .padding(.trailing, geo.safeAreaInsets.trailing)
@@ -37,7 +41,7 @@ struct CurrentSeasonView: View {
               }
           }
       }
-      .onChange(of: selectedIndex, viewModel.changedTabIndex)
+      .onChange(of: viewModel.selectedIndex, viewModel.changedTabIndex)
       .tabViewStyle(PageTabViewStyle())
       .onAppear(perform: viewModel.fetchCurrentSchedule)
     }

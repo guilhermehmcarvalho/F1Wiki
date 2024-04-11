@@ -92,7 +92,7 @@ class APISeasonsStub: APISeasonsProtocol {
     }
   }
 
-  func qualifyingResults(round: Int, year: String) -> AnyPublisher<MRData<RaceTable>, any Error> {
+  func qualifyingResults(round: String, year: String) -> AnyPublisher<MRData<RaceTable>, any Error> {
     guard let path = Bundle.main.path(forResource: "qualifyingResults", ofType: "json") else {
       return Empty().eraseToAnyPublisher()
     }
@@ -111,7 +111,7 @@ class APISeasonsStub: APISeasonsProtocol {
     }
   }
 
-  func raceResults(round: Int, year: String) -> AnyPublisher<MRData<RaceTable>, any Error> {
+  func raceResults(round: String, year: String) -> AnyPublisher<MRData<RaceTable>, any Error> {
     guard let path = Bundle.main.path(forResource: "raceResults", ofType: "json") else {
       return Empty().eraseToAnyPublisher()
     }

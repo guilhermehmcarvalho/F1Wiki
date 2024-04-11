@@ -17,6 +17,12 @@ struct RaceView: View {
   }
 
   var body: some View {
+    if (viewModel.presentingRaceResults) {
+      Color.clear
+        .blur(radius: 0.1)
+        .ignoresSafeArea()
+    }
+
     GeometryReader { geo in
       ScrollView(showsIndicators: false) {
         VStack(spacing: viewModel.animate ? 0 : -250) {
@@ -26,6 +32,7 @@ struct RaceView: View {
             .raceTicket()
             .zIndex(5)
             .ticketTransition()
+            .onTapGesture(perform: viewModel.tappedRaceTicket)
 
           quali
             .frame(maxWidth: geo.size.width/1.5, minHeight: (geo.size.width/1.5)/1.8)
@@ -62,6 +69,10 @@ struct RaceView: View {
         }
         .safeAreaPadding()
       }
+    }
+    .fullScreenCover(isPresented: $viewModel.presentingRaceResults) {
+      RaceResultsView(viewModel: viewModel.raceResultsViewModel)
+        .presentationBackground(.clear)
     }
   }
 

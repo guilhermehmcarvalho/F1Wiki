@@ -11,7 +11,7 @@ import Combine
 class RaceResultsViewModel: ObservableObject {
 
   private var apiSeasons: APISeasonsProtocol
-  private let round: Int
+  private let round: String
   private let year: String
 
   private(set) var fetchStatusSubject = PassthroughSubject<FetchStatus, Never>()
@@ -21,7 +21,7 @@ class RaceResultsViewModel: ObservableObject {
 
   private var cancellable: AnyCancellable?
 
-  init(apiSeasons: APISeasonsProtocol, round: Int, year: String) {
+  init(apiSeasons: APISeasonsProtocol, round: String, year: String) {
     self.apiSeasons = apiSeasons
     self.round = round
     self.year = year

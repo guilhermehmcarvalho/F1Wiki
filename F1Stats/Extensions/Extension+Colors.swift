@@ -12,6 +12,7 @@ public extension Color {
   struct F1Stats {
     static let primary = Color.fromRGB(red: 179, green: 19, blue: 18)
     static let systemDark = Color.fromRGB(red: 33, green: 50, blue: 94)
+    static let systemGreen = Color.green
     static let systemDarkSecondary = Color.fromRGB(red: 62, green: 73, blue: 122)
     static let systemLight = Color.fromRGB(red: 240, green: 240, blue: 240)
     static let systemWhite = Color.white

@@ -87,3 +87,9 @@ struct RaceResult: Decodable {
       }
   }
 }
+
+extension RaceResult {
+  var positionsShifted: Int {
+    Int(grid)! - Int(position)!
+  }
+}

@@ -18,7 +18,7 @@ final class QualiResultsViewModelTest: XCTestCase {
   }
 
   func testFetchCurrentSchedule() {
-    let viewModel = QualiResultsViewModel(apiSeasons: APISeasonsStub(), round: 1, year: "2024")
+    let viewModel = QualiResultsViewModel(apiSeasons: APISeasonsStub(), round: "1", year: "2024")
     let promise = expectation(description: "Results will have been fetched")
     XCTAssertNil(viewModel.raceModel?.qualifyingResults, "Starting with no results")
     viewModel.fetchQualiResult()

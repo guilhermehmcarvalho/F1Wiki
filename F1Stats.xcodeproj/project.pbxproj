@@ -86,6 +86,8 @@
 		14C1469C2BC70FA4001F7F35 /* RaceResultsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C1469B2BC70FA4001F7F35 /* RaceResultsViewModel.swift */; };
 		14C146A32BC7135A001F7F35 /* QualiResultsViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C146A22BC7135A001F7F35 /* QualiResultsViewModelTest.swift */; };
 		14C146A52BC7141F001F7F35 /* RaceResultsViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C146A42BC7141F001F7F35 /* RaceResultsViewModelTest.swift */; };
+		14C146A72BC7D250001F7F35 /* RaceResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C146A62BC7D250001F7F35 /* RaceResultsView.swift */; };
+		14C146A92BC7F549001F7F35 /* BackgroundClearView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C146A82BC7F549001F7F35 /* BackgroundClearView.swift */; };
 		14C95DCB2BC572C500F712FE /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C95DCA2BC572C500F712FE /* CardView.swift */; };
 		14C95DCD2BC5CBFD00F712FE /* TicketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C95DCC2BC5CBFD00F712FE /* TicketView.swift */; };
 		14D79CB42BB8710F006240F0 /* MRData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D79CB32BB8710F006240F0 /* MRData.swift */; };
@@ -190,6 +192,8 @@
 		14C1469B2BC70FA4001F7F35 /* RaceResultsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceResultsViewModel.swift; sourceTree = "<group>"; };
 		14C146A22BC7135A001F7F35 /* QualiResultsViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QualiResultsViewModelTest.swift; sourceTree = "<group>"; };
 		14C146A42BC7141F001F7F35 /* RaceResultsViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceResultsViewModelTest.swift; sourceTree = "<group>"; };
+		14C146A62BC7D250001F7F35 /* RaceResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceResultsView.swift; sourceTree = "<group>"; };
+		14C146A82BC7F549001F7F35 /* BackgroundClearView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundClearView.swift; sourceTree = "<group>"; };
 		14C95DCA2BC572C500F712FE /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		14C95DCC2BC5CBFD00F712FE /* TicketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketView.swift; sourceTree = "<group>"; };
 		14D79CB32BB8710F006240F0 /* MRData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRData.swift; sourceTree = "<group>"; };
@@ -329,6 +333,7 @@
 			children = (
 				14920FEE2BBE9CE000359497 /* Components */,
 				1426323F2BBC80BD00A0A68A /* DesignLanguageSystem.swift */,
+				14C146A82BC7F549001F7F35 /* BackgroundClearView.swift */,
 			);
 			path = Styling;
 			sourceTree = "<group>";
@@ -576,6 +581,7 @@
 			children = (
 				14E6E59D2BC46F29001DF1D2 /* CurrentSeasonView.swift */,
 				14E6E59F2BC47F87001DF1D2 /* RaceView.swift */,
+				14C146A62BC7D250001F7F35 /* RaceResultsView.swift */,
 			);
 			path = CurrentSeason;
 			sourceTree = "<group>";
@@ -723,6 +729,7 @@
 				149AA07C2BC3BDFE001EFCCA /* CircuitModel.swift in Sources */,
 				14D79CB62BB88C92006240F0 /* Extensions+Publisher.swift in Sources */,
 				149210222BC021BA00359497 /* ConstructorsView.swift in Sources */,
+				14C146A72BC7D250001F7F35 /* RaceResultsView.swift in Sources */,
 				1492102C2BC023EF00359497 /* APIConstructors.swift in Sources */,
 				148081E92BBD7C2A00A9A33F /* WikipediaSummaryModel.swift in Sources */,
 				14E6E5A02BC47F87001DF1D2 /* RaceView.swift in Sources */,
@@ -750,6 +757,7 @@
 				14E6E5A22BC47F93001DF1D2 /* RaceViewModel.swift in Sources */,
 				149210642BC1A83100359497 /* SeasonConstructorStandingsViewModel.swift in Sources */,
 				14920FF22BBEA65D00359497 /* ConstructorModel.swift in Sources */,
+				14C146A92BC7F549001F7F35 /* BackgroundClearView.swift in Sources */,
 				140A09842BB6E30C0037AA74 /* F1StatsApp.swift in Sources */,
 				149210282BC0222500359497 /* ConstructorsViewModel.swift in Sources */,
 				1492104A2BC1258300359497 /* SeasonsViewModel.swift in Sources */,

@@ -18,7 +18,7 @@ final class RaceResultsViewModelTest: XCTestCase {
   }
 
   func testFetchCurrentSchedule() {
-    let viewModel = RaceResultsViewModel(apiSeasons: APISeasonsStub(), round: 1, year: "2024")
+    let viewModel = RaceResultsViewModel(apiSeasons: APISeasonsStub(), round: "1", year: "2024")
     let promise = expectation(description: "Results will have been fetched")
     XCTAssertNil(viewModel.raceModel?.raceResults, "Starting with no results")
     viewModel.fetchRaceResults()
