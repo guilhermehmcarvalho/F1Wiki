@@ -58,12 +58,22 @@ class CurrentSeasonViewModel: ObservableObject {
             thresholdIndex = 0
           }
           self.paginationThresholdId = raceViewModels[thresholdIndex].id
+          selectClosestGrandPrix()
         }
       }
   }
 
+  // If an event starts in a day or less, selects it
+  // ..if not, we select the last finished event
   func selectClosestGrandPrix() {
-    
+    for i in 0..<raceViewModels.count {
+      if raceViewModels[i].raceModel.startsInADay() {
+        selectedIndex = i
+        return
+      } else if raceViewModels[i].raceModel.isFinished() {
+        selectedIndex = i
+      }
+    }
   }
 
   internal func changedTabIndex(oldValue: Int, newValue: Int) {
@@ -76,5 +86,33 @@ class CurrentSeasonViewModel: ObservableObject {
     if item.id == paginationThresholdId, raceViewModels.count < total {
       fetchCurrentSchedule()
     }
+  }
+}
+
+extension RaceModel {
+  func startsInADay() -> Bool {
+    return self.startsInADay || 
+    qualifying?.startsInADay ?? false ||
+    sprint?.startsInADay ?? false ||
+    firstPractice?.startsInADay ?? false ||
+    secondPractice?.startsInADay ?? false ||
+    thirdPractice?.startsInADay ?? false
+  }
+}
+
+extension EventProtocol {
+  var timeToNow: TimeInterval? {
+    return timeAsDate()?.distance(to: Date.now)
+  }
+
+  var startsInADay: Bool {
+    if let timeToNow = timeToNow {
+      let hours = timeToNow/3600
+      if hours > 0 && hours < 24 || hours < 0 && hours > -24 {
+        return true
+      }
+    }
+
+    return false
   }
 }
