@@ -17,6 +17,8 @@
 		142C987A2BB743B6009D1D35 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142C98792BB743B6009D1D35 /* Config.swift */; };
 		142C987F2BB74AAC009D1D35 /* DriverModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142C987E2BB74AAC009D1D35 /* DriverModel.swift */; };
 		142C98812BB74E5B009D1D35 /* DriversViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142C98802BB74E5B009D1D35 /* DriversViewModel.swift */; };
+		1457478A2BC900300074823A /* QualiResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145747892BC900300074823A /* QualiResultsView.swift */; };
+		1457478C2BC9078D0074823A /* EventProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1457478B2BC9078D0074823A /* EventProtocol.swift */; };
 		148081DB2BBD28CA00A9A33F /* Extension+Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148081DA2BBD28CA00A9A33F /* Extension+Colors.swift */; };
 		148081DF2BBD33B200A9A33F /* NunitoSans-VariableFont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 148081DD2BBD33B200A9A33F /* NunitoSans-VariableFont.ttf */; };
 		148081E52BBD700100A9A33F /* DriverRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148081E42BBD700100A9A33F /* DriverRowViewModel.swift */; };
@@ -125,6 +127,8 @@
 		142C987E2BB74AAC009D1D35 /* DriverModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverModel.swift; sourceTree = "<group>"; };
 		142C98802BB74E5B009D1D35 /* DriversViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriversViewModel.swift; sourceTree = "<group>"; };
 		142C98822BB751C2009D1D35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		145747892BC900300074823A /* QualiResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QualiResultsView.swift; sourceTree = "<group>"; };
+		1457478B2BC9078D0074823A /* EventProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventProtocol.swift; sourceTree = "<group>"; };
 		148081DA2BBD28CA00A9A33F /* Extension+Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Colors.swift"; sourceTree = "<group>"; };
 		148081DD2BBD33B200A9A33F /* NunitoSans-VariableFont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-VariableFont.ttf"; sourceTree = "<group>"; };
 		148081E42BBD700100A9A33F /* DriverRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverRowViewModel.swift; sourceTree = "<group>"; };
@@ -332,6 +336,7 @@
 				149210442BC0741200359497 /* SeasonsModel.swift */,
 				14E6E5982BC46C42001DF1D2 /* WikiCommonsMedia.swift */,
 				14C146AD2BC86481001F7F35 /* Status.swift */,
+				1457478B2BC9078D0074823A /* EventProtocol.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -599,6 +604,7 @@
 				14E6E59D2BC46F29001DF1D2 /* CurrentSeasonView.swift */,
 				14E6E59F2BC47F87001DF1D2 /* RaceView.swift */,
 				14C146A62BC7D250001F7F35 /* RaceResultsView.swift */,
+				145747892BC900300074823A /* QualiResultsView.swift */,
 			);
 			path = CurrentSeason;
 			sourceTree = "<group>";
@@ -754,6 +760,7 @@
 				1492106A2BC1BF3700359497 /* SeasonConstructorStandingsView.swift in Sources */,
 				148081DB2BBD28CA00A9A33F /* Extension+Colors.swift in Sources */,
 				14B80FFE2BBA86F8006D678E /* DriversView.swift in Sources */,
+				1457478C2BC9078D0074823A /* EventProtocol.swift in Sources */,
 				149210342BC02F8A00359497 /* ConstructorStandingsRowView.swift in Sources */,
 				149210452BC0741200359497 /* SeasonsModel.swift in Sources */,
 				149AA0852BC3CD0C001EFCCA /* CurrentSeasonViewModel.swift in Sources */,
@@ -776,6 +783,7 @@
 				149210642BC1A83100359497 /* SeasonConstructorStandingsViewModel.swift in Sources */,
 				14920FF22BBEA65D00359497 /* ConstructorModel.swift in Sources */,
 				14C146A92BC7F549001F7F35 /* BackgroundClearView.swift in Sources */,
+				1457478A2BC900300074823A /* QualiResultsView.swift in Sources */,
 				140A09842BB6E30C0037AA74 /* F1StatsApp.swift in Sources */,
 				149210282BC0222500359497 /* ConstructorsViewModel.swift in Sources */,
 				1492104A2BC1258300359497 /* SeasonsViewModel.swift in Sources */,

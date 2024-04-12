@@ -26,12 +26,29 @@ struct RaceView: View {
             .zIndex(5)
             .ticketTransition(finalAngle: -1)
             .onTapGesture(perform: viewModel.tappedRaceTicket)
+            .fullScreenCover(isPresented: $viewModel.presentingRaceResults) {
+              CustomSheet {
+                RaceResultsView(viewModel: viewModel.raceResultsViewModel)
+                  .presentationBackground(.clear)
+              } dismiss: {
+                viewModel.presentingRaceResults = false
+              }
+            }
 
           quali
             .frame(maxWidth: geo.size.width/1.5, minHeight: (geo.size.width/1.5)/1.8)
             .raceTicket()
             .zIndex(4)
             .ticketTransition(finalAngle: 1)
+            .onTapGesture(perform: viewModel.tappedQualiTicket)
+            .fullScreenCover(isPresented: $viewModel.presentingQualiResults) {
+              CustomSheet {
+                QualiResultsView(viewModel: viewModel.qualiResultsViewModel)
+                  .presentationBackground(.clear)
+              } dismiss: {
+                viewModel.presentingQualiResults = false
+              }
+            }
 
           if (viewModel.raceModel.thirdPractice != nil) {
             practice3
@@ -61,14 +78,6 @@ struct RaceView: View {
             .ticketTransition(finalAngle: 2)
         }
         .safeAreaPadding()
-      }
-    }
-    .fullScreenCover(isPresented: $viewModel.presentingRaceResults) {
-      CustomSheet {
-        RaceResultsView(viewModel: viewModel.raceResultsViewModel)
-          .presentationBackground(.clear)
-      } dismiss: {
-        viewModel.presentingRaceResults = false
       }
     }
   }

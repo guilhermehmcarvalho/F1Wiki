@@ -14,14 +14,22 @@ class RaceViewModel: ObservableObject {
 
   internal let raceModel: RaceModel
   @Published internal var raceResultsViewModel: RaceResultsViewModel
+  @Published internal var qualiResultsViewModel: QualiResultsViewModel
   @Published internal private(set) var animate: Bool = false
 
   @Published var presentingRaceResults: Bool = false
+  @Published var presentingQualiResults: Bool = false
 
   init(raceModel: RaceModel, apiSeasons: APISeasonsProtocol) {
     self.raceModel = raceModel
-    self.raceResultsViewModel = RaceResultsViewModel(apiSeasons: apiSeasons, round: raceModel.round, year: raceModel.season)
-    raceResultsViewModel.onDismissed = resultsDismissed
+    self.raceResultsViewModel = RaceResultsViewModel(apiSeasons: apiSeasons, 
+                                                     round: raceModel.round,
+                                                     year: raceModel.season)
+    self.qualiResultsViewModel = QualiResultsViewModel(apiSeasons: apiSeasons,
+                                                       round: raceModel.round,
+                                                       year: raceModel.season)
+    raceResultsViewModel.onDismissed = popupDismissed
+    qualiResultsViewModel.onDismissed = popupDismissed
   }
 
   var title: String { raceModel.raceName }
@@ -43,8 +51,14 @@ class RaceViewModel: ObservableObject {
     presentingRaceResults.toggle()
   }
 
-  private func resultsDismissed() {
+  func tappedQualiTicket() {
+    if raceModel.qualifying?.isFinished() == false { return }
+    presentingQualiResults.toggle()
+  }
+
+  private func popupDismissed() {
     presentingRaceResults = false
+    presentingQualiResults = false
   }
 }
 
@@ -61,37 +75,5 @@ extension RaceViewModel: Hashable, Equatable {
   
   func hash(into hasher: inout Hasher) {
     hasher.combine(round)
-  }
-}
-
-extension EventModule: EventProtocol { }
-extension RaceModel: EventProtocol { }
-
-protocol EventProtocol {
-  var date: String { get }
-  var time: String { get }
-}
-
-extension EventProtocol {
-  func timeAsDate() -> Date? {
-    let dateString = self.date.appending(time)
-    let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "yyyy-MM-ddHH:mm:ssZ"
-    return dateFormatter.date(from: dateString)
-  }
-
-  func timeAsString() -> String? {
-    guard let date = timeAsDate() else { return nil }
-    let formatter = DateFormatter()
-    formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-    formatter.dateFormat = "E, d MMM y HH:mm "
-    return formatter.string(from: date)
-  }
-
-  func isFinished(durationInMinutes: Double = 120) -> Bool {
-    guard let eventTime = timeAsDate() else {
-      return true
-    }
-    return eventTime.addingTimeInterval(durationInMinutes) < Date.now
   }
 }

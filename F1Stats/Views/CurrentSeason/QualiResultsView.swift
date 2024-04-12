@@ -1,18 +1,18 @@
 //
-//  RaceResultsView.swift
+//  QualiResultsView.swift
 //  F1Stats
 //
-//  Created by Guilherme Carvalho on 11/04/2024.
+//  Created by Guilherme Carvalho on 12/04/2024.
 //
 
 import SwiftUI
 
-struct RaceResultsView: View {
-  
-  @ObservedObject var viewModel: RaceResultsViewModel
+struct QualiResultsView: View {
 
-  var sortedResults: [EnumeratedSequence<[RaceResult]>.Element] {
-    let results = (viewModel.raceModel?.raceResults ?? []).enumerated()
+  @ObservedObject var viewModel: QualiResultsViewModel
+
+  var sortedResults: [EnumeratedSequence<[QualifyingResult]>.Element] {
+    let results = (viewModel.raceModel?.qualifyingResults ?? []).enumerated()
     return results.sorted { Int($0.element.position)! < Int($1.element.position)! }
   }
 
@@ -34,7 +34,7 @@ struct RaceResultsView: View {
           .padding()
 
         ForEach(sortedResults, id: \.element.driver) { index, result in
-          raceStandingsRow(result: result)
+          standingsRow(result: result)
           if index < sortedResults.count - 1 {
             Divider().padding(.all(0))
           }
@@ -45,28 +45,15 @@ struct RaceResultsView: View {
     .padding(.all(8))
     .modifier(CardView(fill: .F1Stats.systemYellow))
     .padding(EdgeInsets(top: 0, leading: 4, bottom: 8, trailing: 8))
-    .onAppear(perform: viewModel.fetchRaceResults)
+    .onAppear(perform: viewModel.fetchQualiResult)
   }
 
-  func raceStandingsRow(result: RaceResult) -> some View {
+  func standingsRow(result: QualifyingResult) -> some View {
     HStack(alignment: .center) {
-      Text(result.positionText)
+      Text(result.position)
         .frame(width: 20)
         .typography(type: .small(color: .F1Stats.systemDark))
-      HStack {
-        if (result.positionsShifted > 0) {
-          Text( "+\(result.positionsShifted)")
-            .typography(type: .small(color: .F1Stats.systemGreen))
-        } else if (result.positionsShifted == 0) {
-          Text( "\(result.positionsShifted)")
-            .typography(type: .small(color: .F1Stats.systemDark))
-        } else {
-          Text("\(result.positionsShifted)")
-            .typography(type: .small(color: .F1Stats.primary))
-        }
-      }
-      .frame(width: 30)
-      
+
       Text(result.driver.familyName)
         .typography(type: .body(color: .F1Stats.systemDark))
       Spacer()
@@ -77,5 +64,5 @@ struct RaceResultsView: View {
 }
 
 #Preview {
-  RaceResultsView(viewModel: RaceResultsViewModel(apiSeasons: APISeasonsStub(), round: "1", year: "1"))
+  QualiResultsView(viewModel: QualiResultsViewModel(apiSeasons: APISeasonsStub(), round: "1", year: "1"))
 }

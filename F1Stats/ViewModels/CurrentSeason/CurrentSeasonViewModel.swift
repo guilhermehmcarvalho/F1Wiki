@@ -62,6 +62,10 @@ class CurrentSeasonViewModel: ObservableObject {
       }
   }
 
+  func selectClosestGrandPrix() {
+    
+  }
+
   internal func changedTabIndex(oldValue: Int, newValue: Int) {
     raceViewModels[oldValue].animate(false)
     raceViewModels[newValue].animate(true)

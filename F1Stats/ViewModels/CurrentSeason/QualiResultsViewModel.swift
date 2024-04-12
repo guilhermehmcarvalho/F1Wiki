@@ -18,6 +18,7 @@ class QualiResultsViewModel: ObservableObject {
 
   @Published var fetchStatus: FetchStatus = .ready
   @Published var raceModel: RaceModel?
+  @Published var onDismissed: (() -> Void)?
 
   private var cancellable: AnyCancellable?
 
