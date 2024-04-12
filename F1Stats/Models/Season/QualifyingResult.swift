@@ -12,9 +12,9 @@ struct QualifyingResult: Decodable {
     let position: String
     let driver: DriverModel
     let constructor: ConstructorModel
-    let q1: String
-    let q2: String?
-    let q3: String?
+    let q1: LapTime
+    let q2: LapTime?
+    let q3: LapTime?
 
     enum CodingKeys: String, CodingKey {
         case number = "number"
@@ -25,4 +25,20 @@ struct QualifyingResult: Decodable {
         case q2 = "Q2"
         case q3 = "Q3"
     }
+}
+
+typealias LapTime = String
+
+extension LapTime {
+
+  var inMiliseconds: Int {
+    let minutesString = self.components(separatedBy: ":").first ?? ""
+    let secondsString = self.components(separatedBy: ":").last?.components(separatedBy: ".").first ?? ""
+    let milisecondsString = self.components(separatedBy: ":").last?.components(separatedBy: ".").last ?? ""
+
+    guard let minutes = Int(minutesString),
+          let seconds = Int(secondsString),
+    let miliseconds = Int(milisecondsString) else { return 0 }
+    return miliseconds + seconds * 1000 + minutes * 60000
+  }
 }

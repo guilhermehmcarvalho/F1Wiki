@@ -11,11 +11,6 @@ struct RaceResultsView: View {
   
   @ObservedObject var viewModel: RaceResultsViewModel
 
-  var sortedResults: [EnumeratedSequence<[RaceResult]>.Element] {
-    let results = (viewModel.raceModel?.raceResults ?? []).enumerated()
-    return results.sorted { Int($0.element.position)! < Int($1.element.position)! }
-  }
-
   var body: some View {
     VStack {
       if viewModel.fetchStatus == .ongoing {
@@ -29,14 +24,19 @@ struct RaceResultsView: View {
       }
 
       if let raceModel = viewModel.raceModel {
-        Text("\(raceModel.raceName) Result")
-          .typography(type: .heading(color: .F1Stats.primary))
-          .padding()
+        VStack {
+          Text("\(raceModel.raceName)")
+            .typography(type: .subHeader(color: .F1Stats.primary))
+          Text("Race Result")
+            .typography(type: .heading(color: .F1Stats.primary))
+        }.padding(.all(8))
 
-        ForEach(sortedResults, id: \.element.driver) { index, result in
-          raceStandingsRow(result: result)
-          if index < sortedResults.count - 1 {
-            Divider().padding(.all(0))
+        if let raceResults = raceModel.raceResults {
+          ForEach(Array(raceResults.enumerated()), id: \.element.driver) { (index, result) in
+            raceStandingsRow(result: result)
+            if index < raceResults.count - 1 {
+              Divider().padding(.all(0))
+            }
           }
         }
       }
@@ -67,7 +67,7 @@ struct RaceResultsView: View {
       }
       .frame(width: 30)
       
-      Text(result.driver.familyName)
+      Text(result.driver.fullName)
         .typography(type: .body(color: .F1Stats.systemDark))
       Spacer()
       Text(result.constructor.name)

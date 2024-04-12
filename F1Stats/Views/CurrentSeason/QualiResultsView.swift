@@ -11,11 +11,6 @@ struct QualiResultsView: View {
 
   @ObservedObject var viewModel: QualiResultsViewModel
 
-  var sortedResults: [EnumeratedSequence<[QualifyingResult]>.Element] {
-    let results = (viewModel.raceModel?.qualifyingResults ?? []).enumerated()
-    return results.sorted { Int($0.element.position)! < Int($1.element.position)! }
-  }
-
   var body: some View {
     VStack {
       if viewModel.fetchStatus == .ongoing {
@@ -29,13 +24,16 @@ struct QualiResultsView: View {
       }
 
       if let raceModel = viewModel.raceModel {
-        Text("\(raceModel.raceName) Result")
-          .typography(type: .heading(color: .F1Stats.primary))
-          .padding()
+        VStack {
+          Text("\(raceModel.raceName)")
+            .typography(type: .subHeader(color: .F1Stats.primary))
+          Text("Qualifying Result")
+            .typography(type: .heading(color: .F1Stats.primary))
+        }.padding(.all(8))
 
-        ForEach(sortedResults, id: \.element.driver) { index, result in
+        ForEach(Array(viewModel.qualiResults.enumerated()), id: \.element.driver) { index, result in
           standingsRow(result: result)
-          if index < sortedResults.count - 1 {
+          if index < viewModel.qualiResults.count - 1 {
             Divider().padding(.all(0))
           }
         }
@@ -49,16 +47,44 @@ struct QualiResultsView: View {
   }
 
   func standingsRow(result: QualifyingResult) -> some View {
+
     HStack(alignment: .center) {
       Text(result.position)
-        .frame(width: 20)
-        .typography(type: .small(color: .F1Stats.systemDark))
+        .frame(width: 30)
+        .typography(type: .body(color: .F1Stats.systemDark))
+      VStack(alignment: .leading) {
+        Text(result.driver.fullName)
+          .typography(type: .subHeader(color: .F1Stats.systemDark))
+        Text(result.constructor.name)
+          .typography(type: .body(color: .F1Stats.systemDark))
+      }
 
-      Text(result.driver.familyName)
-        .typography(type: .body(color: .F1Stats.systemDark))
       Spacer()
-      Text(result.constructor.name)
-        .typography(type: .body(color: .F1Stats.systemDark))
+
+      VStack(alignment: .trailing) {
+        if let q3 = result.q3 {
+          HStack {
+            Text("Q3")
+              .typography(type: .small(color: .F1Stats.systemDark))
+            Text(q3)
+              .typography(type: .small(color: .F1Stats.systemDark))
+          }
+        }
+        if let q2 = result.q2 {
+          HStack {
+            Text("Q2")
+              .typography(type: .small(color: .F1Stats.systemDark))
+            Text(q2)
+              .typography(type: .small(color: .F1Stats.systemDark))
+          }
+        }
+          HStack {
+            Text("Q1")
+              .typography(type: .small(color: .F1Stats.systemDark))
+            Text(result.q1)
+              .typography(type: .small(color: .F1Stats.systemDark))
+          }
+      }
     }
   }
 }

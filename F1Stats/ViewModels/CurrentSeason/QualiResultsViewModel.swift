@@ -31,6 +31,10 @@ class QualiResultsViewModel: ObservableObject {
       .assign(to: &$fetchStatus)
   }
 
+  var qualiResults: [QualifyingResult] {
+    raceModel?.qualifyingResults ?? []
+  }
+
   func fetchQualiResult() {
     cancellable = apiSeasons.qualifyingResults(round: round, year: year)
       .observeFetchStatus(with: fetchStatusSubject)
@@ -44,5 +48,13 @@ class QualiResultsViewModel: ObservableObject {
       } receiveValue: { [weak self] response in
         self?.raceModel = response.table.races.first
       }
+  }
+
+  var results: [QualifyingResult] {
+    guard let results = raceModel?.qualifyingResults else {
+      return []
+    }
+
+    return results
   }
 }
