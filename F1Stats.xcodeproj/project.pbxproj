@@ -11,6 +11,8 @@
 		140A09862BB6E30C0037AA74 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140A09852BB6E30C0037AA74 /* ContentView.swift */; };
 		140A09882BB6E30D0037AA74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 140A09872BB6E30D0037AA74 /* Assets.xcassets */; };
 		140A098B2BB6E30D0037AA74 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 140A098A2BB6E30D0037AA74 /* Preview Assets.xcassets */; };
+		141465602BCADB2E003EF647 /* MuseumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1414655F2BCADB2E003EF647 /* MuseumView.swift */; };
+		141465622BCB0174003EF647 /* MuseumViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141465612BCB0174003EF647 /* MuseumViewModel.swift */; };
 		142632402BBC80BD00A0A68A /* DesignLanguageSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1426323F2BBC80BD00A0A68A /* DesignLanguageSystem.swift */; };
 		142632442BBC8CE900A0A68A /* Extensions+EdgeInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142632432BBC8CE900A0A68A /* Extensions+EdgeInsets.swift */; };
 		142C98782BB74225009D1D35 /* APIDrivers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142C98772BB74225009D1D35 /* APIDrivers.swift */; };
@@ -120,6 +122,8 @@
 		140A09852BB6E30C0037AA74 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		140A09872BB6E30D0037AA74 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		140A098A2BB6E30D0037AA74 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1414655F2BCADB2E003EF647 /* MuseumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuseumView.swift; sourceTree = "<group>"; };
+		141465612BCB0174003EF647 /* MuseumViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuseumViewModel.swift; sourceTree = "<group>"; };
 		1426323F2BBC80BD00A0A68A /* DesignLanguageSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignLanguageSystem.swift; sourceTree = "<group>"; };
 		142632432BBC8CE900A0A68A /* Extensions+EdgeInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+EdgeInsets.swift"; sourceTree = "<group>"; };
 		142C98772BB74225009D1D35 /* APIDrivers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIDrivers.swift; sourceTree = "<group>"; };
@@ -295,6 +299,7 @@
 				149210262BC0221500359497 /* Constructors */,
 				149210252BC0220B00359497 /* Drivers */,
 				148081EC2BBD85DC00A9A33F /* WikipediaViewModel.swift */,
+				141465612BCB0174003EF647 /* MuseumViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -308,6 +313,7 @@
 				149210232BC021DB00359497 /* Drivers */,
 				140A09852BB6E30C0037AA74 /* ContentView.swift */,
 				148081EA2BBD85BB00A9A33F /* WikipediaView.swift */,
+				1414655F2BCADB2E003EF647 /* MuseumView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -744,6 +750,7 @@
 				140A09862BB6E30C0037AA74 /* ContentView.swift in Sources */,
 				148081E52BBD700100A9A33F /* DriverRowViewModel.swift in Sources */,
 				149210042BBEDA1D00359497 /* DriverRowView.swift in Sources */,
+				141465622BCB0174003EF647 /* MuseumViewModel.swift in Sources */,
 				142632402BBC80BD00A0A68A /* DesignLanguageSystem.swift in Sources */,
 				14D79CB42BB8710F006240F0 /* MRData.swift in Sources */,
 				14E6E5992BC46C42001DF1D2 /* WikiCommonsMedia.swift in Sources */,
@@ -778,6 +785,7 @@
 				1492104C2BC1269B00359497 /* SeasonRowViewModel.swift in Sources */,
 				149210582BC1A54F00359497 /* SeasonDriverStandingsViewModel.swift in Sources */,
 				149210432BC0734A00359497 /* APISeasons.swift in Sources */,
+				141465602BCADB2E003EF647 /* MuseumView.swift in Sources */,
 				14C146942BC7040B001F7F35 /* QualifyingResult.swift in Sources */,
 				14E6E5A22BC47F93001DF1D2 /* RaceViewModel.swift in Sources */,
 				149210642BC1A83100359497 /* SeasonConstructorStandingsViewModel.swift in Sources */,

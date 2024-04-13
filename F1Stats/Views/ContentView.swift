@@ -53,11 +53,17 @@ struct ContentView: View {
   var body: some View {
       ZStack {
         Color.F1Stats.systemDark.ignoresSafeArea()
-
         TabView {
           CurrentSeasonView(viewModel: CurrentSeasonViewModel(apiSeasons: apiSeasons))
-            .tabItem { Label("Tab 1", systemImage: "1.circle") }
+            .tabItem { Label("Calendar", systemImage: "calendar.circle") }
+
+          MuseumView(viewModel: MuseumViewModel( apiSeasons: apiSeasons,
+                     wikipediaAPI: wikipediaAPI,
+                     driverAPI: apiDrivers,
+          constructorsAPI: apiConstructors))
+            .tabItem { Label("Museum", systemImage: "trophy.circle.fill") }
         }
+        .accentColor(.F1Stats.primary)
     }
   }
 }

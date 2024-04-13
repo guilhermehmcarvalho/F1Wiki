@@ -55,7 +55,13 @@ class SeasonsViewModel: ObservableObject {
         }
       }
   }
-  
+
+  func onAppear() {
+    if seasonsList.isEmpty {
+      fetchSeasons()
+    }
+  }
+
   //MARK: - PAGINATION
   func onItemDisplayed(currentItem item: SeasonModel){
     if item.season == paginationThresholdId, seasonsList.count < totalSeasons {

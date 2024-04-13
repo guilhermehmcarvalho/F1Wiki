@@ -31,7 +31,6 @@ struct DriversView: View {
       .listRowSeparator(.automatic)
       .listRowSeparatorTint(.F1Stats.systemWhite)
       .scrollContentBackground(.hidden)
-      .navigationTitle("Drivers")
       .onAppear(perform: {
         viewModel.fetchDrivers()
       })

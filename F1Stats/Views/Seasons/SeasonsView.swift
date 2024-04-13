@@ -32,9 +32,7 @@ struct SeasonsView: View {
       .listRowSeparatorTint(.F1Stats.systemWhite)
       .scrollContentBackground(.hidden)
       .navigationTitle("Seasons")
-      .onAppear(perform: {
-        viewModel.fetchSeasons()
-      })
+      .onAppear(perform: viewModel.onAppear)
 
       if viewModel.fetchStatus == .ongoing, viewModel.seasonsList.isEmpty {
         ProgressView()
