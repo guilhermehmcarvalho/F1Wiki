@@ -20,15 +20,17 @@ struct CurrentSeasonView: View {
   }
 
   var body: some View {
-    if viewModel.fetchStatus == .ongoing {
-      ProgressView()
-        .modifier(LargeProgressView())
-        .padding(.all(32))
-    }
+    ZStack {
+      Color.F1Stats.systemDark.ignoresSafeArea()
+      if viewModel.fetchStatus == .ongoing {
+        ProgressView()
+          .modifier(LargeProgressView())
+          .padding(.all(32))
+      }
 
-    GeometryReader { geo in
-      TabView(selection: $viewModel.selectedIndex) {
-        ForEach (sortedRaces, id: \.element) { index, raceViewModel in
+      GeometryReader { geo in
+        TabView(selection: $viewModel.selectedIndex) {
+          ForEach (sortedRaces, id: \.element) { index, raceViewModel in
             RaceView(viewModel: raceViewModel)
               .frame(width: geo.size.width - geo.safeAreaInsets.trailing)
               .padding(.trailing, geo.safeAreaInsets.trailing)
@@ -37,12 +39,13 @@ struct CurrentSeasonView: View {
                 viewModel.onItemDisplayed(currentItem: raceViewModel)
               }
           }
+        }
+        .onChange(of: viewModel.selectedIndex, viewModel.changedTabIndex)
+        .tabViewStyle(PageTabViewStyle())
+        .onAppear(perform: viewModel.fetchCurrentSchedule)
       }
-      .onChange(of: viewModel.selectedIndex, viewModel.changedTabIndex)
-      .tabViewStyle(PageTabViewStyle())
-      .onAppear(perform: viewModel.fetchCurrentSchedule)
+      .ignoresSafeArea(edges: .top)
     }
-    .ignoresSafeArea(edges: .top)
   }
 }
 

@@ -51,7 +51,6 @@ struct ContentView: View {
   }
 
   var body: some View {
-    NavigationStack {
       ZStack {
         Color.F1Stats.systemDark.ignoresSafeArea()
 
@@ -59,14 +58,6 @@ struct ContentView: View {
           CurrentSeasonView(viewModel: CurrentSeasonViewModel(apiSeasons: apiSeasons))
             .tabItem { Label("Tab 1", systemImage: "1.circle") }
         }
-
-
-//        ConstructorsView(viewModel: ConstructorsViewModel(apiConstructors: apiConstructors,
-//        SeasonsView(viewModel: SeasonsViewModel(apiSeasons: apiSeasons,
-//        DriversView(viewModel: DriversViewModel(driverApi: apiDrivers,
-//                                                          wikipediaAPI: wikipediaAPI))
-      }
-      .scrollContentBackground(.hidden)
     }
   }
 }
