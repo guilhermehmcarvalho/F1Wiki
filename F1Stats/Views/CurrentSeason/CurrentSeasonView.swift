@@ -34,9 +34,6 @@ struct CurrentSeasonView: View {
               .padding(.trailing, geo.safeAreaInsets.trailing)
               .tag(index)
               .onAppear {
-                if index == 0 {
-                  raceViewModel.animate(true, delay: 0.1)
-                }
                 viewModel.onItemDisplayed(currentItem: raceViewModel)
               }
           }
@@ -45,7 +42,7 @@ struct CurrentSeasonView: View {
       .tabViewStyle(PageTabViewStyle())
       .onAppear(perform: viewModel.fetchCurrentSchedule)
     }
-    .ignoresSafeArea()
+    .ignoresSafeArea(edges: .top)
   }
 }
 

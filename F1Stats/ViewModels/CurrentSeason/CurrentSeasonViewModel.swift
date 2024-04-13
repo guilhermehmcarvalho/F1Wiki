@@ -59,6 +59,7 @@ class CurrentSeasonViewModel: ObservableObject {
           }
           self.paginationThresholdId = raceViewModels[thresholdIndex].id
           selectClosestGrandPrix()
+          raceViewModels[selectedIndex].animate(true, delay: 0.1)
         }
       }
   }

@@ -54,7 +54,13 @@ struct ContentView: View {
     NavigationStack {
       ZStack {
         Color.F1Stats.systemDark.ignoresSafeArea()
-        CurrentSeasonView(viewModel: CurrentSeasonViewModel(apiSeasons: apiSeasons))
+
+        TabView {
+          CurrentSeasonView(viewModel: CurrentSeasonViewModel(apiSeasons: apiSeasons))
+            .tabItem { Label("Tab 1", systemImage: "1.circle") }
+        }
+
+
 //        ConstructorsView(viewModel: ConstructorsViewModel(apiConstructors: apiConstructors,
 //        SeasonsView(viewModel: SeasonsViewModel(apiSeasons: apiSeasons,
 //        DriversView(viewModel: DriversViewModel(driverApi: apiDrivers,
