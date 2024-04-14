@@ -15,7 +15,8 @@ struct DriverStandingsView: View {
   }
 
   var body: some View {
-    VStack {
+    ScrollView {
+
       if viewModel.fetchStatus == .ongoing {
         HStack {
           Spacer()
@@ -26,36 +27,47 @@ struct DriverStandingsView: View {
         }
       }
 
-      VStack {
-        Text("Driver Standings")
-          .typography(type: .heading(color: .F1Stats.primary))
-      }.padding(.all(8))
-
       if let standings = viewModel.driverStandings {
-        ForEach(Array(standings.enumerated()), id: \.offset) { (index, result) in
-          raceStandingsRow(result: result)
-          if index < standings.count - 1 {
-            Divider().padding(.all(0))
+        VStack {
+          Text("Driver Standings")
+            .typography(type: .heading(color: .F1Stats.primary))
+            .padding(.all(16))
+
+          VStack {
+            HStack { 
+              Spacer()
+              Text("Points")
+            }
+            ForEach(Array(standings.enumerated()), id: \.offset) { (index, result) in
+              raceStandingsRow(result: result)
+              if index < standings.count - 1 {
+                Divider().padding(.all(0))
+              }
+            }
           }
+          .padding(.all(8))
         }
+        .modifier(CardView(fill: .F1Stats.systemYellow))
+        .padding(.all(16))
       }
     }
-    .frame(minHeight: 600)
-    .padding(.all(8))
-    .modifier(CardView(fill: .F1Stats.systemYellow))
-    .padding(EdgeInsets(top: 0, leading: 4, bottom: 8, trailing: 8))
     .onAppear(perform: viewModel.fetchDriverStandings)
   }
 
   func raceStandingsRow(result: DriverStanding) -> some View {
     HStack(alignment: .center) {
       Text(result.positionText)
-        .frame(width: 20)
-        .typography(type: .small(color: .F1Stats.systemDark))
-      Text(result.driver.fullName)
+        .frame(width: 30)
         .typography(type: .body(color: .F1Stats.systemDark))
-      Spacer()
+      VStack(alignment:.leading) {
+        Text(result.driver.fullName)
+          .typography(type: .subHeader(color: .F1Stats.systemDark))
+
         Text(result.constructorsAppended)
+          .typography(type: .body(color: .F1Stats.systemDark))
+      }
+      Spacer()
+      Text(result.points)
         .typography(type: .body(color: .F1Stats.systemDark))
     }
   }

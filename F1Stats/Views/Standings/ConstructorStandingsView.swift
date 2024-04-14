@@ -12,9 +12,64 @@ struct ConstructorStandingsView: View {
 
   @ObservedObject var viewModel: ConstructorStandingsViewModel
 
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+    
+  var body: some View {
+    ScrollView {
+      if viewModel.fetchStatus == .ongoing {
+        HStack {
+          Spacer()
+          ProgressView()
+            .modifier(LargeProgressView(tint: .F1Stats.primary))
+            .padding(.all(32))
+          Spacer()
+        }
+      }
+
+      if let standings = viewModel.constructorStandings {
+        VStack {
+          Text("Constructor Standings")
+            .typography(type: .heading(color: .F1Stats.primary))
+            .padding(.all(16))
+
+          VStack {
+            HStack {
+              Spacer()
+              Text("Points")
+            }
+            ForEach(Array(standings.enumerated()), id: \.offset) { (index, result) in
+              raceStandingsRow(result: result)
+              if index < standings.count - 1 {
+                Divider().padding(.all(0))
+              }
+            }
+          }
+          .padding(.all(8))
+        }
+        .modifier(CardView(fill: .F1Stats.systemYellow))
+        .padding(.all(16))
+      }
     }
+    .onAppear(perform: viewModel.fetchConstructorStandings)
+  }
+
+  func raceStandingsRow(result: ConstructorStanding) -> some View {
+    HStack(alignment: .center) {
+      Text(result.positionText)
+        .frame(width: 30)
+        .typography(type: .body(color: .F1Stats.systemDark))
+      VStack(alignment:.leading) {
+        Text(result.constructor.name)
+          .typography(type: .subHeader(color: .F1Stats.systemDark))
+
+        Text(result.constructor.nationality)
+          .typography(type: .body(color: .F1Stats.systemDark))
+      }
+      Spacer()
+      Text(result.points)
+        .typography(type: .body(color: .F1Stats.systemDark))
+    }
+  }
+
 }
 
 #Preview {
