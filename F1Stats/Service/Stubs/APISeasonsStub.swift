@@ -9,7 +9,6 @@ import Foundation
 import Combine
 
 class APISeasonsStub: APISeasonsProtocol {
-
   let delay: Double
 
   init(delay: Double = 0) {
@@ -129,6 +128,15 @@ class APISeasonsStub: APISeasonsProtocol {
       return Empty().eraseToAnyPublisher()
     }
   }
+
+  func currentSeasonDriverStandings() -> AnyPublisher<MRData<StandingsTable>, any Error> {
+    return self.driverStandingsForSeason(season: "current")
+  }
+
+  func currentSeasonConstructorStandings() -> AnyPublisher<MRData<StandingsTable>, any Error> {
+    return self.constructorStandingsForSeason(season: "current")
+  }
+
 
 
 }

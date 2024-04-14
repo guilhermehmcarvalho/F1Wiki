@@ -47,7 +47,7 @@ struct ContentView: View {
 
   func customizeTabViewAppearance() {
     UIPageControl.appearance().currentPageIndicatorTintColor = Color.F1Stats.primary.asUIColor
-    UIPageControl.appearance().pageIndicatorTintColor = Color.F1Stats.systemWhite.asUIColor.withAlphaComponent(0.8)
+    UIPageControl.appearance().pageIndicatorTintColor = Color.F1Stats.primary.asUIColor.withAlphaComponent(0.5)
   }
 
   var body: some View {
@@ -56,11 +56,15 @@ struct ContentView: View {
         .tabItem { Label("Calendar", systemImage: "calendar.circle.fill") }
         .toolbarBackground(Color.white, for: .tabBar)
 
+      StandingsView(viewModel: StandingsViewModel(apiSeasons: apiSeasons))
+      .tabItem { Label("Standings", systemImage: "trophy.circle.fill") }
+      .toolbarBackground(Color.white, for: .tabBar)
+
       MuseumView(viewModel: MuseumViewModel( apiSeasons: apiSeasons,
                                              wikipediaAPI: wikipediaAPI,
                                              driverAPI: apiDrivers,
                                              constructorsAPI: apiConstructors))
-      .tabItem { Label("Museum", systemImage: "trophy.circle.fill") }
+      .tabItem { Label("Museum", systemImage: "building.columns.circle.fill") }
       .toolbarBackground(Color.white, for: .tabBar)
     }
     .accentColor(.F1Stats.systemWhite)

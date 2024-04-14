@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DriverStandingsView: View {
+struct DriverStandingsRowView: View {
   @ObservedObject var viewModel: DriverStandingsRowViewModel
   
   init(viewModel: DriverStandingsRowViewModel) {

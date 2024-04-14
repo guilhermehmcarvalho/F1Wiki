@@ -33,7 +33,7 @@ struct DriverRowView: View {
     VStack {
       WikipediaView(viewModel: viewModel.wikipediaViewModel)
         .padding(.vertical(8))
-      DriverStandingsView(viewModel: viewModel.driverStandingsViewModel)
+      DriverStandingsRowView(viewModel: viewModel.driverStandingsViewModel)
         .padding(.vertical(8))
     }
     .frame(maxWidth: .infinity)

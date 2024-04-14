@@ -38,7 +38,7 @@
 		149210002BBEBC3F00359497 /* driverStandings.json in Resources */ = {isa = PBXBuildFile; fileRef = 14920FFF2BBEBC3F00359497 /* driverStandings.json */; };
 		149210022BBEBF2100359497 /* driverList.json in Resources */ = {isa = PBXBuildFile; fileRef = 149210012BBEBF2100359497 /* driverList.json */; };
 		149210042BBEDA1D00359497 /* DriverRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149210032BBEDA1D00359497 /* DriverRowView.swift */; };
-		149210062BBEE03C00359497 /* DriverStandingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149210052BBEE03C00359497 /* DriverStandingsView.swift */; };
+		149210062BBEE03C00359497 /* DriverStandingsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149210052BBEE03C00359497 /* DriverStandingsRowView.swift */; };
 		1492100A2BBF0CEF00359497 /* CustomDisclosureGroupStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149210092BBF0CEF00359497 /* CustomDisclosureGroupStyle.swift */; };
 		149210192BBFF25F00359497 /* DriversViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149210182BBFF25F00359497 /* DriversViewModelTests.swift */; };
 		1492101E2BBFFD8B00359497 /* WikipediaViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1492101D2BBFFD8B00359497 /* WikipediaViewModelTest.swift */; };
@@ -54,7 +54,7 @@
 		149210362BC02FB100359497 /* ConstructorStandingsRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149210352BC02FB100359497 /* ConstructorStandingsRowViewModel.swift */; };
 		149210382BC030B600359497 /* constructorStandings.json in Resources */ = {isa = PBXBuildFile; fileRef = 149210372BC030B600359497 /* constructorStandings.json */; };
 		1492103A2BC0319A00359497 /* ConstructorStanding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149210392BC0319A00359497 /* ConstructorStanding.swift */; };
-		1492103C2BC0332000359497 /* ConstructorStandingsViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1492103B2BC0332000359497 /* ConstructorStandingsViewModelTest.swift */; };
+		1492103C2BC0332000359497 /* ConstructorStandingsRowViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1492103B2BC0332000359497 /* ConstructorStandingsRowViewModelTest.swift */; };
 		1492103E2BC0493300359497 /* StandingsTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1492103D2BC0493300359497 /* StandingsTable.swift */; };
 		149210402BC06BF600359497 /* ConstructorsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1492103F2BC06BF600359497 /* ConstructorsViewModelTests.swift */; };
 		149210432BC0734A00359497 /* APISeasons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149210422BC0734A00359497 /* APISeasons.swift */; };
@@ -97,6 +97,14 @@
 		14C146B32BC86E7A001F7F35 /* CustomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C146B22BC86E7A001F7F35 /* CustomSheet.swift */; };
 		14C95DCB2BC572C500F712FE /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C95DCA2BC572C500F712FE /* CardView.swift */; };
 		14C95DCD2BC5CBFD00F712FE /* TicketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C95DCC2BC5CBFD00F712FE /* TicketView.swift */; };
+		14CB30022BCBCC1A00D5DEFF /* StandingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CB30012BCBCC1A00D5DEFF /* StandingsView.swift */; };
+		14CB30052BCBCC2A00D5DEFF /* StandingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CB30042BCBCC2A00D5DEFF /* StandingsViewModel.swift */; };
+		14CB30072BCBCFFC00D5DEFF /* DriverStandingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CB30062BCBCFFC00D5DEFF /* DriverStandingsView.swift */; };
+		14CB300B2BCBD17400D5DEFF /* DriverStandingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CB300A2BCBD17400D5DEFF /* DriverStandingsViewModel.swift */; };
+		14CB300F2BCBD48E00D5DEFF /* ConstructorStandingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CB300E2BCBD48E00D5DEFF /* ConstructorStandingsViewModel.swift */; };
+		14CB30112BCBD4C000D5DEFF /* DriverStandingsViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CB30102BCBD4C000D5DEFF /* DriverStandingsViewModelTest.swift */; };
+		14CB30132BCBD6CA00D5DEFF /* ConstructorStandingsViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CB30122BCBD6CA00D5DEFF /* ConstructorStandingsViewModelTest.swift */; };
+		14CB30152BCBD8BB00D5DEFF /* ConstructorStandingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CB30142BCBD8BB00D5DEFF /* ConstructorStandingsView.swift */; };
 		14D79CB42BB8710F006240F0 /* MRData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D79CB32BB8710F006240F0 /* MRData.swift */; };
 		14D79CB62BB88C92006240F0 /* Extensions+Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D79CB52BB88C92006240F0 /* Extensions+Publisher.swift */; };
 		14E6E5992BC46C42001DF1D2 /* WikiCommonsMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E6E5982BC46C42001DF1D2 /* WikiCommonsMedia.swift */; };
@@ -150,7 +158,7 @@
 		14920FFF2BBEBC3F00359497 /* driverStandings.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = driverStandings.json; sourceTree = "<group>"; };
 		149210012BBEBF2100359497 /* driverList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = driverList.json; sourceTree = "<group>"; };
 		149210032BBEDA1D00359497 /* DriverRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverRowView.swift; sourceTree = "<group>"; };
-		149210052BBEE03C00359497 /* DriverStandingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverStandingsView.swift; sourceTree = "<group>"; };
+		149210052BBEE03C00359497 /* DriverStandingsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverStandingsRowView.swift; sourceTree = "<group>"; };
 		149210092BBF0CEF00359497 /* CustomDisclosureGroupStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDisclosureGroupStyle.swift; sourceTree = "<group>"; };
 		1492100F2BBFD56300359497 /* F1StatsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = F1StatsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		149210182BBFF25F00359497 /* DriversViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriversViewModelTests.swift; sourceTree = "<group>"; };
@@ -167,7 +175,7 @@
 		149210352BC02FB100359497 /* ConstructorStandingsRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructorStandingsRowViewModel.swift; sourceTree = "<group>"; };
 		149210372BC030B600359497 /* constructorStandings.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = constructorStandings.json; sourceTree = "<group>"; };
 		149210392BC0319A00359497 /* ConstructorStanding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructorStanding.swift; sourceTree = "<group>"; };
-		1492103B2BC0332000359497 /* ConstructorStandingsViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructorStandingsViewModelTest.swift; sourceTree = "<group>"; };
+		1492103B2BC0332000359497 /* ConstructorStandingsRowViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructorStandingsRowViewModelTest.swift; sourceTree = "<group>"; };
 		1492103D2BC0493300359497 /* StandingsTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingsTable.swift; sourceTree = "<group>"; };
 		1492103F2BC06BF600359497 /* ConstructorsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructorsViewModelTests.swift; sourceTree = "<group>"; };
 		149210422BC0734A00359497 /* APISeasons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APISeasons.swift; sourceTree = "<group>"; };
@@ -210,6 +218,14 @@
 		14C146B22BC86E7A001F7F35 /* CustomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSheet.swift; sourceTree = "<group>"; };
 		14C95DCA2BC572C500F712FE /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		14C95DCC2BC5CBFD00F712FE /* TicketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketView.swift; sourceTree = "<group>"; };
+		14CB30012BCBCC1A00D5DEFF /* StandingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingsView.swift; sourceTree = "<group>"; };
+		14CB30042BCBCC2A00D5DEFF /* StandingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingsViewModel.swift; sourceTree = "<group>"; };
+		14CB30062BCBCFFC00D5DEFF /* DriverStandingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverStandingsView.swift; sourceTree = "<group>"; };
+		14CB300A2BCBD17400D5DEFF /* DriverStandingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverStandingsViewModel.swift; sourceTree = "<group>"; };
+		14CB300E2BCBD48E00D5DEFF /* ConstructorStandingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructorStandingsViewModel.swift; sourceTree = "<group>"; };
+		14CB30102BCBD4C000D5DEFF /* DriverStandingsViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverStandingsViewModelTest.swift; sourceTree = "<group>"; };
+		14CB30122BCBD6CA00D5DEFF /* ConstructorStandingsViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructorStandingsViewModelTest.swift; sourceTree = "<group>"; };
+		14CB30142BCBD8BB00D5DEFF /* ConstructorStandingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructorStandingsView.swift; sourceTree = "<group>"; };
 		14D79CB32BB8710F006240F0 /* MRData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRData.swift; sourceTree = "<group>"; };
 		14D79CB52BB88C92006240F0 /* Extensions+Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+Publisher.swift"; sourceTree = "<group>"; };
 		14E6E5982BC46C42001DF1D2 /* WikiCommonsMedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiCommonsMedia.swift; sourceTree = "<group>"; };
@@ -294,12 +310,10 @@
 		142C98732BB70557009D1D35 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				14CB30092BCBD08A00D5DEFF /* Museum */,
+				14CB30032BCBCC1E00D5DEFF /* Standings */,
 				149AA0832BC3C940001EFCCA /* CurrentSeason */,
-				149210482BC1257300359497 /* Seasons */,
-				149210262BC0221500359497 /* Constructors */,
-				149210252BC0220B00359497 /* Drivers */,
 				148081EC2BBD85DC00A9A33F /* WikipediaViewModel.swift */,
-				141465612BCB0174003EF647 /* MuseumViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -307,13 +321,11 @@
 		142C98742BB70561009D1D35 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				14CB30082BCBD07800D5DEFF /* Museum */,
+				14CB30002BCBCC0D00D5DEFF /* Standings */,
 				14E6E59C2BC46F16001DF1D2 /* CurrentSeason */,
-				149210512BC16D8F00359497 /* Seasons */,
-				149210242BC021E900359497 /* Constructors */,
-				149210232BC021DB00359497 /* Drivers */,
 				140A09852BB6E30C0037AA74 /* ContentView.swift */,
 				148081EA2BBD85BB00A9A33F /* WikipediaView.swift */,
-				1414655F2BCADB2E003EF647 /* MuseumView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -402,8 +414,8 @@
 		1492101A2BBFFD4B00359497 /* ViewModelTests */ = {
 			isa = PBXGroup;
 			children = (
-				14C146A02BC70FF4001F7F35 /* Drivers */,
-				14C1469F2BC70FE3001F7F35 /* Constructors */,
+				14CB300D2BCBD47400D5DEFF /* Standings */,
+				14CB300C2BCBD46100D5DEFF /* Museum */,
 				14C1469E2BC70FD8001F7F35 /* Seasons */,
 				14C1469D2BC70FCD001F7F35 /* CurrentSeason */,
 				1492101D2BBFFD8B00359497 /* WikipediaViewModelTest.swift */,
@@ -416,7 +428,7 @@
 			children = (
 				14B80FFD2BBA86F8006D678E /* DriversView.swift */,
 				149210032BBEDA1D00359497 /* DriverRowView.swift */,
-				149210052BBEE03C00359497 /* DriverStandingsView.swift */,
+				149210052BBEE03C00359497 /* DriverStandingsRowView.swift */,
 			);
 			path = Drivers;
 			sourceTree = "<group>";
@@ -571,7 +583,7 @@
 			isa = PBXGroup;
 			children = (
 				1492103F2BC06BF600359497 /* ConstructorsViewModelTests.swift */,
-				1492103B2BC0332000359497 /* ConstructorStandingsViewModelTest.swift */,
+				1492103B2BC0332000359497 /* ConstructorStandingsRowViewModelTest.swift */,
 			);
 			path = Constructors;
 			sourceTree = "<group>";
@@ -592,6 +604,66 @@
 				14C146B22BC86E7A001F7F35 /* CustomSheet.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		14CB30002BCBCC0D00D5DEFF /* Standings */ = {
+			isa = PBXGroup;
+			children = (
+				14CB30012BCBCC1A00D5DEFF /* StandingsView.swift */,
+				14CB30062BCBCFFC00D5DEFF /* DriverStandingsView.swift */,
+				14CB30142BCBD8BB00D5DEFF /* ConstructorStandingsView.swift */,
+			);
+			path = Standings;
+			sourceTree = "<group>";
+		};
+		14CB30032BCBCC1E00D5DEFF /* Standings */ = {
+			isa = PBXGroup;
+			children = (
+				14CB30042BCBCC2A00D5DEFF /* StandingsViewModel.swift */,
+				14CB300A2BCBD17400D5DEFF /* DriverStandingsViewModel.swift */,
+				14CB300E2BCBD48E00D5DEFF /* ConstructorStandingsViewModel.swift */,
+			);
+			path = Standings;
+			sourceTree = "<group>";
+		};
+		14CB30082BCBD07800D5DEFF /* Museum */ = {
+			isa = PBXGroup;
+			children = (
+				149210512BC16D8F00359497 /* Seasons */,
+				149210242BC021E900359497 /* Constructors */,
+				149210232BC021DB00359497 /* Drivers */,
+				1414655F2BCADB2E003EF647 /* MuseumView.swift */,
+			);
+			path = Museum;
+			sourceTree = "<group>";
+		};
+		14CB30092BCBD08A00D5DEFF /* Museum */ = {
+			isa = PBXGroup;
+			children = (
+				149210482BC1257300359497 /* Seasons */,
+				149210262BC0221500359497 /* Constructors */,
+				149210252BC0220B00359497 /* Drivers */,
+				141465612BCB0174003EF647 /* MuseumViewModel.swift */,
+			);
+			path = Museum;
+			sourceTree = "<group>";
+		};
+		14CB300C2BCBD46100D5DEFF /* Museum */ = {
+			isa = PBXGroup;
+			children = (
+				14C146A02BC70FF4001F7F35 /* Drivers */,
+				14C1469F2BC70FE3001F7F35 /* Constructors */,
+			);
+			path = Museum;
+			sourceTree = "<group>";
+		};
+		14CB300D2BCBD47400D5DEFF /* Standings */ = {
+			isa = PBXGroup;
+			children = (
+				14CB30102BCBD4C000D5DEFF /* DriverStandingsViewModelTest.swift */,
+				14CB30122BCBD6CA00D5DEFF /* ConstructorStandingsViewModelTest.swift */,
+			);
+			path = Standings;
 			sourceTree = "<group>";
 		};
 		14D79CB72BB88CA3006240F0 /* Extensions */ = {
@@ -732,13 +804,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				149210062BBEE03C00359497 /* DriverStandingsView.swift in Sources */,
+				149210062BBEE03C00359497 /* DriverStandingsRowView.swift in Sources */,
 				142C987F2BB74AAC009D1D35 /* DriverModel.swift in Sources */,
 				148081ED2BBD85DC00A9A33F /* WikipediaViewModel.swift in Sources */,
 				149210532BC16DA500359497 /* SeasonsView.swift in Sources */,
 				149210362BC02FB100359497 /* ConstructorStandingsRowViewModel.swift in Sources */,
 				14920FF62BBEA9B400359497 /* DriverStandingsRowViewModel.swift in Sources */,
 				14C95DCD2BC5CBFD00F712FE /* TicketView.swift in Sources */,
+				14CB300F2BCBD48E00D5DEFF /* ConstructorStandingsViewModel.swift in Sources */,
 				149AA0782BC3BDA6001EFCCA /* RaceModel.swift in Sources */,
 				14C95DCB2BC572C500F712FE /* CardView.swift in Sources */,
 				14E6E59E2BC46F29001DF1D2 /* CurrentSeasonView.swift in Sources */,
@@ -753,6 +826,7 @@
 				141465622BCB0174003EF647 /* MuseumViewModel.swift in Sources */,
 				142632402BBC80BD00A0A68A /* DesignLanguageSystem.swift in Sources */,
 				14D79CB42BB8710F006240F0 /* MRData.swift in Sources */,
+				14CB300B2BCBD17400D5DEFF /* DriverStandingsViewModel.swift in Sources */,
 				14E6E5992BC46C42001DF1D2 /* WikiCommonsMedia.swift in Sources */,
 				149210682BC1A8DB00359497 /* SeasonDriverStandingsView.swift in Sources */,
 				149210322BC02BAA00359497 /* ConstructorRowView.swift in Sources */,
@@ -760,6 +834,7 @@
 				14D79CB62BB88C92006240F0 /* Extensions+Publisher.swift in Sources */,
 				149210222BC021BA00359497 /* ConstructorsView.swift in Sources */,
 				14C146A72BC7D250001F7F35 /* RaceResultsView.swift in Sources */,
+				14CB30072BCBCFFC00D5DEFF /* DriverStandingsView.swift in Sources */,
 				1492102C2BC023EF00359497 /* APIConstructors.swift in Sources */,
 				148081E92BBD7C2A00A9A33F /* WikipediaSummaryModel.swift in Sources */,
 				14E6E5A02BC47F87001DF1D2 /* RaceView.swift in Sources */,
@@ -800,7 +875,10 @@
 				14C146B12BC86C80001F7F35 /* OffsetObservingScrollView.swift in Sources */,
 				149AA07E2BC3BE26001EFCCA /* LocationModel.swift in Sources */,
 				14C146AE2BC86481001F7F35 /* Status.swift in Sources */,
+				14CB30022BCBCC1A00D5DEFF /* StandingsView.swift in Sources */,
+				14CB30052BCBCC2A00D5DEFF /* StandingsViewModel.swift in Sources */,
 				14C146962BC70489001F7F35 /* RaceResult.swift in Sources */,
+				14CB30152BCBD8BB00D5DEFF /* ConstructorStandingsView.swift in Sources */,
 				149AA0802BC3BE43001EFCCA /* PracticeModel.swift in Sources */,
 				1492103A2BC0319A00359497 /* ConstructorStanding.swift in Sources */,
 			);
@@ -810,17 +888,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14CB30112BCBD4C000D5DEFF /* DriverStandingsViewModelTest.swift in Sources */,
 				14C146A32BC7135A001F7F35 /* QualiResultsViewModelTest.swift in Sources */,
 				149210192BBFF25F00359497 /* DriversViewModelTests.swift in Sources */,
 				14C146A52BC7141F001F7F35 /* RaceResultsViewModelTest.swift in Sources */,
 				149AA0872BC3D0E8001EFCCA /* CurrentSeasonViewModelTest.swift in Sources */,
 				149210402BC06BF600359497 /* ConstructorsViewModelTests.swift in Sources */,
+				14CB30132BCBD6CA00D5DEFF /* ConstructorStandingsViewModelTest.swift in Sources */,
 				1492101E2BBFFD8B00359497 /* WikipediaViewModelTest.swift in Sources */,
 				1492104E2BC1294500359497 /* SeasonsViewModelTests.swift in Sources */,
 				149210622BC1A74200359497 /* SeasonDriverStandingsViewModelTest.swift in Sources */,
 				149210202BC0010800359497 /* DriverStandingsRowViewModelTest.swift in Sources */,
 				149210662BC1A87100359497 /* SeasonConstructorStandingsViewModelTest.swift in Sources */,
-				1492103C2BC0332000359497 /* ConstructorStandingsViewModelTest.swift in Sources */,
+				1492103C2BC0332000359497 /* ConstructorStandingsRowViewModelTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

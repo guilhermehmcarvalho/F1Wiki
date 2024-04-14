@@ -15,10 +15,11 @@ protocol APISeasonsProtocol {
   func currentSeasonSchedule(limit: Int, offset: Int) -> AnyPublisher<MRData<RaceTable>, Error>
   func qualifyingResults(round: String, year: String) -> AnyPublisher<MRData<RaceTable>, any Error>
   func raceResults(round: String, year: String) -> AnyPublisher<MRData<RaceTable>, any Error>
+  func currentSeasonDriverStandings() -> AnyPublisher<MRData<StandingsTable>, Error>
+  func currentSeasonConstructorStandings() -> AnyPublisher<MRData<StandingsTable>, Error>
 }
 
 class APISeasons: APISeasonsProtocol {
-
   final var baseURL: String
   final var urlSession: URLSession
 
@@ -107,4 +108,13 @@ class APISeasons: APISeasonsProtocol {
         .tryDecodeResponse(type: MRData<RaceTable>.self, decoder: JSONDecoder())
         .eraseToAnyPublisher()
   }
+
+  func currentSeasonDriverStandings() -> AnyPublisher<MRData<StandingsTable>, any Error> {
+    return driverStandingsForSeason(season: "current")
+  }
+
+  func currentSeasonConstructorStandings() -> AnyPublisher<MRData<StandingsTable>, any Error> {
+    return constructorStandingsForSeason(season: "current")
+  }
+
 }
