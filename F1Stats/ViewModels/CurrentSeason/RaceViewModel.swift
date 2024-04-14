@@ -38,6 +38,14 @@ class RaceViewModel: ObservableObject {
   var locality: String { raceModel.circuit.location.locality }
   var round: Int { Int(raceModel.round) ?? 0 }
 
+  var fullDate: String {
+    guard let firstDay = raceModel.firstPractice?.timeAsString(format: "d"),
+          let lastDay = raceModel.timeAsString(format: "d MMM y") else {
+      return ""
+    }
+    return "\(firstDay)-\(lastDay)"
+  }
+
   internal func animate(_ animate: Bool, delay: Double = 0) {
     DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
       withAnimation {

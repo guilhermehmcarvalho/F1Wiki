@@ -23,11 +23,10 @@ extension EventProtocol {
     return dateFormatter.date(from: dateString)
   }
 
-  func timeAsString() -> String? {
+  func timeAsString(format: String = "E, d MMM y HH:mm") -> String? {
     guard let date = timeAsDate() else { return nil }
     let formatter = DateFormatter()
-    formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-    formatter.dateFormat = "E, d MMM y HH:mm "
+    formatter.dateFormat = format
     return formatter.string(from: date)
   }
 

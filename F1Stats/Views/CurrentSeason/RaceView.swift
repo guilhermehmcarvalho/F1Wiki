@@ -20,8 +20,15 @@ struct RaceView: View {
     GeometryReader { geo in
       ScrollView(showsIndicators: false) {
         VStack(spacing: viewModel.animate ? 0 : -250) {
-          grandPrix
+
+          topCard
             .frame(maxWidth: .infinity, minHeight: geo.size.width/2)
+            .modifier(CardView())
+            .zIndex(6)
+            .ticketTransition(finalAngle: 0)
+
+          grandPrix
+            .frame(maxWidth: geo.size.width/1.5, minHeight: (geo.size.width/1.5)/1.8)
             .raceTicket()
             .zIndex(5)
             .ticketTransition(finalAngle: -1)
@@ -57,6 +64,7 @@ struct RaceView: View {
               .zIndex(3)
               .ticketTransition(finalAngle: 0)
           }
+
           if (viewModel.raceModel.sprint != nil) {
             sprint
               .frame(maxWidth: geo.size.width/1.5, minHeight: (geo.size.width/1.5)/1.8)
@@ -82,32 +90,52 @@ struct RaceView: View {
     }
   }
 
-  var grandPrix: some View {
+  var topCard: some View {
     ZStack {
       VStack {
+        if let flag = SwiftFlags.flag(for: viewModel.country) {
+          Text(flag)
+        }
         Text("Round \(viewModel.round)")
           .typography(type: .small(color: .F1Stats.primary))
         Text(viewModel.title)
           .typography(type: .heading(color: .F1Stats.primary))
         Text(viewModel.circuit)
           .typography(type: .body(color: .F1Stats.systemDark))
-        if let raceDate = viewModel.raceModel.timeAsString() {
+        Text(viewModel.locality)
+          .typography(type: .body(color: .F1Stats.systemDark))
+
           Spacer().frame(height: 16)
-          Text(raceDate)
+
+          Text(viewModel.fullDate)
             .multilineTextAlignment(.center)
             .typography(type: .body(color: .F1Stats.systemDark))
-        }
-        if viewModel.raceModel.isFinished() {
-          Text("View results")
-            .multilineTextAlignment(.center)
-            .typography(type: .body(color: .F1Stats.primary))
-        }
       }
 
       if viewModel.raceModel.isFinished() {
         Text("FINISHED")
           .font(.dlsFont(size: 50, weight: .black))
           .foregroundColor(.F1Stats.primary.opacity(0.05))
+      }
+    }
+  }
+
+
+  var grandPrix: some View {
+    VStack {
+      Text("Feature Race")
+        .typography(type: .subHeader (color: .F1Stats.primary))
+      if let date = viewModel.raceModel.timeAsString() {
+        Spacer().frame(height: 4)
+        Text(date)
+          .multilineTextAlignment(.center)
+          .typography(type: .body(color: .F1Stats.systemDark))
+      }
+
+      if viewModel.raceModel.isFinished() {
+        Text("View results")
+          .multilineTextAlignment(.center)
+          .typography(type: .body(color: .F1Stats.primary))
       }
     }
   }
@@ -154,7 +182,7 @@ struct RaceView: View {
   var sprint: some View {
     VStack {
       Text("Sprint")
-        .typography(type: .subHeader (color: .F1Stats.systemDark))
+        .typography(type: .subHeader (color: .F1Stats.primary))
       if let date = viewModel.raceModel.sprint?.timeAsString() {
         Spacer().frame(height: 4)
         Text(date)
@@ -167,7 +195,7 @@ struct RaceView: View {
   var quali: some View {
     VStack {
       Text("Qualifying")
-        .typography(type: .subHeader (color: .F1Stats.systemDark))
+        .typography(type: .subHeader (color: .F1Stats.primary))
       if let date = viewModel.raceModel.qualifying?.timeAsString() {
         Spacer().frame(height: 4)
         Text(date)

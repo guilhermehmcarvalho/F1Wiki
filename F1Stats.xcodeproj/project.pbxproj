@@ -105,6 +105,7 @@
 		14CB30112BCBD4C000D5DEFF /* DriverStandingsViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CB30102BCBD4C000D5DEFF /* DriverStandingsViewModelTest.swift */; };
 		14CB30132BCBD6CA00D5DEFF /* ConstructorStandingsViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CB30122BCBD6CA00D5DEFF /* ConstructorStandingsViewModelTest.swift */; };
 		14CB30152BCBD8BB00D5DEFF /* ConstructorStandingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CB30142BCBD8BB00D5DEFF /* ConstructorStandingsView.swift */; };
+		14CB30192BCC5CE400D5DEFF /* SwiftFlags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CB30182BCC5CE400D5DEFF /* SwiftFlags.swift */; };
 		14D79CB42BB8710F006240F0 /* MRData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D79CB32BB8710F006240F0 /* MRData.swift */; };
 		14D79CB62BB88C92006240F0 /* Extensions+Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D79CB52BB88C92006240F0 /* Extensions+Publisher.swift */; };
 		14E6E5992BC46C42001DF1D2 /* WikiCommonsMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E6E5982BC46C42001DF1D2 /* WikiCommonsMedia.swift */; };
@@ -226,6 +227,7 @@
 		14CB30102BCBD4C000D5DEFF /* DriverStandingsViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverStandingsViewModelTest.swift; sourceTree = "<group>"; };
 		14CB30122BCBD6CA00D5DEFF /* ConstructorStandingsViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructorStandingsViewModelTest.swift; sourceTree = "<group>"; };
 		14CB30142BCBD8BB00D5DEFF /* ConstructorStandingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructorStandingsView.swift; sourceTree = "<group>"; };
+		14CB30182BCC5CE400D5DEFF /* SwiftFlags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftFlags.swift; sourceTree = "<group>"; };
 		14D79CB32BB8710F006240F0 /* MRData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRData.swift; sourceTree = "<group>"; };
 		14D79CB52BB88C92006240F0 /* Extensions+Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+Publisher.swift"; sourceTree = "<group>"; };
 		14E6E5982BC46C42001DF1D2 /* WikiCommonsMedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiCommonsMedia.swift; sourceTree = "<group>"; };
@@ -602,6 +604,7 @@
 			children = (
 				14C146B02BC86C80001F7F35 /* OffsetObservingScrollView.swift */,
 				14C146B22BC86E7A001F7F35 /* CustomSheet.swift */,
+				14CB30182BCC5CE400D5DEFF /* SwiftFlags.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -839,6 +842,7 @@
 				148081E92BBD7C2A00A9A33F /* WikipediaSummaryModel.swift in Sources */,
 				14E6E5A02BC47F87001DF1D2 /* RaceView.swift in Sources */,
 				1492103E2BC0493300359497 /* StandingsTable.swift in Sources */,
+				14CB30192BCC5CE400D5DEFF /* SwiftFlags.swift in Sources */,
 				1492106A2BC1BF3700359497 /* SeasonConstructorStandingsView.swift in Sources */,
 				148081DB2BBD28CA00A9A33F /* Extension+Colors.swift in Sources */,
 				14B80FFE2BBA86F8006D678E /* DriversView.swift in Sources */,
