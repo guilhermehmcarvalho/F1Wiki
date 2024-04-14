@@ -12,7 +12,6 @@ import Combine
 
 final class DriverStandingsViewModelTest: XCTestCase {
 
-    
   var subscriptions = Set<AnyCancellable>()
 
   override func tearDown() {
@@ -22,9 +21,9 @@ final class DriverStandingsViewModelTest: XCTestCase {
   func testFetchDriverStandings() {
     let viewModel = DriverStandingsViewModel(apiSeasons: APISeasonsStub())
     let promise = expectation(description: "Will fetch standings")
-    XCTAssertNil(viewModel.standingLists, "Starting with no standings")
+    XCTAssertNil(viewModel.driverStandings, "Starting with no standings")
     viewModel.fetchDriverStandings()
-    viewModel.$standingLists
+    viewModel.$driverStandings
       .sink() { standings in
         if standings != nil {
           promise.fulfill()

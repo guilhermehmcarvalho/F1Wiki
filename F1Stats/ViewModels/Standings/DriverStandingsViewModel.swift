@@ -12,7 +12,7 @@ class DriverStandingsViewModel: ObservableObject {
   let apiSeasons: APISeasonsProtocol
 
   @Published var fetchStatus: FetchStatus = .ready
-  @Published var standingLists: [StandingsList]?
+  @Published var driverStandings: [DriverStanding]?
   @Published var selectedTab: Int = 0
 
   private var cancellable: AnyCancellable?
@@ -36,7 +36,7 @@ class DriverStandingsViewModel: ObservableObject {
           print(error)
         }
       }  receiveValue: { [weak self] response in
-        self?.standingLists = response.table.standingsLists
+        self?.driverStandings = response.table.standingsLists.first?.driverStandings
       }
   }
 

@@ -12,7 +12,7 @@ class ConstructorStandingsViewModel: ObservableObject {
   let apiSeasons: APISeasonsProtocol
 
   @Published var fetchStatus: FetchStatus = .ready
-  @Published var standingLists: [StandingsList]?
+  @Published var constructorStandings: [ConstructorStanding]?
   @Published var selectedTab: Int = 0
 
   private var cancellable: AnyCancellable?
@@ -35,9 +35,10 @@ class ConstructorStandingsViewModel: ObservableObject {
         case .failure(let error):
           print(error)
         }
-      }  receiveValue: { [weak self] response in
-        self?.standingLists = response.table.standingsLists
       }
+    receiveValue: { [weak self] response in
+      self?.constructorStandings = response.table.standingsLists.first?.constructorStanding
+    }
   }
 
 }

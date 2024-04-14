@@ -20,9 +20,9 @@ override func tearDown() {
 func testFetchConstructorStandings() {
   let viewModel = ConstructorStandingsViewModel(apiSeasons: APISeasonsStub())
   let promise = expectation(description: "Will fetch standings")
-  XCTAssertNil(viewModel.standingLists, "Starting with no standings")
+  XCTAssertNil(viewModel.constructorStandings, "Starting with no standings")
   viewModel.fetchConstructorStandings()
-  viewModel.$standingLists
+  viewModel.$constructorStandings
     .sink() { standings in
       if standings != nil {
         promise.fulfill()
