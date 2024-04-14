@@ -18,8 +18,9 @@ struct MuseumView: View {
       
       VStack {
         tabButtons
-          .safeAreaPadding()
-        
+          .safeAreaPadding(.top)
+          .padding(.horizontal(8))
+
         TabView(selection: $viewModel.selectedTab) {
           SeasonsView(viewModel: viewModel.seasonsViewModel)
             .tag(0)
@@ -34,19 +35,24 @@ struct MuseumView: View {
   }
   
   var tabButtons: some View {
-    HStack {
-      Text("Seasons")
-        .typography(type: .heading(color: viewModel.selectedTab == 0 ? .accentColor : .white))
-        .onTapGesture { viewModel.selectedTab = 0 }
-      Spacer()
-      Text("Drivers")
-        .typography(type: .heading(color: viewModel.selectedTab == 1 ? .accentColor : .white))
-        .onTapGesture { viewModel.selectedTab = 1 }
-      Spacer()
-      Text("Constructors")
-        .onTapGesture { viewModel.selectedTab = 2 }
-        .typography(type: .heading(color: viewModel.selectedTab == 2 ? .accentColor : .white))
+    HStack(alignment: .center, spacing: 0) {
+      ForEach(Array(viewModel.tabItems.enumerated()), id: \.offset) { index, item in
+        ZStack {
+          Color(Color.F1Stats.systemWhite.opacity(0.5))
+            .cornerRadius(5)
+
+          Text(item)
+            .typography(type: .body(color: viewModel.selectedTab == index ? .accentColor : .F1Stats.systemDark))
+            .padding(.all(4))
+        }
+        .frame(minWidth: 0, maxWidth: .infinity)
+        .onTapGesture { viewModel.selectedTab = index }
+        .tag(index)
+        .padding(2)
+      }
     }
+    .frame(minWidth: 0, maxWidth: .infinity)
+    .frame(height: 35)
   }
 }
 

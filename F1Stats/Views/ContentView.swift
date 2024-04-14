@@ -14,7 +14,7 @@ struct ContentView: View {
   let apiSeasons: APISeasonsProtocol
   let wikipediaAPI: WikipediaAPIProtocol
 
-  init(apiDrivers: APIDriversProtocol, 
+  init(apiDrivers: APIDriversProtocol,
        wikipediaAPI: WikipediaAPIProtocol,
        apiConstructors: APIConstructorsProtocol,
        apiSeasons: APISeasonsProtocol) {
@@ -23,27 +23,27 @@ struct ContentView: View {
     self.apiConstructors = apiConstructors
     self.apiSeasons = apiSeasons
 
-    customizeNavigationStackAppearance()
+//    customizeNavigationStackAppearance()
     customizeTabViewAppearance()
   }
 
-  func customizeNavigationStackAppearance() {
-    let scrollEdgeAppearance = UINavigationBarAppearance()
-    scrollEdgeAppearance.configureWithOpaqueBackground()
-    scrollEdgeAppearance.backgroundColor = .clear
-    scrollEdgeAppearance.titleTextAttributes = [.foregroundColor: Color.F1Stats.systemDark.asUIColor]
-    scrollEdgeAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white,
-                                                     .font: UIFont.dlsFont(size: 32, weight: .heavy)]
-    UINavigationBar.appearance().scrollEdgeAppearance = scrollEdgeAppearance
-
-    let standardAppearance = UINavigationBarAppearance()
-    standardAppearance.configureWithOpaqueBackground()
-    standardAppearance.backgroundColor = Color.F1Stats.systemDark.asUIColor
-    standardAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
-    standardAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white,
-                                                   .font: UIFont.dlsFont(size: 32, weight: .semibold)]
-    UINavigationBar.appearance().standardAppearance = standardAppearance
-  }
+//  func customizeNavigationStackAppearance() {
+//    let scrollEdgeAppearance = UINavigationBarAppearance()
+//    scrollEdgeAppearance.configureWithOpaqueBackground()
+//    scrollEdgeAppearance.backgroundColor = .clear
+//    scrollEdgeAppearance.titleTextAttributes = [.foregroundColor: Color.F1Stats.systemDark.asUIColor]
+//    scrollEdgeAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white,
+//                                                     .font: UIFont.dlsFont(size: 32, weight: .heavy)]
+//    UINavigationBar.appearance().scrollEdgeAppearance = scrollEdgeAppearance
+//
+//    let standardAppearance = UINavigationBarAppearance()
+//    standardAppearance.configureWithOpaqueBackground()
+//    standardAppearance.backgroundColor = Color.F1Stats.systemDark.asUIColor
+//    standardAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+//    standardAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white,
+//                                                   .font: UIFont.dlsFont(size: 32, weight: .semibold)]
+//    UINavigationBar.appearance().standardAppearance = standardAppearance
+//  }
 
   func customizeTabViewAppearance() {
     UIPageControl.appearance().currentPageIndicatorTintColor = Color.F1Stats.primary.asUIColor
@@ -51,24 +51,23 @@ struct ContentView: View {
   }
 
   var body: some View {
-      ZStack {
-        Color.F1Stats.systemDark.ignoresSafeArea()
-        TabView {
-          CurrentSeasonView(viewModel: CurrentSeasonViewModel(apiSeasons: apiSeasons))
-            .tabItem { Label("Calendar", systemImage: "calendar.circle") }
+    TabView {
+      CurrentSeasonView(viewModel: CurrentSeasonViewModel(apiSeasons: apiSeasons))
+        .tabItem { Label("Calendar", systemImage: "calendar.circle.fill") }
+        .toolbarBackground(Color.white, for: .tabBar)
 
-          MuseumView(viewModel: MuseumViewModel( apiSeasons: apiSeasons,
-                     wikipediaAPI: wikipediaAPI,
-                     driverAPI: apiDrivers,
-          constructorsAPI: apiConstructors))
-            .tabItem { Label("Museum", systemImage: "trophy.circle.fill") }
-        }
-        .accentColor(.F1Stats.primary)
+      MuseumView(viewModel: MuseumViewModel( apiSeasons: apiSeasons,
+                                             wikipediaAPI: wikipediaAPI,
+                                             driverAPI: apiDrivers,
+                                             constructorsAPI: apiConstructors))
+      .tabItem { Label("Museum", systemImage: "trophy.circle.fill") }
+      .toolbarBackground(Color.white, for: .tabBar)
     }
+    .accentColor(.F1Stats.systemWhite)
   }
 }
 
-#Preview {
+#Preview { 
   ContentView(apiDrivers: APIDriversStub(),
               wikipediaAPI: WikipediaAPIStub(),
               apiConstructors: APIConstructorsStub(),

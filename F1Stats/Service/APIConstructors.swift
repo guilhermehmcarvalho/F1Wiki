@@ -14,6 +14,7 @@ protocol APIConstructorsProtocol {
 }
 
 class APIConstructors: APIConstructorsProtocol {
+  
   final var baseURL: String
   final var urlSession: URLSession
 
@@ -39,7 +40,17 @@ class APIConstructors: APIConstructorsProtocol {
   }
 
   func listOfConstructorStandings(constructorId: String) -> AnyPublisher<MRData<StandingsTable>, any Error> {
-    guard let url = URL(string: baseURL.appending("constructors/\(constructorId)/constructorStandings.json")) else {
+    return listOfConstructorStandings(constructorId: constructorId, limit: 100, offset: 0)
+  }
+
+  func listOfConstructorStandings(constructorId: String, limit: Int, offset: Int) -> AnyPublisher<MRData<StandingsTable>, any Error> {
+    var components = URLComponents(string: baseURL.appending("constructors/\(constructorId)/constructorStandings.json"))
+    components?.queryItems = [
+      URLQueryItem(name: "limit", value: "\(limit)"),
+      URLQueryItem(name: "offset", value: "\(offset)")
+    ]
+
+    guard let url = components?.url else {
       return Empty().eraseToAnyPublisher()
     }
 

@@ -74,7 +74,6 @@ struct WikipediaView: View {
         }
       }
     }
-    .padding(.all(16))
     .onAppear(perform: viewModel.fetchSummary)
   }
 
