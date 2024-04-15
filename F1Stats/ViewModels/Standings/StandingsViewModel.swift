@@ -26,9 +26,7 @@ class StandingsViewModel: ObservableObject {
     self.apiSeasons = apiSeasons
     self.apiDrivers = apiDrivers
     self.wikipediaAPI = wikipediaAPI
-    driverStandingsViewModel = DriverStandingsViewModel(apiSeasons: apiSeasons,
-                                                        apiDriver: apiDrivers,
-                                                        wikipediaAPI: wikipediaAPI)
+    driverStandingsViewModel = DriverStandingsViewModel(apiSeasons: apiSeasons)
     constructorStandingsViewModel = ConstructorStandingsViewModel(apiSeasons: apiSeasons)
   }
 }

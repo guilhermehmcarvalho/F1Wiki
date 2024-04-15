@@ -36,6 +36,7 @@ struct CustomSheet<Content: View>: View {
             dismiss?()
           }
         content()
+          .presentationBackground(.clear)
       }
       .onPreferenceChange(PreferenceKey.self) { position in
         self.position = position

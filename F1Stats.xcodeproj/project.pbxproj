@@ -19,6 +19,7 @@
 		142C987A2BB743B6009D1D35 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142C98792BB743B6009D1D35 /* Config.swift */; };
 		142C987F2BB74AAC009D1D35 /* DriverModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142C987E2BB74AAC009D1D35 /* DriverModel.swift */; };
 		142C98812BB74E5B009D1D35 /* DriversViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142C98802BB74E5B009D1D35 /* DriversViewModel.swift */; };
+		144B93932BCD5CCA004ADC34 /* DriverCardDisplayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144B93922BCD5CCA004ADC34 /* DriverCardDisplayer.swift */; };
 		1457478A2BC900300074823A /* QualiResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145747892BC900300074823A /* QualiResultsView.swift */; };
 		1457478C2BC9078D0074823A /* EventProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1457478B2BC9078D0074823A /* EventProtocol.swift */; };
 		148081DB2BBD28CA00A9A33F /* Extension+Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148081DA2BBD28CA00A9A33F /* Extension+Colors.swift */; };
@@ -143,6 +144,7 @@
 		142C987E2BB74AAC009D1D35 /* DriverModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverModel.swift; sourceTree = "<group>"; };
 		142C98802BB74E5B009D1D35 /* DriversViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriversViewModel.swift; sourceTree = "<group>"; };
 		142C98822BB751C2009D1D35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		144B93922BCD5CCA004ADC34 /* DriverCardDisplayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverCardDisplayer.swift; sourceTree = "<group>"; };
 		145747892BC900300074823A /* QualiResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QualiResultsView.swift; sourceTree = "<group>"; };
 		1457478B2BC9078D0074823A /* EventProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventProtocol.swift; sourceTree = "<group>"; };
 		148081DA2BBD28CA00A9A33F /* Extension+Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Colors.swift"; sourceTree = "<group>"; };
@@ -382,6 +384,7 @@
 		14920FEE2BBE9CE000359497 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				144B93922BCD5CCA004ADC34 /* DriverCardDisplayer.swift */,
 				14920FEF2BBE9CEC00359497 /* LargeProgressViewModifier.swift */,
 				149210092BBF0CEF00359497 /* CustomDisclosureGroupStyle.swift */,
 				14C95DCA2BC572C500F712FE /* CardView.swift */,
@@ -873,6 +876,7 @@
 				148081E72BBD795200A9A33F /* WikipediaAPI.swift in Sources */,
 				1492104C2BC1269B00359497 /* SeasonRowViewModel.swift in Sources */,
 				149210582BC1A54F00359497 /* SeasonDriverStandingsViewModel.swift in Sources */,
+				144B93932BCD5CCA004ADC34 /* DriverCardDisplayer.swift in Sources */,
 				149210432BC0734A00359497 /* APISeasons.swift in Sources */,
 				141465602BCADB2E003EF647 /* MuseumView.swift in Sources */,
 				14C146942BC7040B001F7F35 /* QualifyingResult.swift in Sources */,

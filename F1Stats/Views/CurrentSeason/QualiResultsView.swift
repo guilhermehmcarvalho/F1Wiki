@@ -33,6 +33,7 @@ struct QualiResultsView: View {
 
         ForEach(Array(viewModel.qualiResults.enumerated()), id: \.element.driver) { index, result in
           standingsRow(result: result)
+            .modifier(DriverCardDisplayer(driver: result.driver))
           if index < viewModel.qualiResults.count - 1 {
             Divider().padding(.all(0))
           }

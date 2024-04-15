@@ -34,6 +34,7 @@ struct RaceResultsView: View {
         if let raceResults = raceModel.raceResults {
           ForEach(Array(raceResults.enumerated()), id: \.element.driver) { (index, result) in
             raceStandingsRow(result: result)
+              .modifier(DriverCardDisplayer(driver: result.driver))
             if index < raceResults.count - 1 {
               Divider().padding(.all(0))
             }

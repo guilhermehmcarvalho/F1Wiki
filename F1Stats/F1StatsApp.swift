@@ -13,7 +13,7 @@ struct F1StatsApp: App {
   let apiConstructors = APIConstructors(baseURL: Config.baseURL)
   let wikipediaAPI = WikipediaAPI(baseURL: Config.wikipediaURL)
   let apiSeasons = APISeasons(baseURL: Config.baseURL)
-  
+
   var body: some Scene {
     WindowGroup {
       ContentView(apiDrivers: apiDrivers,

@@ -100,3 +100,9 @@ class DriverCardViewModel: ObservableObject {
   }
 
 }
+
+//protocol DriverCardDisplayer {
+//  var driverCardViewModel: DriverCardViewModel? { get set }
+//  func displayDriverCard(_ driver: DriverModel)
+//  func dismissDriverCard()
+//}

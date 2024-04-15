@@ -40,9 +40,7 @@ struct DriverStandingsView: View {
             }
             ForEach(Array(standings.enumerated()), id: \.offset) { (index, result) in
               raceStandingsRow(result: result)
-                .onTapGesture(perform: {
-                  viewModel.didTapRow(result)
-                })
+                .modifier(DriverCardDisplayer(driver: result.driver))
               if index < standings.count - 1 {
                 Divider().padding(.all(0))
               }
@@ -55,14 +53,6 @@ struct DriverStandingsView: View {
       }
     }
     .onAppear(perform: viewModel.fetchDriverStandings)
-    .fullScreenCover(isPresented: $viewModel.presentingDriverCard) {
-      CustomSheet(content: {
-        if let driverCardViewModel = viewModel.driverCardViewModel {
-          DriverCard(viewModel: driverCardViewModel)
-            .presentationBackground(.clear)
-        }
-      }, dismiss: viewModel.dismissedCardView)
-    }
   }
 
   func raceStandingsRow(result: DriverStanding) -> some View {
@@ -86,7 +76,5 @@ struct DriverStandingsView: View {
 }
 
 #Preview {
-  DriverStandingsView(viewModel: DriverStandingsViewModel(apiSeasons: APISeasonsStub(),
-                                                         apiDriver: APIDriversStub(),
-                                                         wikipediaAPI: WikipediaAPIStub()))
+  DriverStandingsView(viewModel: DriverStandingsViewModel(apiSeasons: APISeasonsStub()))
 }

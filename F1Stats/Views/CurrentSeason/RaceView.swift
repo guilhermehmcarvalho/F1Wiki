@@ -38,7 +38,7 @@ struct RaceView: View {
             .fullScreenCover(isPresented: $viewModel.presentingRaceResults) {
               CustomSheet {
                 RaceResultsView(viewModel: viewModel.raceResultsViewModel)
-                  .presentationBackground(.clear)
+                  
               } dismiss: {
                 viewModel.presentingRaceResults = false
               }
@@ -53,7 +53,6 @@ struct RaceView: View {
             .fullScreenCover(isPresented: $viewModel.presentingQualiResults) {
               CustomSheet {
                 QualiResultsView(viewModel: viewModel.qualiResultsViewModel)
-                  .presentationBackground(.clear)
               } dismiss: {
                 viewModel.presentingQualiResults = false
               }
