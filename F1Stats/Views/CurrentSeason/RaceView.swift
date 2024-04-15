@@ -23,7 +23,7 @@ struct RaceView: View {
 
           topCard
             .frame(maxWidth: .infinity, minHeight: geo.size.width/2)
-            .modifier(CardView())
+            .makeCardView()
             .zIndex(6)
             .ticketTransition(finalAngle: 0)
             .padding(.horizontal(16))

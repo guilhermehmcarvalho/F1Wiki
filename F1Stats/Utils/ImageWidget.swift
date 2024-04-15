@@ -36,6 +36,7 @@ struct ImageWidget: View {
 
       default:
         ProgressView()
+          .padding(8)
       }
     }
   }

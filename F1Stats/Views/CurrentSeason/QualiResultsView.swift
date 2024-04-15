@@ -42,7 +42,7 @@ struct QualiResultsView: View {
     }
     .frame(minHeight: 600)
     .padding(.all(8))
-    .modifier(CardView(fill: .F1Stats.appWhite))
+    .makeCardView()
     .padding(EdgeInsets(top: 0, leading: 4, bottom: 8, trailing: 8))
     .onAppear(perform: viewModel.fetchQualiResult)
   }
@@ -58,6 +58,7 @@ struct QualiResultsView: View {
           .typography(type: .subHeader(color: .F1Stats.appDark))
         Text(result.constructor.name)
           .typography(type: .body(color: .F1Stats.appDark))
+          .modifier(ConstructorCardDisplayer(constructor: result.constructor))
       }
 
       Spacer()

@@ -26,6 +26,9 @@ struct CustomSheet<Content: View>: View {
                      endPoint: UnitPoint(x: 0, y: 0.2))
         .opacity(opacity)
         .ignoresSafeArea()
+        .onTapGesture {
+          dismiss?()
+        }
 
       OffsetObservingScrollView(offset: $position) {
         Rectangle()
@@ -37,6 +40,7 @@ struct CustomSheet<Content: View>: View {
           }
         content()
           .presentationBackground(.clear)
+
       }
       .onPreferenceChange(PreferenceKey.self) { position in
         self.position = position

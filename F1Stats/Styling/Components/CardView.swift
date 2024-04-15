@@ -8,19 +8,12 @@
 import Foundation
 import SwiftUI
 
-struct CardView: ViewModifier {
-  let fill: Color
-
-  init(fill: Color = .F1Stats.appWhite) {
-    self.fill = fill
-  }
-
-  func body(content: Content) -> some View {
-    content
-      .background {
-        RoundedRectangle(cornerRadius: 8)
-          .fill(fill)
-          .shadow(radius: 8, y: 10)
-      }
+extension View {
+  func makeCardView(fill: Color = .F1Stats.appWhite) -> some View {
+    return self.background {
+      RoundedRectangle(cornerRadius: 8)
+        .fill(fill)
+        .shadow(radius: 8, y: 10)
+    }
   }
 }

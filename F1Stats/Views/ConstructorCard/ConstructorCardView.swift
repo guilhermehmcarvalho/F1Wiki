@@ -1,17 +1,16 @@
 //
-//  DriverCard.swift
+//  ConstructorCard.swift
 //  F1Stats
 //
 //  Created by Guilherme Carvalho on 15/04/2024.
 //
 
 import SwiftUI
-import Combine
 
-struct DriverCard: View {
-  @ObservedObject var viewModel: DriverCardViewModel
+struct ConstructorCardView: View {
+  @ObservedObject var viewModel: ConstructorCardViewModel
 
-  init(viewModel: DriverCardViewModel) {
+  init(viewModel: ConstructorCardViewModel) {
     self.viewModel = viewModel
   }
 
@@ -28,17 +27,29 @@ struct DriverCard: View {
         ProgressView()
           .tint(.F1Stats.appWhite)
       }
+
       if let summary = viewModel.summaryModel {
         VStack {
-          ZStack(alignment: .bottom) {
-            ImageWidget(imageString: summary.originalimage?.source)
-              .fixedSize(horizontal: false, vertical: true)
-            title(summary.title)
-              .padding(.vertical(16))
-          }
+          ImageWidget(imageString: summary.originalimage?.source)
+            .padding(16)
+            .fixedSize(horizontal: true, vertical: false)
+            .frame(maxHeight: 380)
+            .clipped()
+
+          title(summary.title)
+
+          Text(summary.extract)
+            .padding(16)
+            .typography(type: .body(color: .F1Stats.appDark))
+            .multilineTextAlignment(.center)
+            .fixedSize(horizontal: false, vertical: true)
 
           stats
             .padding(.horizontal(8))
+
+
+          Text("*Since 1958")
+            .typography(type: .small(color: .F1Stats.appDark))
             .padding(.bottom)
         }
         .background(Color.F1Stats.appWhite)
@@ -53,7 +64,6 @@ struct DriverCard: View {
         )
         .overlay(
           Color.F1Stats.appYellow.opacity(0.1)
-            .frame(width: .infinity, height: .infinity)
         )
         .padding(.all(16))
 
@@ -71,40 +81,26 @@ struct DriverCard: View {
           if viewModel.wins != nil {
             Text("Race wins:")
           }
-          if viewModel.careerPoints != nil {
-            Text("Career points:")
-          }
           if viewModel.seasons != nil {
             Text("Seasons:")
-          }
-          if viewModel.constructors != nil {
-            Text("Constructors:")
           }
         }
         .typography(type: .body(color: Color.F1Stats.appDark))
 
         VStack(alignment: .leading) {
-          Text(viewModel.driver.nationality)
+          Text(viewModel.constructor.nationality)
           if let championships = viewModel.championships, championships > 0 {
             Text("\(championships)")
           }
           if let wins = viewModel.wins {
-            Text("\(wins)")
-          }
-          if let points = viewModel.careerPoints {
-            Text("\(points)")
+            Text("\(wins)*")
           }
           if let seasons = viewModel.seasons {
-            Text("\(seasons)")
-          }
-          if let constructors = viewModel.constructors {
-            Text(constructors)
-              .multilineTextAlignment(.leading)
+            Text("\(seasons)*")
           }
         }
         .typography(type: .body(color: Color.F1Stats.appDark))
       }
-//    }
   }
 
   func title(_ title: String) -> some View {
@@ -115,13 +111,14 @@ struct DriverCard: View {
         .textCase(.uppercase)
         .typography(type: .heading(color: .F1Stats.appWhite))
         .padding(.all(4))
+        .multilineTextAlignment(.center)
     }
     .fixedSize(horizontal: false, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
   }
 }
 
 #Preview {
-  DriverCard(viewModel: DriverCardViewModel(driver: DriverModel.stub,
-                                            wikipediaApi: WikipediaAPIStub(delay: 1),
-                                            driverApi: APIDriversStub(delay: 1)))
+  ConstructorCardView(viewModel: ConstructorCardViewModel(constructor: ConstructorModel.stub,
+                                                          wikipediaApi: WikipediaAPI(baseURL: Config.wikipediaURL),
+                                                          apiConstructor: APIConstructorsStub()))
 }

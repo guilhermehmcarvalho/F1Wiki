@@ -44,7 +44,7 @@ struct RaceResultsView: View {
     }
     .frame(minHeight: 600)
     .padding(.all(8))
-    .modifier(CardView(fill: .F1Stats.appWhite))
+    .makeCardView()
     .padding(EdgeInsets(top: 0, leading: 4, bottom: 8, trailing: 8))
     .onAppear(perform: viewModel.fetchRaceResults)
   }
@@ -73,6 +73,7 @@ struct RaceResultsView: View {
       Spacer()
       Text(result.constructor.name)
         .typography(type: .body(color: .F1Stats.appDark))
+        .modifier(ConstructorCardDisplayer(constructor: result.constructor))
     }
   }
 }

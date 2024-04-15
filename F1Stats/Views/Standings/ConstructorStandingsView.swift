@@ -38,6 +38,7 @@ struct ConstructorStandingsView: View {
             }
             ForEach(Array(standings.enumerated()), id: \.offset) { (index, result) in
               raceStandingsRow(result: result)
+                .modifier(ConstructorCardDisplayer(constructor: result.constructor))
               if index < standings.count - 1 {
                 Divider().padding(.all(0))
               }
@@ -45,7 +46,7 @@ struct ConstructorStandingsView: View {
           }
           .padding(.all(8))
         }
-        .modifier(CardView(fill: .F1Stats.appWhite))
+        .makeCardView()
         .padding(.all(16))
       }
     }

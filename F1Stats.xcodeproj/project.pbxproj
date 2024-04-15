@@ -20,6 +20,9 @@
 		142C987F2BB74AAC009D1D35 /* DriverModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142C987E2BB74AAC009D1D35 /* DriverModel.swift */; };
 		142C98812BB74E5B009D1D35 /* DriversViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142C98802BB74E5B009D1D35 /* DriversViewModel.swift */; };
 		144B93932BCD5CCA004ADC34 /* DriverCardDisplayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144B93922BCD5CCA004ADC34 /* DriverCardDisplayer.swift */; };
+		144B93972BCD7C04004ADC34 /* ConstructorCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144B93962BCD7C04004ADC34 /* ConstructorCardView.swift */; };
+		144B93992BCD7C19004ADC34 /* ConstructorCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144B93982BCD7C19004ADC34 /* ConstructorCardViewModel.swift */; };
+		144B939B2BCD7E9C004ADC34 /* ConstructorCardDisplayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144B939A2BCD7E9C004ADC34 /* ConstructorCardDisplayer.swift */; };
 		1457478A2BC900300074823A /* QualiResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145747892BC900300074823A /* QualiResultsView.swift */; };
 		1457478C2BC9078D0074823A /* EventProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1457478B2BC9078D0074823A /* EventProtocol.swift */; };
 		148081DB2BBD28CA00A9A33F /* Extension+Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148081DA2BBD28CA00A9A33F /* Extension+Colors.swift */; };
@@ -107,7 +110,7 @@
 		14CB30132BCBD6CA00D5DEFF /* ConstructorStandingsViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CB30122BCBD6CA00D5DEFF /* ConstructorStandingsViewModelTest.swift */; };
 		14CB30152BCBD8BB00D5DEFF /* ConstructorStandingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CB30142BCBD8BB00D5DEFF /* ConstructorStandingsView.swift */; };
 		14CB30192BCC5CE400D5DEFF /* SwiftFlags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CB30182BCC5CE400D5DEFF /* SwiftFlags.swift */; };
-		14CB301B2BCD112A00D5DEFF /* DriverCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CB301A2BCD112A00D5DEFF /* DriverCard.swift */; };
+		14CB301B2BCD112A00D5DEFF /* DriverCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CB301A2BCD112A00D5DEFF /* DriverCardView.swift */; };
 		14CB301D2BCD1DA600D5DEFF /* ImageWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CB301C2BCD1DA600D5DEFF /* ImageWidget.swift */; };
 		14CB301F2BCD2A7000D5DEFF /* DriverCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CB301E2BCD2A7000D5DEFF /* DriverCardViewModel.swift */; };
 		14D79CB42BB8710F006240F0 /* MRData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D79CB32BB8710F006240F0 /* MRData.swift */; };
@@ -145,6 +148,9 @@
 		142C98802BB74E5B009D1D35 /* DriversViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriversViewModel.swift; sourceTree = "<group>"; };
 		142C98822BB751C2009D1D35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		144B93922BCD5CCA004ADC34 /* DriverCardDisplayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverCardDisplayer.swift; sourceTree = "<group>"; };
+		144B93962BCD7C04004ADC34 /* ConstructorCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructorCardView.swift; sourceTree = "<group>"; };
+		144B93982BCD7C19004ADC34 /* ConstructorCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructorCardViewModel.swift; sourceTree = "<group>"; };
+		144B939A2BCD7E9C004ADC34 /* ConstructorCardDisplayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructorCardDisplayer.swift; sourceTree = "<group>"; };
 		145747892BC900300074823A /* QualiResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QualiResultsView.swift; sourceTree = "<group>"; };
 		1457478B2BC9078D0074823A /* EventProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventProtocol.swift; sourceTree = "<group>"; };
 		148081DA2BBD28CA00A9A33F /* Extension+Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Colors.swift"; sourceTree = "<group>"; };
@@ -233,7 +239,7 @@
 		14CB30122BCBD6CA00D5DEFF /* ConstructorStandingsViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructorStandingsViewModelTest.swift; sourceTree = "<group>"; };
 		14CB30142BCBD8BB00D5DEFF /* ConstructorStandingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructorStandingsView.swift; sourceTree = "<group>"; };
 		14CB30182BCC5CE400D5DEFF /* SwiftFlags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftFlags.swift; sourceTree = "<group>"; };
-		14CB301A2BCD112A00D5DEFF /* DriverCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverCard.swift; sourceTree = "<group>"; };
+		14CB301A2BCD112A00D5DEFF /* DriverCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverCardView.swift; sourceTree = "<group>"; };
 		14CB301C2BCD1DA600D5DEFF /* ImageWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageWidget.swift; sourceTree = "<group>"; };
 		14CB301E2BCD2A7000D5DEFF /* DriverCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverCardViewModel.swift; sourceTree = "<group>"; };
 		14D79CB32BB8710F006240F0 /* MRData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRData.swift; sourceTree = "<group>"; };
@@ -325,6 +331,7 @@
 				149AA0832BC3C940001EFCCA /* CurrentSeason */,
 				148081EC2BBD85DC00A9A33F /* WikipediaViewModel.swift */,
 				14CB301E2BCD2A7000D5DEFF /* DriverCardViewModel.swift */,
+				144B93982BCD7C19004ADC34 /* ConstructorCardViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -332,12 +339,13 @@
 		142C98742BB70561009D1D35 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				144B93952BCD7BF7004ADC34 /* ConstructorCard */,
+				144B93942BCD6BEB004ADC34 /* DriverCard */,
 				14CB30082BCBD07800D5DEFF /* Museum */,
 				14CB30002BCBCC0D00D5DEFF /* Standings */,
 				14E6E59C2BC46F16001DF1D2 /* CurrentSeason */,
 				140A09852BB6E30C0037AA74 /* ContentView.swift */,
 				148081EA2BBD85BB00A9A33F /* WikipediaView.swift */,
-				14CB301A2BCD112A00D5DEFF /* DriverCard.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -371,6 +379,24 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		144B93942BCD6BEB004ADC34 /* DriverCard */ = {
+			isa = PBXGroup;
+			children = (
+				144B93922BCD5CCA004ADC34 /* DriverCardDisplayer.swift */,
+				14CB301A2BCD112A00D5DEFF /* DriverCardView.swift */,
+			);
+			path = DriverCard;
+			sourceTree = "<group>";
+		};
+		144B93952BCD7BF7004ADC34 /* ConstructorCard */ = {
+			isa = PBXGroup;
+			children = (
+				144B93962BCD7C04004ADC34 /* ConstructorCardView.swift */,
+				144B939A2BCD7E9C004ADC34 /* ConstructorCardDisplayer.swift */,
+			);
+			path = ConstructorCard;
+			sourceTree = "<group>";
+		};
 		148081D92BBD28B700A9A33F /* Styling */ = {
 			isa = PBXGroup;
 			children = (
@@ -384,7 +410,6 @@
 		14920FEE2BBE9CE000359497 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				144B93922BCD5CCA004ADC34 /* DriverCardDisplayer.swift */,
 				14920FEF2BBE9CEC00359497 /* LargeProgressViewModifier.swift */,
 				149210092BBF0CEF00359497 /* CustomDisclosureGroupStyle.swift */,
 				14C95DCA2BC572C500F712FE /* CardView.swift */,
@@ -820,6 +845,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				149210062BBEE03C00359497 /* DriverStandingsRowView.swift in Sources */,
+				144B93992BCD7C19004ADC34 /* ConstructorCardViewModel.swift in Sources */,
 				142C987F2BB74AAC009D1D35 /* DriverModel.swift in Sources */,
 				148081ED2BBD85DC00A9A33F /* WikipediaViewModel.swift in Sources */,
 				149210532BC16DA500359497 /* SeasonsView.swift in Sources */,
@@ -893,13 +919,15 @@
 				1492102E2BC0243800359497 /* APIConstructorsStub.swift in Sources */,
 				14C146B12BC86C80001F7F35 /* OffsetObservingScrollView.swift in Sources */,
 				149AA07E2BC3BE26001EFCCA /* LocationModel.swift in Sources */,
+				144B939B2BCD7E9C004ADC34 /* ConstructorCardDisplayer.swift in Sources */,
 				14C146AE2BC86481001F7F35 /* Status.swift in Sources */,
 				14CB30022BCBCC1A00D5DEFF /* StandingsView.swift in Sources */,
 				14CB30052BCBCC2A00D5DEFF /* StandingsViewModel.swift in Sources */,
 				14C146962BC70489001F7F35 /* RaceResult.swift in Sources */,
+				144B93972BCD7C04004ADC34 /* ConstructorCardView.swift in Sources */,
 				14CB30152BCBD8BB00D5DEFF /* ConstructorStandingsView.swift in Sources */,
 				149AA0802BC3BE43001EFCCA /* PracticeModel.swift in Sources */,
-				14CB301B2BCD112A00D5DEFF /* DriverCard.swift in Sources */,
+				14CB301B2BCD112A00D5DEFF /* DriverCardView.swift in Sources */,
 				1492103A2BC0319A00359497 /* ConstructorStanding.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

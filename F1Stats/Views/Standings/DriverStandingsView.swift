@@ -48,7 +48,7 @@ struct DriverStandingsView: View {
           }
           .padding(.all(8))
         }
-        .modifier(CardView(fill: .F1Stats.appWhite))
+        .makeCardView()
         .padding(.all(16))
       }
     }
@@ -66,6 +66,7 @@ struct DriverStandingsView: View {
 
         Text(result.constructorsAppended)
           .typography(type: .body(color: .F1Stats.appDark))
+          .modifier(ConstructorCardDisplayer(constructor: result.constructors.first!))
       }
       Spacer()
       Text(result.points)

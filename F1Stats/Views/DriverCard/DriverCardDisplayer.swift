@@ -12,20 +12,22 @@ import SwiftUI
 // almost the whole app
 struct DriverCardDisplayer: ViewModifier {
   let driver: DriverModel
-  let wikipediaApi: WikipediaAPIProtocol = WikipediaAPI(baseURL: Config.wikipediaURL)
-  let driverApi: APIDriversProtocol = APIDrivers(baseURL: Config.baseURL)
+  let wikipediaApi: WikipediaAPIProtocol
+  let driverApi: APIDriversProtocol
 
   init(driver: DriverModel, 
        driverApi: APIDriversProtocol = APIDrivers(baseURL: Config.baseURL),
        wikipediaApi: WikipediaAPIProtocol = WikipediaAPI(baseURL: Config.wikipediaURL)) {
     self.driver = driver
-    self.driverCardViewModel = driverCardViewModel
+    self.driverApi = driverApi
+    self.wikipediaApi = wikipediaApi
   }
 
   @State var driverCardViewModel: DriverCardViewModel?
 
   func body(content: Content) -> some View {
     content
+      .contentShape(Rectangle())
       .onTapGesture {
         driverCardViewModel = DriverCardViewModel(driver: driver,
                                                   wikipediaApi: wikipediaApi,
@@ -34,7 +36,7 @@ struct DriverCardDisplayer: ViewModifier {
       .fullScreenCover(isPresented: Binding<Bool>.constant(driverCardViewModel != nil)) {
         CustomSheet(content: {
           if let driverCardViewModel = driverCardViewModel {
-            DriverCard(viewModel: driverCardViewModel)
+            DriverCardView(viewModel: driverCardViewModel)
           }
         }, dismiss: {
           driverCardViewModel = nil

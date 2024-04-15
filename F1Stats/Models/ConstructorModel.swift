@@ -32,3 +32,10 @@ struct ConstructorModel: Decodable, Hashable {
 extension ConstructorModel: Identifiable {
     var id: String { return constructorID }
 }
+
+extension ConstructorModel {
+  static let stub = ConstructorModel(constructorID: "Ferrari",
+                              url: "https://en.wikipedia.org/wiki/Scuderia_Ferrari",
+                              name: "Ferrari",
+                              nationality: "Italian")
+}
