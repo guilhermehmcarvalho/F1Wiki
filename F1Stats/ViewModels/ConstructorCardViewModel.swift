@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import SwiftUI
 
 class ConstructorCardViewModel: ObservableObject {
 
@@ -21,6 +22,9 @@ class ConstructorCardViewModel: ObservableObject {
   @Published var wins: Int?
   @Published var championships: Int?
   @Published var seasons: Int?
+  @Published var image: UIImage?
+  private var loader: ImageLoader?
+  private var mediaItems: [MediaItem]?
 
   private(set) var fetchStatusSubject = PassthroughSubject<FetchStatus, Never>()
 
@@ -32,9 +36,45 @@ class ConstructorCardViewModel: ObservableObject {
     self.wikipediaApi = wikipediaApi
     self.apiConstructor = apiConstructor
     self.constructor = constructor
+
     fetchStatusSubject
       .receive(on: DispatchQueue.main)
       .assign(to: &$fetchStatus)
+  }
+
+  private func fetchImage(url: String, failed: () -> Void) -> Void {
+    
+  }
+
+  internal func fetchMedia() -> Void {
+    guard mediaItems == nil else { return }
+    wikipediaApi.getMediaList(forUrl: constructor.url)
+      .observeFetchStatus(with: fetchStatusSubject)
+      .receive(on: DispatchQueue.main)
+      .sink { status in
+        switch status {
+        case .finished: break
+        case .failure(let error):
+          print(error)
+        }
+      } receiveValue: { [weak self] response in
+        self?.mediaItems = response.items
+        if let imageString = self?.mediaItems?.first?.srcset.last?.link,
+            let imageUrl = URL(string: imageString) {
+          self?.loadImage(imageUrl: imageUrl)
+        }
+      }
+      .store(in: &subscriptions)
+  }
+
+  private func loadImage(imageUrl: URL) {
+    self.loader = ImageLoader(url: imageUrl)
+    self.loader?.load()
+    self.loader?.$image.sink(receiveValue: { image in
+      self.image = image
+      self.objectWillChange.send()
+    })
+    .store(in: &subscriptions)
   }
 
   internal func fetchSummary() -> Void {
@@ -50,6 +90,12 @@ class ConstructorCardViewModel: ObservableObject {
         }
       } receiveValue: { [weak self] response in
         self?.summaryModel = response
+        if let imageString = response.originalimage?.source, let imageUrl = URL(string: imageString) {
+          self?.loadImage(imageUrl: imageUrl)
+        } else {
+          // if there is no thumbnail for any reason (happens with svgs eventually) fetch mode media
+          self?.fetchMedia()
+        }
       }
       .store(in: &subscriptions)
   }

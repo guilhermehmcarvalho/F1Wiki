@@ -71,3 +71,9 @@ enum Scale: String, Codable {
 enum TypeEnum: String, Codable {
     case image = "image"
 }
+
+extension Srcset {
+  var link: String {
+    "https:".appending(src)
+  }
+}

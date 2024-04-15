@@ -19,25 +19,37 @@ struct ImageWidget: View {
     return URL(string: imageString)
   }
 
+  var errorVIew: some View {
+    Image(systemName: "photo.circle")
+      .resizable()
+      .foregroundColor(.F1Stats.primary)
+      .opacity(0.6)
+      .frame(width: 48, height: 48)
+  }
+
+  var loadingView: some View {
+    ProgressView()
+      .padding(8)
+  }
+
   var body: some View {
-    AsyncImage(url: url) { phase in
-      switch phase {
-      case .success(let image):
-        image
-          .resizable()
-          .scaledToFill()
+    if let url = url {
+      AsyncImage(url: url) { phase in
+        switch phase {
+        case .success(let image):
+          image
+            .resizable()
+            .scaledToFill()
 
-      case .failure(_):
-        Image(systemName: "photo.circle")
-          .resizable()
-          .foregroundColor(.F1Stats.primary)
-          .opacity(0.6)
-          .frame(width: 48, height: 48)
+        case .failure(_):
+          errorVIew
 
-      default:
-        ProgressView()
-          .padding(8)
+        default:
+          loadingView
+        }
       }
+    } else {
+      errorVIew
     }
   }
 }

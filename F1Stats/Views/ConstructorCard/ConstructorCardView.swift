@@ -30,11 +30,15 @@ struct ConstructorCardView: View {
 
       if let summary = viewModel.summaryModel {
         VStack {
-          ImageWidget(imageString: summary.originalimage?.source)
-            .padding(16)
-            .fixedSize(horizontal: true, vertical: false)
-            .frame(maxHeight: 380)
-            .clipped()
+          if let image = viewModel.image {
+            Image(uiImage: image)
+            //          ImageWidget(imageString: summary.originalimage?.source ?? viewModel.mediaItems?.first?.srcset.last?.link)
+              .resizable()
+              .padding(16)
+              .fixedSize(horizontal: true, vertical: false)
+              .frame(maxHeight: 380)
+              .clipped()
+          }
 
           title(summary.title)
 
