@@ -37,7 +37,9 @@ struct ContentView: View {
         .tabItem { Label("Calendar", systemImage: "calendar.circle.fill") }
         .toolbarBackground(Color.white, for: .tabBar)
 
-      StandingsView(viewModel: StandingsViewModel(apiSeasons: apiSeasons))
+      StandingsView(viewModel: StandingsViewModel(apiSeasons: apiSeasons,
+                                                  apiDrivers: apiDrivers,
+                                                  wikipediaAPI: wikipediaAPI))
       .tabItem { Label("Standings", systemImage: "trophy.circle.fill") }
       .toolbarBackground(Color.white, for: .tabBar)
 

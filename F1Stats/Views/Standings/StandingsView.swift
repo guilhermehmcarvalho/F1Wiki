@@ -58,5 +58,7 @@ struct StandingsView: View {
 }
 
 #Preview {
-    StandingsView(viewModel: StandingsViewModel(apiSeasons: APISeasonsStub()))
+    StandingsView(viewModel: StandingsViewModel(apiSeasons: APISeasonsStub(),
+                                               apiDrivers: APIDriversStub(),
+                                               wikipediaAPI: WikipediaAPIStub()))
 }

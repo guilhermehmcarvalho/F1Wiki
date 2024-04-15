@@ -47,11 +47,11 @@ struct WikipediaView: View {
                                 .transition(.scale)
 
                         case .failure(_):
-                            Image(systemName:  "ant.circle.fill")
+                            Image(systemName: "photo.circle")
                                 .resizable()
                                 .scaledToFit()
                                 .frame(maxWidth: 128)
-                                .foregroundColor(.teal)
+                                .foregroundColor(Color.F1Stats.primary)
                                 .opacity(0.6)
 
                         default:

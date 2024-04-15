@@ -19,7 +19,9 @@ final class DriverStandingsViewModelTest: XCTestCase {
   }
 
   func testFetchDriverStandings() {
-    let viewModel = DriverStandingsViewModel(apiSeasons: APISeasonsStub())
+    let viewModel = DriverStandingsViewModel(apiSeasons: APISeasonsStub(),
+                                             apiDriver: APIDriversStub(),
+                                             wikipediaAPI: WikipediaAPIStub())
     let promise = expectation(description: "Will fetch standings")
     XCTAssertNil(viewModel.driverStandings, "Starting with no standings")
     viewModel.fetchDriverStandings()
