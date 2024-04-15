@@ -41,7 +41,7 @@ struct QualiResultsView: View {
     }
     .frame(minHeight: 600)
     .padding(.all(8))
-    .modifier(CardView(fill: .F1Stats.systemYellow))
+    .modifier(CardView(fill: .F1Stats.appWhite))
     .padding(EdgeInsets(top: 0, leading: 4, bottom: 8, trailing: 8))
     .onAppear(perform: viewModel.fetchQualiResult)
   }
@@ -51,12 +51,12 @@ struct QualiResultsView: View {
     HStack(alignment: .center) {
       Text(result.position)
         .frame(width: 30)
-        .typography(type: .body(color: .F1Stats.systemDark))
+        .typography(type: .body(color: .F1Stats.appDark))
       VStack(alignment: .leading) {
         Text(result.driver.fullName)
-          .typography(type: .subHeader(color: .F1Stats.systemDark))
+          .typography(type: .subHeader(color: .F1Stats.appDark))
         Text(result.constructor.name)
-          .typography(type: .body(color: .F1Stats.systemDark))
+          .typography(type: .body(color: .F1Stats.appDark))
       }
 
       Spacer()
@@ -65,24 +65,24 @@ struct QualiResultsView: View {
         if let q3 = result.q3 {
           HStack {
             Text("Q3")
-              .typography(type: .small(color: .F1Stats.systemDark))
+              .typography(type: .small(color: .F1Stats.appDark))
             Text(q3)
-              .typography(type: .small(color: .F1Stats.systemDark))
+              .typography(type: .small(color: .F1Stats.appDark))
           }
         }
         if let q2 = result.q2 {
           HStack {
             Text("Q2")
-              .typography(type: .small(color: .F1Stats.systemDark))
+              .typography(type: .small(color: .F1Stats.appDark))
             Text(q2)
-              .typography(type: .small(color: .F1Stats.systemDark))
+              .typography(type: .small(color: .F1Stats.appDark))
           }
         }
           HStack {
             Text("Q1")
-              .typography(type: .small(color: .F1Stats.systemDark))
+              .typography(type: .small(color: .F1Stats.appDark))
             Text(result.q1)
-              .typography(type: .small(color: .F1Stats.systemDark))
+              .typography(type: .small(color: .F1Stats.appDark))
           }
       }
     }

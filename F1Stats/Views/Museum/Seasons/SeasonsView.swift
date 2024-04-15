@@ -29,7 +29,7 @@ struct SeasonsView: View {
         }
       }
       .listRowSeparator(.automatic)
-      .listRowSeparatorTint(.F1Stats.systemWhite)
+      .listRowSeparatorTint(.F1Stats.appWhite)
       .scrollContentBackground(.hidden)
       .navigationTitle("Seasons")
       .onAppear(perform: viewModel.onAppear)

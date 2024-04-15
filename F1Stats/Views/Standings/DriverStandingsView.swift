@@ -21,7 +21,7 @@ struct DriverStandingsView: View {
         HStack {
           Spacer()
           ProgressView()
-            .modifier(LargeProgressView(tint: .F1Stats.primary))
+            .modifier(LargeProgressView(tint: .F1Stats.appWhite))
             .padding(.all(32))
           Spacer()
         }
@@ -47,7 +47,7 @@ struct DriverStandingsView: View {
           }
           .padding(.all(8))
         }
-        .modifier(CardView(fill: .F1Stats.systemYellow))
+        .modifier(CardView(fill: .F1Stats.appWhite))
         .padding(.all(16))
       }
     }
@@ -58,17 +58,17 @@ struct DriverStandingsView: View {
     HStack(alignment: .center) {
       Text(result.positionText)
         .frame(width: 30)
-        .typography(type: .body(color: .F1Stats.systemDark))
+        .typography(type: .body(color: .F1Stats.appDark))
       VStack(alignment:.leading) {
         Text(result.driver.fullName)
-          .typography(type: .subHeader(color: .F1Stats.systemDark))
+          .typography(type: .subHeader(color: .F1Stats.appDark))
 
         Text(result.constructorsAppended)
-          .typography(type: .body(color: .F1Stats.systemDark))
+          .typography(type: .body(color: .F1Stats.appDark))
       }
       Spacer()
       Text(result.points)
-        .typography(type: .body(color: .F1Stats.systemDark))
+        .typography(type: .body(color: .F1Stats.appDark))
     }
   }
 

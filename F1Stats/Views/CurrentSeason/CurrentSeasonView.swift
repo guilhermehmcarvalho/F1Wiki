@@ -21,7 +21,7 @@ struct CurrentSeasonView: View {
 
   var body: some View {
     ZStack {
-      Color.F1Stats.systemDark.ignoresSafeArea()
+      Color.F1Stats.appDark.ignoresSafeArea()
 
       if viewModel.fetchStatus == .ongoing {
         ProgressView()

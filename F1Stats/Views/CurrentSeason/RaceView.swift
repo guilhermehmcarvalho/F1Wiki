@@ -26,6 +26,8 @@ struct RaceView: View {
             .modifier(CardView())
             .zIndex(6)
             .ticketTransition(finalAngle: 0)
+            .padding(.horizontal(16))
+            .padding(.vertical(8))
 
           grandPrix
             .frame(maxWidth: geo.size.width/1.5, minHeight: (geo.size.width/1.5)/1.8)
@@ -101,15 +103,15 @@ struct RaceView: View {
         Text(viewModel.title)
           .typography(type: .heading(color: .F1Stats.primary))
         Text(viewModel.circuit)
-          .typography(type: .body(color: .F1Stats.systemDark))
+          .typography(type: .body(color: .F1Stats.appDark))
         Text(viewModel.locality)
-          .typography(type: .body(color: .F1Stats.systemDark))
+          .typography(type: .body(color: .F1Stats.appDark))
 
           Spacer().frame(height: 16)
 
           Text(viewModel.fullDate)
             .multilineTextAlignment(.center)
-            .typography(type: .body(color: .F1Stats.systemDark))
+            .typography(type: .body(color: .F1Stats.appDark))
       }
 
       if viewModel.raceModel.isFinished() {
@@ -129,7 +131,7 @@ struct RaceView: View {
         Spacer().frame(height: 4)
         Text(date)
           .multilineTextAlignment(.center)
-          .typography(type: .body(color: .F1Stats.systemDark))
+          .typography(type: .body(color: .F1Stats.appDark))
       }
 
       if viewModel.raceModel.isFinished() {
@@ -143,12 +145,12 @@ struct RaceView: View {
   var practice1: some View {
     VStack {
       Text("Free Practice 1")
-        .typography(type: .subHeader (color: .F1Stats.systemDark))
+        .typography(type: .subHeader (color: .F1Stats.appDark))
       if let date = viewModel.raceModel.firstPractice?.timeAsString() {
         Spacer().frame(height: 4)
         Text(date)
           .multilineTextAlignment(.center)
-          .typography(type: .body(color: .F1Stats.systemDark))
+          .typography(type: .body(color: .F1Stats.appDark))
       }
     }
   }
@@ -156,12 +158,12 @@ struct RaceView: View {
   var practice2: some View {
     VStack {
       Text("Free Practice 2")
-        .typography(type: .subHeader (color: .F1Stats.systemDark))
+        .typography(type: .subHeader (color: .F1Stats.appDark))
       if let date = viewModel.raceModel.secondPractice?.timeAsString() {
         Spacer().frame(height: 4)
         Text(date)
           .multilineTextAlignment(.center)
-          .typography(type: .body(color: .F1Stats.systemDark))
+          .typography(type: .body(color: .F1Stats.appDark))
       }
     }
   }
@@ -169,12 +171,12 @@ struct RaceView: View {
   var practice3: some View {
     VStack {
       Text("Free Practice 3")
-        .typography(type: .subHeader (color: .F1Stats.systemDark))
+        .typography(type: .subHeader (color: .F1Stats.appDark))
       if let date = viewModel.raceModel.thirdPractice?.timeAsString() {
         Spacer().frame(height: 4)
         Text(date)
           .multilineTextAlignment(.center)
-          .typography(type: .body(color: .F1Stats.systemDark))
+          .typography(type: .body(color: .F1Stats.appDark))
       }
     }
   }
@@ -187,7 +189,7 @@ struct RaceView: View {
         Spacer().frame(height: 4)
         Text(date)
           .multilineTextAlignment(.center)
-          .typography(type: .body(color: .F1Stats.systemDark))
+          .typography(type: .body(color: .F1Stats.appDark))
       }
     }
   }
@@ -200,7 +202,7 @@ struct RaceView: View {
         Spacer().frame(height: 4)
         Text(date)
           .multilineTextAlignment(.center)
-          .typography(type: .body(color: .F1Stats.systemDark))
+          .typography(type: .body(color: .F1Stats.appDark))
       }
 
       if viewModel.raceModel.isFinished() {
@@ -215,7 +217,7 @@ struct RaceView: View {
 fileprivate extension View {
   func raceTicket() -> some View {
     self
-      .modifier(TicketView(cornerRadius: 12, fill: .F1Stats.systemYellow))
+      .modifier(TicketView(cornerRadius: 12, fill: .F1Stats.appYellow))
       .overlay(
         RoundedRectangle(cornerRadius: 8)
           .strokeBorder(Color.F1Stats.primary, lineWidth: 4)

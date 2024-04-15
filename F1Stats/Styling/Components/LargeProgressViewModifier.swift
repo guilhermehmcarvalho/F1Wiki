@@ -10,7 +10,7 @@ import SwiftUI
 struct LargeProgressView: ViewModifier {
   let tint: Color
 
-  init(tint: Color = .F1Stats.systemLight) {
+  init(tint: Color = .F1Stats.appWhite) {
     self.tint = tint
   }
 

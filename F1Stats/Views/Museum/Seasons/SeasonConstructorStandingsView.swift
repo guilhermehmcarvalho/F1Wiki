@@ -55,12 +55,12 @@ struct SeasonConstructorStandingsView: View {
 
           if (viewModel.fetchStatus == .ongoing) {
             ProgressView()
-              .tint(.F1Stats.systemLight)
+              .tint(.F1Stats.appWhite)
           }
         }
         .padding(.vertical(8))
         .frame(maxWidth: .infinity)
-        .background(Color.F1Stats.systemWhite.opacity(0.1))
+        .background(Color.F1Stats.appWhite.opacity(0.1))
       },
       label: {
         Text("Constructor standings")
@@ -72,7 +72,7 @@ struct SeasonConstructorStandingsView: View {
       CustomDisclosureGroupStyle(onTap: viewModel.onTap(isExpanded:))
     )
     .listRowBackground(
-      Color.F1Stats.systemDarkSecondary
+      Color.F1Stats.appDarkSecondary
     )
   }
 }

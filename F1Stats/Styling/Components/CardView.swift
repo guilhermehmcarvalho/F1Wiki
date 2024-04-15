@@ -11,7 +11,7 @@ import SwiftUI
 struct CardView: ViewModifier {
   let fill: Color
 
-  init(fill: Color = .white) {
+  init(fill: Color = .F1Stats.appWhite) {
     self.fill = fill
   }
 

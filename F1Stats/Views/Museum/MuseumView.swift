@@ -14,7 +14,7 @@ struct MuseumView: View {
   var body: some View {
     ZStack {
       
-      Color.F1Stats.systemDark.ignoresSafeArea()
+      Color.F1Stats.appDark.ignoresSafeArea()
       
       VStack {
         tabButtons
@@ -38,13 +38,14 @@ struct MuseumView: View {
     HStack(alignment: .center, spacing: 0) {
       ForEach(Array(viewModel.tabItems.enumerated()), id: \.offset) { index, item in
         ZStack {
-          Color(Color.F1Stats.systemWhite.opacity(0.5))
+          Color(Color.F1Stats.appWhite.opacity(0.5))
             .cornerRadius(5)
 
           Text(item)
-            .typography(type: .body(color: viewModel.selectedTab == index ? .accentColor : .F1Stats.systemDark))
+            .typography(type: .body(color: .F1Stats.appWhite))
             .padding(.all(4))
         }
+        .opacity(viewModel.selectedTab == index ? 1 : 0.5)
         .frame(minWidth: 0, maxWidth: .infinity)
         .onTapGesture { viewModel.selectedTab = index }
         .tag(index)

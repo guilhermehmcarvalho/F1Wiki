@@ -9,10 +9,10 @@ import Foundation
 import SwiftUI
 
 enum TypographyStyle {
-  case small(color: Color = .F1Stats.systemLight)
-  case body(color: Color = .F1Stats.systemLight)
-  case heading(color: Color = .F1Stats.systemLight)
-  case subHeader(color: Color = .F1Stats.systemLight)
+  case small(color: Color = .F1Stats.appWhite)
+  case body(color: Color = .F1Stats.appWhite)
+  case heading(color: Color = .F1Stats.appWhite)
+  case subHeader(color: Color = .F1Stats.appWhite)
 
   public var size: CGFloat {
     switch self {

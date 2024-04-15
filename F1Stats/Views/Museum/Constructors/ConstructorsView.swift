@@ -29,7 +29,7 @@ struct ConstructorsView: View {
         }
       }
       .listRowSeparator(.automatic)
-      .listRowSeparatorTint(.F1Stats.systemWhite)
+      .listRowSeparatorTint(.F1Stats.appWhite)
       .scrollContentBackground(.hidden)
       .navigationTitle("Constructors")
       .onAppear(perform: {

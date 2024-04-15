@@ -20,13 +20,13 @@ struct CustomDisclosureGroupStyle: DisclosureGroupStyle {
       configuration.label
       Spacer()
       Image(systemName: "chevron.right")
-        .foregroundColor(.F1Stats.systemLight)
+        .foregroundColor(.F1Stats.appWhite)
         .rotationEffect(.degrees(configuration.isExpanded ? 90 : 0))
     }
     .padding(.horizontal(16))
     .frame(maxWidth: .infinity)
     .listRowSeparator(configuration.isExpanded ? .hidden : .automatic)
-    .listRowSeparatorTint(.F1Stats.systemLight)
+    .listRowSeparatorTint(.F1Stats.appWhite)
     .contentShape(Rectangle())
     .onTapGesture {
       withAnimation {

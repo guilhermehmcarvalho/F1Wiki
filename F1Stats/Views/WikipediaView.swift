@@ -30,7 +30,7 @@ struct WikipediaView: View {
     VStack {
       if viewModel.fetchStatus == .ongoing {
         ProgressView()
-          .tint(.F1Stats.systemLight)
+          .tint(.F1Stats.appWhite)
       }
       else if let summaryModel = viewModel.summaryModel {
         VStack(spacing: 0) {

@@ -39,7 +39,7 @@ struct SeasonRowView: View {
       }
     }
     .frame(maxWidth: .infinity)
-    .background(Color.F1Stats.systemWhite.opacity(0.1))
+    .background(Color.F1Stats.appWhite.opacity(0.1))
   }
 
   var body: some View {
@@ -52,7 +52,7 @@ struct SeasonRowView: View {
       CustomDisclosureGroupStyle()
     )
     .listRowBackground(
-      Color.F1Stats.systemDarkSecondary
+      Color.F1Stats.appDarkSecondary
     )
   }
 }

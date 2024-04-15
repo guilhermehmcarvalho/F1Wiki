@@ -29,7 +29,7 @@ struct DriversView: View {
         }
       }
       .listRowSeparator(.automatic)
-      .listRowSeparatorTint(.F1Stats.systemWhite)
+      .listRowSeparatorTint(.F1Stats.appWhite)
       .scrollContentBackground(.hidden)
       .onAppear(perform: {
         viewModel.fetchDrivers()
