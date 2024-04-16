@@ -7,7 +7,6 @@
 
 import Foundation
 import SwiftUI
-import CachedAsyncImage
 
 struct WikipediaView: View {
   @ObservedObject var viewModel: WikipediaViewModel
