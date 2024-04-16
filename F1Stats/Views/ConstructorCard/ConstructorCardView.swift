@@ -19,7 +19,8 @@ struct ConstructorCardView: View {
       VStack {
         if let summaryModel = viewModel.summaryModel {
           mainCardView(summary: summaryModel)
-            .padding(16)
+            .scalingTransition()
+            .padding(.horizontal(16))
         } else if viewModel.fetchSummaryStatus == .ongoing {
           ProgressView()
             .tint(.F1Stats.appWhite)
@@ -27,7 +28,8 @@ struct ConstructorCardView: View {
 
         if let standingLists = viewModel.standingLists {
           ConstructorStandingsCard(standingLists: standingLists)
-            .padding(16)
+            .scalingTransition()
+            .padding(.horizontal(16))
         } else if viewModel.fetchStandingsStatus == .ongoing {
           ProgressView()
             .tint(.F1Stats.appWhite)

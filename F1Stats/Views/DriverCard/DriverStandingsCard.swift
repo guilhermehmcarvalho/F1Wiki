@@ -18,13 +18,13 @@ struct DriverStandingsCard: View {
           .padding(EdgeInsets(top: 8, leading: 0, bottom: 0, trailing: 0))
         
         VStack(alignment: .leading) {
-          HStack(alignment: .firstTextBaseline) {
+          HStack(alignment: .center) {
             Text("Pos")
               .typography(type: .body(color: .F1Stats.appDark))
               .frame(width: 30)
             Text("Wins")
               .typography(type: .body(color: .F1Stats.appDark))
-              .frame(width: 50)
+              .frame(width: 45)
             Text("Points")
               .typography(type: .body(color: .F1Stats.appDark))
               .frame(width: 50)
@@ -43,7 +43,7 @@ struct DriverStandingsCard: View {
                   .frame(width: 30)
                 Text(standing.wins)
                   .typography(type: .small(color: .F1Stats.appDark))
-                  .frame(width: 50)
+                  .frame(width: 45)
                 Text(standing.points)
                   .typography(type: .small(color: .F1Stats.appDark))
                   .frame(width: 50)

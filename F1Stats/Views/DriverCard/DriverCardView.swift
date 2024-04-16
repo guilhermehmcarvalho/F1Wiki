@@ -23,14 +23,17 @@ struct DriverCardView: View {
       } else if let summary = viewModel.summaryModel {
         mainCardView(summary: summary)
           .padding(.all(16))
+          .scalingTransition()
 
         DriverBioCard(bio: summary.extract)
           .padding(.all(16))
+          .scalingTransition()
       }
 
       if let standingLists = viewModel.standingLists {
         DriverStandingsCard(standingLists: standingLists)
           .padding(16)
+          .scalingTransition()
       } else if viewModel.fetchStandingsStatus == .ongoing {
         ProgressView()
           .tint(.F1Stats.appWhite)

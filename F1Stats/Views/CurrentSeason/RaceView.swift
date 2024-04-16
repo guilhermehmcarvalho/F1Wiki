@@ -25,7 +25,7 @@ struct RaceView: View {
             .frame(maxWidth: .infinity, minHeight: geo.size.width/2)
             .makeCardView()
             .zIndex(6)
-            .ticketTransition(finalAngle: 0)
+            .twistingTransition(finalAngle: 0)
             .padding(.horizontal(16))
             .padding(.vertical(8))
 
@@ -33,7 +33,7 @@ struct RaceView: View {
             .frame(maxWidth: geo.size.width/1.5, minHeight: (geo.size.width/1.5)/1.8)
             .raceTicket()
             .zIndex(5)
-            .ticketTransition(finalAngle: -1)
+            .twistingTransition(finalAngle: -1)
             .onTapGesture(perform: viewModel.tappedRaceTicket)
             .fullScreenCover(isPresented: $viewModel.presentingRaceResults) {
               CustomSheet {
@@ -48,7 +48,7 @@ struct RaceView: View {
             .frame(maxWidth: geo.size.width/1.5, minHeight: (geo.size.width/1.5)/1.8)
             .raceTicket()
             .zIndex(4)
-            .ticketTransition(finalAngle: 1)
+            .twistingTransition(finalAngle: 1)
             .onTapGesture(perform: viewModel.tappedQualiTicket)
             .fullScreenCover(isPresented: $viewModel.presentingQualiResults) {
               CustomSheet {
@@ -63,7 +63,7 @@ struct RaceView: View {
               .frame(maxWidth: geo.size.width/1.5, minHeight: (geo.size.width/1.5)/1.8)
               .raceTicket()
               .zIndex(3)
-              .ticketTransition(finalAngle: 0)
+              .twistingTransition(finalAngle: 0)
           }
 
           if (viewModel.raceModel.sprint != nil) {
@@ -71,20 +71,20 @@ struct RaceView: View {
               .frame(maxWidth: geo.size.width/1.5, minHeight: (geo.size.width/1.5)/1.8)
               .raceTicket()
               .zIndex(2)
-              .ticketTransition(finalAngle: 0)
+              .twistingTransition(finalAngle: 0)
           }
 
           practice2
             .frame(maxWidth: geo.size.width/1.5, minHeight: (geo.size.width/1.5)/1.8)
             .raceTicket()
             .zIndex(1)
-            .ticketTransition(finalAngle: -2)
+            .twistingTransition(finalAngle: -2)
 
           practice1
             .frame(maxWidth: geo.size.width/1.5, minHeight: (geo.size.width/1.5)/1.8)
             .raceTicket()
             .zIndex(0)
-            .ticketTransition(finalAngle: 2)
+            .twistingTransition(finalAngle: 2)
         }
         .safeAreaPadding()
       }
@@ -222,14 +222,5 @@ fileprivate extension View {
           .strokeBorder(Color.F1Stats.primary, lineWidth: 4)
           .padding(12)
       )
-  }
-
-  func ticketTransition(startingAngle: Double = Double.random(in: -10..<10), finalAngle: Double = -4) -> some View {
-    return self
-      .scrollTransition { content, phase in
-        content
-          .scaleEffect(phase.isIdentity ? 1.0 : 0.5)
-          .rotationEffect(phase.isIdentity ? Angle(degrees: finalAngle) : Angle(degrees: startingAngle))
-      }
   }
 }

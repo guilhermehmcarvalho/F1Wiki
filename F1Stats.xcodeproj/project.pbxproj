@@ -27,6 +27,7 @@
 		144B939F2BCE5F2E004ADC34 /* ConstructorStandingsCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144B939E2BCE5F2E004ADC34 /* ConstructorStandingsCard.swift */; };
 		144B93A32BCE6B77004ADC34 /* DriverStandingsCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144B93A22BCE6B77004ADC34 /* DriverStandingsCard.swift */; };
 		144B93A52BCE7408004ADC34 /* DriverBioCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144B93A42BCE7408004ADC34 /* DriverBioCard.swift */; };
+		144B93A72BCE79CE004ADC34 /* Transitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144B93A62BCE79CE004ADC34 /* Transitions.swift */; };
 		1457478A2BC900300074823A /* QualiResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145747892BC900300074823A /* QualiResultsView.swift */; };
 		1457478C2BC9078D0074823A /* EventProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1457478B2BC9078D0074823A /* EventProtocol.swift */; };
 		148081DB2BBD28CA00A9A33F /* Extension+Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148081DA2BBD28CA00A9A33F /* Extension+Colors.swift */; };
@@ -159,6 +160,7 @@
 		144B939E2BCE5F2E004ADC34 /* ConstructorStandingsCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructorStandingsCard.swift; sourceTree = "<group>"; };
 		144B93A22BCE6B77004ADC34 /* DriverStandingsCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverStandingsCard.swift; sourceTree = "<group>"; };
 		144B93A42BCE7408004ADC34 /* DriverBioCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverBioCard.swift; sourceTree = "<group>"; };
+		144B93A62BCE79CE004ADC34 /* Transitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transitions.swift; sourceTree = "<group>"; };
 		145747892BC900300074823A /* QualiResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QualiResultsView.swift; sourceTree = "<group>"; };
 		1457478B2BC9078D0074823A /* EventProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventProtocol.swift; sourceTree = "<group>"; };
 		148081DA2BBD28CA00A9A33F /* Extension+Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Colors.swift"; sourceTree = "<group>"; };
@@ -414,6 +416,7 @@
 				14920FEE2BBE9CE000359497 /* Components */,
 				1426323F2BBC80BD00A0A68A /* DesignLanguageSystem.swift */,
 				14C146A82BC7F549001F7F35 /* BackgroundClearView.swift */,
+				144B93A62BCE79CE004ADC34 /* Transitions.swift */,
 			);
 			path = Styling;
 			sourceTree = "<group>";
@@ -922,6 +925,7 @@
 				144B939F2BCE5F2E004ADC34 /* ConstructorStandingsCard.swift in Sources */,
 				14C146942BC7040B001F7F35 /* QualifyingResult.swift in Sources */,
 				144B939D2BCDB2C1004ADC34 /* CachedAsyncImage.swift in Sources */,
+				144B93A72BCE79CE004ADC34 /* Transitions.swift in Sources */,
 				14E6E5A22BC47F93001DF1D2 /* RaceViewModel.swift in Sources */,
 				149210642BC1A83100359497 /* SeasonConstructorStandingsViewModel.swift in Sources */,
 				14920FF22BBEA65D00359497 /* ConstructorModel.swift in Sources */,
