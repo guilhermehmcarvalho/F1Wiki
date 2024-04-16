@@ -32,11 +32,10 @@ struct ConstructorCardView: View {
         VStack {
           if let image = viewModel.image {
             Image(uiImage: image)
-            //          ImageWidget(imageString: summary.originalimage?.source ?? viewModel.mediaItems?.first?.srcset.last?.link)
               .resizable()
+              .scaledToFit()
               .padding(16)
-              .fixedSize(horizontal: true, vertical: false)
-              .frame(maxHeight: 380)
+              .frame(maxHeight: 300)
               .clipped()
           }
 
