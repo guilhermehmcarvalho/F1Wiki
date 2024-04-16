@@ -8,48 +8,26 @@
 import SwiftUI
 
 struct ConstructorRowView: View {
-  @ObservedObject var viewModel: ConstructorRowViewModel
-
-  init(viewModel: ConstructorRowViewModel) {
-    self.viewModel = viewModel
-  }
-
-  var label: some View {
-    VStack(alignment: .leading, spacing: 0) {
-      HStack(alignment: .firstTextBaseline, spacing: 4) {
-        Text(viewModel.constructor.name)
-          .textCase(.uppercase)
-          .typography(type: .heading())
-        Spacer()
-      }
-      Text(viewModel.constructor.nationality)
-        .typography(type: .small())
-    }
-  }
-
-  var content: some View {
-    VStack {
-      WikipediaView(viewModel: viewModel.wikipediaViewModel)
-        .padding(.vertical(8))
-      ConstructorStandingsRowView(viewModel: viewModel.constructorStandingsRowViewModel)
-        .padding(.vertical(8))
-    }
-    .frame(maxWidth: .infinity)
-    .background(Color.F1Stats.appWhite.opacity(0.1))
-  }
+  
+  let constructor: ConstructorModel
 
   var body: some View {
-    DisclosureGroup(
-      content: { self.content },
-      label: { self.label }
-    )
-    .listRowInsets(.all(0))
-    .disclosureGroupStyle(
-      CustomDisclosureGroupStyle()
-    )
+    HStack {
+      VStack(alignment: .leading, spacing: 0) {
+        HStack(alignment: .firstTextBaseline, spacing: 4) {
+          Text(constructor.name)
+            .textCase(.uppercase)
+            .typography(type: .heading(color: .F1Stats.primary))
+        }
+        Text(constructor.nationality)
+          .typography(type: .small(color: .F1Stats.appDark))
+      }
+      Spacer()
+      Image(systemName: "chevron.right")
+        .foregroundColor(.F1Stats.appDark)
+    }
     .listRowBackground(
-      Color.F1Stats.appDarkSecondary
+      Color.F1Stats.appWhite
     )
   }
-
 }

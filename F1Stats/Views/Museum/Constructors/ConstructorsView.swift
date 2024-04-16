@@ -14,7 +14,8 @@ struct ConstructorsView: View {
     ZStack {
       List {
         ForEach(viewModel.constructorsList) { constructor in
-          ConstructorRowView(viewModel: viewModel.viewModel(for: constructor))
+          ConstructorRowView(constructor: constructor)
+            .modifier(ConstructorCardDisplayer(constructor: constructor))
             .padding(.vertical(4))
             .onAppear() {
               viewModel.onItemDisplayed(currentItem: constructor)

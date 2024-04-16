@@ -62,10 +62,4 @@ class ConstructorsViewModel: ObservableObject {
       fetchConstructors()
     }
   }
-
-  func viewModel(for constructor: ConstructorModel) -> ConstructorRowViewModel {
-    ConstructorRowViewModel(constructor: constructor,
-                            wikipediaApi: wikipediaAPI,
-                            apiConstructor: apiConstructors)
-  }
 }
