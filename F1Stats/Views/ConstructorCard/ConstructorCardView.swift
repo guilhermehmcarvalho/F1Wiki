@@ -15,63 +15,70 @@ struct ConstructorCardView: View {
   }
 
   var body: some View {
-    mainCardView
+    ScrollView {
+      VStack {
+        if viewModel.fetchStatus == .ongoing {
+          ProgressView()
+            .tint(.F1Stats.appWhite)
+        }
+        
+        if let summaryModel = viewModel.summaryModel {
+          mainCardView(summary: summaryModel)
+            .padding(16)
+        }
+        
+        if let standingLists = viewModel.standingLists {
+          ConstructorStandingsCard(standingLists: standingLists)
+            .padding(16)
+        }
+      }
       .safeAreaPadding(.top)
-    .onAppear(perform: viewModel.fetchSummary)
-    .onAppear(perform: viewModel.fetchStandings)
+      .onAppear(perform: viewModel.fetchSummary)
+      .onAppear(perform: viewModel.fetchStandings)
+    }
   }
 
-  var mainCardView: some View {
+  func mainCardView(summary: WikipediaSummaryModel) -> some View {
     VStack {
-      if viewModel.fetchStatus == .ongoing {
-        ProgressView()
-          .tint(.F1Stats.appWhite)
+      if let image = viewModel.image {
+        Image(uiImage: image)
+          .resizable()
+          .scaledToFit()
+          .padding(.top)
+          .padding(.horizontal(16))
+          .frame(maxHeight: 250)
+          .clipped()
       }
 
-      if let summary = viewModel.summaryModel {
-        VStack {
-          if let image = viewModel.image {
-            Image(uiImage: image)
-              .resizable()
-              .scaledToFit()
-              .padding(16)
-              .frame(maxHeight: 300)
-              .clipped()
-          }
+      title(summary.title)
 
-          title(summary.title)
+      Text(summary.extract)
+        .padding(16)
+        .typography(type: .body(color: .F1Stats.appDark))
+        .multilineTextAlignment(.center)
+        .fixedSize(horizontal: false, vertical: true)
 
-          Text(summary.extract)
-            .padding(16)
-            .typography(type: .body(color: .F1Stats.appDark))
-            .multilineTextAlignment(.center)
-            .fixedSize(horizontal: false, vertical: true)
-
-          stats
-            .padding(.horizontal(8))
+      stats
+        .padding(.horizontal(8))
 
 
-          Text("*Since 1958")
-            .typography(type: .small(color: .F1Stats.appDark))
-            .padding(.bottom)
-        }
-        .background(Color.F1Stats.appWhite)
-        .overlay(
-          RoundedRectangle(cornerRadius: 16)
-            .stroke(Color.F1Stats.appWhite, lineWidth: 16)
-        )
-        .overlay(
-          RoundedRectangle(cornerRadius: 8)
-            .stroke(Color.F1Stats.primary, lineWidth: 4)
-            .padding(8)
-        )
-        .overlay(
-          Color.F1Stats.appYellow.opacity(0.1)
-        )
-        .padding(.all(16))
-
-      }
+      Text("*Since 1958")
+        .typography(type: .small(color: .F1Stats.appDark))
+        .padding(.bottom)
     }
+    .background(Color.F1Stats.appWhite)
+    .overlay(
+      RoundedRectangle(cornerRadius: 16)
+        .stroke(Color.F1Stats.appWhite, lineWidth: 16)
+    )
+    .overlay(
+      RoundedRectangle(cornerRadius: 8)
+        .stroke(Color.F1Stats.primary, lineWidth: 4)
+        .padding(8)
+    )
+    .overlay(
+      Color.F1Stats.appYellow.opacity(0.1)
+    )
   }
 
   var stats: some View {

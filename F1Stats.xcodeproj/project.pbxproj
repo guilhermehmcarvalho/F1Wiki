@@ -24,6 +24,7 @@
 		144B93992BCD7C19004ADC34 /* ConstructorCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144B93982BCD7C19004ADC34 /* ConstructorCardViewModel.swift */; };
 		144B939B2BCD7E9C004ADC34 /* ConstructorCardDisplayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144B939A2BCD7E9C004ADC34 /* ConstructorCardDisplayer.swift */; };
 		144B939D2BCDB2C1004ADC34 /* CachedAsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144B939C2BCDB2C1004ADC34 /* CachedAsyncImage.swift */; };
+		144B939F2BCE5F2E004ADC34 /* ConstructorStandingsCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144B939E2BCE5F2E004ADC34 /* ConstructorStandingsCard.swift */; };
 		1457478A2BC900300074823A /* QualiResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145747892BC900300074823A /* QualiResultsView.swift */; };
 		1457478C2BC9078D0074823A /* EventProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1457478B2BC9078D0074823A /* EventProtocol.swift */; };
 		148081DB2BBD28CA00A9A33F /* Extension+Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148081DA2BBD28CA00A9A33F /* Extension+Colors.swift */; };
@@ -153,6 +154,7 @@
 		144B93982BCD7C19004ADC34 /* ConstructorCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructorCardViewModel.swift; sourceTree = "<group>"; };
 		144B939A2BCD7E9C004ADC34 /* ConstructorCardDisplayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructorCardDisplayer.swift; sourceTree = "<group>"; };
 		144B939C2BCDB2C1004ADC34 /* CachedAsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedAsyncImage.swift; sourceTree = "<group>"; };
+		144B939E2BCE5F2E004ADC34 /* ConstructorStandingsCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructorStandingsCard.swift; sourceTree = "<group>"; };
 		145747892BC900300074823A /* QualiResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QualiResultsView.swift; sourceTree = "<group>"; };
 		1457478B2BC9078D0074823A /* EventProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventProtocol.swift; sourceTree = "<group>"; };
 		148081DA2BBD28CA00A9A33F /* Extension+Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Colors.swift"; sourceTree = "<group>"; };
@@ -395,6 +397,7 @@
 			children = (
 				144B93962BCD7C04004ADC34 /* ConstructorCardView.swift */,
 				144B939A2BCD7E9C004ADC34 /* ConstructorCardDisplayer.swift */,
+				144B939E2BCE5F2E004ADC34 /* ConstructorStandingsCard.swift */,
 			);
 			path = ConstructorCard;
 			sourceTree = "<group>";
@@ -908,6 +911,7 @@
 				144B93932BCD5CCA004ADC34 /* DriverCardDisplayer.swift in Sources */,
 				149210432BC0734A00359497 /* APISeasons.swift in Sources */,
 				141465602BCADB2E003EF647 /* MuseumView.swift in Sources */,
+				144B939F2BCE5F2E004ADC34 /* ConstructorStandingsCard.swift in Sources */,
 				14C146942BC7040B001F7F35 /* QualifyingResult.swift in Sources */,
 				144B939D2BCDB2C1004ADC34 /* CachedAsyncImage.swift in Sources */,
 				14E6E5A22BC47F93001DF1D2 /* RaceViewModel.swift in Sources */,
