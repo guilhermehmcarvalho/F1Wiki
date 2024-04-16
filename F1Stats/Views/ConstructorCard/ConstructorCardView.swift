@@ -25,7 +25,7 @@ struct ConstructorCardView: View {
             .tint(.F1Stats.appWhite)
         }
 
-        if let standingLists = viewModel.standingLists {
+        if let standingLists = viewModel.standingLists, standingLists.isEmpty == false {
           ConstructorStandingsCard(standingLists: standingLists)
             .scalingTransition()
             .padding(.horizontal(16))
@@ -41,6 +41,11 @@ struct ConstructorCardView: View {
 
   func mainCardView(summary: WikipediaSummaryModel) -> some View {
     VStack {
+      if viewModel.isLoadingImage {
+        ProgressView()
+          .tint(.F1Stats.primary)
+          .padding(32)
+      }
       if let image = viewModel.image {
         Image(uiImage: image)
           .resizable()
@@ -49,12 +54,12 @@ struct ConstructorCardView: View {
           .padding(.horizontal(16))
           .frame(maxHeight: 250)
           .clipped()
-      } else if viewModel.isLoadingImage {
-        ProgressView()
-          .tint(.F1Stats.primary)
-      }
 
-      title(summary.title)
+        title(summary.title)
+      } else {
+        title(summary.title)
+          .padding(EdgeInsets(top: 4, leading: 0, bottom: 0, trailing: 0))
+      }
 
       Text(summary.extract)
         .padding(16)

@@ -30,7 +30,7 @@ struct DriverCardView: View {
           .scalingTransition()
       }
 
-      if let standingLists = viewModel.standingLists {
+      if let standingLists = viewModel.standingLists, standingLists.isEmpty == false {
         DriverStandingsCard(standingLists: standingLists)
           .padding(16)
           .scalingTransition()

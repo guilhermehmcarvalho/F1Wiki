@@ -24,7 +24,13 @@ class ConstructorCardViewModel: ObservableObject {
   @Published var wins: Int?
   @Published var championships: Int?
   @Published var seasons: Int?
-  @Published var image: UIImage?
+  @Published var image: UIImage? {
+    didSet {
+      if image != nil {
+        isLoadingImage = false
+      }
+    }
+  }
   @Published var isLoadingImage = false
   private var loader: ImageLoader?
   private var mediaItems: [MediaItem]?
@@ -66,6 +72,8 @@ class ConstructorCardViewModel: ObservableObject {
         if let imageString = self?.mediaItems?.first?.srcset.last?.link,
             let imageUrl = URL(string: imageString) {
           self?.loadImage(imageUrl: imageUrl)
+        } else {
+          self?.isLoadingImage = false
         }
       }
       .store(in: &subscriptions)
@@ -80,7 +88,6 @@ class ConstructorCardViewModel: ObservableObject {
     }, receiveValue: { image in
       self.image = image
       self.objectWillChange.send()
-      self.isLoadingImage = false
     })
     .store(in: &subscriptions)
   }
