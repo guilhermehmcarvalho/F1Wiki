@@ -17,19 +17,20 @@ struct ConstructorCardView: View {
   var body: some View {
     ScrollView {
       VStack {
-        if viewModel.fetchStatus == .ongoing {
-          ProgressView()
-            .tint(.F1Stats.appWhite)
-        }
-        
         if let summaryModel = viewModel.summaryModel {
           mainCardView(summary: summaryModel)
             .padding(16)
+        } else if viewModel.fetchSummaryStatus == .ongoing {
+          ProgressView()
+            .tint(.F1Stats.appWhite)
         }
-        
+
         if let standingLists = viewModel.standingLists {
           ConstructorStandingsCard(standingLists: standingLists)
             .padding(16)
+        } else if viewModel.fetchStandingsStatus == .ongoing {
+          ProgressView()
+            .tint(.F1Stats.appWhite)
         }
       }
       .safeAreaPadding(.top)
@@ -48,6 +49,9 @@ struct ConstructorCardView: View {
           .padding(.horizontal(16))
           .frame(maxHeight: 250)
           .clipped()
+      } else if viewModel.isLoadingImage {
+        ProgressView()
+          .tint(.F1Stats.primary)
       }
 
       title(summary.title)
@@ -58,13 +62,13 @@ struct ConstructorCardView: View {
         .multilineTextAlignment(.center)
         .fixedSize(horizontal: false, vertical: true)
 
-      stats
-        .padding(.horizontal(8))
-
-
-      Text("*Since 1958")
-        .typography(type: .small(color: .F1Stats.appDark))
-        .padding(.bottom)
+      if viewModel.standingLists != nil {
+        stats.padding(.horizontal(8))
+      } else if viewModel.fetchStandingsStatus == .ongoing {
+        ProgressView()
+          .tint(.F1Stats.primary)
+          .padding(32)
+      }
     }
     .background(Color.F1Stats.appWhite)
     .overlay(
@@ -82,7 +86,8 @@ struct ConstructorCardView: View {
   }
 
   var stats: some View {
-    HStack(alignment: .firstTextBaseline, spacing: 8) {
+    VStack {
+      HStack(alignment: .firstTextBaseline, spacing: 8) {
         VStack(alignment: .trailing) {
           Text("Nationality:")
           if let championships = viewModel.championships, championships > 0 {
@@ -111,6 +116,10 @@ struct ConstructorCardView: View {
         }
         .typography(type: .body(color: Color.F1Stats.appDark))
       }
+      Text("*Since 1958")
+        .typography(type: .small(color: .F1Stats.appDark))
+        .padding(.bottom)
+    }
   }
 
   func title(_ title: String) -> some View {
@@ -130,5 +139,5 @@ struct ConstructorCardView: View {
 #Preview {
   ConstructorCardView(viewModel: ConstructorCardViewModel(constructor: ConstructorModel.stub,
                                                           wikipediaApi: WikipediaAPI(baseURL: Config.wikipediaURL),
-                                                          apiConstructor: APIConstructorsStub()))
+                                                          apiConstructor: APIConstructorsStub(delay: 2)))
 }

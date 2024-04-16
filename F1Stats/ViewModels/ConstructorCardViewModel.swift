@@ -17,7 +17,10 @@ class ConstructorCardViewModel: ObservableObject {
 
   @Published var summaryModel: WikipediaSummaryModel?
 //  @Published var mediaList: WikiCommonsMedia?
-  @Published var fetchStatus: FetchStatus = .ready
+  @Published var fetchStandingsStatus: FetchStatus = .ready
+  @Published var fetchSummaryStatus: FetchStatus = .ready
+  @Published var fetchImageStatus: FetchStatus = .ready
+  @Published var isLoadingImage = false
   @Published var standingLists: [StandingsList]?
   @Published var wins: Int?
   @Published var championships: Int?
@@ -26,7 +29,8 @@ class ConstructorCardViewModel: ObservableObject {
   private var loader: ImageLoader?
   private var mediaItems: [MediaItem]?
 
-  private(set) var fetchStatusSubject = PassthroughSubject<FetchStatus, Never>()
+  private(set) var fetchSummaryStatusSubject = PassthroughSubject<FetchStatus, Never>()
+  private(set) var fetchStandingsStatusSubject = PassthroughSubject<FetchStatus, Never>()
 
   private var subscriptions = Set<AnyCancellable>()
 
@@ -37,19 +41,19 @@ class ConstructorCardViewModel: ObservableObject {
     self.apiConstructor = apiConstructor
     self.constructor = constructor
 
-    fetchStatusSubject
+    fetchStandingsStatusSubject
       .receive(on: DispatchQueue.main)
-      .assign(to: &$fetchStatus)
-  }
+      .assign(to: &$fetchStandingsStatus)
 
-  private func fetchImage(url: String, failed: () -> Void) -> Void {
-    
+    fetchSummaryStatusSubject
+      .receive(on: DispatchQueue.main)
+      .assign(to: &$fetchSummaryStatus)
   }
 
   internal func fetchMedia() -> Void {
     guard mediaItems == nil else { return }
+    isLoadingImage = true
     wikipediaApi.getMediaList(forUrl: constructor.url)
-      .observeFetchStatus(with: fetchStatusSubject)
       .receive(on: DispatchQueue.main)
       .sink { status in
         switch status {
@@ -68,11 +72,15 @@ class ConstructorCardViewModel: ObservableObject {
   }
 
   private func loadImage(imageUrl: URL) {
+    self.isLoadingImage = true
     self.loader = ImageLoader(url: imageUrl)
     self.loader?.load()
-    self.loader?.$image.sink(receiveValue: { image in
+    self.loader?.$image.sink(receiveCompletion: { [weak self] _ in
+      self?.isLoadingImage = false
+    }, receiveValue: { image in
       self.image = image
       self.objectWillChange.send()
+      self.isLoadingImage = false
     })
     .store(in: &subscriptions)
   }
@@ -80,7 +88,7 @@ class ConstructorCardViewModel: ObservableObject {
   internal func fetchSummary() -> Void {
     guard summaryModel == nil else { return }
     wikipediaApi.getSummaryFor(url: constructor.url)
-      .observeFetchStatus(with: fetchStatusSubject)
+      .observeFetchStatus(with: fetchSummaryStatusSubject)
       .receive(on: DispatchQueue.main)
       .sink { status in
         switch status {
@@ -93,7 +101,7 @@ class ConstructorCardViewModel: ObservableObject {
         if let imageString = response.originalimage?.source, let imageUrl = URL(string: imageString) {
           self?.loadImage(imageUrl: imageUrl)
         } else {
-          // if there is no thumbnail for any reason (happens with svgs eventually) fetch mode media
+          // if there is no thumbnail for any reason (happens with svgs eventually) fetch more media
           self?.fetchMedia()
         }
       }
@@ -102,7 +110,7 @@ class ConstructorCardViewModel: ObservableObject {
 
   internal func fetchStandings() {
     apiConstructor.listOfConstructorStandings(constructorId: constructor.constructorID)
-      .observeFetchStatus(with: fetchStatusSubject)
+      .observeFetchStatus(with: fetchStandingsStatusSubject)
       .receive(on: DispatchQueue.main)
       .sink { status in
         switch status {
