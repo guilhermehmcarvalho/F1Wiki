@@ -16,7 +16,7 @@ struct DriverCardView: View {
   }
 
   var body: some View {
-    ScrollView {
+    VStack {
       if viewModel.fetchSummaryStatus == .ongoing || viewModel.isLoadingImage {
         ProgressView()
           .tint(.F1Stats.appWhite)

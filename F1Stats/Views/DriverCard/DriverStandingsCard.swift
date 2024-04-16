@@ -12,68 +12,66 @@ struct DriverStandingsCard: View {
   let standingLists: [StandingsList]
 
   var body: some View {
-    ScrollView {
-      VStack {
-        title("Standings")
-          .padding(EdgeInsets(top: 8, leading: 0, bottom: 0, trailing: 0))
+    VStack {
+      title("Standings")
+        .padding(EdgeInsets(top: 8, leading: 0, bottom: 0, trailing: 0))
+      
+      VStack(alignment: .leading) {
+        HStack(alignment: .center) {
+          Text("Pos")
+            .typography(type: .body(color: .F1Stats.appDark))
+            .frame(width: 30)
+          Text("Wins")
+            .typography(type: .body(color: .F1Stats.appDark))
+            .frame(width: 45)
+          Text("Points")
+            .typography(type: .body(color: .F1Stats.appDark))
+            .frame(width: 50)
+          Text("Team")
+            .typography(type: .body(color: .F1Stats.appDark))
+          Spacer()
+          Text("Season")
+            .typography(type: .body(color: .F1Stats.appDark))
+        }
         
-        VStack(alignment: .leading) {
-          HStack(alignment: .center) {
-            Text("Pos")
-              .typography(type: .body(color: .F1Stats.appDark))
-              .frame(width: 30)
-            Text("Wins")
-              .typography(type: .body(color: .F1Stats.appDark))
-              .frame(width: 45)
-            Text("Points")
-              .typography(type: .body(color: .F1Stats.appDark))
-              .frame(width: 50)
-            Text("Team")
-              .typography(type: .body(color: .F1Stats.appDark))
-            Spacer()
-            Text("Season")
-              .typography(type: .body(color: .F1Stats.appDark))
-          }
-          
-          ForEach(standingLists, id: \.season) { season in
-            if let standing = season.driverStandings?.first {
-              HStack {
-                Text(standing.position)
-                  .typography(type: .small(color: .F1Stats.appDark))
-                  .frame(width: 30)
-                Text(standing.wins)
-                  .typography(type: .small(color: .F1Stats.appDark))
-                  .frame(width: 45)
-                Text(standing.points)
-                  .typography(type: .small(color: .F1Stats.appDark))
-                  .frame(width: 50)
-                Text(standing.constructorsAppended)
-                  .typography(type: .small(color: .F1Stats.appDark))
-                Spacer()
-                Text(season.season)
-                  .typography(type: .small(color: .F1Stats.appDark))
-
-              }
-              .padding(.vertical(2))
+        ForEach(standingLists, id: \.season) { season in
+          if let standing = season.driverStandings?.first {
+            HStack {
+              Text(standing.position)
+                .typography(type: .small(color: .F1Stats.appDark))
+                .frame(width: 30)
+              Text(standing.wins)
+                .typography(type: .small(color: .F1Stats.appDark))
+                .frame(width: 45)
+              Text(standing.points)
+                .typography(type: .small(color: .F1Stats.appDark))
+                .frame(width: 50)
+              Text(standing.constructorsAppended)
+                .typography(type: .small(color: .F1Stats.appDark))
+              Spacer()
+              Text(season.season)
+                .typography(type: .small(color: .F1Stats.appDark))
+              
             }
+            .padding(.vertical(2))
           }
         }
-        .padding(16)
       }
-      .background(Color.F1Stats.appWhite)
-      .overlay(
-        RoundedRectangle(cornerRadius: 16)
-          .stroke(Color.F1Stats.appWhite, lineWidth: 16)
-      )
-      .overlay(
-        RoundedRectangle(cornerRadius: 8)
-          .stroke(Color.F1Stats.primary, lineWidth: 4)
-          .padding(8)
-      )
-      .overlay(
-        Color.F1Stats.appYellow.opacity(0.1)
-      )
+      .padding(16)
     }
+    .background(Color.F1Stats.appWhite)
+    .overlay(
+      RoundedRectangle(cornerRadius: 16)
+        .stroke(Color.F1Stats.appWhite, lineWidth: 16)
+    )
+    .overlay(
+      RoundedRectangle(cornerRadius: 8)
+        .stroke(Color.F1Stats.primary, lineWidth: 4)
+        .padding(8)
+    )
+    .overlay(
+      Color.F1Stats.appYellow.opacity(0.1)
+    )
   }
 
   func title(_ title: String) -> some View {

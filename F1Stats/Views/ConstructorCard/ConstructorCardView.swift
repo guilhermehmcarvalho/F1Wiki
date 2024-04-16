@@ -15,12 +15,11 @@ struct ConstructorCardView: View {
   }
 
   var body: some View {
-    ScrollView {
       VStack {
         if let summaryModel = viewModel.summaryModel {
           mainCardView(summary: summaryModel)
             .scalingTransition()
-            .padding(.horizontal(16))
+            .padding(16)
         } else if viewModel.fetchSummaryStatus == .ongoing {
           ProgressView()
             .tint(.F1Stats.appWhite)
@@ -38,7 +37,6 @@ struct ConstructorCardView: View {
       .safeAreaPadding(.top)
       .onAppear(perform: viewModel.fetchSummary)
       .onAppear(perform: viewModel.fetchStandings)
-    }
   }
 
   func mainCardView(summary: WikipediaSummaryModel) -> some View {
