@@ -20,12 +20,12 @@ class ConstructorCardViewModel: ObservableObject {
   @Published var fetchStandingsStatus: FetchStatus = .ready
   @Published var fetchSummaryStatus: FetchStatus = .ready
   @Published var fetchImageStatus: FetchStatus = .ready
-  @Published var isLoadingImage = false
   @Published var standingLists: [StandingsList]?
   @Published var wins: Int?
   @Published var championships: Int?
   @Published var seasons: Int?
   @Published var image: UIImage?
+  @Published var isLoadingImage = false
   private var loader: ImageLoader?
   private var mediaItems: [MediaItem]?
 

@@ -16,50 +16,68 @@ struct DriverCardView: View {
   }
 
   var body: some View {
-    mainCardView
-      .safeAreaPadding(.top)
+    ScrollView {
+      if viewModel.fetchSummaryStatus == .ongoing || viewModel.isLoadingImage {
+        ProgressView()
+          .tint(.F1Stats.appWhite)
+      } else if let summary = viewModel.summaryModel {
+        mainCardView(summary: summary)
+          .padding(.all(16))
+      }
+
+      if let standingLists = viewModel.standingLists {
+        DriverStandingsCard(standingLists: standingLists)
+          .padding(16)
+      } else if viewModel.fetchStandingsStatus == .ongoing {
+        ProgressView()
+          .tint(.F1Stats.appWhite)
+      }
+    }
+    .safeAreaPadding(.top)
     .onAppear(perform: viewModel.fetchSummary)
     .onAppear(perform: viewModel.fetchStandings)
   }
 
-  var mainCardView: some View {
+  func mainCardView(summary: WikipediaSummaryModel) -> some View {
     VStack {
-      if viewModel.fetchStatus == .ongoing {
-        ProgressView()
-          .tint(.F1Stats.appWhite)
-      }
-      if let summary = viewModel.summaryModel {
-        VStack {
-          ZStack(alignment: .bottom) {
-            ImageWidget(imageString: summary.originalimage?.source)
-              .fixedSize(horizontal: false, vertical: true)
-              .frame(maxHeight: 380)
-              .clipped()
-            title(summary.title)
-              .padding(.vertical(16))
-          }
-
-          stats
-            .padding(.horizontal(8))
-            .padding(.bottom)
+      ZStack(alignment: .bottom) {
+        if let image = viewModel.image {
+          Image(uiImage: image)
+            .resizable()
+            .scaledToFill()
+            .padding(.top)
+            .frame(maxHeight: 400)
+            .clipped()
+        } else if viewModel.isLoadingImage {
+          ProgressView()
+            .tint(.F1Stats.primary)
         }
-        .background(Color.F1Stats.appWhite)
-        .overlay(
-          RoundedRectangle(cornerRadius: 16)
-            .stroke(Color.F1Stats.appWhite, lineWidth: 16)
-        )
-        .overlay(
-          RoundedRectangle(cornerRadius: 8)
-            .stroke(Color.F1Stats.primary, lineWidth: 4)
-            .padding(8)
-        )
-        .overlay(
-          Color.F1Stats.appYellow.opacity(0.1)
-        )
-        .padding(.all(16))
-
+        title(summary.title)
+          .padding(.vertical(16))
+      }
+      if viewModel.standingLists != nil {
+        stats
+          .padding(.horizontal(8))
+          .padding(.bottom)
+      } else if viewModel.fetchStandingsStatus == .ongoing {
+        ProgressView()
+          .tint(.F1Stats.primary)
+          .padding(32)
       }
     }
+    .background(Color.F1Stats.appWhite)
+    .overlay(
+      RoundedRectangle(cornerRadius: 16)
+        .stroke(Color.F1Stats.appWhite, lineWidth: 16)
+    )
+    .overlay(
+      RoundedRectangle(cornerRadius: 8)
+        .stroke(Color.F1Stats.primary, lineWidth: 4)
+        .padding(8)
+    )
+    .overlay(
+      Color.F1Stats.appYellow.opacity(0.1)
+    )
   }
 
   var stats: some View {

@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import SwiftUI
 
 class DriverCardViewModel: ObservableObject {
 
@@ -15,16 +16,20 @@ class DriverCardViewModel: ObservableObject {
   internal let driver: DriverModel
 
   @Published var summaryModel: WikipediaSummaryModel?
-//  @Published var mediaList: WikiCommonsMedia?
-  @Published var fetchStatus: FetchStatus = .ready
+  @Published var fetchSummaryStatus: FetchStatus = .ready
+  @Published var fetchStandingsStatus: FetchStatus = .ready
   @Published var standingLists: [StandingsList]?
   @Published var wins: Int?
   @Published var championships: Int?
   @Published var careerPoints: Int?
   @Published var seasons: Int?
   @Published var constructors: String?
+  @Published var image: UIImage?
+  @Published var isLoadingImage = false
+  private var loader: ImageLoader?
 
-  private(set) var fetchStatusSubject = PassthroughSubject<FetchStatus, Never>()
+  private(set) var fetchStandingsStatusSubject = PassthroughSubject<FetchStatus, Never>()
+  private(set) var fetchSummaryStatusSubject = PassthroughSubject<FetchStatus, Never>()
 
   private var subscriptions = Set<AnyCancellable>()
 
@@ -34,15 +39,20 @@ class DriverCardViewModel: ObservableObject {
     self.wikipediaApi = wikipediaApi
     self.driverApi = driverApi
     self.driver = driver
-    fetchStatusSubject
+
+    fetchStandingsStatusSubject
       .receive(on: DispatchQueue.main)
-      .assign(to: &$fetchStatus)
+      .assign(to: &$fetchStandingsStatus)
+
+    fetchSummaryStatusSubject
+      .receive(on: DispatchQueue.main)
+      .assign(to: &$fetchSummaryStatus)
   }
 
   internal func fetchSummary() -> Void {
     guard summaryModel == nil else { return }
     wikipediaApi.getSummaryFor(url: driver.url)
-      .observeFetchStatus(with: fetchStatusSubject)
+      .observeFetchStatus(with: fetchSummaryStatusSubject)
       .receive(on: DispatchQueue.main)
       .sink { status in
         switch status {
@@ -52,13 +62,30 @@ class DriverCardViewModel: ObservableObject {
         }
       } receiveValue: { [weak self] response in
         self?.summaryModel = response
+        if let imageString = response.originalimage?.source, let imageURL = URL(string: imageString) {
+          self?.loadImage(imageUrl: imageURL)
+        }
       }
       .store(in: &subscriptions)
   }
 
+  private func loadImage(imageUrl: URL) {
+    self.isLoadingImage = true
+    self.loader = ImageLoader(url: imageUrl)
+    self.loader?.load()
+    self.loader?.$image.sink(receiveCompletion: { [weak self] _ in
+      self?.isLoadingImage = false
+    }, receiveValue: { image in
+      self.image = image
+      self.objectWillChange.send()
+      self.isLoadingImage = false
+    })
+    .store(in: &subscriptions)
+  }
+
   internal func fetchStandings() {
     driverApi.listOfDriverStandings(driverId: driver.driverId)
-      .observeFetchStatus(with: fetchStatusSubject)
+      .observeFetchStatus(with: fetchStandingsStatusSubject)
       .receive(on: DispatchQueue.main)
       .sink { status in
         switch status {
