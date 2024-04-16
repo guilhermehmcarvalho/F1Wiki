@@ -23,6 +23,9 @@ struct DriverCardView: View {
       } else if let summary = viewModel.summaryModel {
         mainCardView(summary: summary)
           .padding(.all(16))
+
+        DriverBioCard(bio: summary.extract)
+          .padding(.all(16))
       }
 
       if let standingLists = viewModel.standingLists {
