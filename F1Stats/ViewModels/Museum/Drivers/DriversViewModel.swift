@@ -57,11 +57,6 @@ class DriversViewModel: ObservableObject {
       }
   }
 
-  internal func driverRoleViewModel(for driver: DriverModel) -> DriverRowViewModel {
-    DriverRowViewModel(driver: driver, wikipediaApi:
-                        wikipediaAPI, driverApi: driverApi)
-  }
-
   //MARK: - PAGINATION
   func onItemDisplayed(currentItem item: DriverModel){
     if item.driverId == paginationThresholdId, driverList.count < totalDrivers {

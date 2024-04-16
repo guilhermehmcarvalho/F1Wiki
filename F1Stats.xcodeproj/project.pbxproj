@@ -28,11 +28,11 @@
 		144B93A32BCE6B77004ADC34 /* DriverStandingsCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144B93A22BCE6B77004ADC34 /* DriverStandingsCard.swift */; };
 		144B93A52BCE7408004ADC34 /* DriverBioCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144B93A42BCE7408004ADC34 /* DriverBioCard.swift */; };
 		144B93A72BCE79CE004ADC34 /* Transitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144B93A62BCE79CE004ADC34 /* Transitions.swift */; };
+		144B93AB2BCE9A5B004ADC34 /* DriverStandingsRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144B93A92BCE9A5B004ADC34 /* DriverStandingsRowViewModel.swift */; };
 		1457478A2BC900300074823A /* QualiResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145747892BC900300074823A /* QualiResultsView.swift */; };
 		1457478C2BC9078D0074823A /* EventProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1457478B2BC9078D0074823A /* EventProtocol.swift */; };
 		148081DB2BBD28CA00A9A33F /* Extension+Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148081DA2BBD28CA00A9A33F /* Extension+Colors.swift */; };
 		148081DF2BBD33B200A9A33F /* NunitoSans-VariableFont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 148081DD2BBD33B200A9A33F /* NunitoSans-VariableFont.ttf */; };
-		148081E52BBD700100A9A33F /* DriverRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148081E42BBD700100A9A33F /* DriverRowViewModel.swift */; };
 		148081E72BBD795200A9A33F /* WikipediaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148081E62BBD795200A9A33F /* WikipediaAPI.swift */; };
 		148081E92BBD7C2A00A9A33F /* WikipediaSummaryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148081E82BBD7C2A00A9A33F /* WikipediaSummaryModel.swift */; };
 		148081EB2BBD85BB00A9A33F /* WikipediaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148081EA2BBD85BB00A9A33F /* WikipediaView.swift */; };
@@ -40,14 +40,12 @@
 		14920FED2BBE95A300359497 /* DriverStandingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14920FEC2BBE95A300359497 /* DriverStandingModel.swift */; };
 		14920FF02BBE9CEC00359497 /* LargeProgressViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14920FEF2BBE9CEC00359497 /* LargeProgressViewModifier.swift */; };
 		14920FF22BBEA65D00359497 /* ConstructorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14920FF12BBEA65D00359497 /* ConstructorModel.swift */; };
-		14920FF62BBEA9B400359497 /* DriverStandingsRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14920FF52BBEA9B400359497 /* DriverStandingsRowViewModel.swift */; };
 		14920FF82BBEB9F800359497 /* wikipediaSummary.json in Resources */ = {isa = PBXBuildFile; fileRef = 14920FF72BBEB9F800359497 /* wikipediaSummary.json */; };
 		14920FFB2BBEBA1D00359497 /* APIDriversStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14920FFA2BBEBA1D00359497 /* APIDriversStub.swift */; };
 		14920FFD2BBEBA5600359497 /* WikipediaAPIStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14920FFC2BBEBA5600359497 /* WikipediaAPIStub.swift */; };
 		149210002BBEBC3F00359497 /* driverStandings.json in Resources */ = {isa = PBXBuildFile; fileRef = 14920FFF2BBEBC3F00359497 /* driverStandings.json */; };
 		149210022BBEBF2100359497 /* driverList.json in Resources */ = {isa = PBXBuildFile; fileRef = 149210012BBEBF2100359497 /* driverList.json */; };
 		149210042BBEDA1D00359497 /* DriverRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149210032BBEDA1D00359497 /* DriverRowView.swift */; };
-		149210062BBEE03C00359497 /* DriverStandingsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149210052BBEE03C00359497 /* DriverStandingsRowView.swift */; };
 		1492100A2BBF0CEF00359497 /* CustomDisclosureGroupStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149210092BBF0CEF00359497 /* CustomDisclosureGroupStyle.swift */; };
 		149210192BBFF25F00359497 /* DriversViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149210182BBFF25F00359497 /* DriversViewModelTests.swift */; };
 		1492101E2BBFFD8B00359497 /* WikipediaViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1492101D2BBFFD8B00359497 /* WikipediaViewModelTest.swift */; };
@@ -161,11 +159,11 @@
 		144B93A22BCE6B77004ADC34 /* DriverStandingsCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverStandingsCard.swift; sourceTree = "<group>"; };
 		144B93A42BCE7408004ADC34 /* DriverBioCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverBioCard.swift; sourceTree = "<group>"; };
 		144B93A62BCE79CE004ADC34 /* Transitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transitions.swift; sourceTree = "<group>"; };
+		144B93A92BCE9A5B004ADC34 /* DriverStandingsRowViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverStandingsRowViewModel.swift; sourceTree = "<group>"; };
 		145747892BC900300074823A /* QualiResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QualiResultsView.swift; sourceTree = "<group>"; };
 		1457478B2BC9078D0074823A /* EventProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventProtocol.swift; sourceTree = "<group>"; };
 		148081DA2BBD28CA00A9A33F /* Extension+Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Colors.swift"; sourceTree = "<group>"; };
 		148081DD2BBD33B200A9A33F /* NunitoSans-VariableFont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-VariableFont.ttf"; sourceTree = "<group>"; };
-		148081E42BBD700100A9A33F /* DriverRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverRowViewModel.swift; sourceTree = "<group>"; };
 		148081E62BBD795200A9A33F /* WikipediaAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikipediaAPI.swift; sourceTree = "<group>"; };
 		148081E82BBD7C2A00A9A33F /* WikipediaSummaryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikipediaSummaryModel.swift; sourceTree = "<group>"; };
 		148081EA2BBD85BB00A9A33F /* WikipediaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikipediaView.swift; sourceTree = "<group>"; };
@@ -173,14 +171,12 @@
 		14920FEC2BBE95A300359497 /* DriverStandingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverStandingModel.swift; sourceTree = "<group>"; };
 		14920FEF2BBE9CEC00359497 /* LargeProgressViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeProgressViewModifier.swift; sourceTree = "<group>"; };
 		14920FF12BBEA65D00359497 /* ConstructorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructorModel.swift; sourceTree = "<group>"; };
-		14920FF52BBEA9B400359497 /* DriverStandingsRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverStandingsRowViewModel.swift; sourceTree = "<group>"; };
 		14920FF72BBEB9F800359497 /* wikipediaSummary.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = wikipediaSummary.json; sourceTree = "<group>"; };
 		14920FFA2BBEBA1D00359497 /* APIDriversStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIDriversStub.swift; sourceTree = "<group>"; };
 		14920FFC2BBEBA5600359497 /* WikipediaAPIStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikipediaAPIStub.swift; sourceTree = "<group>"; };
 		14920FFF2BBEBC3F00359497 /* driverStandings.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = driverStandings.json; sourceTree = "<group>"; };
 		149210012BBEBF2100359497 /* driverList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = driverList.json; sourceTree = "<group>"; };
 		149210032BBEDA1D00359497 /* DriverRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverRowView.swift; sourceTree = "<group>"; };
-		149210052BBEE03C00359497 /* DriverStandingsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverStandingsRowView.swift; sourceTree = "<group>"; };
 		149210092BBF0CEF00359497 /* CustomDisclosureGroupStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDisclosureGroupStyle.swift; sourceTree = "<group>"; };
 		1492100F2BBFD56300359497 /* F1StatsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = F1StatsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		149210182BBFF25F00359497 /* DriversViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriversViewModelTests.swift; sourceTree = "<group>"; };
@@ -480,7 +476,6 @@
 			children = (
 				14B80FFD2BBA86F8006D678E /* DriversView.swift */,
 				149210032BBEDA1D00359497 /* DriverRowView.swift */,
-				149210052BBEE03C00359497 /* DriverStandingsRowView.swift */,
 			);
 			path = Drivers;
 			sourceTree = "<group>";
@@ -498,9 +493,8 @@
 		149210252BC0220B00359497 /* Drivers */ = {
 			isa = PBXGroup;
 			children = (
+				144B93A92BCE9A5B004ADC34 /* DriverStandingsRowViewModel.swift */,
 				142C98802BB74E5B009D1D35 /* DriversViewModel.swift */,
-				148081E42BBD700100A9A33F /* DriverRowViewModel.swift */,
-				14920FF52BBEA9B400359497 /* DriverStandingsRowViewModel.swift */,
 			);
 			path = Drivers;
 			sourceTree = "<group>";
@@ -859,13 +853,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				149210062BBEE03C00359497 /* DriverStandingsRowView.swift in Sources */,
 				144B93992BCD7C19004ADC34 /* ConstructorCardViewModel.swift in Sources */,
 				142C987F2BB74AAC009D1D35 /* DriverModel.swift in Sources */,
 				148081ED2BBD85DC00A9A33F /* WikipediaViewModel.swift in Sources */,
 				149210532BC16DA500359497 /* SeasonsView.swift in Sources */,
 				149210362BC02FB100359497 /* ConstructorStandingsRowViewModel.swift in Sources */,
-				14920FF62BBEA9B400359497 /* DriverStandingsRowViewModel.swift in Sources */,
 				14C95DCD2BC5CBFD00F712FE /* TicketView.swift in Sources */,
 				14CB300F2BCBD48E00D5DEFF /* ConstructorStandingsViewModel.swift in Sources */,
 				149AA0782BC3BDA6001EFCCA /* RaceModel.swift in Sources */,
@@ -877,7 +869,6 @@
 				149210302BC0296700359497 /* ConstructorRowViewModel.swift in Sources */,
 				14C1469A2BC70BFE001F7F35 /* QualiResultsViewModel.swift in Sources */,
 				140A09862BB6E30C0037AA74 /* ContentView.swift in Sources */,
-				148081E52BBD700100A9A33F /* DriverRowViewModel.swift in Sources */,
 				149210042BBEDA1D00359497 /* DriverRowView.swift in Sources */,
 				141465622BCB0174003EF647 /* MuseumViewModel.swift in Sources */,
 				142632402BBC80BD00A0A68A /* DesignLanguageSystem.swift in Sources */,
@@ -906,6 +897,7 @@
 				149AA0852BC3CD0C001EFCCA /* CurrentSeasonViewModel.swift in Sources */,
 				14920FED2BBE95A300359497 /* DriverStandingModel.swift in Sources */,
 				142C98812BB74E5B009D1D35 /* DriversViewModel.swift in Sources */,
+				144B93AB2BCE9A5B004ADC34 /* DriverStandingsRowViewModel.swift in Sources */,
 				14920FFD2BBEBA5600359497 /* WikipediaAPIStub.swift in Sources */,
 				142C987A2BB743B6009D1D35 /* Config.swift in Sources */,
 				142632442BBC8CE900A0A68A /* Extensions+EdgeInsets.swift in Sources */,

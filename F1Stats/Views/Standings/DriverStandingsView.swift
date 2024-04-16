@@ -16,7 +16,6 @@ struct DriverStandingsView: View {
 
   var body: some View {
     ScrollView {
-
       if viewModel.fetchStatus == .ongoing {
         HStack {
           Spacer()
@@ -37,6 +36,7 @@ struct DriverStandingsView: View {
             HStack { 
               Spacer()
               Text("Points")
+                .typography(type: .body(color: .F1Stats.appDark))
             }
             ForEach(Array(standings.enumerated()), id: \.offset) { (index, result) in
               raceStandingsRow(result: result)
@@ -47,6 +47,7 @@ struct DriverStandingsView: View {
             }
           }
           .padding(.all(8))
+          .padding(.trailing)
         }
         .makeCardView()
         .padding(.all(16))

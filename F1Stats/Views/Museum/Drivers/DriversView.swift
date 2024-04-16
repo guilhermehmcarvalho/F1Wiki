@@ -9,37 +9,36 @@ import SwiftUI
 
 struct DriversView: View {
   @ObservedObject var viewModel: DriversViewModel
-
+  
   var body: some View {
-    ZStack {
-      List {
-        ForEach(viewModel.driverList) { driver in
-          DriverRowView(viewModel: viewModel.driverRoleViewModel(for: driver))
+    List {
+      ForEach(viewModel.driverList) { driver in
+        DriverRowView(driver: driver)
+          .modifier(DriverCardDisplayer(driver: driver))
           .padding(.vertical(4))
           .onAppear() {
             viewModel.onItemDisplayed(currentItem: driver)
           }
-        }
-
-        if viewModel.fetchStatus == .ongoing, !viewModel.driverList.isEmpty {
-          ProgressView()
-            .modifier(LargeProgressView())
-            .listRowBackground(Color.clear)
-            .frame(maxWidth: .infinity)
-        }
       }
-      .listRowSeparator(.automatic)
-      .listRowSeparatorTint(.F1Stats.appWhite)
-      .scrollContentBackground(.hidden)
-      .onAppear(perform: {
-        viewModel.fetchDrivers()
-      })
-
-      if viewModel.fetchStatus == .ongoing, viewModel.driverList.isEmpty {
+      
+      if viewModel.fetchStatus == .ongoing, !viewModel.driverList.isEmpty {
         ProgressView()
           .modifier(LargeProgressView())
-          .padding(.all(32))
+          .listRowBackground(Color.clear)
+          .frame(maxWidth: .infinity)
       }
+    }
+    .listRowSeparator(.automatic)
+    .listRowSeparatorTint(.F1Stats.appWhite)
+    .scrollContentBackground(.hidden)
+    .onAppear(perform: {
+      viewModel.fetchDrivers()
+    })
+    
+    if viewModel.fetchStatus == .ongoing, viewModel.driverList.isEmpty {
+      ProgressView()
+        .modifier(LargeProgressView())
+        .padding(.all(32))
     }
   }
 }

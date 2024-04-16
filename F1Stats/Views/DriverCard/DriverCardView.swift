@@ -63,7 +63,7 @@ struct DriverCardView: View {
       }
       if viewModel.standingLists != nil {
         stats
-          .padding(.horizontal(8))
+          .padding(.horizontal(16))
           .padding(.bottom)
       } else if viewModel.fetchStandingsStatus == .ongoing {
         ProgressView()
@@ -124,6 +124,7 @@ struct DriverCardView: View {
           }
           if let constructors = viewModel.constructors {
             Text(constructors)
+              .fixedSize(horizontal: false, vertical: true)
               .multilineTextAlignment(.leading)
           }
         }

@@ -48,9 +48,3 @@ class DriverStandingsRowViewModel: ObservableObject {
       }
   }
 }
-
-extension DriverStanding {
-  var constructorsAppended: String {
-    self.constructors.map { $0.name }.joined(separator: ", ")
-  }
-}

@@ -35,6 +35,7 @@ struct ConstructorStandingsView: View {
             HStack {
               Spacer()
               Text("Points")
+                .typography(type: .body(color: .F1Stats.appDark))
             }
             ForEach(Array(standings.enumerated()), id: \.offset) { (index, result) in
               raceStandingsRow(result: result)
@@ -45,6 +46,7 @@ struct ConstructorStandingsView: View {
             }
           }
           .padding(.all(8))
+          .padding(.trailing)
         }
         .makeCardView()
         .padding(.all(16))

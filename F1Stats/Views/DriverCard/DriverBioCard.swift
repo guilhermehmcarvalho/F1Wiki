@@ -17,6 +17,7 @@ struct DriverBioCard: View {
         .padding(EdgeInsets(top: 8, leading: 0, bottom: 0, trailing: 0))
       VStack {
         Text(bio)
+          .fixedSize(horizontal: false, vertical: true)
           .typography(type: .body(color: .F1Stats.appDark))
           .multilineTextAlignment(.center)
 

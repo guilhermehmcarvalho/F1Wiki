@@ -13,7 +13,7 @@ struct MuseumView: View {
   
   var body: some View {
     ZStack {
-      
+    
       Color.F1Stats.appDark.ignoresSafeArea()
       
       VStack {
