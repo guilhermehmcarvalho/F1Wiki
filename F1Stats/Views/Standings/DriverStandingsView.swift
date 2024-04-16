@@ -64,10 +64,12 @@ struct DriverStandingsView: View {
       VStack(alignment:.leading) {
         Text(result.driver.fullName)
           .typography(type: .subHeader(color: .F1Stats.appDark))
+          .clickableUnderline()
 
         Text(result.constructorsAppended)
           .typography(type: .body(color: .F1Stats.appDark))
           .modifier(ConstructorCardDisplayer(constructor: result.constructors.first!))
+          .clickableUnderline()
       }
       Spacer()
       Text(result.points)

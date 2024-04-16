@@ -24,28 +24,27 @@ struct RaceResultsView: View {
       }
 
       if let raceModel = viewModel.raceModel {
-        VStack {
-          Text("\(raceModel.raceName)")
-            .typography(type: .subHeader(color: .F1Stats.primary))
-          Text("Race Result")
-            .typography(type: .heading(color: .F1Stats.primary))
-        }.padding(.all(8))
+        VStack{
+          title("\(raceModel.raceName)")
+            .padding(.top(6))
+          VStack {
+            Text("Race Result")
+              .typography(type: .heading(color: .F1Stats.primary))
 
-        if let raceResults = raceModel.raceResults {
-          ForEach(Array(raceResults.enumerated()), id: \.element.driver) { (index, result) in
-            raceStandingsRow(result: result)
-              .modifier(DriverCardDisplayer(driver: result.driver))
-            if index < raceResults.count - 1 {
-              Divider().padding(.all(0))
+            if let raceResults = raceModel.raceResults {
+              ForEach(Array(raceResults.enumerated()), id: \.element.driver) { (index, result) in
+                raceStandingsRow(result: result)
+                  .modifier(DriverCardDisplayer(driver: result.driver))
+                  .padding(.vertical(2))
+              }
             }
-          }
+          }.padding(16)
         }
       }
     }
     .frame(minHeight: 600)
+    .cardStyling()
     .padding(.all(8))
-    .makeCardView()
-    .padding(EdgeInsets(top: 0, leading: 4, bottom: 8, trailing: 8))
     .onAppear(perform: viewModel.fetchRaceResults)
   }
 
@@ -69,12 +68,27 @@ struct RaceResultsView: View {
       .frame(width: 30)
       
       Text(result.driver.fullName)
-        .typography(type: .body(color: .F1Stats.appDark))
+        .typography(type: .heavyBody(color: .F1Stats.appDark))
+        .clickableUnderline()
       Spacer()
       Text(result.constructor.name)
-        .typography(type: .body(color: .F1Stats.appDark))
+        .typography(type: .heavyBody(color: .F1Stats.appDark))
         .modifier(ConstructorCardDisplayer(constructor: result.constructor))
+        .clickableUnderline()
     }
+  }
+
+  func title(_ title: String) -> some View {
+    ZStack {
+      Color.F1Stats.primary
+
+      Text(title)
+        .textCase(.uppercase)
+        .typography(type: .heading(color: .F1Stats.appWhite))
+        .padding(.all(4))
+        .multilineTextAlignment(.center)
+    }
+    .fixedSize(horizontal: false, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
   }
 }
 

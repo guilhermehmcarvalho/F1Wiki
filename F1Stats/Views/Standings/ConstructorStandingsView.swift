@@ -63,6 +63,7 @@ struct ConstructorStandingsView: View {
       VStack(alignment:.leading) {
         Text(result.constructor.name)
           .typography(type: .subHeader(color: .F1Stats.appDark))
+          .clickableUnderline()
 
         Text(result.constructor.nationality)
           .typography(type: .body(color: .F1Stats.appDark))

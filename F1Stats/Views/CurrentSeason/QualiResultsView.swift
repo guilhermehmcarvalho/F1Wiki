@@ -24,31 +24,31 @@ struct QualiResultsView: View {
       }
 
       if let raceModel = viewModel.raceModel {
-        VStack {
-          Text("\(raceModel.raceName)")
-            .typography(type: .subHeader(color: .F1Stats.primary))
-          Text("Qualifying Result")
-            .typography(type: .heading(color: .F1Stats.primary))
-        }.padding(.all(8))
+        VStack{
+          title("\(raceModel.raceName)")
+            .padding(.top(6))
+          VStack {
+            Text("Qualifying Result")
+              .typography(type: .heading(color: .F1Stats.primary))
 
-        ForEach(Array(viewModel.qualiResults.enumerated()), id: \.element.driver) { index, result in
-          standingsRow(result: result)
-            .modifier(DriverCardDisplayer(driver: result.driver))
-          if index < viewModel.qualiResults.count - 1 {
-            Divider().padding(.all(0))
-          }
+              ForEach(Array(viewModel.qualiResults.enumerated()), id: \.element.driver) { (index, result) in
+
+                standingsRow(result: result)
+                  .modifier(DriverCardDisplayer(driver: result.driver))
+                  .padding(.vertical(2))
+
+            }
+          }.padding(16)
         }
       }
     }
     .frame(minHeight: 600)
+    .cardStyling()
     .padding(.all(8))
-    .makeCardView()
-    .padding(EdgeInsets(top: 0, leading: 4, bottom: 8, trailing: 8))
     .onAppear(perform: viewModel.fetchQualiResult)
   }
 
   func standingsRow(result: QualifyingResult) -> some View {
-
     HStack(alignment: .center) {
       Text(result.position)
         .frame(width: 30)
@@ -56,9 +56,11 @@ struct QualiResultsView: View {
       VStack(alignment: .leading) {
         Text(result.driver.fullName)
           .typography(type: .subHeader(color: .F1Stats.appDark))
+          .clickableUnderline()
         Text(result.constructor.name)
           .typography(type: .body(color: .F1Stats.appDark))
           .modifier(ConstructorCardDisplayer(constructor: result.constructor))
+          .clickableUnderline()
       }
 
       Spacer()
@@ -88,6 +90,20 @@ struct QualiResultsView: View {
           }
       }
     }
+  }
+
+
+  func title(_ title: String) -> some View {
+    ZStack {
+      Color.F1Stats.primary
+
+      Text(title)
+        .textCase(.uppercase)
+        .typography(type: .heading(color: .F1Stats.appWhite))
+        .padding(.all(4))
+        .multilineTextAlignment(.center)
+    }
+    .fixedSize(horizontal: false, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
   }
 }
 

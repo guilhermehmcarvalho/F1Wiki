@@ -59,19 +59,7 @@ struct DriverStandingsCard: View {
       }
       .padding(16)
     }
-    .background(Color.F1Stats.appWhite)
-    .overlay(
-      RoundedRectangle(cornerRadius: 16)
-        .stroke(Color.F1Stats.appWhite, lineWidth: 16)
-    )
-    .overlay(
-      RoundedRectangle(cornerRadius: 8)
-        .stroke(Color.F1Stats.primary, lineWidth: 4)
-        .padding(8)
-    )
-    .overlay(
-      Color.F1Stats.appYellow.opacity(0.1)
-    )
+    .cardStyling()
   }
 
   func title(_ title: String) -> some View {

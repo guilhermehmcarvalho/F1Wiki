@@ -25,6 +25,11 @@ struct RaceView: View {
             .frame(maxWidth: .infinity, minHeight: geo.size.width/2)
             .makeCardView()
             .zIndex(6)
+            .overlay(
+              RoundedRectangle(cornerRadius: 8)
+                .stroke(Color.F1Stats.primary, lineWidth: 4)
+                .padding(8)
+            )
             .twistingTransition(finalAngle: 0)
             .padding(.horizontal(16))
             .padding(.vertical(8))
@@ -137,6 +142,7 @@ struct RaceView: View {
         Text("View results")
           .multilineTextAlignment(.center)
           .typography(type: .body(color: .F1Stats.primary))
+          .clickableUnderline(color: .F1Stats.primary)
       }
     }
   }
@@ -208,6 +214,7 @@ struct RaceView: View {
         Text("View results")
           .multilineTextAlignment(.center)
           .typography(type: .body(color: .F1Stats.primary))
+          .clickableUnderline(color: .F1Stats.primary)
       }
     }
   }

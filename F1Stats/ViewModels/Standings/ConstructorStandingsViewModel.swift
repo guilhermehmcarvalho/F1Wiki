@@ -26,6 +26,7 @@ class ConstructorStandingsViewModel: ObservableObject {
   }
 
   func fetchConstructorStandings() {
+    guard constructorStandings == nil else { return }
     cancellable = apiSeasons.currentSeasonConstructorStandings()
       .observeFetchStatus(with: fetchStatusSubject)
       .receive(on: DispatchQueue.main)

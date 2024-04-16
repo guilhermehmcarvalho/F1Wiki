@@ -61,6 +61,7 @@ struct DriverCardView: View {
         title(summary.title)
           .padding(.vertical(16))
       }
+      
       if viewModel.standingLists != nil {
         stats
           .padding(.horizontal(12))
@@ -71,19 +72,7 @@ struct DriverCardView: View {
           .padding(32)
       }
     }
-    .background(Color.F1Stats.appWhite)
-    .overlay(
-      RoundedRectangle(cornerRadius: 16)
-        .stroke(Color.F1Stats.appWhite, lineWidth: 16)
-    )
-    .overlay(
-      RoundedRectangle(cornerRadius: 8)
-        .stroke(Color.F1Stats.primary, lineWidth: 4)
-        .padding(8)
-    )
-    .overlay(
-      Color.F1Stats.appYellow.opacity(0.1)
-    )
+    .cardStyling()
   }
 
   var stats: some View {

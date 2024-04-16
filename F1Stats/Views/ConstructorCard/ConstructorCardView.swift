@@ -58,7 +58,7 @@ struct ConstructorCardView: View {
         title(summary.title)
       } else {
         title(summary.title)
-          .padding(EdgeInsets(top: 4, leading: 0, bottom: 0, trailing: 0))
+          .padding(EdgeInsets(top: 6, leading: 0, bottom: 0, trailing: 0))
       }
 
       Text(summary.extract)
@@ -75,19 +75,7 @@ struct ConstructorCardView: View {
           .padding(32)
       }
     }
-    .background(Color.F1Stats.appWhite)
-    .overlay(
-      RoundedRectangle(cornerRadius: 16)
-        .stroke(Color.F1Stats.appWhite, lineWidth: 16)
-    )
-    .overlay(
-      RoundedRectangle(cornerRadius: 8)
-        .stroke(Color.F1Stats.primary, lineWidth: 4)
-        .padding(8)
-    )
-    .overlay(
-      Color.F1Stats.appYellow.opacity(0.1)
-    )
+    .cardStyling()
   }
 
   var stats: some View {

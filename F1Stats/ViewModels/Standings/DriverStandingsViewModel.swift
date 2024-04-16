@@ -27,6 +27,7 @@ class DriverStandingsViewModel: ObservableObject {
   }
 
   func fetchDriverStandings() {
+    guard driverStandings == nil else { return }
     cancellable = apiSeasons.currentSeasonDriverStandings()
       .observeFetchStatus(with: fetchStatusSubject)
       .receive(on: DispatchQueue.main)
