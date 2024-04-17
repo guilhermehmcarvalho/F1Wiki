@@ -20,7 +20,7 @@ struct DriversView: View {
           }
       }
       
-      if viewModel.fetchStatus == .ongoing, !viewModel.driverList.isEmpty {
+      if viewModel.fetchStatus == .ongoing {
         ProgressView()
           .modifier(LargeProgressView())
           .listRowBackground(Color.clear)

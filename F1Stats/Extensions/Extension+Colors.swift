@@ -10,7 +10,7 @@ import SwiftUI
 
 public extension Color {
   struct F1Stats {
-    static let primary = Color.fromRGB(red: 179, green: 19, blue: 18)
+    static let primary = Color.fromRGB(red: 179, green: 19, blue: 18) //#b31312
     static let appDark = Color.fromRGB(red: 29, green: 53, blue: 75)
     static let appGreen = Color.fromRGB(red: 64, green: 237, blue: 146)
     static let appDarkSecondary = Color.fromRGB(red: 40, green: 70, blue: 99)

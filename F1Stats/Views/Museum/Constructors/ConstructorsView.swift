@@ -21,7 +21,7 @@ struct ConstructorsView: View {
             }
         }
         
-        if viewModel.fetchStatus == .ongoing, !viewModel.constructorsList.isEmpty {
+        if viewModel.fetchStatus == .ongoing {
           ProgressView()
             .modifier(LargeProgressView())
             .listRowBackground(Color.clear)

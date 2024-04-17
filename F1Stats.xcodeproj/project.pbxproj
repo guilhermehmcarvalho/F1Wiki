@@ -138,7 +138,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		140A09802BB6E30C0037AA74 /* F1Stats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = F1Stats.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		140A09802BB6E30C0037AA74 /* F1Wiki.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = F1Wiki.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		140A09832BB6E30C0037AA74 /* F1StatsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = F1StatsApp.swift; sourceTree = "<group>"; };
 		140A09852BB6E30C0037AA74 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		140A09872BB6E30D0037AA74 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -185,7 +185,7 @@
 		149210012BBEBF2100359497 /* driverList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = driverList.json; sourceTree = "<group>"; };
 		149210032BBEDA1D00359497 /* DriverRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverRowView.swift; sourceTree = "<group>"; };
 		149210092BBF0CEF00359497 /* CustomDisclosureGroupStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDisclosureGroupStyle.swift; sourceTree = "<group>"; };
-		1492100F2BBFD56300359497 /* F1StatsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = F1StatsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1492100F2BBFD56300359497 /* F1WikiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = F1WikiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		149210182BBFF25F00359497 /* DriversViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriversViewModelTests.swift; sourceTree = "<group>"; };
 		1492101D2BBFFD8B00359497 /* WikipediaViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikipediaViewModelTest.swift; sourceTree = "<group>"; };
 		1492101F2BC0010800359497 /* DriverStandingsRowViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverStandingsRowViewModelTest.swift; sourceTree = "<group>"; };
@@ -291,8 +291,8 @@
 		140A09812BB6E30C0037AA74 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				140A09802BB6E30C0037AA74 /* F1Stats.app */,
-				1492100F2BBFD56300359497 /* F1StatsTests.xctest */,
+				140A09802BB6E30C0037AA74 /* F1Wiki.app */,
+				1492100F2BBFD56300359497 /* F1WikiTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -300,7 +300,6 @@
 		140A09822BB6E30C0037AA74 /* F1Stats */ = {
 			isa = PBXGroup;
 			children = (
-				14C146AF2BC86C72001F7F35 /* Utils */,
 				142C98822BB751C2009D1D35 /* Info.plist */,
 				142C98792BB743B6009D1D35 /* Config.swift */,
 				140A09832BB6E30C0037AA74 /* F1StatsApp.swift */,
@@ -311,6 +310,7 @@
 				140A09892BB6E30D0037AA74 /* Preview Content */,
 				142C98752BB70568009D1D35 /* Service */,
 				148081D92BBD28B700A9A33F /* Styling */,
+				14C146AF2BC86C72001F7F35 /* Utils */,
 				142C98732BB70557009D1D35 /* ViewModels */,
 				142C98742BB70561009D1D35 /* Views */,
 			);
@@ -745,9 +745,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		140A097F2BB6E30C0037AA74 /* F1Stats */ = {
+		140A097F2BB6E30C0037AA74 /* F1Wiki */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 140A098E2BB6E30D0037AA74 /* Build configuration list for PBXNativeTarget "F1Stats" */;
+			buildConfigurationList = 140A098E2BB6E30D0037AA74 /* Build configuration list for PBXNativeTarget "F1Wiki" */;
 			buildPhases = (
 				140A097C2BB6E30C0037AA74 /* Sources */,
 				140A097D2BB6E30C0037AA74 /* Frameworks */,
@@ -757,16 +757,16 @@
 			);
 			dependencies = (
 			);
-			name = F1Stats;
+			name = F1Wiki;
 			packageProductDependencies = (
 			);
 			productName = F1Stats;
-			productReference = 140A09802BB6E30C0037AA74 /* F1Stats.app */;
+			productReference = 140A09802BB6E30C0037AA74 /* F1Wiki.app */;
 			productType = "com.apple.product-type.application";
 		};
-		1492100E2BBFD56300359497 /* F1StatsTests */ = {
+		1492100E2BBFD56300359497 /* F1WikiTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 149210172BBFD56300359497 /* Build configuration list for PBXNativeTarget "F1StatsTests" */;
+			buildConfigurationList = 149210172BBFD56300359497 /* Build configuration list for PBXNativeTarget "F1WikiTests" */;
 			buildPhases = (
 				1492100B2BBFD56300359497 /* Sources */,
 				1492100C2BBFD56300359497 /* Frameworks */,
@@ -777,9 +777,9 @@
 			dependencies = (
 				149210142BBFD56300359497 /* PBXTargetDependency */,
 			);
-			name = F1StatsTests;
+			name = F1WikiTests;
 			productName = F1StatsTests;
-			productReference = 1492100F2BBFD56300359497 /* F1StatsTests.xctest */;
+			productReference = 1492100F2BBFD56300359497 /* F1WikiTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -816,8 +816,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				140A097F2BB6E30C0037AA74 /* F1Stats */,
-				1492100E2BBFD56300359497 /* F1StatsTests */,
+				140A097F2BB6E30C0037AA74 /* F1Wiki */,
+				1492100E2BBFD56300359497 /* F1WikiTests */,
 			);
 		};
 /* End PBXProject section */
@@ -977,7 +977,7 @@
 /* Begin PBXTargetDependency section */
 		149210142BBFD56300359497 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 140A097F2BB6E30C0037AA74 /* F1Stats */;
+			target = 140A097F2BB6E30C0037AA74 /* F1Wiki */;
 			targetProxy = 149210132BBFD56300359497 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1114,6 +1114,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = F1Stats/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "F1 Wiki";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.sports";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -1124,7 +1126,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.gcarvalho.F1Stats;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gcarvalho.F1Wiki;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1144,6 +1146,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = F1Stats/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "F1 Wiki";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.sports";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -1154,7 +1158,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.gcarvalho.F1Stats;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gcarvalho.F1Wiki;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1208,7 +1212,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		140A098E2BB6E30D0037AA74 /* Build configuration list for PBXNativeTarget "F1Stats" */ = {
+		140A098E2BB6E30D0037AA74 /* Build configuration list for PBXNativeTarget "F1Wiki" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				140A098F2BB6E30D0037AA74 /* Debug */,
@@ -1217,7 +1221,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		149210172BBFD56300359497 /* Build configuration list for PBXNativeTarget "F1StatsTests" */ = {
+		149210172BBFD56300359497 /* Build configuration list for PBXNativeTarget "F1WikiTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				149210152BBFD56300359497 /* Debug */,
