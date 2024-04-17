@@ -8,21 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
+  
+  @ObservedObject var viewModel: ContentViewModel
 
-  let apiDrivers: APIDriversProtocol
-  let apiConstructors: APIConstructorsProtocol
-  let apiSeasons: APISeasonsProtocol
-  let wikipediaAPI: WikipediaAPIProtocol
-
-  init(apiDrivers: APIDriversProtocol,
-       wikipediaAPI: WikipediaAPIProtocol,
-       apiConstructors: APIConstructorsProtocol,
-       apiSeasons: APISeasonsProtocol) {
-    self.apiDrivers = apiDrivers
-    self.wikipediaAPI = wikipediaAPI
-    self.apiConstructors = apiConstructors
-    self.apiSeasons = apiSeasons
-
+  init(viewModel: ContentViewModel) {
+    self.viewModel = viewModel
     customizeTabViewAppearance()
   }
 
@@ -30,23 +20,18 @@ struct ContentView: View {
     UIPageControl.appearance().currentPageIndicatorTintColor = Color.F1Stats.primary.asUIColor
     UIPageControl.appearance().pageIndicatorTintColor = Color.F1Stats.primary.asUIColor.withAlphaComponent(0.5)
   }
-
+  
   var body: some View {
     TabView {
-      CurrentSeasonView(viewModel: CurrentSeasonViewModel(apiSeasons: apiSeasons))
+      CurrentSeasonView(viewModel: viewModel.currentSeasonViewModel)
         .tabItem { Label("Calendar", systemImage: "calendar.circle.fill") }
         .toolbarBackground(Color.white, for: .tabBar)
 
-      StandingsView(viewModel: StandingsViewModel(apiSeasons: apiSeasons,
-                                                  apiDrivers: apiDrivers,
-                                                  wikipediaAPI: wikipediaAPI))
+      StandingsView(viewModel: viewModel.standingsViewModel)
       .tabItem { Label("Standings", systemImage: "trophy.circle.fill") }
       .toolbarBackground(Color.white, for: .tabBar)
-
-      MuseumView(viewModel: MuseumViewModel(apiSeasons: apiSeasons,
-                                            wikipediaAPI: wikipediaAPI,
-                                            driverAPI: apiDrivers,
-                                            constructorsAPI: apiConstructors))
+      
+      MuseumView(viewModel: viewModel.museumViewModel)
       .tabItem { Label("Museum", systemImage: "building.columns.circle.fill") }
       .toolbarBackground(Color.white, for: .tabBar)
     }
@@ -55,8 +40,8 @@ struct ContentView: View {
 }
 
 #Preview { 
-  ContentView(apiDrivers: APIDriversStub(),
+  ContentView(viewModel: ContentViewModel(apiDrivers: APIDriversStub(),
               wikipediaAPI: WikipediaAPIStub(),
               apiConstructors: APIConstructorsStub(),
-              apiSeasons: APISeasonsStub(delay: 1))
+              apiSeasons: APISeasonsStub(delay: 0)))
 }

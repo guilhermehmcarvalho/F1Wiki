@@ -9,6 +9,9 @@ import SwiftUI
 
 @main
 struct F1StatsApp: App {
+
+  @State private var animationComplete = false
+
   let apiDrivers = APIDrivers(baseURL: Config.baseURL)
   let apiConstructors = APIConstructors(baseURL: Config.baseURL)
   let wikipediaAPI = WikipediaAPI(baseURL: Config.wikipediaURL)
@@ -16,10 +19,16 @@ struct F1StatsApp: App {
 
   var body: some Scene {
     WindowGroup {
-      ContentView(apiDrivers: apiDrivers,
-                  wikipediaAPI: wikipediaAPI,
-                  apiConstructors: apiConstructors,
-                  apiSeasons: apiSeasons)
+      ZStack {
+        if (animationComplete == false) {
+          SplashScreen(animationComplete: $animationComplete)
+        } else {
+          ContentView(viewModel: ContentViewModel(apiDrivers: apiDrivers,
+                                                   wikipediaAPI: wikipediaAPI,
+                                                   apiConstructors: apiConstructors,
+                                                   apiSeasons: apiSeasons))
+        }
+      }
     }
   }
 }

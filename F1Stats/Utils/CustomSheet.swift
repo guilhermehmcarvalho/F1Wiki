@@ -30,7 +30,7 @@ struct CustomSheet<Content: View>: View {
           dismiss?()
         }
 
-      OffsetObservingScrollView(offset: $position) {
+      OffsetObservingScrollView(showsIndicators: false, offset: $position) {
         Rectangle()
           .opacity(0)
           .contentShape(Rectangle())

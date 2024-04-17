@@ -39,9 +39,11 @@ struct CurrentSeasonView: View {
               .onAppear {
                 viewModel.onItemDisplayed(currentItem: raceViewModel)
               }
+              .onDisappear {
+                raceViewModel.animate(false)
+              }
           }
         }
-        .onChange(of: viewModel.selectedIndex, viewModel.changedTabIndex)
         .tabViewStyle(PageTabViewStyle())
         .onAppear(perform: viewModel.fetchCurrentSchedule)
       }

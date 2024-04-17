@@ -77,13 +77,9 @@ class CurrentSeasonViewModel: ObservableObject {
     }
   }
 
-  internal func changedTabIndex(oldValue: Int, newValue: Int) {
-    raceViewModels[oldValue].animate(false)
-    raceViewModels[newValue].animate(true)
-  }
-
   //MARK: - PAGINATION
   func onItemDisplayed(currentItem item: RaceViewModel){
+    item.animate(true)
     if item.id == paginationThresholdId, raceViewModels.count < total {
       fetchCurrentSchedule()
     }

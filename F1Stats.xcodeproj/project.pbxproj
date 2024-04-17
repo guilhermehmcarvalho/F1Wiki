@@ -35,6 +35,8 @@
 		144B93B52BCFA16E004ADC34 /* SeasonDriverStandingsCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144B93B42BCFA16E004ADC34 /* SeasonDriverStandingsCardView.swift */; };
 		144B93B72BCFAC43004ADC34 /* SeasonMainCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144B93B62BCFAC43004ADC34 /* SeasonMainCardView.swift */; };
 		144B93B92BCFB2EC004ADC34 /* SeasonConstructorStandingsCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144B93B82BCFB2EC004ADC34 /* SeasonConstructorStandingsCardView.swift */; };
+		144B93BB2BCFD3D1004ADC34 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144B93BA2BCFD3D1004ADC34 /* SplashScreen.swift */; };
+		144B93C02BCFE8CD004ADC34 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144B93BF2BCFE8CD004ADC34 /* ContentViewModel.swift */; };
 		1457478A2BC900300074823A /* QualiResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145747892BC900300074823A /* QualiResultsView.swift */; };
 		1457478C2BC9078D0074823A /* EventProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1457478B2BC9078D0074823A /* EventProtocol.swift */; };
 		148081DB2BBD28CA00A9A33F /* Extension+Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148081DA2BBD28CA00A9A33F /* Extension+Colors.swift */; };
@@ -51,7 +53,6 @@
 		149210002BBEBC3F00359497 /* driverStandings.json in Resources */ = {isa = PBXBuildFile; fileRef = 14920FFF2BBEBC3F00359497 /* driverStandings.json */; };
 		149210022BBEBF2100359497 /* driverList.json in Resources */ = {isa = PBXBuildFile; fileRef = 149210012BBEBF2100359497 /* driverList.json */; };
 		149210042BBEDA1D00359497 /* DriverRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149210032BBEDA1D00359497 /* DriverRowView.swift */; };
-		1492100A2BBF0CEF00359497 /* CustomDisclosureGroupStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149210092BBF0CEF00359497 /* CustomDisclosureGroupStyle.swift */; };
 		149210192BBFF25F00359497 /* DriversViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149210182BBFF25F00359497 /* DriversViewModelTests.swift */; };
 		1492101E2BBFFD8B00359497 /* WikipediaViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1492101D2BBFFD8B00359497 /* WikipediaViewModelTest.swift */; };
 		149210202BC0010800359497 /* DriverStandingsRowViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1492101F2BC0010800359497 /* DriverStandingsRowViewModelTest.swift */; };
@@ -61,7 +62,6 @@
 		1492102C2BC023EF00359497 /* APIConstructors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1492102B2BC023EF00359497 /* APIConstructors.swift */; };
 		1492102E2BC0243800359497 /* APIConstructorsStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1492102D2BC0243800359497 /* APIConstructorsStub.swift */; };
 		149210322BC02BAA00359497 /* ConstructorRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149210312BC02BAA00359497 /* ConstructorRowView.swift */; };
-		149210342BC02F8A00359497 /* ConstructorStandingsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149210332BC02F8A00359497 /* ConstructorStandingsRowView.swift */; };
 		149210362BC02FB100359497 /* ConstructorStandingsRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149210352BC02FB100359497 /* ConstructorStandingsRowViewModel.swift */; };
 		149210382BC030B600359497 /* constructorStandings.json in Resources */ = {isa = PBXBuildFile; fileRef = 149210372BC030B600359497 /* constructorStandings.json */; };
 		1492103A2BC0319A00359497 /* ConstructorStanding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149210392BC0319A00359497 /* ConstructorStanding.swift */; };
@@ -100,7 +100,6 @@
 		14C146A32BC7135A001F7F35 /* QualiResultsViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C146A22BC7135A001F7F35 /* QualiResultsViewModelTest.swift */; };
 		14C146A52BC7141F001F7F35 /* RaceResultsViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C146A42BC7141F001F7F35 /* RaceResultsViewModelTest.swift */; };
 		14C146A72BC7D250001F7F35 /* RaceResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C146A62BC7D250001F7F35 /* RaceResultsView.swift */; };
-		14C146A92BC7F549001F7F35 /* BackgroundClearView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C146A82BC7F549001F7F35 /* BackgroundClearView.swift */; };
 		14C146AE2BC86481001F7F35 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C146AD2BC86481001F7F35 /* Status.swift */; };
 		14C146B12BC86C80001F7F35 /* OffsetObservingScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C146B02BC86C80001F7F35 /* OffsetObservingScrollView.swift */; };
 		14C146B32BC86E7A001F7F35 /* CustomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C146B22BC86E7A001F7F35 /* CustomSheet.swift */; };
@@ -168,6 +167,8 @@
 		144B93B42BCFA16E004ADC34 /* SeasonDriverStandingsCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonDriverStandingsCardView.swift; sourceTree = "<group>"; };
 		144B93B62BCFAC43004ADC34 /* SeasonMainCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonMainCardView.swift; sourceTree = "<group>"; };
 		144B93B82BCFB2EC004ADC34 /* SeasonConstructorStandingsCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonConstructorStandingsCardView.swift; sourceTree = "<group>"; };
+		144B93BA2BCFD3D1004ADC34 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
+		144B93BF2BCFE8CD004ADC34 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		145747892BC900300074823A /* QualiResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QualiResultsView.swift; sourceTree = "<group>"; };
 		1457478B2BC9078D0074823A /* EventProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventProtocol.swift; sourceTree = "<group>"; };
 		148081DA2BBD28CA00A9A33F /* Extension+Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Colors.swift"; sourceTree = "<group>"; };
@@ -184,7 +185,6 @@
 		14920FFF2BBEBC3F00359497 /* driverStandings.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = driverStandings.json; sourceTree = "<group>"; };
 		149210012BBEBF2100359497 /* driverList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = driverList.json; sourceTree = "<group>"; };
 		149210032BBEDA1D00359497 /* DriverRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverRowView.swift; sourceTree = "<group>"; };
-		149210092BBF0CEF00359497 /* CustomDisclosureGroupStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDisclosureGroupStyle.swift; sourceTree = "<group>"; };
 		1492100F2BBFD56300359497 /* F1WikiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = F1WikiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		149210182BBFF25F00359497 /* DriversViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriversViewModelTests.swift; sourceTree = "<group>"; };
 		1492101D2BBFFD8B00359497 /* WikipediaViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikipediaViewModelTest.swift; sourceTree = "<group>"; };
@@ -195,7 +195,6 @@
 		1492102B2BC023EF00359497 /* APIConstructors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstructors.swift; sourceTree = "<group>"; };
 		1492102D2BC0243800359497 /* APIConstructorsStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstructorsStub.swift; sourceTree = "<group>"; };
 		149210312BC02BAA00359497 /* ConstructorRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructorRowView.swift; sourceTree = "<group>"; };
-		149210332BC02F8A00359497 /* ConstructorStandingsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructorStandingsRowView.swift; sourceTree = "<group>"; };
 		149210352BC02FB100359497 /* ConstructorStandingsRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructorStandingsRowViewModel.swift; sourceTree = "<group>"; };
 		149210372BC030B600359497 /* constructorStandings.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = constructorStandings.json; sourceTree = "<group>"; };
 		149210392BC0319A00359497 /* ConstructorStanding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructorStanding.swift; sourceTree = "<group>"; };
@@ -234,7 +233,6 @@
 		14C146A22BC7135A001F7F35 /* QualiResultsViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QualiResultsViewModelTest.swift; sourceTree = "<group>"; };
 		14C146A42BC7141F001F7F35 /* RaceResultsViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceResultsViewModelTest.swift; sourceTree = "<group>"; };
 		14C146A62BC7D250001F7F35 /* RaceResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceResultsView.swift; sourceTree = "<group>"; };
-		14C146A82BC7F549001F7F35 /* BackgroundClearView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundClearView.swift; sourceTree = "<group>"; };
 		14C146AD2BC86481001F7F35 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		14C146B02BC86C80001F7F35 /* OffsetObservingScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffsetObservingScrollView.swift; sourceTree = "<group>"; };
 		14C146B22BC86E7A001F7F35 /* CustomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSheet.swift; sourceTree = "<group>"; };
@@ -342,6 +340,7 @@
 				148081EC2BBD85DC00A9A33F /* WikipediaViewModel.swift */,
 				14CB301E2BCD2A7000D5DEFF /* DriverCardViewModel.swift */,
 				144B93982BCD7C19004ADC34 /* ConstructorCardViewModel.swift */,
+				144B93BF2BCFE8CD004ADC34 /* ContentViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -349,6 +348,7 @@
 		142C98742BB70561009D1D35 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				144B93BC2BCFD8DC004ADC34 /* SplashScreen */,
 				144B93952BCD7BF7004ADC34 /* ConstructorCard */,
 				144B93942BCD6BEB004ADC34 /* DriverCard */,
 				14CB30082BCBD07800D5DEFF /* Museum */,
@@ -409,12 +409,19 @@
 			path = ConstructorCard;
 			sourceTree = "<group>";
 		};
+		144B93BC2BCFD8DC004ADC34 /* SplashScreen */ = {
+			isa = PBXGroup;
+			children = (
+				144B93BA2BCFD3D1004ADC34 /* SplashScreen.swift */,
+			);
+			path = SplashScreen;
+			sourceTree = "<group>";
+		};
 		148081D92BBD28B700A9A33F /* Styling */ = {
 			isa = PBXGroup;
 			children = (
 				14920FEE2BBE9CE000359497 /* Components */,
 				1426323F2BBC80BD00A0A68A /* DesignLanguageSystem.swift */,
-				14C146A82BC7F549001F7F35 /* BackgroundClearView.swift */,
 				144B93A62BCE79CE004ADC34 /* Transitions.swift */,
 				144B93AC2BCECDA6004ADC34 /* CardStyling.swift */,
 			);
@@ -425,7 +432,6 @@
 			isa = PBXGroup;
 			children = (
 				14920FEF2BBE9CEC00359497 /* LargeProgressViewModifier.swift */,
-				149210092BBF0CEF00359497 /* CustomDisclosureGroupStyle.swift */,
 				14C95DCA2BC572C500F712FE /* CardView.swift */,
 				14C95DCC2BC5CBFD00F712FE /* TicketView.swift */,
 			);
@@ -489,7 +495,6 @@
 			children = (
 				149210212BC021BA00359497 /* ConstructorsView.swift */,
 				149210312BC02BAA00359497 /* ConstructorRowView.swift */,
-				149210332BC02F8A00359497 /* ConstructorStandingsRowView.swift */,
 			);
 			path = Constructors;
 			sourceTree = "<group>";
@@ -869,7 +874,6 @@
 				149AA0782BC3BDA6001EFCCA /* RaceModel.swift in Sources */,
 				14C95DCB2BC572C500F712FE /* CardView.swift in Sources */,
 				14E6E59E2BC46F29001DF1D2 /* CurrentSeasonView.swift in Sources */,
-				1492100A2BBF0CEF00359497 /* CustomDisclosureGroupStyle.swift in Sources */,
 				149210552BC16FA500359497 /* SeasonRowView.swift in Sources */,
 				14C1469A2BC70BFE001F7F35 /* QualiResultsViewModel.swift in Sources */,
 				140A09862BB6E30C0037AA74 /* ContentView.swift in Sources */,
@@ -896,11 +900,11 @@
 				148081DB2BBD28CA00A9A33F /* Extension+Colors.swift in Sources */,
 				14B80FFE2BBA86F8006D678E /* DriversView.swift in Sources */,
 				1457478C2BC9078D0074823A /* EventProtocol.swift in Sources */,
-				149210342BC02F8A00359497 /* ConstructorStandingsRowView.swift in Sources */,
 				149210452BC0741200359497 /* SeasonsModel.swift in Sources */,
 				144B93AD2BCECDA6004ADC34 /* CardStyling.swift in Sources */,
 				149AA0852BC3CD0C001EFCCA /* CurrentSeasonViewModel.swift in Sources */,
 				14920FED2BBE95A300359497 /* DriverStandingModel.swift in Sources */,
+				144B93C02BCFE8CD004ADC34 /* ContentViewModel.swift in Sources */,
 				142C98812BB74E5B009D1D35 /* DriversViewModel.swift in Sources */,
 				144B93AB2BCE9A5B004ADC34 /* DriverStandingsRowViewModel.swift in Sources */,
 				14920FFD2BBEBA5600359497 /* WikipediaAPIStub.swift in Sources */,
@@ -926,11 +930,11 @@
 				14E6E5A22BC47F93001DF1D2 /* RaceViewModel.swift in Sources */,
 				149210642BC1A83100359497 /* SeasonConstructorStandingsViewModel.swift in Sources */,
 				14920FF22BBEA65D00359497 /* ConstructorModel.swift in Sources */,
-				14C146A92BC7F549001F7F35 /* BackgroundClearView.swift in Sources */,
 				1457478A2BC900300074823A /* QualiResultsView.swift in Sources */,
 				140A09842BB6E30C0037AA74 /* F1StatsApp.swift in Sources */,
 				144B93B92BCFB2EC004ADC34 /* SeasonConstructorStandingsCardView.swift in Sources */,
 				149210282BC0222500359497 /* ConstructorsViewModel.swift in Sources */,
+				144B93BB2BCFD3D1004ADC34 /* SplashScreen.swift in Sources */,
 				1492104A2BC1258300359497 /* SeasonsViewModel.swift in Sources */,
 				14CB301D2BCD1DA600D5DEFF /* ImageWidget.swift in Sources */,
 				149210502BC129A700359497 /* APISeasonsStub.swift in Sources */,
