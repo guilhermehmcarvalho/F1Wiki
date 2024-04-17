@@ -40,6 +40,7 @@ class WikipediaViewModel: ObservableObject {
         }
       } receiveValue: { [weak self] response in
         self?.summaryModel = response
+        self?.objectWillChange.send()
       }
   }
 

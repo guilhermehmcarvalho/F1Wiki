@@ -58,7 +58,7 @@ struct DriverCardView: View {
           ProgressView()
             .tint(.F1Stats.primary)
         }
-        title(summary.title)
+        CardStyling.makeCardTitle(summary.title)
           .padding(.vertical(16))
       }
       
@@ -119,19 +119,6 @@ struct DriverCardView: View {
         }
         .typography(type: .body(color: Color.F1Stats.appDark))
       }
-  }
-
-  func title(_ title: String) -> some View {
-    ZStack {
-      Color.F1Stats.primary
-
-      Text(title)
-        .textCase(.uppercase)
-        .typography(type: .heading(color: .F1Stats.appWhite))
-        .padding(.all(4))
-        .multilineTextAlignment(.center)
-    }
-    .fixedSize(horizontal: false, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
   }
 }
 

@@ -15,7 +15,6 @@ struct DriversView: View {
       ForEach(viewModel.driverList) { driver in
         DriverRowView(driver: driver)
           .modifier(DriverCardDisplayer(driver: driver))
-          .padding(.vertical(4))
           .onAppear() {
             viewModel.onItemDisplayed(currentItem: driver)
           }

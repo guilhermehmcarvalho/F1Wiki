@@ -48,8 +48,6 @@ struct ImageWidget: View {
           loadingView
         }
       }
-    } else {
-      errorVIew
     }
   }
 }

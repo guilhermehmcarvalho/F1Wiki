@@ -46,6 +46,7 @@ struct ConstructorCardView: View {
           .tint(.F1Stats.primary)
           .padding(32)
       }
+
       if let image = viewModel.image {
         Image(uiImage: image)
           .resizable()
@@ -55,9 +56,9 @@ struct ConstructorCardView: View {
           .frame(maxHeight: 250)
           .clipped()
 
-        title(summary.title)
+        CardStyling.makeCardTitle(summary.title)
       } else {
-        title(summary.title)
+        CardStyling.makeCardTitle(summary.title)
           .padding(EdgeInsets(top: 6, leading: 0, bottom: 0, trailing: 0))
       }
 
@@ -113,19 +114,6 @@ struct ConstructorCardView: View {
         .typography(type: .small(color: .F1Stats.appDark))
         .padding(.bottom)
     }
-  }
-
-  func title(_ title: String) -> some View {
-    ZStack {
-      Color.F1Stats.primary
-
-      Text(title)
-        .textCase(.uppercase)
-        .typography(type: .heading(color: .F1Stats.appWhite))
-        .padding(.all(4))
-        .multilineTextAlignment(.center)
-    }
-    .fixedSize(horizontal: false, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
   }
 }
 

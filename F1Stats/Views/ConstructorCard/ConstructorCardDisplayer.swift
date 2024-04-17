@@ -48,5 +48,4 @@ struct ConstructorCardDisplayer: ViewModifier {
 #Preview {
   Text("tap me")
     .modifier(ConstructorCardDisplayer(constructor: ConstructorModel.stub))
-
 }

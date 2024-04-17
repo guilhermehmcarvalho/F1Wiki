@@ -14,8 +14,8 @@ struct SeasonsView: View {
     ZStack {
       List {
         ForEach(viewModel.seasonsList) { season in
-          SeasonRowView(viewModel: viewModel.viewModel(for: season))
-            .padding(.vertical(4))
+          SeasonRowView(season: season)
+            .modifier(SeasonCardDisplayer(season: season))
             .onAppear() {
               viewModel.onItemDisplayed(currentItem: season)
             }
@@ -44,6 +44,6 @@ struct SeasonsView: View {
 }
 
   #Preview {
-    ConstructorsView(viewModel: ConstructorsViewModel(apiConstructors: APIConstructorsStub(),
-                                                      wikipediaAPI: WikipediaAPIStub()))
+    SeasonsView(viewModel: SeasonsViewModel(apiSeasons: APISeasonsStub(),
+                                                                   wikipediaAPI: WikipediaAPIStub()))
   }

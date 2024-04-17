@@ -15,7 +15,7 @@ struct ConstructorStandingsCard: View {
 
   var body: some View {
       VStack {
-        title("Standings")
+        CardStyling.makeCardTitle("Standings")
           .padding(EdgeInsets(top: 8, leading: 0, bottom: 0, trailing: 0))
 
         VStack(alignment: .leading) {
@@ -61,18 +61,5 @@ struct ConstructorStandingsCard: View {
         .padding(16)
       }
       .cardStyling()
-  }
-
-  func title(_ title: String) -> some View {
-    ZStack {
-      Color.F1Stats.primary
-
-      Text(title)
-        .textCase(.uppercase)
-        .typography(type: .heading(color: .F1Stats.appWhite))
-        .padding(.all(4))
-        .multilineTextAlignment(.center)
-    }
-    .fixedSize(horizontal: false, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
   }
 }

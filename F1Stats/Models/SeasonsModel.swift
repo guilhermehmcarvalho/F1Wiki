@@ -28,3 +28,7 @@ struct SeasonModel: Codable {
 extension SeasonModel: Identifiable {
   var id: String { season }
 }
+
+extension SeasonModel {
+  static let stub = SeasonModel(season: "1989", url: "https://en.wikipedia.org/wiki/2021_Formula_One_World_Championship")
+}

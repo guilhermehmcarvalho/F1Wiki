@@ -27,6 +27,7 @@ struct CachedAsyncImage<Placeholder: View>: View {
         Group {
             if loader.image != nil {
                 image(loader.image!)
+                .resizable()
             } else {
                 placeholder
             }

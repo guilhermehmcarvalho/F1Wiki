@@ -26,3 +26,18 @@ extension View {
       )
   }
 }
+
+struct CardStyling {
+  static func makeCardTitle(_ title: String) -> some View {
+    ZStack {
+      Color.F1Stats.primary
+
+      Text(title)
+        .textCase(.uppercase)
+        .typography(type: .heading(color: .F1Stats.appWhite))
+        .padding(.all(4))
+        .multilineTextAlignment(.center)
+    }
+    .fixedSize(horizontal: false, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
+  }
+}

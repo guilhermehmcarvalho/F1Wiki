@@ -16,7 +16,6 @@ struct ConstructorsView: View {
         ForEach(viewModel.constructorsList) { constructor in
           ConstructorRowView(constructor: constructor)
             .modifier(ConstructorCardDisplayer(constructor: constructor))
-            .padding(.vertical(4))
             .onAppear() {
               viewModel.onItemDisplayed(currentItem: constructor)
             }

@@ -25,7 +25,7 @@ struct RaceResultsView: View {
 
       if let raceModel = viewModel.raceModel {
         VStack{
-          title("\(raceModel.raceName)")
+          CardStyling.makeCardTitle("\(raceModel.raceName)")
             .padding(.top(6))
           VStack {
             Text("Race Result")
@@ -76,19 +76,6 @@ struct RaceResultsView: View {
         .modifier(ConstructorCardDisplayer(constructor: result.constructor))
         .clickableUnderline()
     }
-  }
-
-  func title(_ title: String) -> some View {
-    ZStack {
-      Color.F1Stats.primary
-
-      Text(title)
-        .textCase(.uppercase)
-        .typography(type: .heading(color: .F1Stats.appWhite))
-        .padding(.all(4))
-        .multilineTextAlignment(.center)
-    }
-    .fixedSize(horizontal: false, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
   }
 }
 

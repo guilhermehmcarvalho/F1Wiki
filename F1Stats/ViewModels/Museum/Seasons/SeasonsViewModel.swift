@@ -69,8 +69,8 @@ class SeasonsViewModel: ObservableObject {
     }
   }
   
-  func viewModel(for seasons: SeasonModel) -> SeasonRowViewModel {
-    SeasonRowViewModel(season: seasons,
+  func viewModel(for seasons: SeasonModel) -> SeasonCardViewModel {
+    SeasonCardViewModel(season: seasons,
                        wikipediaApi: wikipediaAPI,
                        apiSeason: apiSeasons)
   }
