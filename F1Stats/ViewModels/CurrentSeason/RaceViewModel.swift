@@ -17,8 +17,15 @@ class RaceViewModel: ObservableObject {
   @Published internal var qualiResultsViewModel: QualiResultsViewModel
   @Published internal private(set) var animate: Bool = false
 
-  @Published var presentingRaceResults: Bool = false
-  @Published var presentingQualiResults: Bool = false
+  @Published internal var presentingRaceResults: Bool = false
+  @Published internal var presentingQualiResults: Bool = false
+
+  @Published internal var raceCountdownViewModel: CountdownViewModel?
+  @Published internal var qualiCountdownViewModel: CountdownViewModel?
+  @Published internal var sprintCountdownViewModel: CountdownViewModel?
+  @Published internal var practice1CountdownViewModel: CountdownViewModel?
+  @Published internal var practice2CountdownViewModel: CountdownViewModel?
+  @Published internal var practice3CountdownViewModel: CountdownViewModel?
 
   init(raceModel: RaceModel, apiSeasons: APISeasonsProtocol) {
     self.raceModel = raceModel
@@ -30,6 +37,30 @@ class RaceViewModel: ObservableObject {
                                                        year: raceModel.season)
     raceResultsViewModel.onDismissed = popupDismissed
     qualiResultsViewModel.onDismissed = popupDismissed
+
+    if let raceTime = raceModel.timeAsDate() {
+      raceCountdownViewModel = CountdownViewModel(targetDate: raceTime)
+    }
+
+    if let time = raceModel.qualifying?.timeAsDate() {
+      qualiCountdownViewModel = CountdownViewModel(targetDate: time)
+    }
+
+    if let time = raceModel.sprint?.timeAsDate() {
+      sprintCountdownViewModel = CountdownViewModel(targetDate: time)
+    }
+
+    if let time = raceModel.firstPractice?.timeAsDate() {
+      practice1CountdownViewModel = CountdownViewModel(targetDate: time)
+    }
+
+    if let time = raceModel.secondPractice?.timeAsDate() {
+      practice2CountdownViewModel = CountdownViewModel(targetDate: time)
+    }
+
+    if let time = raceModel.thirdPractice?.timeAsDate() {
+      practice3CountdownViewModel = CountdownViewModel(targetDate: time)
+    }
   }
 
   var title: String { raceModel.raceName }
