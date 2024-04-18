@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 
 enum TypographyStyle {
+  case extraSmall(color: Color = .F1Stats.appDark)
   case small(color: Color = .F1Stats.appDark)
   case heavyBody(color: Color = .F1Stats.appDark)
   case body(color: Color = .F1Stats.appDark)
@@ -17,6 +18,7 @@ enum TypographyStyle {
 
   public var size: CGFloat {
     switch self {
+    case .extraSmall: return 12
     case .small: return 15
     case .body: return 17
     case .heavyBody: return 17
@@ -27,6 +29,7 @@ enum TypographyStyle {
 
   public var weight: Font.Weight {
     switch self {
+    case .extraSmall: return .light
     case .small, .body: return .regular
     case .heading, .heavyBody: return .bold
     case .subHeader: return .medium
@@ -53,7 +56,8 @@ struct BaseTypography: ViewModifier {
 extension View {
    func typography(type: TypographyStyle) -> some View {
        switch type {
-       case .small(let color), 
+       case .extraSmall(let color),
+           .small(let color),
            .body(let color),
            .heavyBody(let color),
            .heading(let color),

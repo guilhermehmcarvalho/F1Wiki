@@ -7,7 +7,7 @@
 
 import XCTest
 import Combine
-@testable import F1Stats
+@testable import F1Wiki
 
 final class SeasonDriverStandingsViewModelTest: XCTestCase {
 

@@ -143,6 +143,8 @@ struct RaceView: View {
           .multilineTextAlignment(.center)
           .typography(type: .body(color: .F1Stats.primary))
           .clickableUnderline(color: .F1Stats.primary)
+      } else if let vm = viewModel.raceCountdownViewModel {
+        CountdownView(viewModel: vm)
       }
     }
   }
@@ -157,6 +159,10 @@ struct RaceView: View {
           .multilineTextAlignment(.center)
           .typography(type: .body(color: .F1Stats.appDark))
       }
+      if viewModel.raceModel.firstPractice?.isFinished() == false,
+          let vm = viewModel.practice1CountdownViewModel {
+        CountdownView(viewModel: vm)
+      }
     }
   }
 
@@ -169,6 +175,10 @@ struct RaceView: View {
         Text(date)
           .multilineTextAlignment(.center)
           .typography(type: .body(color: .F1Stats.appDark))
+      }
+      if viewModel.raceModel.secondPractice?.isFinished() == false,
+          let vm = viewModel.practice2CountdownViewModel {
+        CountdownView(viewModel: vm)
       }
     }
   }
@@ -183,6 +193,10 @@ struct RaceView: View {
           .multilineTextAlignment(.center)
           .typography(type: .body(color: .F1Stats.appDark))
       }
+      if viewModel.raceModel.thirdPractice?.isFinished() == false,
+          let vm = viewModel.practice3CountdownViewModel {
+        CountdownView(viewModel: vm)
+      }
     }
   }
 
@@ -195,6 +209,10 @@ struct RaceView: View {
         Text(date)
           .multilineTextAlignment(.center)
           .typography(type: .body(color: .F1Stats.appDark))
+      }
+      if viewModel.raceModel.sprint?.isFinished() == false,
+          let vm = viewModel.sprintCountdownViewModel {
+        CountdownView(viewModel: vm)
       }
     }
   }
@@ -215,6 +233,8 @@ struct RaceView: View {
           .multilineTextAlignment(.center)
           .typography(type: .body(color: .F1Stats.primary))
           .clickableUnderline(color: .F1Stats.primary)
+      } else if let vm = viewModel.qualiCountdownViewModel {
+        CountdownView(viewModel: vm)
       }
     }
   }

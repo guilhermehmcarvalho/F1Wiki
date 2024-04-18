@@ -40,6 +40,8 @@
 		144B93C32BD00BD6004ADC34 /* privacy_policy.html in Resources */ = {isa = PBXBuildFile; fileRef = 144B93C22BD00BD6004ADC34 /* privacy_policy.html */; };
 		1457478A2BC900300074823A /* QualiResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145747892BC900300074823A /* QualiResultsView.swift */; };
 		1457478C2BC9078D0074823A /* EventProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1457478B2BC9078D0074823A /* EventProtocol.swift */; };
+		146950B42BD10163004AA78A /* CountdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146950B32BD10163004AA78A /* CountdownView.swift */; };
+		146950B62BD1032D004AA78A /* CountdownViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146950B52BD1032D004AA78A /* CountdownViewModel.swift */; };
 		148081DB2BBD28CA00A9A33F /* Extension+Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148081DA2BBD28CA00A9A33F /* Extension+Colors.swift */; };
 		148081DF2BBD33B200A9A33F /* NunitoSans-VariableFont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 148081DD2BBD33B200A9A33F /* NunitoSans-VariableFont.ttf */; };
 		148081E72BBD795200A9A33F /* WikipediaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148081E62BBD795200A9A33F /* WikipediaAPI.swift */; };
@@ -173,6 +175,8 @@
 		144B93C22BD00BD6004ADC34 /* privacy_policy.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = privacy_policy.html; sourceTree = "<group>"; };
 		145747892BC900300074823A /* QualiResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QualiResultsView.swift; sourceTree = "<group>"; };
 		1457478B2BC9078D0074823A /* EventProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventProtocol.swift; sourceTree = "<group>"; };
+		146950B32BD10163004AA78A /* CountdownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownView.swift; sourceTree = "<group>"; };
+		146950B52BD1032D004AA78A /* CountdownViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownViewModel.swift; sourceTree = "<group>"; };
 		148081DA2BBD28CA00A9A33F /* Extension+Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Colors.swift"; sourceTree = "<group>"; };
 		148081DD2BBD33B200A9A33F /* NunitoSans-VariableFont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-VariableFont.ttf"; sourceTree = "<group>"; };
 		148081E62BBD795200A9A33F /* WikipediaAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikipediaAPI.swift; sourceTree = "<group>"; };
@@ -300,7 +304,6 @@
 		140A09822BB6E30C0037AA74 /* F1Stats */ = {
 			isa = PBXGroup;
 			children = (
-				144B93C12BD00BBB004ADC34 /* Others */,
 				142C98822BB751C2009D1D35 /* Info.plist */,
 				142C98792BB743B6009D1D35 /* Config.swift */,
 				140A09832BB6E30C0037AA74 /* F1StatsApp.swift */,
@@ -308,6 +311,7 @@
 				14D79CB72BB88CA3006240F0 /* Extensions */,
 				1426323C2BBC3D4F00A0A68A /* Fonts */,
 				142C98762BB7057B009D1D35 /* Models */,
+				144B93C12BD00BBB004ADC34 /* Others */,
 				140A09892BB6E30D0037AA74 /* Preview Content */,
 				142C98752BB70568009D1D35 /* Service */,
 				148081D92BBD28B700A9A33F /* Styling */,
@@ -344,6 +348,7 @@
 				14CB301E2BCD2A7000D5DEFF /* DriverCardViewModel.swift */,
 				144B93982BCD7C19004ADC34 /* ConstructorCardViewModel.swift */,
 				144B93BF2BCFE8CD004ADC34 /* ContentViewModel.swift */,
+				146950B52BD1032D004AA78A /* CountdownViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -358,6 +363,7 @@
 				14CB30002BCBCC0D00D5DEFF /* Standings */,
 				14E6E59C2BC46F16001DF1D2 /* CurrentSeason */,
 				140A09852BB6E30C0037AA74 /* ContentView.swift */,
+				146950B32BD10163004AA78A /* CountdownView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -914,8 +920,10 @@
 				1457478C2BC9078D0074823A /* EventProtocol.swift in Sources */,
 				149210452BC0741200359497 /* SeasonsModel.swift in Sources */,
 				144B93AD2BCECDA6004ADC34 /* CardStyling.swift in Sources */,
+				146950B62BD1032D004AA78A /* CountdownViewModel.swift in Sources */,
 				149AA0852BC3CD0C001EFCCA /* CurrentSeasonViewModel.swift in Sources */,
 				14920FED2BBE95A300359497 /* DriverStandingModel.swift in Sources */,
+				146950B42BD10163004AA78A /* CountdownView.swift in Sources */,
 				144B93C02BCFE8CD004ADC34 /* ContentViewModel.swift in Sources */,
 				142C98812BB74E5B009D1D35 /* DriversViewModel.swift in Sources */,
 				144B93AB2BCE9A5B004ADC34 /* DriverStandingsRowViewModel.swift in Sources */,
@@ -1144,9 +1152,11 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gcarvalho.F1Wiki;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1176,9 +1186,11 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gcarvalho.F1Wiki;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -1195,7 +1207,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/F1Stats.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/F1Stats";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/F1Wiki.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/F1Wiki";
 			};
 			name = Debug;
 		};
@@ -1212,7 +1224,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/F1Stats.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/F1Stats";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/F1Wiki.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/F1Wiki";
 			};
 			name = Release;
 		};
