@@ -28,21 +28,14 @@ class RaceResultsViewModel: ObservableObject {
     self.year = year
     fetchStatusSubject
       .receive(on: DispatchQueue.main)
-      .assign(to: &$fetchStatus)
-  }
+      .assign(to: &$fetchStatus)  }
 
   func fetchRaceResults() {
     if self.raceModel != nil { return }
     cancellable = apiSeasons.raceResults(round: round, year: year)
       .observeFetchStatus(with: fetchStatusSubject)
       .receive(on: DispatchQueue.main)
-      .sink { status in
-        switch status {
-        case .finished: break
-        case .failure(let error):
-          print(error)
-        }
-      } receiveValue: { [weak self] response in
+      .sink { _ in } receiveValue: { [weak self] response in
         self?.raceModel = response.table.races.first
       }
   }

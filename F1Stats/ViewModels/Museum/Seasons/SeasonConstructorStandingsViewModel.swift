@@ -23,8 +23,7 @@ class SeasonConstructorStandingsViewModel: ObservableObject {
     self.apiSeasons = apiSeasons
     fetchStatusSubject
       .receive(on: DispatchQueue.main)
-      .assign(to: &$fetchStatus)
-  }
+      .assign(to: &$fetchStatus)  }
 
   func onTap(isExpanded: Bool) {
     if isExpanded, standingLists == nil {
@@ -36,13 +35,7 @@ class SeasonConstructorStandingsViewModel: ObservableObject {
     cancellable = apiSeasons.constructorStandingsForSeason(season: seasonId)
       .observeFetchStatus(with: fetchStatusSubject)
       .receive(on: DispatchQueue.main)
-      .sink { status in
-        switch status {
-        case .finished: break
-        case .failure(let error):
-          print(error)
-        }
-      }  receiveValue: { [weak self] response in
+      .sink { _ in }  receiveValue: { [weak self] response in
         self?.standingLists = response.table.standingsLists
       }
   }

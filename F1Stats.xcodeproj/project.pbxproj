@@ -10,7 +10,6 @@
 		140A09842BB6E30C0037AA74 /* F1StatsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140A09832BB6E30C0037AA74 /* F1StatsApp.swift */; };
 		140A09862BB6E30C0037AA74 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140A09852BB6E30C0037AA74 /* ContentView.swift */; };
 		140A09882BB6E30D0037AA74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 140A09872BB6E30D0037AA74 /* Assets.xcassets */; };
-		140A098B2BB6E30D0037AA74 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 140A098A2BB6E30D0037AA74 /* Preview Assets.xcassets */; };
 		141465602BCADB2E003EF647 /* MuseumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1414655F2BCADB2E003EF647 /* MuseumView.swift */; };
 		141465622BCB0174003EF647 /* MuseumViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141465612BCB0174003EF647 /* MuseumViewModel.swift */; };
 		142632402BBC80BD00A0A68A /* DesignLanguageSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1426323F2BBC80BD00A0A68A /* DesignLanguageSystem.swift */; };
@@ -127,6 +126,12 @@
 		14E6E59E2BC46F29001DF1D2 /* CurrentSeasonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E6E59D2BC46F29001DF1D2 /* CurrentSeasonView.swift */; };
 		14E6E5A02BC47F87001DF1D2 /* RaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E6E59F2BC47F87001DF1D2 /* RaceView.swift */; };
 		14E6E5A22BC47F93001DF1D2 /* RaceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E6E5A12BC47F93001DF1D2 /* RaceViewModel.swift */; };
+		14EF53CD2BD28DEF000268A9 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EF53CC2BD28DEF000268A9 /* APIError.swift */; };
+		14EF53D02BD292CE000268A9 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EF53CF2BD292CE000268A9 /* ToastView.swift */; };
+		14EF53D22BD29448000268A9 /* ToastStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EF53D12BD29448000268A9 /* ToastStyle.swift */; };
+		14EF53D42BD294B8000268A9 /* ToastModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EF53D32BD294B8000268A9 /* ToastModifier.swift */; };
+		14EF53D62BD294DF000268A9 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EF53D52BD294DF000268A9 /* Toast.swift */; };
+		14EF53D82BD29973000268A9 /* Extension+Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EF53D72BD29973000268A9 /* Extension+Publisher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -144,7 +149,6 @@
 		140A09832BB6E30C0037AA74 /* F1StatsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = F1StatsApp.swift; sourceTree = "<group>"; };
 		140A09852BB6E30C0037AA74 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		140A09872BB6E30D0037AA74 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		140A098A2BB6E30D0037AA74 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1414655F2BCADB2E003EF647 /* MuseumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuseumView.swift; sourceTree = "<group>"; };
 		141465612BCB0174003EF647 /* MuseumViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuseumViewModel.swift; sourceTree = "<group>"; };
 		1426323F2BBC80BD00A0A68A /* DesignLanguageSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignLanguageSystem.swift; sourceTree = "<group>"; };
@@ -263,6 +267,12 @@
 		14E6E59D2BC46F29001DF1D2 /* CurrentSeasonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentSeasonView.swift; sourceTree = "<group>"; };
 		14E6E59F2BC47F87001DF1D2 /* RaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceView.swift; sourceTree = "<group>"; };
 		14E6E5A12BC47F93001DF1D2 /* RaceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceViewModel.swift; sourceTree = "<group>"; };
+		14EF53CC2BD28DEF000268A9 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		14EF53CF2BD292CE000268A9 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
+		14EF53D12BD29448000268A9 /* ToastStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastStyle.swift; sourceTree = "<group>"; };
+		14EF53D32BD294B8000268A9 /* ToastModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastModifier.swift; sourceTree = "<group>"; };
+		14EF53D52BD294DF000268A9 /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
+		14EF53D72BD29973000268A9 /* Extension+Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Publisher.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -304,6 +314,7 @@
 		140A09822BB6E30C0037AA74 /* F1Stats */ = {
 			isa = PBXGroup;
 			children = (
+				14EF53CE2BD292AE000268A9 /* Toast */,
 				142C98822BB751C2009D1D35 /* Info.plist */,
 				142C98792BB743B6009D1D35 /* Config.swift */,
 				140A09832BB6E30C0037AA74 /* F1StatsApp.swift */,
@@ -311,8 +322,8 @@
 				14D79CB72BB88CA3006240F0 /* Extensions */,
 				1426323C2BBC3D4F00A0A68A /* Fonts */,
 				142C98762BB7057B009D1D35 /* Models */,
+				14EF53CB2BD28DE1000268A9 /* Networking */,
 				144B93C12BD00BBB004ADC34 /* Others */,
-				140A09892BB6E30D0037AA74 /* Preview Content */,
 				142C98752BB70568009D1D35 /* Service */,
 				148081D92BBD28B700A9A33F /* Styling */,
 				14C146AF2BC86C72001F7F35 /* Utils */,
@@ -320,14 +331,6 @@
 				142C98742BB70561009D1D35 /* Views */,
 			);
 			path = F1Stats;
-			sourceTree = "<group>";
-		};
-		140A09892BB6E30D0037AA74 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				140A098A2BB6E30D0037AA74 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		1426323C2BBC3D4F00A0A68A /* Fonts */ = {
@@ -747,7 +750,6 @@
 			isa = PBXGroup;
 			children = (
 				148081DA2BBD28CA00A9A33F /* Extension+Colors.swift */,
-				14D79CB52BB88C92006240F0 /* Extensions+Publisher.swift */,
 				142632432BBC8CE900A0A68A /* Extensions+EdgeInsets.swift */,
 			);
 			path = Extensions;
@@ -762,6 +764,27 @@
 				145747892BC900300074823A /* QualiResultsView.swift */,
 			);
 			path = CurrentSeason;
+			sourceTree = "<group>";
+		};
+		14EF53CB2BD28DE1000268A9 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				14D79CB52BB88C92006240F0 /* Extensions+Publisher.swift */,
+				14EF53CC2BD28DEF000268A9 /* APIError.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		14EF53CE2BD292AE000268A9 /* Toast */ = {
+			isa = PBXGroup;
+			children = (
+				14EF53CF2BD292CE000268A9 /* ToastView.swift */,
+				14EF53D12BD29448000268A9 /* ToastStyle.swift */,
+				14EF53D32BD294B8000268A9 /* ToastModifier.swift */,
+				14EF53D52BD294DF000268A9 /* Toast.swift */,
+				14EF53D72BD29973000268A9 /* Extension+Publisher.swift */,
+			);
+			path = Toast;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -849,7 +872,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				140A098B2BB6E30D0037AA74 /* Preview Assets.xcassets in Resources */,
 				149210002BBEBC3F00359497 /* driverStandings.json in Resources */,
 				14E6E59B2BC46CAC001DF1D2 /* wikiMediaList.json in Resources */,
 				144B93C32BD00BD6004ADC34 /* privacy_policy.html in Resources */,
@@ -931,6 +953,7 @@
 				142C987A2BB743B6009D1D35 /* Config.swift in Sources */,
 				142632442BBC8CE900A0A68A /* Extensions+EdgeInsets.swift in Sources */,
 				14920FFB2BBEBA1D00359497 /* APIDriversStub.swift in Sources */,
+				14EF53D62BD294DF000268A9 /* Toast.swift in Sources */,
 				14C146B32BC86E7A001F7F35 /* CustomSheet.swift in Sources */,
 				14C1469C2BC70FA4001F7F35 /* RaceResultsViewModel.swift in Sources */,
 				142C98782BB74225009D1D35 /* APIDrivers.swift in Sources */,
@@ -939,12 +962,16 @@
 				1492104C2BC1269B00359497 /* SeasonCardViewModel.swift in Sources */,
 				149210582BC1A54F00359497 /* SeasonDriverStandingsViewModel.swift in Sources */,
 				144B93932BCD5CCA004ADC34 /* DriverCardDisplayer.swift in Sources */,
+				14EF53D22BD29448000268A9 /* ToastStyle.swift in Sources */,
+				14EF53D42BD294B8000268A9 /* ToastModifier.swift in Sources */,
+				14EF53CD2BD28DEF000268A9 /* APIError.swift in Sources */,
 				149210432BC0734A00359497 /* APISeasons.swift in Sources */,
 				141465602BCADB2E003EF647 /* MuseumView.swift in Sources */,
 				144B93A32BCE6B77004ADC34 /* DriverStandingsCard.swift in Sources */,
 				144B93A52BCE7408004ADC34 /* DriverBioCard.swift in Sources */,
 				144B939F2BCE5F2E004ADC34 /* ConstructorStandingsCard.swift in Sources */,
 				14C146942BC7040B001F7F35 /* QualifyingResult.swift in Sources */,
+				14EF53D02BD292CE000268A9 /* ToastView.swift in Sources */,
 				144B939D2BCDB2C1004ADC34 /* CachedAsyncImage.swift in Sources */,
 				144B93A72BCE79CE004ADC34 /* Transitions.swift in Sources */,
 				14E6E5A22BC47F93001DF1D2 /* RaceViewModel.swift in Sources */,
@@ -970,6 +997,7 @@
 				144B93B72BCFAC43004ADC34 /* SeasonMainCardView.swift in Sources */,
 				144B93AF2BCEFFEE004ADC34 /* SeasonCardView.swift in Sources */,
 				14CB30152BCBD8BB00D5DEFF /* ConstructorStandingsView.swift in Sources */,
+				14EF53D82BD29973000268A9 /* Extension+Publisher.swift in Sources */,
 				149AA0802BC3BE43001EFCCA /* PracticeModel.swift in Sources */,
 				14CB301B2BCD112A00D5DEFF /* DriverCardView.swift in Sources */,
 				1492103A2BC0319A00359497 /* ConstructorStanding.swift in Sources */,

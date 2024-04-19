@@ -24,21 +24,14 @@ class WikipediaViewModel: ObservableObject {
     self.wikipediaApi = wikipediaApi
     fetchStatusSubject
       .receive(on: DispatchQueue.main)
-      .assign(to: &$fetchStatus)
-  }
+      .assign(to: &$fetchStatus)  }
 
   internal func fetchSummary() -> Void {
     guard summaryModel == nil else { return }
     cancellable = wikipediaApi.getSummaryFor(url: url)
       .observeFetchStatus(with: fetchStatusSubject)
       .receive(on: DispatchQueue.main)
-      .sink { status in
-        switch status {
-        case .finished: break
-        case .failure(let error):
-          print(error)
-        }
-      } receiveValue: { [weak self] response in
+      .sink {  _ in } receiveValue: { [weak self] response in
         self?.summaryModel = response
         self?.objectWillChange.send()
       }
@@ -49,13 +42,7 @@ class WikipediaViewModel: ObservableObject {
     cancellable = wikipediaApi.getMediaList(forUrl: url)
       .observeFetchStatus(with: fetchStatusSubject)
       .receive(on: DispatchQueue.main)
-      .sink { status in
-        switch status {
-        case .finished: break
-        case .failure(let error):
-          print(error)
-        }
-      } receiveValue: { [weak self] response in
+      .sink { _ in } receiveValue: { [weak self] response in
         self?.mediaList = response
       }
   }

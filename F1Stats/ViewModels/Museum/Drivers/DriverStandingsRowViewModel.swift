@@ -13,8 +13,10 @@ class DriverStandingsRowViewModel: ObservableObject {
   
   private var driverApi: APIDriversProtocol
   private let driverId: String
+
+  private var fetchStatusSubject = PassthroughSubject<FetchStatus, Never>()
+
   @Published var standingLists: [StandingsList]?
-  private(set) var fetchStatusSubject = PassthroughSubject<FetchStatus, Never>()
   @Published var fetchStatus: FetchStatus = .ready
 
   private var cancellable: AnyCancellable?
@@ -22,10 +24,10 @@ class DriverStandingsRowViewModel: ObservableObject {
   init(driverId: String, driverApi: APIDriversProtocol) {
     self.driverId = driverId
     self.driverApi = driverApi
+
     fetchStatusSubject
       .receive(on: DispatchQueue.main)
-      .assign(to: &$fetchStatus)
-  }
+      .assign(to: &$fetchStatus)  }
 
   func onTap(isExpanded: Bool) {
     if isExpanded, standingLists == nil {
@@ -37,13 +39,7 @@ class DriverStandingsRowViewModel: ObservableObject {
     cancellable = driverApi.listOfDriverStandings(driverId: driverId)
       .observeFetchStatus(with: fetchStatusSubject)
       .receive(on: DispatchQueue.main)
-      .sink { status in
-        switch status {
-        case .finished: break
-        case .failure(let error):
-          print(error)
-        }
-      }  receiveValue: { [weak self] response in
+      .sink { _ in  }  receiveValue: { [weak self] response in
         self?.standingLists = response.table.standingsLists
       }
   }

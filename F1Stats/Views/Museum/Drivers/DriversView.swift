@@ -27,6 +27,7 @@ struct DriversView: View {
           .frame(maxWidth: .infinity)
       }
     }
+    .toastView(toast: $viewModel.errorToast)
     .listRowSeparator(.automatic)
     .listRowSeparatorTint(.F1Stats.appWhite)
     .scrollContentBackground(.hidden)
