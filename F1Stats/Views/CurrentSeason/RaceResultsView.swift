@@ -42,6 +42,7 @@ struct RaceResultsView: View {
         }
       }
     }
+    .padding(.trailing(8))
     .frame(minHeight: 600)
     .cardStyling()
     .padding(.all(8))
