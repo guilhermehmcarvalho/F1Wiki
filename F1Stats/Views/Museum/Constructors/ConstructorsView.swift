@@ -42,6 +42,7 @@ struct ConstructorsView: View {
           .padding(.all(32))
       }
     }
+    .toastView(toast: $viewModel.errorToast)
   }
 }
 

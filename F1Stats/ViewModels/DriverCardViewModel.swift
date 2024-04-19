@@ -54,13 +54,7 @@ class DriverCardViewModel: ObservableObject {
     wikipediaApi.getSummaryFor(url: driver.url)
       .observeFetchStatus(with: fetchSummaryStatusSubject)
       .receive(on: DispatchQueue.main)
-      .sink { status in
-        switch status {
-        case .finished: break
-        case .failure(let error):
-          print(error)
-        }
-      } receiveValue: { [weak self] response in
+      .sink { _ in } receiveValue: { [weak self] response in
         self?.summaryModel = response
         if let imageString = response.originalimage?.source, let imageURL = URL(string: imageString) {
           self?.loadImage(imageUrl: imageURL)
@@ -87,13 +81,7 @@ class DriverCardViewModel: ObservableObject {
     driverApi.listOfDriverStandings(driverId: driver.driverId)
       .observeFetchStatus(with: fetchStandingsStatusSubject)
       .receive(on: DispatchQueue.main)
-      .sink { status in
-        switch status {
-        case .finished: break
-        case .failure(let error):
-          print(error)
-        }
-      }  receiveValue: { [weak self] response in
+      .sink { _ in }  receiveValue: { [weak self] response in
         self?.loadData(standingsList: response.table.standingsLists)
       }
       .store(in: &subscriptions)

@@ -56,6 +56,7 @@ struct DriverStandingsView: View {
         .padding(.all(16))
       }
     }
+    .toastView(toast: $viewModel.errorToast)
     .onAppear(perform: viewModel.fetchDriverStandings)
   }
 

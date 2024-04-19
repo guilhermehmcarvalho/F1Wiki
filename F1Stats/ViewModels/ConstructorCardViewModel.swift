@@ -61,13 +61,7 @@ class ConstructorCardViewModel: ObservableObject {
     isLoadingImage = true
     wikipediaApi.getMediaList(forUrl: constructor.url)
       .receive(on: DispatchQueue.main)
-      .sink { status in
-        switch status {
-        case .finished: break
-        case .failure(let error):
-          print(error)
-        }
-      } receiveValue: { [weak self] response in
+      .sink { _ in } receiveValue: { [weak self] response in
         self?.mediaItems = response.items
         if let imageString = self?.mediaItems?.first?.srcset.last?.link,
             let imageUrl = URL(string: imageString) {
@@ -97,13 +91,7 @@ class ConstructorCardViewModel: ObservableObject {
     wikipediaApi.getSummaryFor(url: constructor.url)
       .observeFetchStatus(with: fetchSummaryStatusSubject)
       .receive(on: DispatchQueue.main)
-      .sink { status in
-        switch status {
-        case .finished: break
-        case .failure(let error):
-          print(error)
-        }
-      } receiveValue: { [weak self] response in
+      .sink { _ in } receiveValue: { [weak self] response in
         self?.summaryModel = response
         if let imageString = response.originalimage?.source, let imageUrl = URL(string: imageString) {
           self?.loadImage(imageUrl: imageUrl)
@@ -119,13 +107,7 @@ class ConstructorCardViewModel: ObservableObject {
     apiConstructor.listOfConstructorStandings(constructorId: constructor.constructorID)
       .observeFetchStatus(with: fetchStandingsStatusSubject)
       .receive(on: DispatchQueue.main)
-      .sink { status in
-        switch status {
-        case .finished: break
-        case .failure(let error):
-          print(error)
-        }
-      }  receiveValue: { [weak self] response in
+      .sink { _ in }  receiveValue: { [weak self] response in
         self?.loadData(standingsList: response.table.standingsLists)
       }
       .store(in: &subscriptions)
