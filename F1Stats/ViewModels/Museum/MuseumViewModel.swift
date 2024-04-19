@@ -21,7 +21,7 @@ class MuseumViewModel: ObservableObject {
 
   @Published var selectedTab: Int = 0
 
-  internal let tabItems: [String] = ["Seasons", "Drivers", "Constructors"]
+  internal let tabItems: [String] = ["Drivers", "Constructors", "Seasons"]
 
   init(apiSeasons: APISeasonsProtocol, wikipediaAPI: WikipediaAPIProtocol, driverAPI: APIDriversProtocol, constructorsAPI: APIConstructorsProtocol) {
     self.apiSeasons = apiSeasons

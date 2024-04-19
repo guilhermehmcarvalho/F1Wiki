@@ -49,7 +49,10 @@ struct DriverStandingsView: View {
           .padding(.all(8))
           .padding(.trailing)
         }
-        .makeCardView()
+        .padding(.bottom(16))
+        .padding(.leading(8))
+        .padding(.top(8))
+        .cardStyling()
         .padding(.all(16))
       }
     }
