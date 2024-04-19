@@ -92,7 +92,7 @@ struct DriverCardView: View {
             Text("Seasons:")
           }
           if viewModel.constructors != nil {
-            Text("Constructors:")
+            Text("Teams:")
           }
         }
         .typography(type: .body(color: Color.F1Stats.appDark))

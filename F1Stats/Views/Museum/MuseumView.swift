@@ -22,11 +22,11 @@ struct MuseumView: View {
           .padding(.horizontal(8))
 
         TabView(selection: $viewModel.selectedTab) {
-          SeasonsView(viewModel: viewModel.seasonsViewModel)
-            .tag(0)
           DriversView(viewModel: viewModel.driversViewModel)
-            .tag(1)
+            .tag(0)
           ConstructorsView(viewModel: viewModel.constructorsViewModel)
+            .tag(1)
+          SeasonsView(viewModel: viewModel.seasonsViewModel)
             .tag(2)
         }
         .tabViewStyle(.page(indexDisplayMode: .never))

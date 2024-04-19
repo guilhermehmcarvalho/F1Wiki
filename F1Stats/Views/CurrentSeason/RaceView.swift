@@ -168,7 +168,7 @@ struct RaceView: View {
 
   var practice2: some View {
     VStack {
-      Text("Free Practice 2")
+      Text(viewModel.raceModel.sprint == nil ? "Free Practice 2" : "Sprint Qualifying")
         .typography(type: .subHeader (color: .F1Stats.appDark))
       if let date = viewModel.raceModel.secondPractice?.timeAsString() {
         Spacer().frame(height: 4)
