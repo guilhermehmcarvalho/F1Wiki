@@ -22,7 +22,9 @@ platform :ios do
   end
 
 	lane :release do
+    run_tests(scheme: "F1WikiTests")
     build_app(scheme: "F1Wiki")
+    pilot(api_key_path: "fastlane/keys.json")
   end
 
 
