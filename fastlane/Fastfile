@@ -13,6 +13,16 @@
 # Uncomment the line if you want fastlane to automatically update itself
 # update_fastlane
 
+# ------------------------ Constants ------------------------
+
+app_identifier = CredentialsManager::AppfileConfig.try_fetch_value(:app_identifier)
+
+app_store_connect_api_key_id = "#{ENV["APP_STORE_CONNECT_API_KEY_KEY_ID"]}"
+app_store_connect_api_issuer_id = "#{ENV["APP_STORE_CONNECT_API_KEY_ISSUER_ID"]}"
+#app_store_connect_api_p8_contents = File.read("#{ENV["APP_STORE_CONNECT_API_KEY_KEY"]}")
+app_store_connect_api_p8_path = "#{ENV["APP_STORE_CONNECT_API_KEY_KEYPATH"]}"
+bundle_identifier = "#{ENV["BUNDLE_IDENTIFIER"]}"
+
 default_platform(:ios)
 
 platform :ios do
@@ -22,9 +32,27 @@ platform :ios do
   end
 
 	lane :release do
-    run_tests(scheme: "F1WikiTests")
-    build_app(scheme: "F1Wiki")
-    pilot(api_key_path: "fastlane/keys.json")
+    #run_tests(scheme: "F1WikiTests")
+
+    api_key = app_store_connect_api_key(
+      key_id: app_store_connect_api_key_id,
+      issuer_id: app_store_connect_api_issuer_id,
+      key_filepath: app_store_connect_api_p8_path,
+    )
+
+    build_num = app_store_build_number(
+      api_key: api_key,
+      app_identifier: bundle_identifier
+    )
+
+    increment_build_number(build_number: build_num+1)
+    build_app(
+      scheme: "F1Wiki",
+      export_method: "app-store",
+      output_directory("./build")
+    )
+    pilot(api_key: api_key)
+
   end
 
 

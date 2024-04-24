@@ -215,6 +215,7 @@ PLATFORMS
   universal-darwin-23
 
 DEPENDENCIES
+  dotenv
   fastlane
 
 BUNDLED WITH
