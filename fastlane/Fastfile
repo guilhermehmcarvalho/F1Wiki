@@ -19,49 +19,136 @@ app_identifier = CredentialsManager::AppfileConfig.try_fetch_value(:app_identifi
 
 app_store_connect_api_key_id = "#{ENV["APP_STORE_CONNECT_API_KEY_KEY_ID"]}"
 app_store_connect_api_issuer_id = "#{ENV["APP_STORE_CONNECT_API_KEY_ISSUER_ID"]}"
-#app_store_connect_api_p8_contents = File.read("#{ENV["APP_STORE_CONNECT_API_KEY_KEY"]}")
 app_store_connect_api_p8_path = "#{ENV["APP_STORE_CONNECT_API_KEY_KEYPATH"]}"
 bundle_identifier = "#{ENV["BUNDLE_IDENTIFIER"]}"
+team_id = "#{ENV["FASTLANE_TEAM_ID"]}"
 
 default_platform(:ios)
 
 platform :ios do
 
-  lane :tests do
-    run_tests(scheme: "F1WikiTests")
-  end
-
-	lane :release do
-    run_tests(scheme: "F1WikiTests")
-
-    api_key = app_store_connect_api_key(
+  desc "Load ASC API Key information to use in subsequent lanes"
+  lane :load_asc_api_key do
+   app_store_connect_api_key(
       key_id: app_store_connect_api_key_id,
       issuer_id: app_store_connect_api_issuer_id,
       key_filepath: app_store_connect_api_p8_path,
-    )
-
-    build_num = app_store_build_number(
-      api_key: api_key,
-      app_identifier: bundle_identifier
-    )
-
-    increment_build_number(build_number: build_num+1)
-    build_app(
-      scheme: "F1Wiki",
-      export_method: "app-store",
-      output_directory: "./build"
-    )
-
-    #match(type: "appstore")
-    #pilot(api_key: api_key)
-    deliver(
-      #submit_for_review: true,
-      force: true,
-      metadata_path: "./metadata",
-      precheck_include_in_app_purchases: false
-    )
-
+     in_house: false # detecting this via ASC private key not currently supported
+   )
   end
 
+  desc "Installs signing certificate in the keychain and downloads provisioning profiles from App Store Connect"
+  lane :prepare_signing do |options|
+   team_id = team_id
+   api_key = lane_context[SharedValues::APP_STORE_CONNECT_API_KEY]
+
+   keychain_name = "signing"
+   keychain_password = "temp"
+
+   delete_keychain(
+     name: keychain_name
+   ) if File.exist? File.expand_path("~/Library/Keychains/#{keychain_name}-db")
+
+   create_keychain(
+     name: keychain_name,
+     password: keychain_password,
+     default_keychain: true,
+     unlock: true,
+     timeout: 3600
+   )
+
+   import_certificate(
+     certificate_path: ENV["SIGNING_KEY_FILE_PATH"],
+     certificate_password: ENV["SIGNING_KEY_PASSWORD"],
+     keychain_name: keychain_name,
+     keychain_password: keychain_password
+   )
+
+   # fetches and installs provisioning profiles from ASC
+   sigh(
+     adhoc: options[:adhoc],
+     api_key: api_key,
+     app_identifier: bundle_identifier,
+     readonly: true
+   )
+  end
+
+
+  desc "Bump build number based on most recent uploaded build's number"
+  lane :fetch_and_increment_build_number do
+
+    api_key = lane_context[SharedValues::APP_STORE_CONNECT_API_KEY]
+
+    build_num = latest_testflight_build_number(
+                                       api_key: api_key,
+                                       app_identifier: bundle_identifier,
+                                       initial_build_number: 1
+    )
+
+    increment_build_number(build_number: build_num + 1)
+  end
+
+
+  desc "Build the iOS app for release"
+  lane :build_release do |options|
+
+   profile_name = "com.gcarvalho.F1Wiki AppStore" # replace with the name of the profile to use for the build
+   output_name = "F1Wiki" # specify the name of the .ipa file to generate
+   export_method = "app-store" # specify the export method
+
+    # turn off automatic signing during build so correct code signing identity is guaranteed to be used
+    update_code_signing_settings(
+                                 use_automatic_signing: false,
+                                 targets: ["F1Wiki"], # specify which targets to update code signing settings for
+                                 code_sign_identity: "Apple Distribution", # replace with name of code signing identity if different
+                                 bundle_identifier: bundle_identifier,
+                                 profile_name: profile_name,
+                                 build_configurations: ["Release"] # only toggle code signing settings for Release configurations
+    )
+
+    # build the app
+    gym(
+        scheme: "F1Wiki", # replace with name of your project’s scheme
+        output_name: output_name,
+        configuration: "Release",
+        export_options: {
+          method: export_method,
+          provisioningProfiles: {
+            app_identifier => bundle_identifier
+          }
+        }
+      )
+  end
+
+
+  desc "Upload to AppStore"
+  lane :upload_release do
+   api_key = lane_context[SharedValues::APP_STORE_CONNECT_API_KEY]
+
+   deliver(
+           api_key: api_key,
+           skip_screenshots: true,
+           skip_metadata: true,
+           skip_app_version_update: true,
+           force: true, # skips verification of HTML preview file (since this will be run from a CI machine)
+           run_precheck_before_submit: true, # not supported through ASC API yet
+           precheck_include_in_app_purchases: false
+           )
+  end
+
+  lane :tests do
+    setup_ci if ENV['CI']
+    run_tests(scheme: "F1WikiTests")
+  end
+
+  desc "Build and upload to AppStore"
+  lane :build_upload do
+    run_tests
+    load_asc_api_key
+    prepare_signing
+    fetch_and_increment_build_number
+    build_release
+    upload_release
+  end
 
 end
