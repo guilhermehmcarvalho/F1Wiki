@@ -13,8 +13,8 @@ jobs:
      - name: Set up ruby env
        uses: ruby/setup-ruby@v1
        with:
-         ruby-version: 2.6.10
-         bundler-cache: true
+         ruby-version: 3.3
+         bundler-cache: false
          
      - name: Decode signing certificate into a file
        env:
