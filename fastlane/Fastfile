@@ -15,8 +15,6 @@
 
 # ------------------------ Constants ------------------------
 
-app_identifier = CredentialsManager::AppfileConfig.try_fetch_value(:app_identifier)
-
 bundle_identifier = ENV["BUNDLE_IDENTIFIER"]
 
 default_platform(:ios)
