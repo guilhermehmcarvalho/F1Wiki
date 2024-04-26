@@ -110,6 +110,7 @@ platform :ios do
           method: export_method,
           provisioningProfiles: {
             app_identifier => bundle_identifier
+            app_identifier => profile_name
           }
         }
       )
