@@ -1,0 +1,21 @@
+name: Run Unit Tests
+on:
+  push:
+    branches: [ "main", "dev" ]
+  pull_request:
+    branches: [ "main", "dev" ]
+jobs:
+ deploy:
+   runs-on: macos-latest
+   
+   steps:
+     - uses: actions/checkout@v4
+
+     - name: Set up ruby env
+       uses: ruby/setup-ruby@v1
+       with:
+         ruby-version: 3.3
+         bundler-cache: true
+         
+     - name: Run Unit Tests
+       run: bundle exec fastlane ios tests
