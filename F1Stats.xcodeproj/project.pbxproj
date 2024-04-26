@@ -121,6 +121,7 @@
 		14CB301F2BCD2A7000D5DEFF /* DriverCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CB301E2BCD2A7000D5DEFF /* DriverCardViewModel.swift */; };
 		14D79CB42BB8710F006240F0 /* MRData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D79CB32BB8710F006240F0 /* MRData.swift */; };
 		14D79CB62BB88C92006240F0 /* Extensions+Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D79CB52BB88C92006240F0 /* Extensions+Publisher.swift */; };
+		14DFCCAE2BDBDB0300AF077A /* URLSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DFCCAD2BDBDB0300AF077A /* URLSessionManager.swift */; };
 		14E502572BD2DA8B00590B11 /* Preview Content.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14E502562BD2DA8B00590B11 /* Preview Content.xcassets */; };
 		14E6E5992BC46C42001DF1D2 /* WikiCommonsMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E6E5982BC46C42001DF1D2 /* WikiCommonsMedia.swift */; };
 		14E6E59B2BC46CAC001DF1D2 /* wikiMediaList.json in Resources */ = {isa = PBXBuildFile; fileRef = 14E6E59A2BC46CAC001DF1D2 /* wikiMediaList.json */; };
@@ -263,6 +264,7 @@
 		14CB301E2BCD2A7000D5DEFF /* DriverCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverCardViewModel.swift; sourceTree = "<group>"; };
 		14D79CB32BB8710F006240F0 /* MRData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRData.swift; sourceTree = "<group>"; };
 		14D79CB52BB88C92006240F0 /* Extensions+Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+Publisher.swift"; sourceTree = "<group>"; };
+		14DFCCAD2BDBDB0300AF077A /* URLSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionManager.swift; sourceTree = "<group>"; };
 		14E502562BD2DA8B00590B11 /* Preview Content.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Content.xcassets"; sourceTree = "<group>"; };
 		14E6E5982BC46C42001DF1D2 /* WikiCommonsMedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiCommonsMedia.swift; sourceTree = "<group>"; };
 		14E6E59A2BC46CAC001DF1D2 /* wikiMediaList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = wikiMediaList.json; sourceTree = "<group>"; };
@@ -782,6 +784,7 @@
 			children = (
 				14D79CB52BB88C92006240F0 /* Extensions+Publisher.swift */,
 				14EF53CC2BD28DEF000268A9 /* APIError.swift */,
+				14DFCCAD2BDBDB0300AF077A /* URLSessionManager.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -914,6 +917,7 @@
 			files = (
 				144B93992BCD7C19004ADC34 /* ConstructorCardViewModel.swift in Sources */,
 				142C987F2BB74AAC009D1D35 /* DriverModel.swift in Sources */,
+				14DFCCAE2BDBDB0300AF077A /* URLSessionManager.swift in Sources */,
 				148081ED2BBD85DC00A9A33F /* WikipediaViewModel.swift in Sources */,
 				149210532BC16DA500359497 /* SeasonsView.swift in Sources */,
 				149210362BC02FB100359497 /* ConstructorStandingsRowViewModel.swift in Sources */,

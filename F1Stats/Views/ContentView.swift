@@ -13,14 +13,8 @@ struct ContentView: View {
 
   init(viewModel: ContentViewModel) {
     self.viewModel = viewModel
-    customizeTabViewAppearance()
   }
 
-  func customizeTabViewAppearance() {
-    UIPageControl.appearance().currentPageIndicatorTintColor = Color.F1Stats.primary.asUIColor
-    UIPageControl.appearance().pageIndicatorTintColor = Color.F1Stats.primary.asUIColor.withAlphaComponent(0.5)
-  }
-  
   var body: some View {
     TabView {
       CurrentSeasonView(viewModel: viewModel.currentSeasonViewModel)
