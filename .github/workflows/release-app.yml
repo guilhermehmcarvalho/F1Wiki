@@ -1,3 +1,5 @@
+name: iOS binary test, build & upload
+
 on:
  workflow_dispatch:
 
