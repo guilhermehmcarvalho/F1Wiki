@@ -139,7 +139,7 @@ platform :ios do
   end
 
   desc "Build and upload to AppStore"
-  lane :build_upload do
+  lane :test_build_upload do
     run_tests
     load_asc_api_key
     prepare_signing
