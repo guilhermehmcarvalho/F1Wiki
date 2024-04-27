@@ -11,8 +11,8 @@ class URLSessionManager {
 
   static let urlSession: URLSession = {
     let configuration = URLSessionConfiguration.default
-    configuration.timeoutIntervalForRequest = 5 // seconds
-    configuration.timeoutIntervalForResource = 5 // seconds
+    configuration.timeoutIntervalForRequest = 5
+    configuration.timeoutIntervalForResource = 5
     return URLSession(configuration: configuration)
   }()
 }
