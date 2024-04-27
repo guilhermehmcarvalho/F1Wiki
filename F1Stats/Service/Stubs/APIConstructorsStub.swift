@@ -17,7 +17,7 @@ class APIConstructorsStub: APIConstructorsProtocol {
 
   func listOfAllConstructors(limit: Int, offset: Int) -> AnyPublisher<MRData<ConstructorTable>, any Error> {
     guard let path = Bundle.main.path(forResource: "constructorList", ofType: "json") else {
-      return Empty().eraseToAnyPublisher()
+      return Fail(error: APIError.invalidRequestError("Invalid path")).eraseToAnyPublisher()
     }
 
     do {
@@ -30,13 +30,13 @@ class APIConstructorsStub: APIConstructorsProtocol {
 
     } catch let error {
       print(error)
-      return Empty().eraseToAnyPublisher()
+      return Fail(error: error).eraseToAnyPublisher()
     }
   }
 
   func listOfConstructorStandings(constructorId: String) -> AnyPublisher<MRData<StandingsTable>, any Error> {
     guard let path = Bundle.main.path(forResource: "constructorStandings", ofType: "json") else {
-      return Empty().eraseToAnyPublisher()
+      return Fail(error: APIError.invalidRequestError("Invalid path")).eraseToAnyPublisher()
     }
 
     do {
@@ -49,7 +49,7 @@ class APIConstructorsStub: APIConstructorsProtocol {
 
     } catch let error {
       print(error)
-      return Empty().eraseToAnyPublisher()
+      return Fail(error: error).eraseToAnyPublisher()
     }
   }
 

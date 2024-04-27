@@ -17,7 +17,7 @@ class APIDriversStub: APIDriversProtocol {
 
   func listOfAllDrivers(limit: Int = 30, offset: Int = 0) -> AnyPublisher<MRData<DriverTable>, any Error> {
     guard let path = Bundle.main.path(forResource: "driverList", ofType: "json") else {
-      return Empty().eraseToAnyPublisher()
+      return Fail(error: APIError.invalidRequestError("Invalid path")).eraseToAnyPublisher()
     }
 
     do {
@@ -30,13 +30,13 @@ class APIDriversStub: APIDriversProtocol {
 
     } catch let error {
       print(error)
-      return Empty().eraseToAnyPublisher()
+      return Fail(error: error).eraseToAnyPublisher()
     }
   }
   
   func listOfDriverStandings(driverId: String) -> AnyPublisher<MRData<StandingsTable>, Error> {
     guard let path = Bundle.main.path(forResource: "driverStandings", ofType: "json") else {
-      return Empty().eraseToAnyPublisher()
+      return Fail(error: APIError.invalidRequestError("Invalid path")).eraseToAnyPublisher()
     }
     
     do {
@@ -49,7 +49,7 @@ class APIDriversStub: APIDriversProtocol {
       
     } catch let error {
       print(error)
-      return Empty().eraseToAnyPublisher()
+      return Fail(error: error).eraseToAnyPublisher()
     }
   }
 

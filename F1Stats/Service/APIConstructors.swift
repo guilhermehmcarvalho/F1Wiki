@@ -31,7 +31,7 @@ class APIConstructors: APIConstructorsProtocol {
     ]
 
     guard let url = components?.url else {
-      return Empty().eraseToAnyPublisher()
+      return Fail(error: APIError.invalidRequestError("Invalid URL")).eraseToAnyPublisher()
     }
 
     return urlSession.dataTaskPublisher(for: url)
@@ -51,7 +51,7 @@ class APIConstructors: APIConstructorsProtocol {
     ]
 
     guard let url = components?.url else {
-      return Empty().eraseToAnyPublisher()
+      return Fail(error: APIError.invalidRequestError("Invalid URL")).eraseToAnyPublisher()
     }
 
     return urlSession.dataTaskPublisher(for: url)

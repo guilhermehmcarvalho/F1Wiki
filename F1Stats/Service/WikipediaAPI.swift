@@ -31,10 +31,10 @@ class WikipediaAPI: WikipediaAPIProtocol {
 
   func getSummaryFor(url: String) -> AnyPublisher<WikipediaSummaryModel, Error> {
     guard let title = URL(string: url)?.lastPathComponent else {
-      return Empty().eraseToAnyPublisher()
+      return Fail(error: APIError.invalidRequestError("Invalid URL")).eraseToAnyPublisher()
     }
     guard let url = URL(string: baseURL.appending("page/summary/\(title)")) else {
-      return Empty().eraseToAnyPublisher()
+      return Fail(error: APIError.invalidRequestError("Invalid URL")).eraseToAnyPublisher()
     }
 
     return urlSession.dataTaskPublisher(for: url)
@@ -47,7 +47,7 @@ class WikipediaAPI: WikipediaAPIProtocol {
       return Empty().eraseToAnyPublisher()
     }
     guard let url = URL(string: baseURL.appending("page/media-list/\(title)")) else {
-      return Empty().eraseToAnyPublisher()
+      return Fail(error: APIError.invalidRequestError("Invalid URL")).eraseToAnyPublisher()
     }
 
     return urlSession.dataTaskPublisher(for: url)

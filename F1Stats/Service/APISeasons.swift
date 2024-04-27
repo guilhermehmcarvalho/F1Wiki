@@ -36,11 +36,15 @@ class APISeasons: APISeasonsProtocol {
       ]
 
       guard let url = components?.url else {
-        return Empty().eraseToAnyPublisher()
+        return Fail(error: APIError.invalidRequestError("Invalid URL")).eraseToAnyPublisher()
       }
 
       return urlSession.dataTaskPublisher(for: url)
           .tryDecodeResponse(type: MRData<SeasonTable>.self, decoder: JSONDecoder())
+          .mapError({ error in
+            print(error)
+            return error
+          })
           .eraseToAnyPublisher()
   }
 
@@ -48,11 +52,15 @@ class APISeasons: APISeasonsProtocol {
     let components = URLComponents(string: baseURL.appending("\(season)/driverStandings.json"))
 
     guard let url = components?.url else {
-      return Empty().eraseToAnyPublisher()
+      return Fail(error: APIError.invalidRequestError("Invalid URL")).eraseToAnyPublisher()
     }
 
     return urlSession.dataTaskPublisher(for: url)
         .tryDecodeResponse(type: MRData<StandingsTable>.self, decoder: JSONDecoder())
+        .mapError({ error in
+          print(error)
+          return error
+        })
         .eraseToAnyPublisher()
   }
 
@@ -61,11 +69,15 @@ class APISeasons: APISeasonsProtocol {
     let components = URLComponents(string: baseURL.appending("\(season)/constructorStandings.json"))
 
     guard let url = components?.url else {
-      return Empty().eraseToAnyPublisher()
+      return Fail(error: APIError.invalidRequestError("Invalid URL")).eraseToAnyPublisher()
     }
 
     return urlSession.dataTaskPublisher(for: url)
         .tryDecodeResponse(type: MRData<StandingsTable>.self, decoder: JSONDecoder())
+        .mapError({ error in
+          print(error)
+          return error
+        })
         .eraseToAnyPublisher()
   }
 
@@ -77,11 +89,15 @@ class APISeasons: APISeasonsProtocol {
     ]
 
     guard let url = components?.url else {
-      return Empty().eraseToAnyPublisher()
+      return Fail(error: APIError.invalidRequestError("Invalid URL")).eraseToAnyPublisher()
     }
 
     return urlSession.dataTaskPublisher(for: url)
         .tryDecodeResponse(type: MRData<RaceTable>.self, decoder: JSONDecoder())
+        .mapError({ error in
+          print(error)
+          return error
+        })
         .eraseToAnyPublisher()
   }
 
@@ -89,11 +105,15 @@ class APISeasons: APISeasonsProtocol {
     let components = URLComponents(string: baseURL.appending("\(year)/\(round)/qualifying.json"))
 
     guard let url = components?.url else {
-      return Empty().eraseToAnyPublisher()
+      return Fail(error: APIError.invalidRequestError("Invalid URL")).eraseToAnyPublisher()
     }
 
     return urlSession.dataTaskPublisher(for: url)
         .tryDecodeResponse(type: MRData<RaceTable>.self, decoder: JSONDecoder())
+        .mapError({ error in
+          print(error)
+          return error
+        })
         .eraseToAnyPublisher()
   }
 
@@ -101,11 +121,15 @@ class APISeasons: APISeasonsProtocol {
     let components = URLComponents(string: baseURL.appending("\(year)/\(round)/results.json"))
 
     guard let url = components?.url else {
-      return Empty().eraseToAnyPublisher()
+      return Fail(error: APIError.invalidRequestError("Invalid URL")).eraseToAnyPublisher()
     }
 
     return urlSession.dataTaskPublisher(for: url)
         .tryDecodeResponse(type: MRData<RaceTable>.self, decoder: JSONDecoder())
+        .mapError({ error in
+          print(error)
+          return error
+        })
         .eraseToAnyPublisher()
   }
 

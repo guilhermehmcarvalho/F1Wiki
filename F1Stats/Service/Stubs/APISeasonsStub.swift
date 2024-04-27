@@ -17,7 +17,7 @@ class APISeasonsStub: APISeasonsProtocol {
 
   func listOfAllSeasons(limit: Int = 30, offset: Int = 0) -> AnyPublisher<MRData<SeasonTable>, any Error> {
     guard let path = Bundle.main.path(forResource: "seasonList", ofType: "json") else {
-      return Empty().eraseToAnyPublisher()
+      return Fail(error: APIError.invalidRequestError("Invalid path")).eraseToAnyPublisher()
     }
 
     do {
@@ -30,13 +30,13 @@ class APISeasonsStub: APISeasonsProtocol {
 
     } catch let error {
       print(error)
-      return Empty().eraseToAnyPublisher()
+      return Fail(error: error).eraseToAnyPublisher()
     }
   }
 
   func driverStandingsForSeason(season: String) -> AnyPublisher<MRData<StandingsTable>, any Error> {
     guard let path = Bundle.main.path(forResource: "seasonDriverStandings", ofType: "json") else {
-      return Empty().eraseToAnyPublisher()
+      return Fail(error: APIError.invalidRequestError("Invalid path")).eraseToAnyPublisher()
     }
 
     do {
@@ -49,13 +49,13 @@ class APISeasonsStub: APISeasonsProtocol {
 
     } catch let error {
       print(error)
-      return Empty().eraseToAnyPublisher()
+      return Fail(error: error).eraseToAnyPublisher()
     }
   }
 
   func constructorStandingsForSeason(season: String) -> AnyPublisher<MRData<StandingsTable>, any Error> {
     guard let path = Bundle.main.path(forResource: "seasonConstructorStandings", ofType: "json") else {
-      return Empty().eraseToAnyPublisher()
+      return Fail(error: APIError.invalidRequestError("Invalid path")).eraseToAnyPublisher()
     }
 
     do {
@@ -68,13 +68,13 @@ class APISeasonsStub: APISeasonsProtocol {
 
     } catch let error {
       print(error)
-      return Empty().eraseToAnyPublisher()
+      return Fail(error: error).eraseToAnyPublisher()
     }
   }
 
   func currentSeasonSchedule(limit: Int = 30, offset: Int = 0) -> AnyPublisher<MRData<RaceTable>, any Error> {
     guard let path = Bundle.main.path(forResource: "currentSeasonSchedule", ofType: "json") else {
-      return Empty().eraseToAnyPublisher()
+      return Fail(error: APIError.invalidRequestError("Invalid path")).eraseToAnyPublisher()
     }
 
     do {
@@ -87,7 +87,7 @@ class APISeasonsStub: APISeasonsProtocol {
 
     } catch let error {
       print(error)
-      return Empty().eraseToAnyPublisher()
+      return Fail(error: error).eraseToAnyPublisher()
     }
   }
 
@@ -106,13 +106,13 @@ class APISeasonsStub: APISeasonsProtocol {
 
     } catch let error {
       print(error)
-      return Empty().eraseToAnyPublisher()
+      return Fail(error: error).eraseToAnyPublisher()
     }
   }
 
   func raceResults(round: String, year: String) -> AnyPublisher<MRData<RaceTable>, any Error> {
     guard let path = Bundle.main.path(forResource: "raceResults", ofType: "json") else {
-      return Empty().eraseToAnyPublisher()
+      return Fail(error: APIError.invalidRequestError("Invalid path")).eraseToAnyPublisher()
     }
 
     do {
@@ -125,7 +125,7 @@ class APISeasonsStub: APISeasonsProtocol {
 
     } catch let error {
       print(error)
-      return Empty().eraseToAnyPublisher()
+      return Fail(error: error).eraseToAnyPublisher()
     }
   }
 

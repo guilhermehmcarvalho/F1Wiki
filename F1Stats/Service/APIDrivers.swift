@@ -30,7 +30,7 @@ class APIDrivers: APIDriversProtocol {
     ]
 
     guard let url = components?.url else {
-      return Empty().eraseToAnyPublisher()
+      return Fail(error: APIError.invalidRequestError("Invalid URL")).eraseToAnyPublisher()
     }
 
     return urlSession.dataTaskPublisher(for: url)
@@ -40,7 +40,7 @@ class APIDrivers: APIDriversProtocol {
 
   func listOfDriverStandings(driverId: String) -> AnyPublisher<MRData<StandingsTable>, Error> {
     guard let url = URL(string: baseURL.appending("drivers/\(driverId)/driverStandings.json")) else {
-      return Empty().eraseToAnyPublisher()
+      return Fail(error: APIError.invalidRequestError("Invalid URL")).eraseToAnyPublisher()
     }
 
     return urlSession.dataTaskPublisher(for: url)

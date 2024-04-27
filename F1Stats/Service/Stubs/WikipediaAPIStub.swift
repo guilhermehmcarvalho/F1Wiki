@@ -21,7 +21,7 @@ class WikipediaAPIStub: WikipediaAPIProtocol {
     decoder.keyDecodingStrategy = .convertFromSnakeCase
 
     guard let path = Bundle.main.path(forResource: "wikipediaSummary", ofType: "json") else {
-      return Empty().eraseToAnyPublisher()
+      return Fail(error: APIError.invalidRequestError("Invalid path")).eraseToAnyPublisher()
     }
 
     do {
@@ -34,7 +34,7 @@ class WikipediaAPIStub: WikipediaAPIProtocol {
 
     } catch let error {
       print(error)
-      return Empty().eraseToAnyPublisher()
+      return Fail(error: error).eraseToAnyPublisher()
     }
   }
 
@@ -43,7 +43,7 @@ class WikipediaAPIStub: WikipediaAPIProtocol {
     decoder.keyDecodingStrategy = .convertFromSnakeCase
 
     guard let path = Bundle.main.path(forResource: "wikiMediaList", ofType: "json") else {
-      return Empty().eraseToAnyPublisher()
+      return Fail(error: APIError.invalidRequestError("Invalid path")).eraseToAnyPublisher()
     }
 
     do {
@@ -56,7 +56,7 @@ class WikipediaAPIStub: WikipediaAPIProtocol {
 
     } catch let error {
       print(error)
-      return Empty().eraseToAnyPublisher()
+      return Fail(error: error).eraseToAnyPublisher()
     }
   }
 }
