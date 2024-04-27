@@ -47,8 +47,8 @@ struct CurrentSeasonView: View {
         .tabViewStyle(PageTabViewStyle())
         .onAppear(perform: viewModel.fetchCurrentSchedule)
       }
-      .toastView(toast: $viewModel.errorToast)
       .ignoresSafeArea(edges: .top)
+      .toastView(toast: $viewModel.errorToast)
     }
   }
 }

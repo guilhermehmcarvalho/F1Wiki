@@ -126,10 +126,6 @@ class APISeasons: APISeasonsProtocol {
 
     return urlSession.dataTaskPublisher(for: url)
         .tryDecodeResponse(type: MRData<RaceTable>.self, decoder: JSONDecoder())
-        .mapError({ error in
-          print(error)
-          return error
-        })
         .eraseToAnyPublisher()
   }
 

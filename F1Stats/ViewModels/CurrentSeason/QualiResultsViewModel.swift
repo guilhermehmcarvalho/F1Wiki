@@ -19,13 +19,18 @@ class QualiResultsViewModel: ObservableObject {
   @Published var fetchStatus: FetchStatus = .ready
   @Published var raceModel: RaceModel?
   @Published var onDismissed: (() -> Void)?
+  private var toastSubject = PassthroughSubject<Toast?, Never>()
 
   private var cancellable: AnyCancellable?
 
-  init(apiSeasons: APISeasonsProtocol, round: String, year: String) {
+  init<S: PassthroughSubject<Toast?, Never>>(apiSeasons: APISeasonsProtocol, round: String, year: String, toastSubject: S? = nil) {
     self.apiSeasons = apiSeasons
     self.round = round
     self.year = year
+    if let toastSubject = toastSubject {
+      self.toastSubject = toastSubject
+    }
+
     fetchStatusSubject
       .receive(on: DispatchQueue.main)
       .assign(to: &$fetchStatus)  }
@@ -37,6 +42,7 @@ class QualiResultsViewModel: ObservableObject {
   func fetchQualiResult() {
     cancellable = apiSeasons.qualifyingResults(round: round, year: year)
       .observeFetchStatus(with: fetchStatusSubject)
+      .assignToastForError(with: toastSubject)
       .receive(on: DispatchQueue.main)
       .sink { _ in } receiveValue: { [weak self] response in
         self?.raceModel = response.table.races.first

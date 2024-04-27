@@ -9,7 +9,6 @@ import Foundation
 import Combine
 
 extension Publisher {
-//  func tryDecodeResponse<Item, Coder>(type: Item.Type, decoder: Coder) -> Publishers.Decode<Publishers.TryMap<Self, Data>, Item, Coder>
   func tryDecodeResponse<Item, Coder>(type: Item.Type, decoder: Coder) -> Publishers.TryMap<Self, Item>
     where Item: Decodable, Coder: JSONDecoder, Self.Output == (data: Data, response: URLResponse) {
     return self
@@ -31,7 +30,7 @@ extension Publisher {
           return try decoder.decode(type.self, from: data)
         }
         catch {
-          debugPrint(error.localizedDescription)
+          debugPrint(error)
           throw APIError.decodingError(error)
         }
       }

@@ -28,7 +28,7 @@ enum APIError: LocalizedError {
   var errorDescription: String? {
     switch self {
     case .invalidRequestError(let message):
-      return "Invalid request: \(message)"
+      return "Red Flag! \n \(message)"
     case .transportError(let error):
       return "Transport error: \(error)"
     case .invalidResponse:
@@ -36,7 +36,7 @@ enum APIError: LocalizedError {
     case .validationError(let reason):
       return "Validation Error: \(reason)"
     case .decodingError:
-      return "The server returned data in an unexpected format. Try updating the app."
+      return "Red Flag! \nThe server returned data in an unexpected format. Try updating the app."
     case .timeoutError:
       return "Red Flag! \nThe request took longer than it is expected. Please try again later"
     }

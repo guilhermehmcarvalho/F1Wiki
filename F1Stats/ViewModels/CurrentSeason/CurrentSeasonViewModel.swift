@@ -51,7 +51,7 @@ class CurrentSeasonViewModel: ObservableObject {
         self?.total = response.total
         if let self = self {
           let raceVMs: [RaceViewModel] = response.table.races.map { raceModel in
-            RaceViewModel(raceModel: raceModel, apiSeasons: self.apiSeasons)
+            RaceViewModel(raceModel: raceModel, apiSeasons: self.apiSeasons, toastSubject: self.toastSubject)
           }
           self.raceViewModels.append(contentsOf: raceVMs)
 

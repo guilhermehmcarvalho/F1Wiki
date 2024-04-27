@@ -15,18 +15,23 @@ class RaceResultsViewModel: ObservableObject {
   private let year: String
 
   private(set) var fetchStatusSubject = PassthroughSubject<FetchStatus, Never>()
+  private var toastSubject = PassthroughSubject<Toast?, Never>()
 
   @Published var fetchStatus: FetchStatus = .ready
   @Published var raceModel: RaceModel?
   @Published var onDismissed: (() -> Void)?
+  @Published var errorToast: Toast?
 
   private var cancellable: AnyCancellable?
 
-  init(apiSeasons: APISeasonsProtocol, round: String, year: String) {
+  init<S: PassthroughSubject<Toast?, Never>>(apiSeasons: APISeasonsProtocol, round: String, year: String, toastSubject: S? = nil) {
     self.apiSeasons = apiSeasons
     self.round = round
     self.year = year
-    
+    if let toastSubject = toastSubject {
+      self.toastSubject = toastSubject
+    }
+
     fetchStatusSubject
       .receive(on: DispatchQueue.main)
       .assign(to: &$fetchStatus)  }
@@ -35,10 +40,11 @@ class RaceResultsViewModel: ObservableObject {
     if self.raceModel != nil { return }
     cancellable = apiSeasons.raceResults(round: round, year: year)
       .observeFetchStatus(with: fetchStatusSubject)
+      .assignToastForError(with: toastSubject)
       .receive(on: DispatchQueue.main)
       .sink { [weak self] finished in
         switch finished {
-        case .failure(let error):
+        case .failure(_):
           self?.onDismissed?()
         default: break
         }
