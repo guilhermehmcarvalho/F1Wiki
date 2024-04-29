@@ -1,4 +1,4 @@
-[![Run Unit Tests](https://github.com/guilhermehmcarvalho/F1Stats/actions/workflows/unit_tests.yml/badge.svg?branch=main&event=push)](https://github.com/guilhermehmcarvalho/F1Stats/actions/workflows/unit_tests.yml)
+[![nit Tests](https://github.com/guilhermehmcarvalho/F1Stats/actions/workflows/unit_tests.yml/badge.svg?branch=main&event=push)](https://github.com/guilhermehmcarvalho/F1Stats/actions/workflows/unit_tests.yml)
 
 <br />
 <p align="center">
