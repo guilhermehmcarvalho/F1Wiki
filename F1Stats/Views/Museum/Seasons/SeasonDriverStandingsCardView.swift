@@ -20,9 +20,7 @@ struct SeasonDriverStandingsCardView: View {
         card
       }
     }
-    .frame(minHeight: 100)
     .onAppear(perform: viewModel.fetchStandings)
-    .toastView(toast: $viewModel.errorToast)
   }
 
   var card: some View {
