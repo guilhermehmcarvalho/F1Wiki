@@ -16,7 +16,6 @@ class ConstructorCardViewModel: ObservableObject {
   internal let constructor: ConstructorModel
 
   @Published var summaryModel: WikipediaSummaryModel?
-//  @Published var mediaList: WikiCommonsMedia?
   @Published var fetchStandingsStatus: FetchStatus = .ready
   @Published var fetchSummaryStatus: FetchStatus = .ready
   @Published var fetchImageStatus: FetchStatus = .ready
@@ -32,11 +31,14 @@ class ConstructorCardViewModel: ObservableObject {
     }
   }
   @Published var isLoadingImage = false
+  @Published var errorToast: Toast?
+
   private var loader: ImageLoader?
   private var mediaItems: [MediaItem]?
 
   private(set) var fetchSummaryStatusSubject = PassthroughSubject<FetchStatus, Never>()
   private(set) var fetchStandingsStatusSubject = PassthroughSubject<FetchStatus, Never>()
+  private(set) var toastSubject = PassthroughSubject<Toast?, Never>()
 
   private var subscriptions = Set<AnyCancellable>()
 
@@ -54,12 +56,17 @@ class ConstructorCardViewModel: ObservableObject {
     fetchSummaryStatusSubject
       .receive(on: DispatchQueue.main)
       .assign(to: &$fetchSummaryStatus)
+
+    toastSubject
+      .receive(on: DispatchQueue.main)
+      .assign(to: &$errorToast)
   }
 
   internal func fetchMedia() -> Void {
     guard mediaItems == nil else { return }
     isLoadingImage = true
     wikipediaApi.getMediaList(forUrl: constructor.url)
+      .assignToastForError(with: toastSubject)
       .receive(on: DispatchQueue.main)
       .sink { _ in } receiveValue: { [weak self] response in
         self?.mediaItems = response.items
@@ -89,6 +96,7 @@ class ConstructorCardViewModel: ObservableObject {
   internal func fetchSummary() -> Void {
     guard summaryModel == nil else { return }
     wikipediaApi.getSummaryFor(url: constructor.url)
+      .assignToastForError(with: toastSubject)
       .observeFetchStatus(with: fetchSummaryStatusSubject)
       .receive(on: DispatchQueue.main)
       .sink { _ in } receiveValue: { [weak self] response in
@@ -105,6 +113,7 @@ class ConstructorCardViewModel: ObservableObject {
 
   internal func fetchStandings() {
     apiConstructor.listOfConstructorStandings(constructorId: constructor.constructorID)
+      .assignToastForError(with: toastSubject)
       .observeFetchStatus(with: fetchStandingsStatusSubject)
       .receive(on: DispatchQueue.main)
       .sink { _ in }  receiveValue: { [weak self] response in
