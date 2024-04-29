@@ -39,6 +39,7 @@ struct DriverCardView: View {
           .tint(.F1Stats.appWhite)
       }
     }
+    .toastView(toast: $viewModel.errorToast)
     .safeAreaPadding(.top)
     .onAppear(perform: viewModel.fetchSummary)
     .onAppear(perform: viewModel.fetchStandings)
@@ -124,6 +125,6 @@ struct DriverCardView: View {
 
 #Preview {
   DriverCardView(viewModel: DriverCardViewModel(driver: DriverModel.stub,
-                                            wikipediaApi: WikipediaAPIStub(delay: 1),
-                                            driverApi: APIDriversStub(delay: 1)))
+                                                wikipediaApi: WikipediaAPIStub(delay: 0),
+                                                driverApi: APIDriversStub(delay: 1)))
 }

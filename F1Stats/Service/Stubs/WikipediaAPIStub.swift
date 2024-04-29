@@ -11,17 +11,26 @@ import Combine
 class WikipediaAPIStub: WikipediaAPIProtocol {
 
   let delay: Double
+  let throwError: APIError?
 
-  init(delay: Double = 0) {
+  init(delay: Double = 0, throwError:APIError? = nil) {
     self.delay = delay
+    self.throwError = throwError
   }
 
   func getSummaryFor(url: String) -> AnyPublisher<WikipediaSummaryModel, any Error> {
+    if let throwError = throwError {
+      return Fail(error: throwError)
+        .delay(for: .seconds(delay), scheduler: RunLoop.main)
+        .eraseToAnyPublisher()
+    }
+
     let decoder = JSONDecoder()
     decoder.keyDecodingStrategy = .convertFromSnakeCase
 
     guard let path = Bundle.main.path(forResource: "wikipediaSummary", ofType: "json") else {
-      return Fail(error: APIError.invalidRequestError("Invalid path")).eraseToAnyPublisher()
+      return Fail(error: APIError.invalidRequestError("Invalid path"))
+        .eraseToAnyPublisher()
     }
 
     do {
@@ -39,6 +48,12 @@ class WikipediaAPIStub: WikipediaAPIProtocol {
   }
 
   func getMediaList(forUrl url: String) -> AnyPublisher<WikiCommonsMedia, any Error> {
+    if let throwError = throwError {
+      return Fail(error: throwError)
+        .delay(for: .seconds(delay), scheduler: RunLoop.main)
+        .eraseToAnyPublisher()
+    }
+    
     let decoder = JSONDecoder()
     decoder.keyDecodingStrategy = .convertFromSnakeCase
 

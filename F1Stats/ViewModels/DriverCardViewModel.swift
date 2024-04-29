@@ -26,10 +26,12 @@ class DriverCardViewModel: ObservableObject {
   @Published var constructors: String?
   @Published var image: UIImage?
   @Published var isLoadingImage = false
+  @Published var errorToast: Toast?
   private var loader: ImageLoader?
 
   private(set) var fetchStandingsStatusSubject = PassthroughSubject<FetchStatus, Never>()
   private(set) var fetchSummaryStatusSubject = PassthroughSubject<FetchStatus, Never>()
+  private(set) var toastSubject = PassthroughSubject<Toast?, Never>()
 
   private var subscriptions = Set<AnyCancellable>()
 
@@ -47,12 +49,17 @@ class DriverCardViewModel: ObservableObject {
     fetchSummaryStatusSubject
       .receive(on: DispatchQueue.main)
       .assign(to: &$fetchSummaryStatus)
+
+    toastSubject
+      .receive(on: DispatchQueue.main)
+      .assign(to: &$errorToast)
   }
 
   internal func fetchSummary() -> Void {
     guard summaryModel == nil else { return }
     wikipediaApi.getSummaryFor(url: driver.url)
       .observeFetchStatus(with: fetchSummaryStatusSubject)
+      .assignToastForError(with: toastSubject)
       .receive(on: DispatchQueue.main)
       .sink { _ in } receiveValue: { [weak self] response in
         self?.summaryModel = response
@@ -81,6 +88,7 @@ class DriverCardViewModel: ObservableObject {
     driverApi.listOfDriverStandings(driverId: driver.driverId)
       .observeFetchStatus(with: fetchStandingsStatusSubject)
       .receive(on: DispatchQueue.main)
+      .assignToastForError(with: toastSubject)
       .sink { _ in }  receiveValue: { [weak self] response in
         self?.loadData(standingsList: response.table.standingsLists)
       }

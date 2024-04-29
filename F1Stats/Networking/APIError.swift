@@ -32,13 +32,13 @@ enum APIError: LocalizedError {
     case .transportError(let error):
       return "Red Flag! \n\(error)"
     case .invalidResponse:
-      return "Red Flag! \nPlease try again later"
+      return "Red Flag! \nInvalid response\nTry updating the app."
     case .validationError(let reason):
       return "Red Flag! \n\(reason)"
     case .decodingError:
-      return "Red Flag! \nThe server returned data in an unexpected format. Try updating the app."
+      return "Red Flag! \nUnexpected response\nTry updating the app."
     case .timeoutError:
-      return "Red Flag! \nThe request took longer than it is expected. Please try again later"
+      return "Red Flag!\nRequest took too long.\nPlease try again later"
     }
   }
 }
