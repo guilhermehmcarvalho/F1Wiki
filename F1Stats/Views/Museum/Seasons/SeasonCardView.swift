@@ -28,13 +28,18 @@ struct SeasonCardView: View {
       SeasonConstructorStandingsCardView(viewModel: viewModel.seasonConstructorStandingsViewModel)
         .padding(.all(16))
         .scalingTransition()
+
+        .safeAreaPadding(.top)
     }
-    .safeAreaPadding(.top)
+
+    .toastView(toast: $viewModel.seasonConstructorStandingsViewModel.errorToast)
+    .toastView(toast: $viewModel.seasonDriverStandingsViewModel.errorToast)
+    .toastView(toast: $viewModel.wikipediaViewModel.errorToast)
   }
 }
 
 #Preview {
   SeasonCardView(viewModel: SeasonCardViewModel(season: SeasonModel(season: "1989", url: "https://en.wikipedia.org/wiki/2021_Formula_One_World_Championship"),
                                                 wikipediaApi: WikipediaAPIStub(),
-                                                apiSeason: APISeasonsStub()))
+                                                apiSeason: APISeasonsStub(error: .invalidResponse)))
 }

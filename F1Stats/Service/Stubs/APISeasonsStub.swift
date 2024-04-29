@@ -68,6 +68,12 @@ class APISeasonsStub: APISeasonsProtocol {
   }
 
   func constructorStandingsForSeason(season: String) -> AnyPublisher<MRData<StandingsTable>, any Error> {
+    if let error = error {
+      return Fail(error: error)
+        .delay(for: .seconds(delay), scheduler: RunLoop.main)
+        .eraseToAnyPublisher()
+    }
+
     guard let path = Bundle.main.path(forResource: "seasonConstructorStandings", ofType: "json") else {
       return Fail(error: APIError.invalidRequestError("Invalid path")).eraseToAnyPublisher()
     }

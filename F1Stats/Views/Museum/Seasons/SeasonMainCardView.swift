@@ -20,8 +20,6 @@ struct SeasonMainCardView: View {
         mainCardView(summary: summary)
       }
     }
-    .frame(minHeight: 100)
-    .toastView(toast: $viewModel.errorToast)
     .onAppear(perform: viewModel.fetchSummary)
   }
 
