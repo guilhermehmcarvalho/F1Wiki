@@ -19,7 +19,7 @@ struct DriverCardView: View {
     VStack {
       if viewModel.fetchSummaryStatus == .ongoing || viewModel.isLoadingImage {
         ProgressView()
-          .tint(.F1Stats.appWhite)
+          .tint(.F1Stats.primary)
       } else if let summary = viewModel.summaryModel {
         mainCardView(summary: summary)
           .padding(.all(16))
@@ -36,7 +36,7 @@ struct DriverCardView: View {
           .scalingTransition()
       } else if viewModel.fetchStandingsStatus == .ongoing {
         ProgressView()
-          .tint(.F1Stats.appWhite)
+          .tint(.F1Stats.primary)
       }
     }
     .toastView(toast: $viewModel.errorToast)

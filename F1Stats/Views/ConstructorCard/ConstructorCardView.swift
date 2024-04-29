@@ -34,6 +34,7 @@ struct ConstructorCardView: View {
             .tint(.F1Stats.appWhite)
         }
       }
+      .toastView(toast: $viewModel.errorToast)
       .safeAreaPadding(.top)
       .onAppear(perform: viewModel.fetchSummary)
       .onAppear(perform: viewModel.fetchStandings)
