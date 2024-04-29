@@ -49,7 +49,7 @@ class APISeasonsStub: APISeasonsProtocol {
         .eraseToAnyPublisher()
     }
 
-    guard let path = Bundle.main.path(forResource: "seasonDriverStandings_", ofType: "json") else {
+    guard let path = Bundle.main.path(forResource: "seasonDriverStandings", ofType: "json") else {
       return Fail(error: APIError.invalidRequestError("Invalid path")).eraseToAnyPublisher()
     }
 
@@ -68,7 +68,7 @@ class APISeasonsStub: APISeasonsProtocol {
   }
 
   func constructorStandingsForSeason(season: String) -> AnyPublisher<MRData<StandingsTable>, any Error> {
-    guard let path = Bundle.main.path(forResource: "seasonConstructorStandings_", ofType: "json") else {
+    guard let path = Bundle.main.path(forResource: "seasonConstructorStandings", ofType: "json") else {
       return Fail(error: APIError.invalidRequestError("Invalid path")).eraseToAnyPublisher()
     }
 
