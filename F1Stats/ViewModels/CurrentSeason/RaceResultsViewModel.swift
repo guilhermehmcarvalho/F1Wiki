@@ -43,11 +43,7 @@ class RaceResultsViewModel: ObservableObject {
       .assignToastForError(with: toastSubject)
       .receive(on: DispatchQueue.main)
       .sink { [weak self] finished in
-        switch finished {
-        case .failure(_):
-          self?.onDismissed?()
-        default: break
-        }
+        
       } receiveValue: { [weak self] response in
         self?.raceModel = response.table.races.first
       }

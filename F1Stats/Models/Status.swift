@@ -9,15 +9,15 @@ import Foundation
 
 enum Status: String, Decodable {
   case accident = "Accident"
-  case Collision = "Collision"
+  case collision = "Collision"
   case finished = "Finished"
   case disqualified = "Disqualified"
   case gearbox = "Gearbox"
-  case Engine = "Engine"
-  case Transmission = "Transmission"
-  case Clutch = "Clutch"
-  case Hydraulics = "Hydraulics"
-  case Electrical = "Electrical"
+  case engine = "Engine"
+  case transmission = "Transmission"
+  case clutch = "Clutch"
+  case hydraulics = "Hydraulics"
+  case electrical = "Electrical"
   case plus1Lap = "+1 Lap"
   case plus2Laps = "+2 Laps"
   case plus3Laps = "+3 Laps"
@@ -27,15 +27,23 @@ enum Status: String, Decodable {
   case plus7Laps = "+7 Laps"
   case plus8Laps = "+8 Laps"
   case plus9Laps = "+9 Laps"
-  case SpunOff = "Spun off"
-  case Radiator = "Radiator"
-  case Suspension = "Suspension"
-  case Brakes = "Brakes"
-  case Differential = "Differential"
-  case Overheating = "Overheating"
-  case Mechanical = "Mechanical"
-  case Tyre = "Tyre"
-  case DriverSeat = "Driver Seat"
-  case Puncture = "Puncture"
-  case Driveshaft = "Driveshaft"
+  case spunOff = "Spun off"
+  case radiator = "Radiator"
+  case suspension = "Suspension"
+  case brakes = "Brakes"
+  case differential = "Differential"
+  case overheating = "Overheating"
+  case mechanical = "Mechanical"
+  case tyre = "Tyre"
+  case driverSeat = "Driver Seat"
+  case puncture = "Puncture"
+  case driveshaft = "Driveshaft"
+  case Retired = "Retired"
+  case other
+}
+
+extension Status {
+    public init(from decoder: Decoder) throws {
+        self = try Status(rawValue: decoder.singleValueContainer().decode(RawValue.self)) ?? .other
+    }
 }

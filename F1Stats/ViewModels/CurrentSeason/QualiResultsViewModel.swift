@@ -44,7 +44,13 @@ class QualiResultsViewModel: ObservableObject {
       .observeFetchStatus(with: fetchStatusSubject)
       .assignToastForError(with: toastSubject)
       .receive(on: DispatchQueue.main)
-      .sink { _ in } receiveValue: { [weak self] response in
+      .sink { [weak self] finished in
+        switch finished {
+        case .failure(_):
+          self?.onDismissed?()
+        default: break
+        }
+      } receiveValue: { [weak self] response in
         self?.raceModel = response.table.races.first
       }
   }
