@@ -22,7 +22,7 @@ struct RaceResultsView: View {
           Spacer()
         }
       }
-
+      
       if let raceModel = viewModel.raceModel {
         VStack{
           CardStyling.makeCardTitle("\(raceModel.raceName)")
@@ -30,7 +30,10 @@ struct RaceResultsView: View {
           VStack {
             Text("Race Result")
               .typography(type: .heading(color: .F1Stats.primary))
-
+            
+            header
+              .padding(.vertical(8))
+            
             if let raceResults = raceModel.raceResults {
               ForEach(Array(raceResults.enumerated()), id: \.element.driver) { (index, result) in
                 raceStandingsRow(result: result)
@@ -47,6 +50,23 @@ struct RaceResultsView: View {
     .cardStyling()
     .padding(.all(8))
     .onAppear(perform: viewModel.fetchRaceResults)
+  }
+
+  var header: some View {
+    HStack {
+      Text("Pos")
+        .typography(type: .body())
+        .frame(width: 60)
+
+      Text("Driver/Team")
+        .typography(type: .body())
+
+      Spacer()
+
+      Text("Points")
+        .typography(type: .body())
+        .frame(width: 50)
+    }
   }
 
   func raceStandingsRow(result: RaceResult) -> some View {
@@ -67,15 +87,20 @@ struct RaceResultsView: View {
         }
       }
       .frame(width: 30)
-      
-      Text(result.driver.fullName)
-        .typography(type: .heavyBody(color: .F1Stats.appDark))
-        .clickableUnderline()
+
+      VStack(alignment: .leading) {
+        Text(result.driver.fullName)
+          .typography(type: .subHeader(color: .F1Stats.appDark))
+          .clickableUnderline()
+        Text(result.constructor.name)
+          .typography(type: .body(color: .F1Stats.appDark))
+          .modifier(ConstructorCardDisplayer(constructor: result.constructor))
+          .clickableUnderline()
+      }
       Spacer()
-      Text(result.constructor.name)
-        .typography(type: .heavyBody(color: .F1Stats.appDark))
-        .modifier(ConstructorCardDisplayer(constructor: result.constructor))
-        .clickableUnderline()
+      Text(result.points)
+        .frame(width: 50)
+        .typography(type: .body())
     }
   }
 }
