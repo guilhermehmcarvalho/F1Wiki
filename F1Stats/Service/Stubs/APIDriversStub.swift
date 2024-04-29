@@ -10,16 +10,16 @@ import Combine
 
 class APIDriversStub: APIDriversProtocol {
   let delay: Double
-  let throwError: APIError?
+  let error: APIError?
 
-  init(delay: Double = 0, throwError: APIError? = nil) {
+  init(delay: Double = 0, error: APIError? = nil) {
     self.delay = delay
-    self.throwError = throwError
+    self.error = error
   }
 
   func listOfAllDrivers(limit: Int = 30, offset: Int = 0) -> AnyPublisher<MRData<DriverTable>, any Error> {
-    if let throwError = throwError {
-      return Fail(error: throwError)
+    if let error = error {
+      return Fail(error: error)
         .delay(for: .seconds(delay), scheduler: RunLoop.main)
         .eraseToAnyPublisher()
     }
@@ -43,12 +43,12 @@ class APIDriversStub: APIDriversProtocol {
   }
   
   func listOfDriverStandings(driverId: String) -> AnyPublisher<MRData<StandingsTable>, Error> {
-    if let throwError = throwError {
-      return Fail(error: throwError)
+    if let error = error {
+      return Fail(error: error)
         .delay(for: .seconds(delay), scheduler: RunLoop.main)
         .eraseToAnyPublisher()
     }
-    
+
     guard let path = Bundle.main.path(forResource: "driverStandings", ofType: "json") else {
       return Fail(error: APIError.invalidRequestError("Invalid path")).eraseToAnyPublisher()
     }

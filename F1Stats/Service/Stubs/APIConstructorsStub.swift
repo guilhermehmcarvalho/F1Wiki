@@ -10,12 +10,20 @@ import Combine
 
 class APIConstructorsStub: APIConstructorsProtocol {
   let delay: Double
+  let error: APIError?
 
-  init(delay: Double = 0) {
+  init(delay: Double = 0, error: APIError? = nil) {
     self.delay = delay
+    self.error = error
   }
 
   func listOfAllConstructors(limit: Int, offset: Int) -> AnyPublisher<MRData<ConstructorTable>, any Error> {
+    if let error = error {
+      return Fail(error: error)
+        .delay(for: .seconds(delay), scheduler: RunLoop.main)
+        .eraseToAnyPublisher()
+    }
+
     guard let path = Bundle.main.path(forResource: "constructorList", ofType: "json") else {
       return Fail(error: APIError.invalidRequestError("Invalid path")).eraseToAnyPublisher()
     }
@@ -35,6 +43,12 @@ class APIConstructorsStub: APIConstructorsProtocol {
   }
 
   func listOfConstructorStandings(constructorId: String) -> AnyPublisher<MRData<StandingsTable>, any Error> {
+    if let error = error {
+      return Fail(error: error)
+        .delay(for: .seconds(delay), scheduler: RunLoop.main)
+        .eraseToAnyPublisher()
+    }
+    
     guard let path = Bundle.main.path(forResource: "constructorStandings", ofType: "json") else {
       return Fail(error: APIError.invalidRequestError("Invalid path")).eraseToAnyPublisher()
     }

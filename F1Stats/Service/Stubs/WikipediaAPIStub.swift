@@ -11,16 +11,16 @@ import Combine
 class WikipediaAPIStub: WikipediaAPIProtocol {
 
   let delay: Double
-  let throwError: APIError?
+  let error: APIError?
 
-  init(delay: Double = 0, throwError:APIError? = nil) {
+  init(delay: Double = 0, error: APIError? = nil) {
     self.delay = delay
-    self.throwError = throwError
+    self.error = error
   }
 
   func getSummaryFor(url: String) -> AnyPublisher<WikipediaSummaryModel, any Error> {
-    if let throwError = throwError {
-      return Fail(error: throwError)
+    if let error = error {
+      return Fail(error: error)
         .delay(for: .seconds(delay), scheduler: RunLoop.main)
         .eraseToAnyPublisher()
     }
@@ -48,12 +48,12 @@ class WikipediaAPIStub: WikipediaAPIProtocol {
   }
 
   func getMediaList(forUrl url: String) -> AnyPublisher<WikiCommonsMedia, any Error> {
-    if let throwError = throwError {
-      return Fail(error: throwError)
+    if let error = error {
+      return Fail(error: error)
         .delay(for: .seconds(delay), scheduler: RunLoop.main)
         .eraseToAnyPublisher()
     }
-    
+
     let decoder = JSONDecoder()
     decoder.keyDecodingStrategy = .convertFromSnakeCase
 

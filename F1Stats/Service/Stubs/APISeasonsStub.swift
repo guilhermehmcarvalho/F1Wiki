@@ -10,12 +10,20 @@ import Combine
 
 class APISeasonsStub: APISeasonsProtocol {
   let delay: Double
+  let error: APIError?
 
-  init(delay: Double = 0) {
+  init(delay: Double = 0, error: APIError? = nil) {
     self.delay = delay
+    self.error = error
   }
 
   func listOfAllSeasons(limit: Int = 30, offset: Int = 0) -> AnyPublisher<MRData<SeasonTable>, any Error> {
+    if let error = error {
+      return Fail(error: error)
+        .delay(for: .seconds(delay), scheduler: RunLoop.main)
+        .eraseToAnyPublisher()
+    }
+
     guard let path = Bundle.main.path(forResource: "seasonList", ofType: "json") else {
       return Fail(error: APIError.invalidRequestError("Invalid path")).eraseToAnyPublisher()
     }
@@ -35,6 +43,12 @@ class APISeasonsStub: APISeasonsProtocol {
   }
 
   func driverStandingsForSeason(season: String) -> AnyPublisher<MRData<StandingsTable>, any Error> {
+    if let error = error {
+      return Fail(error: error)
+        .delay(for: .seconds(delay), scheduler: RunLoop.main)
+        .eraseToAnyPublisher()
+    }
+
     guard let path = Bundle.main.path(forResource: "seasonDriverStandings_", ofType: "json") else {
       return Fail(error: APIError.invalidRequestError("Invalid path")).eraseToAnyPublisher()
     }
@@ -73,6 +87,12 @@ class APISeasonsStub: APISeasonsProtocol {
   }
 
   func currentSeasonSchedule(limit: Int = 30, offset: Int = 0) -> AnyPublisher<MRData<RaceTable>, any Error> {
+    if let error = error {
+      return Fail(error: error)
+        .delay(for: .seconds(delay), scheduler: RunLoop.main)
+        .eraseToAnyPublisher()
+    }
+
     guard let path = Bundle.main.path(forResource: "currentSeasonSchedule", ofType: "json") else {
       return Fail(error: APIError.invalidRequestError("Invalid path")).eraseToAnyPublisher()
     }
@@ -92,6 +112,12 @@ class APISeasonsStub: APISeasonsProtocol {
   }
 
   func qualifyingResults(round: String, year: String) -> AnyPublisher<MRData<RaceTable>, any Error> {
+    if let error = error {
+      return Fail(error: error)
+        .delay(for: .seconds(delay), scheduler: RunLoop.main)
+        .eraseToAnyPublisher()
+    }
+
     guard let path = Bundle.main.path(forResource: "qualifyingResults", ofType: "json") else {
       return Empty().eraseToAnyPublisher()
     }
@@ -111,6 +137,12 @@ class APISeasonsStub: APISeasonsProtocol {
   }
 
   func raceResults(round: String, year: String) -> AnyPublisher<MRData<RaceTable>, any Error> {
+    if let error = error {
+      return Fail(error: error)
+        .delay(for: .seconds(delay), scheduler: RunLoop.main)
+        .eraseToAnyPublisher()
+    }
+    
     guard let path = Bundle.main.path(forResource: "raceResults", ofType: "json") else {
       return Fail(error: APIError.invalidRequestError("Invalid path")).eraseToAnyPublisher()
     }
