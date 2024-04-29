@@ -11,6 +11,10 @@ struct SeasonCardView: View {
 
   @ObservedObject var viewModel: SeasonCardViewModel
 
+  init(viewModel: SeasonCardViewModel) {
+    self.viewModel = viewModel
+  }
+
   var body: some View {
     VStack {
       SeasonMainCardView(viewModel: viewModel.wikipediaViewModel)

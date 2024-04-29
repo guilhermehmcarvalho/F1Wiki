@@ -19,7 +19,10 @@ struct SeasonMainCardView: View {
       } else if let summary = viewModel.summaryModel {
         mainCardView(summary: summary)
       }
-    }.onAppear(perform: viewModel.fetchSummary)
+    }
+    .frame(minHeight: 100)
+    .toastView(toast: $viewModel.errorToast)
+    .onAppear(perform: viewModel.fetchSummary)
   }
 
   func mainCardView(summary: WikipediaSummaryModel) -> some View {

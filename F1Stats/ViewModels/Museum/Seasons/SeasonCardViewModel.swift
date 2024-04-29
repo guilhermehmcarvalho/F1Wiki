@@ -10,11 +10,13 @@ import SwiftUI
 import Combine
 
 class SeasonCardViewModel: ObservableObject {
-  private let season: SeasonModel
-  private let apiSeason: APISeasonsProtocol
+
   @ObservedObject internal var wikipediaViewModel: WikipediaViewModel
   @ObservedObject internal var seasonConstructorStandingsViewModel: SeasonConstructorStandingsViewModel
   @ObservedObject internal var seasonDriverStandingsViewModel: SeasonDriverStandingsViewModel
+
+  private let season: SeasonModel
+  private let apiSeason: APISeasonsProtocol
 
   init(season: SeasonModel, wikipediaApi: WikipediaAPIProtocol, apiSeason: APISeasonsProtocol) {
     self.season = season

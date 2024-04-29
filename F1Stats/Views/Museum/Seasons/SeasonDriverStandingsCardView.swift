@@ -16,11 +16,13 @@ struct SeasonDriverStandingsCardView: View {
       if viewModel.fetchStatus == .ongoing {
         ProgressView()
           .tint(.F1Stats.primary)
-      } else {
+      } else if viewModel.standingLists != nil {
         card
       }
     }
+    .frame(minHeight: 100)
     .onAppear(perform: viewModel.fetchStandings)
+    .toastView(toast: $viewModel.errorToast)
   }
 
   var card: some View {

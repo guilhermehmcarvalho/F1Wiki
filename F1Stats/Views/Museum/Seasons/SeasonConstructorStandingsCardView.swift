@@ -20,7 +20,9 @@ struct SeasonConstructorStandingsCardView: View {
         card(standings: standingLists)
       }
     }
+    .frame(minHeight: 100)
     .onAppear(perform: viewModel.fetchStandings)
+    .toastView(toast: $viewModel.errorToast)
   }
 
   func card(standings: [ConstructorStanding]) -> some View {

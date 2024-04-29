@@ -20,7 +20,7 @@ struct ToastView: View {
       Image(systemName: style.iconFileName)
         .foregroundColor(.F1Stats.primary)
       Text(message)
-        .typography(type: .subHeader())
+        .typography(type: .subHeader(color: .F1Stats.appWhite))
 
       Spacer(minLength: 10)
 
@@ -36,7 +36,7 @@ struct ToastView: View {
     })
     .padding()
     .frame(minWidth: 0, maxWidth: width)
-    .background(Color.F1Stats.appWhite)
+    .background(Color.black.opacity(0.5))
     .cornerRadius(8)
     .padding(.horizontal, 16)
   }

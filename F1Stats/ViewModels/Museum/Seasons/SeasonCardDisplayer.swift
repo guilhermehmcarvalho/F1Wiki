@@ -7,11 +7,13 @@
 
 import SwiftUI
 
-
 // At the moment dependency injection in this view is not being enforced in this view
 // as it would generate basically too much boilerplate, since this view can be called from
 // almost the whole app
 struct SeasonCardDisplayer: ViewModifier {
+
+  @State var seasonCardViewModel: SeasonCardViewModel?
+
   let season: SeasonModel
   let wikipediaApi: WikipediaAPIProtocol
   let seasonAPI: APISeasonsProtocol
@@ -23,8 +25,6 @@ struct SeasonCardDisplayer: ViewModifier {
     self.seasonAPI = seasonAPI
     self.wikipediaApi = wikipediaApi
   }
-
-  @State var seasonCardViewModel: SeasonCardViewModel?
 
   func body(content: Content) -> some View {
     content
@@ -47,7 +47,7 @@ struct SeasonCardDisplayer: ViewModifier {
 }
 
 #Preview {
-  Text("tap me")
+  Text("Tap to see card")
     .modifier(SeasonCardDisplayer(season: SeasonModel(season: "2021", url: "https://en.wikipedia.org/wiki/2021_Formula_One_World_Championship")))
 }
 
