@@ -35,7 +35,9 @@ struct CardStyling {
       Text(title)
         .textCase(.uppercase)
         .typography(type: .heading(color: .F1Stats.appWhite))
-        .padding(.all(4))
+        .padding(.vertical(4))
+        .padding(.horizontal(16))
+				.lineLimit(2)
         .multilineTextAlignment(.center)
     }
     .fixedSize(horizontal: false, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
