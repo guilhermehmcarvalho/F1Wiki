@@ -13,13 +13,18 @@ struct F1StatsApp: App {
 
   @State private var animationComplete = false
 
-  let apiDrivers = APIDrivers(baseURL: Config.baseURL, urlSession: URLSessionManager.urlSession)
+	let apiDrivers: APIDriversProtocol
+//  let apiDrivers = APIDrivers(baseURL: Config.baseURL, urlSession: URLSessionManager.urlSession)
   let apiConstructors = APIConstructors(baseURL: Config.baseURL, urlSession: URLSessionManager.urlSession)
   let wikipediaAPI = WikipediaAPI(baseURL: Config.wikipediaURL, urlSession: URLSessionManager.urlSession)
   let apiSeasons = APISeasons(baseURL: Config.baseURL, urlSession: URLSessionManager.urlSession)
+	var container: ModelContainer
 
   init() {
-    customizeTabViewAppearance()
+		self.container = ContainerFactory.makeContainer()
+		apiDrivers = LocalDriversAPI(baseURL: Config.baseURL, urlSession: URLSessionManager.urlSession, modelContext: container.mainContext)
+
+		customizeTabViewAppearance()
   }
 
   func customizeTabViewAppearance() {
@@ -43,30 +48,31 @@ struct F1StatsApp: App {
         }
       }
     }
-		.modelContainer(for: Driver.self) { result in
-				do {
-						let container = try result.get()
-
-						// Check we haven't already added our users.
-						let descriptor = FetchDescriptor<Driver>()
-						let existingItems = try container.mainContext.fetchCount(descriptor)
-						guard existingItems == 0 else { return }
-
-						// Load and decode the JSON.
-						guard let url = Bundle.main.url(forResource: "drivers", withExtension: "json") else {
-								fatalError("Failed to find drivers.json")
-						}
-
-						let data = try Data(contentsOf: url)
-						let items = try JSONDecoder().decode([Driver].self, from: data)
-
-						// Add all our data to the context.
-						for item in items {
-								container.mainContext.insert(item)
-						}
-				} catch let error  {
-						print("Failed to pre-seed database.", error)
-				}
-		}
+		.modelContainer(container)
+//		.modelContainer(for: Driver.self) { result in
+//				do {
+//						let container = try result.get()
+//
+//						// Check we haven't already added our users.
+//						let descriptor = FetchDescriptor<Driver>()
+//						let existingItems = try container.mainContext.fetchCount(descriptor)
+//						guard existingItems == 0 else { return }
+//
+//						// Load and decode the JSON.
+//						guard let url = Bundle.main.url(forResource: "drivers", withExtension: "json") else {
+//								fatalError("Failed to find drivers.json")
+//						}
+//
+//						let data = try Data(contentsOf: url)
+//						let items = try JSONDecoder().decode([Driver].self, from: data)
+//
+//						// Add all our data to the context.
+//						for item in items {
+//								container.mainContext.insert(item)
+//						}
+//				} catch let error  {
+//						print("Failed to pre-seed database.", error)
+//				}
+//		}
   }
 }
