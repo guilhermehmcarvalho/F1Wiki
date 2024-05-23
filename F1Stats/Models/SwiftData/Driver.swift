@@ -10,6 +10,7 @@ import SwiftData
 
 @Model
 class Driver: Codable {
+	let id: Int
 	let driverId: String
 	let number: Int?
 	let code: String?
@@ -20,6 +21,7 @@ class Driver: Codable {
 	let url: String
 
 	enum CodingKeys: String, CodingKey {
+		case id = "Id"
 		case driverId = "driverId"
 		case number = "number"
 		case code = "code"
@@ -39,6 +41,7 @@ class Driver: Codable {
 		 dateOfBirth: String,
 		 nationality: String,
 		 url: String) {
+		self.id = id
 		self.driverId = driverId
 		self.number = number
 		self.code = code
@@ -51,6 +54,7 @@ class Driver: Codable {
 
 	required init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.id = try container.decode(Int.self, forKey: .id)
 		self.driverId = try container.decode(String.self, forKey: .driverId)
 		self.number = try? container.decodeIfPresent(Int.self, forKey: .number)
 		self.givenName = try container.decode(String.self, forKey: .givenName)
@@ -79,13 +83,14 @@ class Driver: Codable {
 		try container.encode(self.dateOfBirth, forKey: .dateOfBirth)
 		try container.encode(self.nationality, forKey: .nationality)
 		try container.encode(self.url, forKey: .url)
+		try container.encode(self.id, forKey: .id)
 	}
 }
 
 
-extension Driver: Identifiable {
-	var id: String { return driverId }
-}
+//extension Driver: Identifiable {
+//	var id: String { return id ?? driverId }
+//}
 
 extension Driver {
   var fullName: String {

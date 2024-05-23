@@ -46,41 +46,5 @@ class ContainerPopulator {
 			print("Failed to pre-seed database.", error)
 		}
 	}
-
-	func createDB(filePath: URL) {
-		let container = NSPersistentContainer(name: "F1WikiContainer")
-		let storeURL = URL.documentsDirectory.appending(path: "F1Wiki.store")
-
-		if let description = container.persistentStoreDescriptions.first {
-			// Delete all existing data.
-			try? FileManager.default.removeItem(at: storeURL)
-
-			// Make Core Data write to our new store URL.
-			description.url = storeURL
-
-			// Force WAL mode off.
-			description.setValue("DELETE" as NSObject, forPragmaNamed: "journal_mode")
-		}
-
-		container.loadPersistentStores { description, error in
-			do {
-				// Add all your pre-fill data here.
-//				for i in 1...10_000 {
-//					let user = User(context: container.viewContext)
-//					user.name = "User \(i)"
-//					container.viewContext.insert(user)
-//				}
-
-				// Ensure all our changes are fully saved.
-				try container.viewContext.save()
-
-				// Adjust this to the actual location where you want the file to be saved.
-				let destination = filePath
-				try FileManager.default.copyItem(at: storeURL, to: destination)
-			} catch {
-				print("Failed to create data: \(error.localizedDescription)")
-			}
-		}
-	}
 }
 #endif
