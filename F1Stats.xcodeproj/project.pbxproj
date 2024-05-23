@@ -16,7 +16,7 @@
 		142632442BBC8CE900A0A68A /* Extensions+EdgeInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142632432BBC8CE900A0A68A /* Extensions+EdgeInsets.swift */; };
 		142C98782BB74225009D1D35 /* APIDrivers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142C98772BB74225009D1D35 /* APIDrivers.swift */; };
 		142C987A2BB743B6009D1D35 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142C98792BB743B6009D1D35 /* Config.swift */; };
-		142C987F2BB74AAC009D1D35 /* DriverModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142C987E2BB74AAC009D1D35 /* DriverModel.swift */; };
+		142C987F2BB74AAC009D1D35 /* DriverTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142C987E2BB74AAC009D1D35 /* DriverTable.swift */; };
 		142C98812BB74E5B009D1D35 /* DriversViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142C98802BB74E5B009D1D35 /* DriversViewModel.swift */; };
 		144B93932BCD5CCA004ADC34 /* DriverCardDisplayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144B93922BCD5CCA004ADC34 /* DriverCardDisplayer.swift */; };
 		144B93972BCD7C04004ADC34 /* ConstructorCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144B93962BCD7C04004ADC34 /* ConstructorCardView.swift */; };
@@ -45,6 +45,7 @@
 		14706D172BFE25660035AAA2 /* Driver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14706D162BFE25660035AAA2 /* Driver.swift */; };
 		14706D1C2BFF17350035AAA2 /* LocalDriversAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14706D1B2BFF17350035AAA2 /* LocalDriversAPI.swift */; };
 		14706D1F2BFF29C60035AAA2 /* ContainerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14706D1E2BFF29C60035AAA2 /* ContainerFactory.swift */; };
+		14706D212BFF2D0A0035AAA2 /* ContainerPopulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14706D202BFF2D0A0035AAA2 /* ContainerPopulator.swift */; };
 		148081DB2BBD28CA00A9A33F /* Extension+Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148081DA2BBD28CA00A9A33F /* Extension+Colors.swift */; };
 		148081DF2BBD33B200A9A33F /* NunitoSans-VariableFont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 148081DD2BBD33B200A9A33F /* NunitoSans-VariableFont.ttf */; };
 		148081E72BBD795200A9A33F /* WikipediaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148081E62BBD795200A9A33F /* WikipediaAPI.swift */; };
@@ -161,7 +162,7 @@
 		142632432BBC8CE900A0A68A /* Extensions+EdgeInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+EdgeInsets.swift"; sourceTree = "<group>"; };
 		142C98772BB74225009D1D35 /* APIDrivers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIDrivers.swift; sourceTree = "<group>"; };
 		142C98792BB743B6009D1D35 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
-		142C987E2BB74AAC009D1D35 /* DriverModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverModel.swift; sourceTree = "<group>"; };
+		142C987E2BB74AAC009D1D35 /* DriverTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverTable.swift; sourceTree = "<group>"; };
 		142C98802BB74E5B009D1D35 /* DriversViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriversViewModel.swift; sourceTree = "<group>"; };
 		142C98822BB751C2009D1D35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		144B93922BCD5CCA004ADC34 /* DriverCardDisplayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverCardDisplayer.swift; sourceTree = "<group>"; };
@@ -191,6 +192,7 @@
 		14706D162BFE25660035AAA2 /* Driver.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = Driver.swift; sourceTree = "<group>"; tabWidth = 4; };
 		14706D1B2BFF17350035AAA2 /* LocalDriversAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDriversAPI.swift; sourceTree = "<group>"; };
 		14706D1E2BFF29C60035AAA2 /* ContainerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerFactory.swift; sourceTree = "<group>"; };
+		14706D202BFF2D0A0035AAA2 /* ContainerPopulator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerPopulator.swift; sourceTree = "<group>"; };
 		148081DA2BBD28CA00A9A33F /* Extension+Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Colors.swift"; sourceTree = "<group>"; };
 		148081DD2BBD33B200A9A33F /* NunitoSans-VariableFont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-VariableFont.ttf"; sourceTree = "<group>"; };
 		148081E62BBD795200A9A33F /* WikipediaAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikipediaAPI.swift; sourceTree = "<group>"; };
@@ -402,7 +404,7 @@
 				14706D152BFE255D0035AAA2 /* SwiftData */,
 				149AA07A2BC3BDE0001EFCCA /* Standings */,
 				149AA0792BC3BDCA001EFCCA /* Season */,
-				142C987E2BB74AAC009D1D35 /* DriverModel.swift */,
+				142C987E2BB74AAC009D1D35 /* DriverTable.swift */,
 				14D79CB32BB8710F006240F0 /* MRData.swift */,
 				148081E82BBD7C2A00A9A33F /* WikipediaSummaryModel.swift */,
 				14920FF12BBEA65D00359497 /* ConstructorModel.swift */,
@@ -498,6 +500,7 @@
 			isa = PBXGroup;
 			children = (
 				14706D1E2BFF29C60035AAA2 /* ContainerFactory.swift */,
+				14706D202BFF2D0A0035AAA2 /* ContainerPopulator.swift */,
 			);
 			path = SwiftData;
 			sourceTree = "<group>";
@@ -977,7 +980,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				144B93992BCD7C19004ADC34 /* ConstructorCardViewModel.swift in Sources */,
-				142C987F2BB74AAC009D1D35 /* DriverModel.swift in Sources */,
+				142C987F2BB74AAC009D1D35 /* DriverTable.swift in Sources */,
 				14DFCCAE2BDBDB0300AF077A /* URLSessionManager.swift in Sources */,
 				148081ED2BBD85DC00A9A33F /* WikipediaViewModel.swift in Sources */,
 				149210532BC16DA500359497 /* SeasonsView.swift in Sources */,
@@ -1034,6 +1037,7 @@
 				14C1469C2BC70FA4001F7F35 /* RaceResultsViewModel.swift in Sources */,
 				142C98782BB74225009D1D35 /* APIDrivers.swift in Sources */,
 				14920FF02BBE9CEC00359497 /* LargeProgressViewModifier.swift in Sources */,
+				14706D212BFF2D0A0035AAA2 /* ContainerPopulator.swift in Sources */,
 				148081E72BBD795200A9A33F /* WikipediaAPI.swift in Sources */,
 				1492104C2BC1269B00359497 /* SeasonCardViewModel.swift in Sources */,
 				149210582BC1A54F00359497 /* SeasonDriverStandingsViewModel.swift in Sources */,

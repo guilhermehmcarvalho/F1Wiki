@@ -12,7 +12,6 @@ class ContainerFactory {
 	static func makeContainer() -> ModelContainer {
 		do {
 			let config1 = ModelConfiguration(for: Driver.self)
-
 			return try ModelContainer(for: Driver.self, configurations: config1)
 		} catch {
 			fatalError("Failed to configure SwiftData container.")

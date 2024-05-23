@@ -18,12 +18,3 @@ struct DriverTable: Decodable {
     case url = "url"
   }
 }
-//
-//struct DriverModel: Decodable, Hashable {
-//  let driverId: String
-//  let url: String
-//  let dateOfBirth: String
-//  let givenName: String
-//  let familyName: String
-//  let nationality: String
-//}
