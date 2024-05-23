@@ -34,7 +34,7 @@ struct QualiResultsView: View {
               ForEach(Array(viewModel.qualiResults.enumerated()), id: \.element.driver) { (index, result) in
 
                 standingsRow(result: result)
-                  .modifier(DriverCardDisplayer(driver: result.driver))
+                   .modifier(DriverCardDisplayer(driver: result.driver))
                   .padding(.vertical(2))
 
             }

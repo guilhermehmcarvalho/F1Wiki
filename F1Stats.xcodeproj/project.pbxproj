@@ -41,6 +41,8 @@
 		1457478C2BC9078D0074823A /* EventProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1457478B2BC9078D0074823A /* EventProtocol.swift */; };
 		146950B42BD10163004AA78A /* CountdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146950B32BD10163004AA78A /* CountdownView.swift */; };
 		146950B62BD1032D004AA78A /* CountdownViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146950B52BD1032D004AA78A /* CountdownViewModel.swift */; };
+		14706D142BFE202A0035AAA2 /* drivers.json in Resources */ = {isa = PBXBuildFile; fileRef = 14706D132BFE202A0035AAA2 /* drivers.json */; };
+		14706D172BFE25660035AAA2 /* Driver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14706D162BFE25660035AAA2 /* Driver.swift */; };
 		148081DB2BBD28CA00A9A33F /* Extension+Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148081DA2BBD28CA00A9A33F /* Extension+Colors.swift */; };
 		148081DF2BBD33B200A9A33F /* NunitoSans-VariableFont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 148081DD2BBD33B200A9A33F /* NunitoSans-VariableFont.ttf */; };
 		148081E72BBD795200A9A33F /* WikipediaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148081E62BBD795200A9A33F /* WikipediaAPI.swift */; };
@@ -183,6 +185,8 @@
 		1457478B2BC9078D0074823A /* EventProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventProtocol.swift; sourceTree = "<group>"; };
 		146950B32BD10163004AA78A /* CountdownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownView.swift; sourceTree = "<group>"; };
 		146950B52BD1032D004AA78A /* CountdownViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownViewModel.swift; sourceTree = "<group>"; };
+		14706D132BFE202A0035AAA2 /* drivers.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = drivers.json; sourceTree = "<group>"; };
+		14706D162BFE25660035AAA2 /* Driver.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = Driver.swift; sourceTree = "<group>"; tabWidth = 4; };
 		148081DA2BBD28CA00A9A33F /* Extension+Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Colors.swift"; sourceTree = "<group>"; };
 		148081DD2BBD33B200A9A33F /* NunitoSans-VariableFont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-VariableFont.ttf"; sourceTree = "<group>"; };
 		148081E62BBD795200A9A33F /* WikipediaAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikipediaAPI.swift; sourceTree = "<group>"; };
@@ -379,6 +383,7 @@
 		142C98752BB70568009D1D35 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				14706D122BFE1FE40035AAA2 /* JSON */,
 				14920FF92BBEBA0E00359497 /* Stubs */,
 				142C98772BB74225009D1D35 /* APIDrivers.swift */,
 				148081E62BBD795200A9A33F /* WikipediaAPI.swift */,
@@ -391,6 +396,7 @@
 		142C98762BB7057B009D1D35 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				14706D152BFE255D0035AAA2 /* SwiftData */,
 				149AA07A2BC3BDE0001EFCCA /* Standings */,
 				149AA0792BC3BDCA001EFCCA /* Season */,
 				142C987E2BB74AAC009D1D35 /* DriverModel.swift */,
@@ -440,6 +446,22 @@
 				144B93C22BD00BD6004ADC34 /* privacy_policy.html */,
 			);
 			path = Others;
+			sourceTree = "<group>";
+		};
+		14706D122BFE1FE40035AAA2 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				14706D132BFE202A0035AAA2 /* drivers.json */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
+		14706D152BFE255D0035AAA2 /* SwiftData */ = {
+			isa = PBXGroup;
+			children = (
+				14706D162BFE25660035AAA2 /* Driver.swift */,
+			);
+			path = SwiftData;
 			sourceTree = "<group>";
 		};
 		148081D92BBD28B700A9A33F /* Styling */ = {
@@ -890,6 +912,7 @@
 				149AA0762BC3BD7D001EFCCA /* currentSeasonSchedule.json in Resources */,
 				140A09882BB6E30D0037AA74 /* Assets.xcassets in Resources */,
 				149210472BC07A0300359497 /* seasonList.json in Resources */,
+				14706D142BFE202A0035AAA2 /* drivers.json in Resources */,
 				1492105C2BC1A68300359497 /* seasonConstructorStandings.json in Resources */,
 				149210022BBEBF2100359497 /* driverList.json in Resources */,
 				14C146982BC70B12001F7F35 /* raceResults.json in Resources */,
@@ -948,6 +971,7 @@
 				14CB301F2BCD2A7000D5DEFF /* DriverCardViewModel.swift in Sources */,
 				14E6E5A02BC47F87001DF1D2 /* RaceView.swift in Sources */,
 				1492103E2BC0493300359497 /* StandingsTable.swift in Sources */,
+				14706D172BFE25660035AAA2 /* Driver.swift in Sources */,
 				14CB30192BCC5CE400D5DEFF /* SwiftFlags.swift in Sources */,
 				148081DB2BBD28CA00A9A33F /* Extension+Colors.swift in Sources */,
 				14B80FFE2BBA86F8006D678E /* DriversView.swift in Sources */,

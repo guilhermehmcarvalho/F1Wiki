@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 
+#if DEBUG
 class WikipediaAPIStub: WikipediaAPIProtocol {
 
   let delay: Double
@@ -75,3 +76,4 @@ class WikipediaAPIStub: WikipediaAPIProtocol {
     }
   }
 }
+#endif

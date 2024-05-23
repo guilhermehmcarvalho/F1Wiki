@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DriverRowView: View {
 
-  let driver: DriverModel
+  let driver: Driver
 
   var body: some View {
     HStack {

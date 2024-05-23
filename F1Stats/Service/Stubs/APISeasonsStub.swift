@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 
+#if DEBUG
 class APISeasonsStub: APISeasonsProtocol {
   let delay: Double
   let error: APIError?
@@ -178,3 +179,4 @@ class APISeasonsStub: APISeasonsProtocol {
 
 
 }
+#endif

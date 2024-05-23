@@ -18,25 +18,18 @@ class DriversViewModel: ObservableObject {
   private var toastSubject = PassthroughSubject<Toast?, Never>()
 
   @Published var fetchStatus: FetchStatus = .ready
-  @Published var driverList: [DriverModel] = []
+  @Published var driverList: [Driver] = []
   @Published var errorToast: Toast?
 
   private var cancellable: AnyCancellable?
   private let itemsPerPage = 30
   private var offset = 0
-  private var totalDrivers = 0;
+//  private var totalDrivers = 0;
   private var paginationThresholdId: String?
 
   init(driverApi: APIDriversProtocol, wikipediaAPI: WikipediaAPIProtocol) {
     self.driverApi = driverApi
     self.wikipediaAPI = wikipediaAPI
-
-    fetchStatusSubject
-      .receive(on: DispatchQueue.main)
-      .assign(to: &$fetchStatus)
-     toastSubject
-      .receive(on: DispatchQueue.main)
-      .assign(to: &$errorToast)
   }
   
   func fetchDrivers() {
@@ -45,9 +38,9 @@ class DriversViewModel: ObservableObject {
       .receive(on: DispatchQueue.main)
       .assignToastForError(with: toastSubject)
       .sink { _ in } receiveValue: { [weak self] response in
-        self?.driverList.append(contentsOf: response.table.drivers)
-        self?.offset += response.table.drivers.count
-        self?.totalDrivers = response.total
+        self?.driverList.append(contentsOf: response)
+        self?.offset += response.count
+//        self?.totalDrivers = response.total
         if let self = self {
           var thresholdIndex = self.driverList.index(self.driverList.endIndex, offsetBy: -5)
           if thresholdIndex < 0 {
@@ -59,9 +52,9 @@ class DriversViewModel: ObservableObject {
   }
 
   //MARK: - PAGINATION
-  func onItemDisplayed(currentItem item: DriverModel){
-    if item.driverId == paginationThresholdId, driverList.count < totalDrivers {
-      fetchDrivers()
-    }
-  }
+//  func onItemDisplayed(currentItem item: Driver){
+//    if item.driverId == paginationThresholdId, driverList.count < totalDrivers {
+//      fetchDrivers()
+//    }
+//  }
 }

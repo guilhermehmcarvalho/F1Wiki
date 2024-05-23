@@ -12,7 +12,7 @@ struct DriverStanding: Decodable {
     let positionText: String
     let points: String
     let wins: String
-    let driver: DriverModel
+    let driver: Driver
     let constructors: [ConstructorModel]
 
   enum CodingKeys: String, CodingKey {

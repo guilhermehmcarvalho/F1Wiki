@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 
+#if DEBUG
 class APIDriversStub: APIDriversProtocol {
   let delay: Double
   let error: APIError?
@@ -17,7 +18,7 @@ class APIDriversStub: APIDriversProtocol {
     self.error = error
   }
 
-  func listOfAllDrivers(limit: Int = 30, offset: Int = 0) -> AnyPublisher<MRData<DriverTable>, any Error> {
+  func listOfAllDrivers(limit: Int = 30, offset: Int = 0) -> AnyPublisher<[Driver], any Error> {
     if let error = error {
       return Fail(error: error)
         .delay(for: .seconds(delay), scheduler: RunLoop.main)
@@ -31,7 +32,7 @@ class APIDriversStub: APIDriversProtocol {
     do {
       let jsonData = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
       let model = try JSONDecoder().decode(MRData<DriverTable>.self, from: jsonData)
-      return Just(model)
+      return Just(model.table.drivers)
         .delay(for: .seconds(delay), scheduler: RunLoop.main)
         .setFailureType(to: Error.self)
         .eraseToAnyPublisher()
@@ -69,15 +70,4 @@ class APIDriversStub: APIDriversProtocol {
 
 }
 
-extension DriverModel {
-  static let stub = DriverModel(driverId: "Senna",
-                              url: "http://en.wikipedia.org/wiki/Ayrton_Senna",
-                              dateOfBirth: "1960-03-21",
-                               givenName: "Ayrton",
-                              familyName: "Senna",
-                              nationality: "Brazilian")
-
-  static func stubs(times: Int) -> [DriverModel] {
-    return [] + repeatElement(DriverModel.stub, count: times)
-  }
-}
+#endif

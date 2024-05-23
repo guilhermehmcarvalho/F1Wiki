@@ -15,9 +15,9 @@ struct DriversView: View {
       ForEach(viewModel.driverList) { driver in
         DriverRowView(driver: driver)
           .modifier(DriverCardDisplayer(driver: driver))
-          .onAppear() {
-            viewModel.onItemDisplayed(currentItem: driver)
-          }
+//          .onAppear() {
+//            viewModel.onItemDisplayed(currentItem: driver)
+//          }
       }
       
       if viewModel.fetchStatus == .ongoing {

@@ -65,7 +65,7 @@ struct DriverStandingsCard: View {
 
 
 #Preview {
-  DriverCardView(viewModel: DriverCardViewModel(driver: DriverModel.stub,
+  DriverCardView(viewModel: DriverCardViewModel(driver: Driver.stub,
                                             wikipediaApi: WikipediaAPIStub(delay: 1),
                                             driverApi: APIDriversStub(delay: 1)))
 }

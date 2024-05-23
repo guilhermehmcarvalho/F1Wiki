@@ -11,11 +11,11 @@ import SwiftUI
 // as it would generate basically too much boilerplate, since this view can be called from
 // almost the whole app
 struct DriverCardDisplayer: ViewModifier {
-  let driver: DriverModel
+  let driver: Driver
   let wikipediaApi: WikipediaAPIProtocol
   let driverApi: APIDriversProtocol
 
-  init(driver: DriverModel, 
+  init(driver: Driver,
        driverApi: APIDriversProtocol = APIDrivers(baseURL: Config.baseURL),
        wikipediaApi: WikipediaAPIProtocol = WikipediaAPI(baseURL: Config.wikipediaURL)) {
     self.driver = driver
@@ -47,6 +47,6 @@ struct DriverCardDisplayer: ViewModifier {
 
 #Preview {
   Text("tap me")
-    .modifier(DriverCardDisplayer(driver: DriverModel.stub))
+    .modifier(DriverCardDisplayer(driver: Driver.stub))
 
 }

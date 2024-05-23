@@ -13,7 +13,7 @@ class DriverCardViewModel: ObservableObject {
 
   private let wikipediaApi: WikipediaAPIProtocol
   private var driverApi: APIDriversProtocol
-  internal let driver: DriverModel
+  internal let driver: Driver
 
   @Published var summaryModel: WikipediaSummaryModel?
   @Published var fetchSummaryStatus: FetchStatus = .ready
@@ -35,7 +35,7 @@ class DriverCardViewModel: ObservableObject {
 
   private var subscriptions = Set<AnyCancellable>()
 
-  init(driver: DriverModel,
+  init(driver: Driver,
        wikipediaApi: WikipediaAPIProtocol, 
        driverApi: APIDriversProtocol) {
     self.wikipediaApi = wikipediaApi

@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 
+#if DEBUG
 class APIConstructorsStub: APIConstructorsProtocol {
   let delay: Double
   let error: APIError?
@@ -66,5 +67,5 @@ class APIConstructorsStub: APIConstructorsProtocol {
       return Fail(error: error).eraseToAnyPublisher()
     }
   }
-
 }
+#endif

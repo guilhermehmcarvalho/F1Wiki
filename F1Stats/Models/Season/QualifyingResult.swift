@@ -10,7 +10,7 @@ import Foundation
 struct QualifyingResult: Decodable {
     let number: String
     let position: String
-    let driver: DriverModel
+    let driver: Driver
     let constructor: ConstructorModel
     let q1: LapTime
     let q2: LapTime?

@@ -12,7 +12,7 @@ struct RaceResult: Decodable {
     let position: String
     let positionText: String
     let points: String
-    let driver: DriverModel
+    let driver: Driver
     let constructor: ConstructorModel
     let grid: String
     let laps: String
