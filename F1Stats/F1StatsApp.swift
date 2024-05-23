@@ -13,15 +13,19 @@ struct F1StatsApp: App {
 
   @State private var animationComplete = false
 
-	let apiDrivers: APIDriversProtocol
+	private let dbURL = (URL.documentsDirectory).appendingPathComponent("F1Wiki.db")
+	private let apiDrivers: APIDriversProtocol
 //  let apiDrivers = APIDrivers(baseURL: Config.baseURL, urlSession: URLSessionManager.urlSession)
-  let apiConstructors = APIConstructors(baseURL: Config.baseURL, urlSession: URLSessionManager.urlSession)
-  let wikipediaAPI = WikipediaAPI(baseURL: Config.wikipediaURL, urlSession: URLSessionManager.urlSession)
-  let apiSeasons = APISeasons(baseURL: Config.baseURL, urlSession: URLSessionManager.urlSession)
-	var container: ModelContainer
+	private let apiConstructors = APIConstructors(baseURL: Config.baseURL, urlSession: URLSessionManager.urlSession)
+	private let wikipediaAPI = WikipediaAPI(baseURL: Config.wikipediaURL, urlSession: URLSessionManager.urlSession)
+	private let apiSeasons = APISeasons(baseURL: Config.baseURL, urlSession: URLSessionManager.urlSession)
+
+	private var container: ModelContainer
 
   init() {
-		self.container = ContainerFactory.makeContainer()
+		self.container = ContainerFactory(dbURL: dbURL)
+			.makeContainer()
+//			.openLocalContainer(fileName: "F1Wiki")
 		apiDrivers = LocalDriversAPI(baseURL: Config.baseURL, urlSession: URLSessionManager.urlSession, modelContext: container.mainContext)
 
 		#if DEBUG
