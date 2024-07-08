@@ -78,8 +78,11 @@ struct DriverCardView: View {
 
   var stats: some View {
     HStack(alignment: .firstTextBaseline, spacing: 8) {
-        VStack(alignment: .trailing) {
-          Text("Nationality:")
+			VStack(alignment: .trailing) {
+				Text("Nationality:")
+					if viewModel.driver.birthdateFormatted != nil {
+						Text("Date of birth:")
+					}
           if let championships = viewModel.championships, championships > 0 {
             Text("Championship wins:")
           }
@@ -100,6 +103,9 @@ struct DriverCardView: View {
 
         VStack(alignment: .leading) {
           Text(viewModel.driver.nationality)
+					if let birthdate = viewModel.driver.birthdateFormatted {
+						Text(birthdate)
+					}
           if let championships = viewModel.championships, championships > 0 {
             Text("\(championships)")
           }

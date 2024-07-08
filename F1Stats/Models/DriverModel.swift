@@ -36,4 +36,15 @@ extension DriverModel {
   var fullName: String {
     "\(givenName) \(familyName)"
   }
+
+	var birthdateFormatted: String? {
+		let formatterIn = DateFormatter()
+		print(dateOfBirth)
+		formatterIn.dateFormat = "yyyy-MM-dd"
+		guard let bday = formatterIn.date(from: dateOfBirth) else { return nil }
+
+		let formatterOut = DateFormatter()
+		formatterOut.dateStyle = .short
+		return formatterOut.string(from: bday)
+	}
 }
