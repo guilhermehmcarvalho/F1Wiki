@@ -19,6 +19,7 @@ struct RaceResultsView: View {
           ProgressView()
             .modifier(LargeProgressView(tint: .F1Stats.primary))
             .padding(.all(32))
+						.frame(minHeight: 600)
           Spacer()
         }
       }
@@ -46,7 +47,7 @@ struct RaceResultsView: View {
 			}
     }
     .padding(.trailing(8))
-    .frame(minHeight: 600)
+//    .frame(minHeight: 600)
     .cardStyling()
     .padding(.all(8))
     .onAppear(perform: viewModel.fetchRaceResults)
