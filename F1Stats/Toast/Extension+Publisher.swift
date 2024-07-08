@@ -9,17 +9,17 @@ import Foundation
 import Combine
 
 extension Publisher {
-  func assignToastForError<S: Subject>(with fetchStatusSubject: S,
+  func assignToastForError<S: Subject>(with toastSubject: S,
                                        onTap: (() -> Void)? = nil) -> Publishers.HandleEvents<Self> where S.Output == Toast?, S.Failure == Never {
     return handleEvents(
       receiveSubscription: { _ in
-        fetchStatusSubject.send(nil)
+        toastSubject.send(nil)
       },
       receiveCompletion: { completion in
         switch completion {
         case .failure(let error):
           let toast = Toast(style: .error, message: error.localizedDescription, onTap: onTap)
-          fetchStatusSubject.send(toast)
+          toastSubject.send(toast)
         case .finished: break
         }
       })

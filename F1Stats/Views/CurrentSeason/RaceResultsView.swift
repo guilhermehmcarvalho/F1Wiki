@@ -43,7 +43,7 @@ struct RaceResultsView: View {
             }
           }.padding(16)
         }
-      }
+			}
     }
     .padding(.trailing(8))
     .frame(minHeight: 600)

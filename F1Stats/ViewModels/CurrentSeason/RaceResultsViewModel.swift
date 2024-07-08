@@ -42,10 +42,15 @@ class RaceResultsViewModel: ObservableObject {
       .observeFetchStatus(with: fetchStatusSubject)
       .assignToastForError(with: toastSubject)
       .receive(on: DispatchQueue.main)
-      .sink { [weak self] finished in
-        
+      .sink { _ in
       } receiveValue: { [weak self] response in
         self?.raceModel = response.table.races.first
+
+				if self?.raceModel == nil {
+					self?.onDismissed?()
+					let toast = Toast(style: .error, message: APIError.invalidResponse.localizedDescription)
+					self?.toastSubject.send(toast)
+				}
       }
   }
 }
