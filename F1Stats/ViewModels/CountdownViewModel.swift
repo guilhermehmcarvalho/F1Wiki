@@ -26,13 +26,13 @@ class CountdownViewModel: ObservableObject {
   @objc func updateTime() {
     let countdown = self.countdown
 
-    if let days = countdown.day {
+    if let days = countdown.day, days >= 0 {
       self.days = String(days)
     }
-    if let hours = countdown.hour {
+    if let hours = countdown.hour, hours >= 0 {
       self.hours = String(hours)
     }
-    if let minutes = countdown.minute {
+    if let minutes = countdown.minute, minutes >= 0 {
       self.minutes = String(minutes)
     }
   }
