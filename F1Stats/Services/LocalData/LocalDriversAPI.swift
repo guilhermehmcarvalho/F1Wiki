@@ -20,9 +20,13 @@ class LocalDriversAPI: APIDriversProtocol {
 		self.modelContext = modelContext
 	}
 
-	func listOfAllDrivers(limit: Int = 30, offset: Int = 0) -> AnyPublisher<[Driver], Error> {
+	func listOfAllDrivers(limit: Int?, offset: Int = 0) -> AnyPublisher<[Driver], Error> {
 		do {
-			let descriptor = FetchDescriptor<Driver>(sortBy: [SortDescriptor(\.familyName)])
+			var descriptor = FetchDescriptor<Driver>(sortBy: [SortDescriptor(\.familyName)])
+			if let limit = limit {
+				descriptor.fetchLimit = limit
+			}
+			descriptor.fetchOffset = offset
 			let drivers = try modelContext.fetch(descriptor)
 			return Just(drivers)
 				.setFailureType(to: Error.self)

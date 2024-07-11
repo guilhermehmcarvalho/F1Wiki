@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 protocol APIDriversProtocol {
-  func listOfAllDrivers(limit: Int, offset: Int) -> AnyPublisher<[Driver], Error>
+  func listOfAllDrivers(limit: Int?, offset: Int) -> AnyPublisher<[Driver], Error>
   func listOfDriverStandings(driverId: String) -> AnyPublisher<MRData<StandingsTable>, Error>
 }
 
@@ -22,12 +22,15 @@ class APIDrivers: APIDriversProtocol {
     self.urlSession = urlSession
   }
 
-  func listOfAllDrivers(limit: Int = 30, offset: Int = 0) -> AnyPublisher<[Driver], Error> {
+  func listOfAllDrivers(limit: Int? = 30, offset: Int = 0) -> AnyPublisher<[Driver], Error> {
     var components = URLComponents(string: baseURL.appending("drivers.json"))
     components?.queryItems = [
-      URLQueryItem(name: "limit", value: "\(limit)"),
       URLQueryItem(name: "offset", value: "\(offset)")
     ]
+
+		if let limit = limit {
+			components?.queryItems?.append(URLQueryItem(name: "limit", value: "\(limit)"))
+		}
 
     guard let url = components?.url else {
       return Fail(error: APIError.invalidRequestError("Invalid URL")).eraseToAnyPublisher()

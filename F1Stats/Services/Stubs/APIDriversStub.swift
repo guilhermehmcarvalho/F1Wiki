@@ -18,7 +18,7 @@ class APIDriversStub: APIDriversProtocol {
     self.error = error
   }
 
-  func listOfAllDrivers(limit: Int = 30, offset: Int = 0) -> AnyPublisher<[Driver], any Error> {
+  func listOfAllDrivers(limit: Int?, offset: Int = 0) -> AnyPublisher<[Driver], any Error> {
     if let error = error {
       return Fail(error: error)
         .delay(for: .seconds(delay), scheduler: RunLoop.main)

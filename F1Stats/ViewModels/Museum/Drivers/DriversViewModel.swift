@@ -24,8 +24,8 @@ class DriversViewModel: ObservableObject {
   private var cancellable: AnyCancellable?
   private let itemsPerPage = 30
   private var offset = 0
-//  private var totalDrivers = 0;
   private var paginationThresholdId: String?
+	private var lastPage = false
 
   init(driverApi: APIDriversProtocol, wikipediaAPI: WikipediaAPIProtocol) {
     self.driverApi = driverApi
@@ -40,21 +40,22 @@ class DriversViewModel: ObservableObject {
       .sink { _ in } receiveValue: { [weak self] response in
         self?.driverList.append(contentsOf: response)
         self?.offset += response.count
-//        self?.totalDrivers = response.total
+				self?.lastPage = response.count < self?.itemsPerPage ?? 0
         if let self = self {
           var thresholdIndex = self.driverList.index(self.driverList.endIndex, offsetBy: -5)
           if thresholdIndex < 0 {
             thresholdIndex = 0
           }
           self.paginationThresholdId = driverList[thresholdIndex].driverId
+
         }
       }
   }
 
   //MARK: - PAGINATION
-//  func onItemDisplayed(currentItem item: Driver){
-//    if item.driverId == paginationThresholdId, driverList.count < totalDrivers {
-//      fetchDrivers()
-//    }
-//  }
+  func onItemDisplayed(currentItem item: Driver){
+    if item.driverId == paginationThresholdId, lastPage == false {
+      fetchDrivers()
+    }
+  }
 }
